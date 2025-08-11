@@ -1,0 +1,46 @@
+.kivicare-image-box .kivicare-image-box-img {
+    position: relative;
+}
+
+.kivicare-image-box .elementor-image-box-content .kivicare-image-box-title a {
+    color: var(--title-color);
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    letter-spacing: .08em;
+    font-weight: var(--font-weight-medium);
+    padding: 0;
+}
+
+.iqonic-megamenu-container .kivicare-image-box:hover .kivicare-image-box-title>a {
+    color: var(--primary-color);
+}
+
+.kivicare-image-box .elementor-image-box-content .kivicare-image-box-description {
+    margin-bottom: 0;
+}
+
+/*******Image Scroll Effect**********/
+.kivicare-image-box.hover-image-scroll .kivicare-image-box-img{
+	cursor: pointer;
+    height: 500px;
+	-webkit-transition: all .5s ease-out 0s;
+    -moz-transition: all .5s ease-out 0s;
+    -ms-transition: all .5s ease-out 0s;
+    -o-transition: all .5s ease-out 0s;
+    transition: all .5s ease-out 0s;
+    overflow: hidden;
+}
+
+.kivicare-image-box.hover-image-scroll .kivicare-image-box-img img{
+    width:100%;
+    object-fit: cover;
+    transform: translateY(0);
+    transition: 5s ease-out;
+}
+.kivicare-image-box.hover-image-scroll:hover .kivicare-image-box-img img{
+  transform: translateY(calc(-100% + 500px));
+  transition: 5s ease-out;
+}
+.kivicare-image-box .elementor-image-box-content{
+    margin-top:32px;
+}

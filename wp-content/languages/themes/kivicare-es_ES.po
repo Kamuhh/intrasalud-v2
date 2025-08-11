@@ -1,0 +1,3830 @@
+# Copyright (C) 2025 Kivicare
+# This file is distributed under the same license as the Kivicare package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kivicare\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Report-Msgid-Bugs-To: Kivicare\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:"
+"1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"POT-Creation-Date: 2025-06-17 16:12+0000\n"
+"PO-Revision-Date: 2025-06-17 17:33+0000\n"
+"Language-Team: Español\n"
+"Language: es-ES\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.3.21"
+
+#: ../kivicare/comments.php:41
+msgid " Comments"
+msgstr " Comentarios"
+
+#: ../kivicare/comments.php:39
+msgid " Comment"
+msgstr " Comentario"
+
+#: ../kivicare/comments.php:51
+msgid "Comments are closed."
+msgstr "Los comentarios están cerrados."
+
+#: ../kivicare/comments.php:56, ../kivicare/inc/Actions/Component.php:100
+msgid "Post Comment"
+msgstr "Publicar comentario"
+
+#: ../kivicare/comments.php:57
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+"Tu dirección de correo electrónico no será publicada. Los campos "
+"obligatorios están marcados con *"
+
+#: ../kivicare/comments.php:59
+msgid "Comment"
+msgstr "Comentario"
+
+#: ../kivicare/comments.php:66
+msgid "Name*"
+msgstr "Nombre*"
+
+#: ../kivicare/comments.php:71
+msgid "Email*"
+msgstr "Correo electrónico*"
+
+#: ../kivicare/comments.php:76
+msgid "Website"
+msgstr "Sitio web"
+
+#: ../kivicare/comments.php:82,
+#: ../kivicare/woocommerce/single-product-reviews.php:122
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Guardar mi nombre, correo electrónico y sitio web en este navegador para la "
+"próxima vez que comente."
+
+#: ../kivicare/header.php:74
+msgid "loader"
+msgstr "cargador"
+
+#: ../kivicare/header.php:161
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: ../kivicare/searchform.php:17
+msgctxt "label"
+msgid "Search for:"
+msgstr "Buscar:"
+
+#: ../kivicare/searchform.php:20
+msgctxt "placeholder"
+msgid "Search"
+msgstr "Buscar"
+
+#: ../kivicare/searchform.php:21,
+#: ../kivicare/template-parts/content/error.php:39
+msgctxt "submit button"
+msgid "Search"
+msgstr "Buscar"
+
+#: ../kivicare/sidebar.php:28
+msgid "Asides"
+msgstr "Apartados"
+
+#: ../kivicare/inc/back-compat.php:25
+msgid ""
+"Kivicare requires at least WordPress version %1$s and PHP version %2$s. You "
+"are running versions %3$s and %3$s respectively. Please update and try again."
+msgstr ""
+"Kivicare requiere al menos la versión %1$s de WordPress y la versión %2$s de "
+"PHP. Actualmente estás usando las versiones %3$s y %3$s respectivamente. Por "
+"favor, actualiza e inténtalo de nuevo."
+
+#: ../kivicare/inc/back-compat.php:30
+msgid ""
+"Kivicare requires at least WordPress version %1$s. You are running version "
+"%2$s. Please update and try again."
+msgstr ""
+"Kivicare requiere al menos la versión %1$s de WordPress. Actualmente estás "
+"usando la versión %2$s. Por favor, actualiza e inténtalo de nuevo."
+
+#: ../kivicare/inc/back-compat.php:35
+msgid ""
+"Kivicare requires at least PHP version %1$s. You are running version %2$s. "
+"Please update and try again."
+msgstr ""
+"Kivicare requiere al menos la versión %1$s de PHP. Actualmente estás usando "
+"la versión %2$s. Por favor, actualiza e inténtalo de nuevo."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:346
+msgid "Install Required Plugins"
+msgstr "Instalar plugins requeridos"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:347,
+#: ../kivicare/inc/Theme_Setup/Component.php:114
+msgid "Install Plugins"
+msgstr "Instalar plugins"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:349
+msgid "Installing Plugin: %s"
+msgstr "Instalando plugin: %s"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:351
+msgid "Updating Plugin: %s"
+msgstr "Actualizando plugin: %s"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:352
+msgid "Something went wrong with the plugin API."
+msgstr "Algo salió mal con la API del plugin."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:353
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Este tema requiere el siguiente plugin: %1$s."
+msgstr[1] "Este tema requiere los siguientes plugins: %1$s."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:359
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Este tema recomienda el siguiente plugin: %1$s."
+msgstr[1] "Este tema recomienda los siguientes plugins: %1$s."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:365
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"El siguiente plugin necesita actualizarse a su última versión para "
+"garantizar la máxima compatibilidad con este tema: %1$s."
+msgstr[1] ""
+"Los siguientes plugins necesitan actualizarse a su última versión para "
+"garantizar la máxima compatibilidad con este tema: %1$s."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:371
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "Hay una actualización disponible para: %1$s."
+msgstr[1] "Hay actualizaciones disponibles para los siguientes plugins: %1$s."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:377
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "El siguiente plugin requerido está actualmente inactivo: %1$s."
+msgstr[1] ""
+"Los siguientes plugins requeridos están actualmente inactivos: %1$s."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:383
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "El siguiente plugin recomendado está actualmente inactivo: %1$s."
+msgstr[1] ""
+"Los siguientes plugins recomendados están actualmente inactivos: %1$s."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:389
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Comenzar instalación del plugin"
+msgstr[1] "Comenzar instalación de los plugins"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:394
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "Comenzar actualización del plugin"
+msgstr[1] "Comenzar actualización de los plugins"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:399
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Comenzar activación del plugin"
+msgstr[1] "Comenzar activación de los plugins"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:404
+msgid "Return to Required Plugins Installer"
+msgstr "Volver al instalador de plugins requeridos"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:405,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:924,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2630,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:3677
+msgid "Return to the Dashboard"
+msgstr "Volver al panel de control"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:406,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:3256
+msgid "Plugin activated successfully."
+msgstr "Plugin activado correctamente."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:407,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:3049
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "El siguiente plugin se activó correctamente:"
+msgstr[1] "Los siguientes plugins se activaron correctamente:"
+
+#. translators: 1: plugin name.
+#: ../kivicare/inc/class-tgm-plugin-activation.php:409
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "No se realizó ninguna acción. El plugin %1$s ya estaba activo."
+
+#. translators: 1: plugin name.
+#: ../kivicare/inc/class-tgm-plugin-activation.php:411
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"Plugin no activado. Se necesita una versión más reciente de %s para este "
+"tema. Por favor, actualiza el plugin."
+
+#. translators: 1: dashboard link.
+#: ../kivicare/inc/class-tgm-plugin-activation.php:413
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Todos los plugins se instalaron y activaron correctamente. %1$s"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:414
+msgid "Dismiss this notice"
+msgstr "Descartar este aviso"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:415
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"Hay uno o más plugins requeridos o recomendados para instalar, actualizar o "
+"activar."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:416
+msgid "Please contact the administrator of this site for help."
+msgstr "Por favor, contacta al administrador de este sitio para obtener ayuda."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:619
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "Este plugin necesita actualizarse para ser compatible con tu tema."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:620
+msgid "Update Required"
+msgstr "Actualización requerida"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:1034
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"El paquete del plugin remoto contiene más de un archivo, pero no están "
+"empaquetados en una carpeta."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:1034,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:1031
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"Por favor, contacta al proveedor del plugin y pídele que empaquete su plugin "
+"según las directrices de WordPress."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:1031
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"El paquete del plugin remoto no contiene una carpeta con el nombre esperado "
+"y el cambio de nombre no funcionó."
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:1218,
+#: ../kivicare/inc/class-tgm-plugin-activation.php:3045
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "y"
+
+#. translators: %s: version number
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2079
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2370
+msgid "Required"
+msgstr "Requerido"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2373
+msgid "Recommended"
+msgstr "Recomendado"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2389
+msgid "WordPress Repository"
+msgstr "Repositorio de WordPress"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2392
+msgid "External Source"
+msgstr "Fuente externa"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2395
+msgid "Pre-Packaged"
+msgstr "Preempaquetado"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2412
+msgid "Not Installed"
+msgstr "No instalado"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2418
+msgid "Active"
+msgstr "Activo"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2416
+msgid "Installed But Not Activated"
+msgstr "Instalado pero no activado"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2430
+msgid "Update recommended"
+msgstr "Actualización recomendada"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2427
+msgid "Requires Update"
+msgstr "Requiere actualización"
+
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2424
+msgid "Required Update not Available"
+msgstr "Actualización requerida no disponible"
+
+#. translators: 1: install status, 2: update status
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2439
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#. translators: 1: number of plugins.
+#: ../kivicare/inc/class-tgm-plugin-activation.php:2485
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Todos <span class=\"count\">(%s)</span>"
+msgstr[1] "Todos <span class=\"count\">(%s)</span>"
+
+msgid "Return to Required Plugins Installer"
+msgstr "Volver al instalador de plugins requeridos"
+
+msgid "Return to the Dashboard"
+msgstr "Volver al Escritorio"
+
+msgid "Plugin activated successfully."
+msgstr "Plugin activado correctamente."
+
+msgid "The following plugin was activated successfully:"
+msgid_plural "Los siguientes plugins fueron activados correctamente:"
+msgstr[0] "El siguiente plugin fue activado correctamente:"
+msgstr[1] "Los siguientes plugins fueron activados correctamente:"
+
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "No se realizó ninguna acción. El plugin %1$s ya estaba activo."
+
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"El plugin no se activó. Se necesita una versión superior de %s para este "
+"tema. Por favor, actualiza el plugin."
+
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Todos los plugins fueron instalados y activados correctamente. %1$s"
+
+msgid "Dismiss this notice"
+msgstr "Descartar este aviso"
+
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"Hay uno o más plugins requeridos o recomendados para instalar, actualizar o "
+"activar."
+
+msgid "Please contact the administrator of this site for help."
+msgstr "Por favor, contacta al administrador del sitio para obtener ayuda."
+
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "Este plugin necesita ser actualizado para ser compatible con tu tema."
+
+msgid "Update Required"
+msgstr "Actualización requerida"
+
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"El paquete del plugin remoto contiene más de un archivo, pero no están "
+"empaquetados en una carpeta."
+
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"Por favor, contacta al proveedor del plugin y pídele que empaquete su plugin "
+"según las directrices de WordPress."
+
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"El paquete del plugin remoto no contiene una carpeta con el slug deseado y "
+"renombrarlo no funcionó."
+
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "y"
+
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+msgid "Required"
+msgstr "Requerido"
+
+msgid "Recommended"
+msgstr "Recomendado"
+
+msgid "WordPress Repository"
+msgstr "Repositorio de WordPress"
+
+msgid "External Source"
+msgstr "Fuente externa"
+
+msgid "Pre-Packaged"
+msgstr "Pre-empaquetado"
+
+msgid "Not Installed"
+msgstr "No instalado"
+
+msgid "Installed But Not Activated"
+msgstr "Instalado pero no activado"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Requires Update"
+msgstr "Requiere actualización"
+
+msgid "Update recommended"
+msgstr "Actualización recomendada"
+
+msgid "Required Update not Available"
+msgstr "Actualización requerida no disponible"
+
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Todos <span class=\"count\">(%s)</span>"
+msgstr[1] "Todos <span class=\"count\">(%s)</span>"
+
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "Por instalar <span class=\"count\">(%s)</span>"
+msgstr[1] "Por instalar <span class=\"count\">(%s)</span>"
+
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "Actualización disponible <span class=\"count\">(%s)</span>"
+msgstr[1] "Actualizaciones disponibles <span class=\"count\">(%s)</span>"
+
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "Por activar <span class=\"count\">(%s)</span>"
+msgstr[1] "Por activar <span class=\"count\">(%s)</span>"
+
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "desconocida"
+
+msgid "Installed version:"
+msgstr "Versión instalada:"
+
+msgid "Minimum required version:"
+msgstr "Versión mínima requerida:"
+
+msgid "Available version:"
+msgstr "Versión disponible:"
+
+msgid "No plugins to install, update or activate."
+msgstr "No hay plugins para instalar, actualizar o activar."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Source"
+msgstr "Fuente"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Version"
+msgstr "Versión"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Update %2$s"
+msgstr "Actualizar %2$s"
+
+msgid "Activate %2$s"
+msgstr "Activar %2$s"
+
+msgid "Install %2$s"
+msgstr "Instalar %2$s"
+
+msgid "Upgrade message from the plugin author:"
+msgstr "Mensaje de actualización del autor del plugin:"
+
+msgid "Install"
+msgstr "Instalar"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "Activate"
+msgstr "Activar"
+
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+"No se seleccionaron plugins para actualizar. No se realizó ninguna acción."
+
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+"No se seleccionaron plugins para instalar. No se realizó ninguna acción."
+
+msgid "No plugins are available to be updated at this time."
+msgstr "No hay plugins disponibles para actualizar en este momento."
+
+msgid "No plugins are available to be installed at this time."
+msgstr "No hay plugins disponibles para instalar en este momento."
+
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+"No se seleccionaron plugins para activar. No se realizó ninguna acción."
+
+msgid "No plugins are available to be activated at this time."
+msgstr "No hay plugins disponibles para activar en este momento."
+
+msgid "Plugin activation failed."
+msgstr "Falló la activación del plugin."
+
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "Ocurrió un error al instalar %1$s: <strong>%2$s</strong>."
+
+msgid "The installation of %1$s failed."
+msgstr "La instalación de %1$s falló."
+
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"El proceso de instalación ha comenzado. Este proceso puede tardar en algunos "
+"servidores, por favor ten paciencia."
+
+msgid "%1$s installed successfully."
+msgstr "%1$s fue instalado correctamente."
+
+msgid "Show Details"
+msgstr "Mostrar detalles"
+
+msgid "Hide Details"
+msgstr "Ocultar detalles"
+
+msgid "All installations have been completed."
+msgstr "Todas las instalaciones han sido completadas."
+
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalando plugin %1$s (%2$d/%3$d)"
+
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"El proceso de instalación y activación ha comenzado. Este proceso puede "
+"tardar en algunos servidores, por favor ten paciencia."
+
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s fue instalado y activado correctamente."
+
+msgid "All installations and activations have been completed."
+msgstr "Todas las instalaciones y activaciones han sido completadas."
+
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalando y activando plugin %1$s (%2$d/%3$d)"
+
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "Actualizando plugin %1$s (%2$d/%3$d)"
+
+msgid ""
+"The theme templating component %1$s does not implement the %2$s interface."
+msgstr ""
+"El componente de plantillas del tema %1$s no implementa la interfaz %2$s."
+
+msgid "The template tag %s does not exist."
+msgstr "La etiqueta de plantilla %s no existe."
+
+msgid ""
+"The template tag method %1$s registered by theme component %2$s must either "
+"be a callable or an array."
+msgstr ""
+"El método de etiqueta de plantilla %1$s registrado por el componente del "
+"tema %2$s debe ser una función invocable o un array."
+
+msgid ""
+"The template tag method %1$s registered by theme component %2$s conflicts "
+"with an already registered template tag of the same name."
+msgstr ""
+"El método de etiqueta de plantilla %1$s registrado por el componente del "
+"tema %2$s entra en conflicto con otra etiqueta de plantilla registrada con "
+"el mismo nombre."
+
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr "El componente del tema %1$s no implementa la interfaz %2$s."
+
+msgid "No theme component with the slug %s exists."
+msgstr "No existe ningún componente del tema con el slug %s."
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "(Now"
+msgstr "(Ahora"
+
+msgid "copy"
+msgstr "copiar"
+
+msgid "this wishlist link and share it anywhere)"
+msgstr "este enlace de la lista de deseos y compártelo en cualquier lugar)"
+
+msgid "Reviews"
+msgstr "Reseñas"
+
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] "%1$s reseña para %2$s"
+msgstr[1] "%1$s reseñas para %2$s"
+
+msgid "There are no reviews yet."
+msgstr "Aún no hay reseñas."
+
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+"Solo los clientes registrados que hayan comprado este producto pueden dejar "
+"una reseña."
+
+msgid "Add a review"
+msgstr "Agregar una reseña"
+
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr "Sé el primero en reseñar &ldquo;%s&rdquo;"
+
+msgid "Leave a Reply to %s"
+msgstr "Responder a %s"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr "Debes estar %1$sconectado%2$s para publicar una reseña."
+
+msgid "Your rating"
+msgstr "Tu calificación"
+
+msgid "Rate&hellip;"
+msgstr "Califica&hellip;"
+
+msgid "Perfect"
+msgstr "Perfecto"
+
+msgid "Good"
+msgstr "Bueno"
+
+msgid "Average"
+msgstr "Regular"
+
+msgid "Not that bad"
+msgstr "No tan malo"
+
+msgid "Very poor"
+msgstr "Muy malo"
+
+msgid "Your review"
+msgstr "Tu reseña"
+
+msgid "wishlist-title-with-form"
+msgstr "título-de-lista-con-formulario"
+
+msgid "Edit title"
+msgstr "Editar título"
+
+msgid "with-checkbox"
+msgstr "con-casilla"
+
+msgid "no-interactions"
+msgstr "sin-interacciones"
+
+msgid "No products added to the wishlist"
+msgstr "No se han añadido productos a la lista de deseos"
+
+msgid "Product Name:"
+msgstr "Nombre del producto:"
+
+msgid "Added on:"
+msgstr "Agregado el:"
+
+msgid "Price:"
+msgstr "Precio:"
+
+msgid "Quantity:"
+msgstr "Cantidad:"
+
+msgid "Stock:"
+msgstr "Inventario:"
+
+msgid "Out of stock"
+msgstr "Agotado"
+
+msgid "In Stock"
+msgstr "En stock"
+
+msgid "View Product"
+msgstr "Ver producto"
+
+msgid "Move to another list &rsaquo;"
+msgstr "Mover a otra lista &rsaquo;"
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Remove this product"
+msgstr "Eliminar este producto"
+
+msgid "sortable"
+msgstr "ordenable"
+
+msgid "Product name"
+msgstr "Nombre del producto"
+
+msgid "Unit price"
+msgstr "Precio unitario"
+
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgid "Stock status"
+msgstr "Estado del inventario"
+
+msgid "Arrange"
+msgstr "Ordenar"
+
+msgid "Added on: %s"
+msgstr "Agregado el: %s"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Expand child menu"
+msgstr "Expandir submenú"
+
+msgid "Collapse child menu"
+msgstr "Colapsar submenú"
+
+msgid "Setup header layout"
+msgstr "Configurar diseño de encabezado"
+
+msgid "Setup footer layout"
+msgstr "Configurar diseño de pie de página"
+
+msgid "Setup menu layout"
+msgstr "Configurar diseño de menú"
+
+msgid "Setup 404 page layout"
+msgstr "Configurar diseño de página 404"
+
+msgid "New comment(s)"
+msgstr "Nuevo(s) comentario(s)"
+
+msgid ""
+"<span class=\"iq-btn-text-holder\">Reply</span><span class=\"iq-btn-icon-"
+"holder\">\n"
+"\t\t\t\t\t<i aria-hidden=\"true\" class=\"ion ion-plus\"></i>\n"
+"\t\t\t\t</span>"
+msgstr ""
+"<span class=\"iq-btn-text-holder\">Responder</span><span class=\"iq-btn-icon-"
+"holder\">\n"
+"\t\t\t\t\t<i aria-hidden=\"true\" class=\"ion ion-plus\"></i>\n"
+"\t\t\t\t</span>"
+
+msgid "(Edit)"
+msgstr "(Editar)"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está pendiente de moderación."
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Oops! That page can not be found."
+msgstr "¡Ups! No se puede encontrar esa página."
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "(Now"
+msgstr "(Ahora"
+
+msgid "copy"
+msgstr "copiar"
+
+msgid "this wishlist link and share it anywhere)"
+msgstr "este enlace de lista de deseos y compártelo en cualquier parte)"
+
+msgid "Reviews"
+msgstr "Reseñas"
+
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] "%1$s reseña para %2$s"
+msgstr[1] "%1$s reseñas para %2$s"
+
+msgid "There are no reviews yet."
+msgstr "Todavía no hay reseñas."
+
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+"Solo los clientes registrados que hayan comprado este producto pueden dejar "
+"una reseña."
+
+msgid "Add a review"
+msgstr "Agregar una reseña"
+
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr "Sé el primero en reseñar &ldquo;%s&rdquo;"
+
+msgid "Leave a Reply to %s"
+msgstr "Responder a %s"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr "Debes estar %1$sconectado%2$s para publicar una reseña."
+
+msgid "Your rating"
+msgstr "Tu calificación"
+
+msgid "Rate&hellip;"
+msgstr "Califica&hellip;"
+
+msgid "Perfect"
+msgstr "Perfecto"
+
+msgid "Good"
+msgstr "Bueno"
+
+msgid "Average"
+msgstr "Promedio"
+
+msgid "Not that bad"
+msgstr "No tan malo"
+
+msgid "Very poor"
+msgstr "Muy malo"
+
+msgid "Your review"
+msgstr "Tu reseña"
+
+msgid "wishlist-title-with-form"
+msgstr "título-lista-deseos-con-formulario"
+
+msgid "Edit title"
+msgstr "Editar título"
+
+msgid "with-checkbox"
+msgstr "con-casilla"
+
+msgid "no-interactions"
+msgstr "sin-interacciones"
+
+msgid "No products added to the wishlist"
+msgstr "No se han agregado productos a la lista de deseos"
+
+msgid "Product Name:"
+msgstr "Nombre del producto:"
+
+msgid "Added on:"
+msgstr "Añadido el:"
+
+msgid "Price:"
+msgstr "Precio:"
+
+msgid "Quantity:"
+msgstr "Cantidad:"
+
+msgid "Stock:"
+msgstr "Inventario:"
+
+msgid "Out of stock"
+msgstr "Agotado"
+
+msgid "In Stock"
+msgstr "Disponible"
+
+msgid "View Product"
+msgstr "Ver producto"
+
+msgid "Move to another list &rsaquo;"
+msgstr "Mover a otra lista &rsaquo;"
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Remove this product"
+msgstr "Eliminar este producto"
+
+msgid "sortable"
+msgstr "ordenable"
+
+msgid "Product name"
+msgstr "Nombre del producto"
+
+msgid "Unit price"
+msgstr "Precio unitario"
+
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgid "Stock status"
+msgstr "Estado del inventario"
+
+msgid "Arrange"
+msgstr "Ordenar"
+
+msgid "Added on: %s"
+msgstr "Agregado el: %s"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Expand child menu"
+msgstr "Expandir menú secundario"
+
+msgid "Collapse child menu"
+msgstr "Colapsar menú secundario"
+
+msgid "Setup header layout"
+msgstr "Configurar diseño del encabezado"
+
+msgid "Setup footer layout"
+msgstr "Configurar diseño del pie de página"
+
+msgid "Setup menu layout"
+msgstr "Configurar diseño del menú"
+
+msgid "Setup 404 page layout"
+msgstr "Configurar diseño de la página 404"
+
+msgid "New comment(s)"
+msgstr "Nuevos comentarios"
+
+msgid ""
+"<span class=\"iq-btn-text-holder\">Reply</span><span class=\"iq-btn-icon-"
+"holder\">\n"
+"\t\t\t\t\t<i aria-hidden=\"true\" class=\"ion ion-plus\"></i>\n"
+"\t\t\t\t</span>"
+msgstr ""
+"<span class=\"iq-btn-text-holder\">Responder</span><span class=\"iq-btn-icon-"
+"holder\">\n"
+"\t\t\t\t\t<i aria-hidden=\"true\" class=\"ion ion-plus\"></i>\n"
+"\t\t\t\t</span>"
+
+msgid "(Edit)"
+msgstr "(Editar)"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está pendiente de moderación."
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Oops! That page can not be found."
+msgstr "¡Ups! No se puede encontrar esa página."
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "banner"
+msgstr "banner"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Error 404"
+msgstr "Error 404"
+
+msgid "Articles posted by : "
+msgstr "Artículos publicados por: "
+
+msgid "Posts tagged"
+msgstr "Publicaciones etiquetadas"
+
+msgid "Search results for : "
+msgstr "Resultados de búsqueda para: "
+
+msgid "Archive by category : "
+msgstr "Archivo por categoría: "
+
+msgid "Blogs"
+msgstr "Blogs"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "Theme Options"
+msgstr "Opciones del tema"
+
+msgid "Primary"
+msgstr "Primario"
+
+msgid "Secondary"
+msgstr "Secundario"
+
+msgid "Red"
+msgstr "Rojo"
+
+msgid "Green"
+msgstr "Verde"
+
+msgid "Blue"
+msgstr "Azul"
+
+msgid "Yellow"
+msgstr "Amarillo"
+
+msgid "Black"
+msgstr "Negro"
+
+msgid "Grey"
+msgstr "Gris"
+
+msgid "White"
+msgstr "Blanco"
+
+msgid "Dusty daylight"
+msgstr "Luz diurna polvorienta"
+
+msgid "Dusty sun"
+msgstr "Sol polvoriento"
+
+msgid "Small"
+msgstr "Pequeño"
+
+msgid "S"
+msgstr "P"
+
+msgid "Medium"
+msgstr "Mediano"
+
+msgid "M"
+msgstr "M"
+
+msgid "Large"
+msgstr "Grande"
+
+msgid "L"
+msgstr "G"
+
+msgid "Larger"
+msgstr "Más grande"
+
+msgid "XL"
+msgstr "XL"
+
+msgid "text-left"
+msgstr "texto-izquierda"
+
+msgid "text-right"
+msgstr "texto-derecha"
+
+msgid "text-center"
+msgstr "texto-centro"
+
+msgid "Save Profile"
+msgstr "Guardar perfil"
+
+msgid "No Results Found"
+msgstr "No se encontraron resultados"
+
+msgid "image"
+msgstr "imagen"
+
+msgid "More Results"
+msgstr "Más resultados"
+
+msgid "Play Now"
+msgstr "Reproducir ahora"
+
+msgid "All Content"
+msgstr "Todo el contenido"
+
+msgid ""
+"DEMO IMPORT REQUIREMENTS: Memory Limit of 128 MB and max execution time (php "
+"time limit) of 300 seconds. "
+msgstr ""
+"REQUISITOS PARA LA IMPORTACIÓN DEMO: Límite de memoria de 128 MB y tiempo "
+"máximo de ejecución (límite de tiempo PHP) de 300 segundos."
+
+msgid "Based on your INTERNET SPEED it could take 5 to 25 minutes. "
+msgstr ""
+"Dependiendo de la VELOCIDAD DE TU INTERNET, puede tardar de 5 a 25 minutos."
+
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "PHP Configuration"
+msgstr "Configuración de PHP"
+
+msgid "Recommended (Min)"
+msgstr "Recomendado (Mínimo)"
+
+msgid "Existing"
+msgstr "Existente"
+
+msgid "About child theme"
+msgstr "Acerca del tema hijo"
+
+msgid ""
+"A child theme allows you to change small aspects of your site's appearance "
+"yet still preserve your theme's look and functionality. To understand how "
+"child themes work it is first important to understand the relationship "
+"between parent and child themes."
+msgstr ""
+"Un tema hijo te permite modificar pequeños aspectos de la apariencia de tu "
+"sitio sin perder el diseño ni la funcionalidad del tema principal. Para "
+"entender cómo funcionan, es importante conocer la relación entre el tema "
+"padre y el tema hijo."
+
+msgid "Something went worng !"
+msgstr "¡Algo salió mal!"
+
+msgid ""
+" Below listed plugin has been not installed. Install it mannually or submit "
+"the ticket for Help."
+msgstr ""
+" El siguiente plugin no ha sido instalado. Instálalo manualmente o envía un "
+"ticket de ayuda."
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Try Again"
+msgstr "Intentar de nuevo"
+
+msgid "Get Support"
+msgstr "Obtener soporte"
+
+msgid "Top"
+msgstr "Superior"
+
+msgid "Iqonic Menu"
+msgstr "Menú Iqonic"
+
+msgid "Kivicare Options"
+msgstr "Opciones de Kivicare"
+
+msgid "Blog Sidebar"
+msgstr "Barra lateral del blog"
+
+msgid "Add widgets here."
+msgstr "Agrega widgets aquí."
+
+msgid "Side Area"
+msgstr "Área lateral"
+
+msgid "Page Sidebar"
+msgstr "Barra lateral de la página"
+
+msgid "Add widgets here to appear in your sidebar on Pages."
+msgstr ""
+"Agrega widgets aquí para que aparezcan en la barra lateral de las páginas."
+
+msgid "Product Sidebar"
+msgstr "Barra lateral de productos"
+
+msgid "Invalid theme stylesheet handle: %s"
+msgstr "Identificador de hoja de estilo del tema no válido: %s"
+
+msgid "Advanced Custom Fields"
+msgstr "Campos personalizados avanzados"
+
+msgid "Elementor"
+msgstr "Elementor"
+
+msgid "Contact Form 7"
+msgstr "Formulario de contacto 7"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "Husky - Products Filter for WooCommerce"
+msgstr "Husky - Filtro de productos para WooCommerce"
+
+msgid "YITH WooCommerce Wishlist"
+msgstr "Lista de deseos de YITH WooCommerce"
+
+msgid "WPC Smart Quick View for WooCommerce"
+msgstr "WPC Vista rápida inteligente para WooCommerce"
+
+msgid "Kivicare Pro"
+msgstr "Kivicare Pro"
+
+msgid "KiviCare – Clinic & Patient Management System (EHR)"
+msgstr "KiviCare – Sistema de gestión clínica y de pacientes (EHR)"
+
+msgid "KiviCare Telemed Addon"
+msgstr "Complemento de Telemedicina KiviCare"
+
+msgid "Iqonic Extensions"
+msgstr "Extensiones Iqonic"
+
+msgid "Iqonic Layouts"
+msgstr "Diseños Iqonic"
+
+msgid "Theme Setup"
+msgstr "Configuración del tema"
+
+msgid "%1$s%2$s Themes &lsaquo; Theme Setup: %3$s%4$s"
+msgstr "%1$s%2$s Temas &lsaquo; Configuración del tema: %3$s%4$s"
+
+msgid "Return to the dashboard"
+msgstr "Volver al panel de control"
+
+msgid "Disable this wizard"
+msgstr "Desactivar este asistente"
+
+msgid "Skip"
+msgstr "Omitir"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Start"
+msgstr "Comenzar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Later"
+msgstr "Más tarde"
+
+msgid "Activate %s"
+msgstr "Activar %s"
+
+msgid "%s is Activated"
+msgstr "%s está activado"
+
+msgid "Enter your license key to enable remote updates and theme support."
+msgstr ""
+"Introduce tu clave de licencia para habilitar actualizaciones remotas y "
+"soporte del tema."
+
+msgid "License key"
+msgstr "Clave de licencia"
+
+msgid "The theme is already registered, so you can go to the next step!"
+msgstr "El tema ya está registrado, ¡puedes pasar al siguiente paso!"
+
+msgid "Your theme is activated! Remote updates and theme support are enabled."
+msgstr ""
+"¡Tu tema está activado! Las actualizaciones remotas y el soporte están "
+"habilitados."
+
+msgid "Need help?"
+msgstr "¿Necesitas ayuda?"
+
+msgid "Welcome to %s"
+msgstr "Bienvenido a %s"
+
+msgid "Hi. Welcome back"
+msgstr "Hola. Bienvenido de nuevo"
+
+msgid "Install Child Theme"
+msgstr "Instalar tema hijo"
+
+msgid "You're good to go!"
+msgstr "¡Todo listo para continuar!"
+
+msgid ""
+"Let's build & activate a child theme so you may easily make theme changes."
+msgstr ""
+"Vamos a crear y activar un tema hijo para que puedas hacer cambios "
+"fácilmente."
+
+msgid ""
+"Your child theme has already been installed and ready activated, if it "
+"wasn't already."
+msgstr ""
+"Tu tema hijo ya ha sido instalado y está listo para ser activado, si aún no "
+"lo ha sido."
+
+msgid "Learn more about child themes"
+msgstr "Aprende más sobre los temas hijo"
+
+msgid ""
+"Awesome. Your child theme has already been installed and ready to activated."
+msgstr ""
+"Genial. Tu tema hijo ya ha sido instalado y está listo para ser activado."
+
+msgid "Awesome. Your child theme has been created and ready to activated."
+msgstr "Genial. Tu tema hijo ha sido creado y está listo para ser activado."
+
+msgid "You're up to speed!"
+msgstr "¡Estás al día!"
+
+msgid ""
+"Let's install some essential WordPress plugins to get your site up to speed."
+msgstr ""
+"Vamos a instalar algunos plugins esenciales de WordPress para poner tu sitio "
+"en marcha."
+
+msgid ""
+"The required WordPress plugins are all installed and up to date. Press "
+"\"Next\" to continue the setup wizard."
+msgstr ""
+"Todos los plugins requeridos de WordPress están instalados y actualizados. "
+"Pulsa \"Siguiente\" para continuar con el asistente de configuración."
+
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "Import Content"
+msgstr "Importar contenido"
+
+msgid ""
+"Let's import content to your website, to help you get familiar with the "
+"theme."
+msgstr ""
+"Importemos contenido a tu sitio web para ayudarte a familiarizarte con el "
+"tema."
+
+msgid "All done. Have fun!"
+msgstr "¡Todo listo. Que lo disfrutes!"
+
+msgid "Your theme has been all set up. Enjoy your new theme by %s."
+msgstr ""
+"Tu tema está completamente configurado. Disfruta de tu nuevo tema de %s."
+
+msgid "Extras"
+msgstr "Extras"
+
+msgid "View your website"
+msgstr "Ver tu sitio web"
+
+msgid "Explore WordPress"
+msgstr "Explorar WordPress"
+
+msgid "Get Theme Support"
+msgstr "Obtener soporte del tema"
+
+msgid "Start Customizing"
+msgstr "Comenzar a personalizar"
+
+msgid "Shop"
+msgstr "Tienda"
+
+msgid "First Name"
+msgstr "Nombre"
+
+msgid "Last Name"
+msgstr "Apellido"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+msgid "E-mail Address"
+msgstr "Correo electrónico"
+
+msgid "View Cart"
+msgstr "Ver carrito"
+
+msgid "Checkout"
+msgstr "Finalizar compra"
+
+msgid "Shopping Cart"
+msgstr "Carrito de compras"
+
+msgid "Order Summary"
+msgstr "Resumen del pedido"
+
+msgid "Previous:"
+msgstr "Anterior:"
+
+msgid "Next:"
+msgstr "Siguiente:"
+
+msgid "Post navigation"
+msgstr "Navegación de publicaciones"
+
+msgid "Pages:"
+msgstr "Páginas:"
+
+msgid "Read More"
+msgstr "Leer más"
+
+msgctxt "post author"
+msgid "By %s"
+msgstr "Por %s"
+
+#. translators: %s: post author
+msgctxt "post author"
+msgid "%s"
+msgstr "%s"
+
+#. translators: %s: post parent title
+msgctxt "post parent"
+msgid "In %s"
+msgstr "En %s"
+
+#. translators: %s: post parent title
+msgctxt "post parent"
+msgid "in %s"
+msgstr "en %s"
+
+msgid "Tags:"
+msgstr "Etiquetas:"
+
+msgid "404"
+msgstr "404"
+
+msgid "Oops! This Page is Not Found."
+msgstr "¡Vaya! Esta página no se encuentra."
+
+msgid "The requested page does not exist."
+msgstr "La página solicitada no existe."
+
+msgid "Back to Home"
+msgstr "Volver al inicio"
+
+msgid "Oops! It looks like you&#8217;re offline."
+msgstr "¡Ups! Parece que estás sin conexión."
+
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Parece que no podemos encontrar lo que estás buscando. Tal vez buscar te "
+"ayude."
+
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Lo sentimos, pero no se encontró nada que coincida con tus términos de "
+"búsqueda. Intenta nuevamente con otras palabras clave."
+
+msgid "Search website"
+msgstr "Buscar en el sitio web"
+
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"¿Listo para publicar tu primera entrada? <a href=\"%1$s\">Comienza aquí</a>."
+
+msgid "Nothing Found"
+msgstr "Nada encontrado"
+
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "¡Vaya! Esa página no se puede encontrar."
+
+msgid "https://themeforest.net/user/iqonicthemes/portfolio/"
+msgstr "https://themeforest.net/user/iqonicthemes/portfolio/"
+
+msgid " KiviCare "
+msgstr " KiviCare "
+
+msgid ". All Rights Reserved."
+msgstr ". Todos los derechos reservados."
+
+msgid "New!"
+msgstr "¡Nuevo!"
+
+msgid "Sale!"
+msgstr "¡Oferta!"
+
+msgid "Sold!"
+msgstr "¡Vendido!"
+
+msgid "Awaiting product image"
+msgstr "Esperando imagen del producto"
+
+msgid "product-image"
+msgstr "imagen-del-producto"
+
+msgid "View cart"
+msgstr "Ver carrito"
+
+msgid "Add to Cart"
+msgstr "Agregar al carrito"
+
+msgid "Our Product"
+msgstr "Nuestro producto"
+
+msgid "View products"
+msgstr "Ver productos"
+
+msgid "Select Options"
+msgstr "Seleccionar opciones"
+
+msgid "Return to shop"
+msgstr "Volver a la tienda"
+
+msgid "Cart totals"
+msgstr "Totales del carrito"
+
+msgid "Subtotal"
+msgstr "Subtotal"
+
+msgid "Shipping"
+msgstr "Envío"
+
+msgid "(estimated for %s)"
+msgstr "(estimado para %s)"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Product"
+msgstr "Producto"
+
+msgid "Price"
+msgstr "Precio"
+
+msgid "Remove this item"
+msgstr "Eliminar este artículo"
+
+msgid "Available on backorder"
+msgstr "Disponible bajo pedido"
+
+msgid "Coupon:"
+msgstr "Cupón:"
+
+msgid "Coupon code"
+msgstr "Código de cupón"
+
+msgid "Apply coupon"
+msgstr "Aplicar cupón"
+
+msgid "Update cart"
+msgstr "Actualizar carrito"
+
+msgid "No products in the cart."
+msgstr "No hay productos en el carrito."
+
+msgid "Proceed to checkout"
+msgstr "Proceder a pagar"
+
+msgid "Calculate shipping"
+msgstr "Calcular envío"
+
+msgid "Select a country / region&hellip;"
+msgstr "Selecciona un país / región&hellip;"
+
+msgid "State / County"
+msgstr "Estado / Provincia"
+
+msgid "Select an option&hellip;"
+msgstr "Selecciona una opción&hellip;"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Postcode / ZIP"
+msgstr "Código postal"
+
+msgid "Billing details"
+msgstr "Detalles de facturación"
+
+msgid "Billing &amp; Shipping"
+msgstr "Facturación y envío"
+
+msgid "Create an account?"
+msgstr "¿Crear una cuenta?"
+
+msgid "You must be logged in to checkout."
+msgstr "Debes iniciar sesión para realizar el pago."
+
+msgid "Your order"
+msgstr "Tu pedido"
+
+msgid "Order History"
+msgstr "Historial de pedidos"
+
+msgid "View All Orders"
+msgstr "Ver todos los pedidos"
+
+msgid "Have a coupon?"
+msgstr "¿Tienes un cupón?"
+
+msgid "Click here to enter your code"
+msgstr "Haz clic aquí para ingresar tu código"
+
+msgid "If you have a coupon code, please apply it below."
+msgstr "Si tienes un código de cupón, por favor aplícalo abajo."
+
+msgid "Apply Coupon"
+msgstr "Aplicar cupón"
+
+msgid "Qty"
+msgstr "Cant."
+
+msgid "Totals"
+msgstr "Totales"
+
+msgid ""
+"Sorry, it seems that there are no available payment methods for your "
+"location. Please contact us if you require assistance or wish to make "
+"alternate arrangements."
+msgstr ""
+"Lo sentimos, parece que no hay métodos de pago disponibles para tu ubicación."
+" Contáctanos si necesitas ayuda o deseas hacer arreglos alternativos."
+
+msgid "Ship to a different address?"
+msgstr "¿Enviar a una dirección diferente?"
+
+msgid "Additional information"
+msgstr "Información adicional"
+
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+"Lo sentimos, parece que no hay métodos de pago disponibles para tu región. "
+"Por favor contáctanos si necesitas ayuda o deseas hacer arreglos "
+"alternativos."
+
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+"Por favor, completa tus datos arriba para ver los métodos de pago "
+"disponibles."
+
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+"Dado que tu navegador no admite JavaScript o está desactivado, asegúrate de "
+"hacer clic en el botón %1$sActualizar totales%2$s antes de realizar tu "
+"pedido. De lo contrario, podrías ser cobrado con un monto mayor al indicado."
+
+msgid "Update totals"
+msgstr "Actualizar totales"
+
+msgid "Place Order"
+msgstr "Realizar pedido"
+
+msgid "Thank you. Your order has been received."
+msgstr "Gracias. Hemos recibido tu pedido."
+
+msgid "Order number:"
+msgstr "Número de pedido:"
+
+msgid "Date:"
+msgstr "Fecha:"
+
+msgid "Email:"
+msgstr "Correo electrónico:"
+
+msgid "Total:"
+msgstr "Total:"
+
+msgid "Payment method:"
+msgstr "Método de pago:"
+
+msgid ""
+"Unfortunately your order cannot be processed as the originating "
+"bank/merchant has declined your transaction. Please attempt your purchase "
+"again."
+msgstr ""
+"Lamentablemente, tu pedido no puede ser procesado porque el banco o comercio "
+"ha rechazado tu transacción. Por favor, intenta realizar tu compra "
+"nuevamente."
+
+msgid "Pay"
+msgstr "Pagar"
+
+msgid "My account"
+msgstr "Mi cuenta"
+
+msgid "Username or email"
+msgstr "Nombre de usuario o correo electrónico"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Remember me"
+msgstr "Recuérdame"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Lost your password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+msgid "%s quantity"
+msgstr "Cantidad de %s"
+
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr "Cant."
+
+msgid "No products were found matching your selection."
+msgstr "No se encontraron productos que coincidan con tu selección."
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "Shop order"
+msgstr "Ordenar tienda"
+
+msgctxt "with first and last result"
+msgid "Showing %1$d–%2$d of %3$d result"
+msgid_plural "Showing %1$d–%2$d of %3$d results"
+msgstr[0] "Mostrando %1$d–%2$d de %3$d resultado"
+msgstr[1] "Mostrando %1$d–%2$d de %3$d resultados"
+
+msgid "Showing all %d result"
+msgid_plural "Showing all %d results"
+msgstr[0] "Mostrando todos los %d resultado"
+msgstr[1] "Mostrando todos los %d resultados"
+
+msgid "Showing the single result"
+msgstr "Mostrando el único resultado"
+
+msgid "Hello %1$s (not %1$s? <a href=\"%2$s\">Log out</a>)"
+msgstr "Hola %1$s (¿no eres %1$s? <a href=\"%2$s\">Cerrar sesión</a>)"
+
+msgid ""
+"From your account dashboard you can view your <a href=\"%1$s\">recent "
+"orders</a>, manage your <a href=\"%2$s\">billing address</a>, and <a "
+"href=\"%3$s\">edit your password and account details</a>."
+msgstr ""
+"Desde tu panel de cuenta puedes ver tus <a href=\"%1$s\">pedidos "
+"recientes</a>, administrar tu <a href=\"%2$s\">dirección de facturación</a> "
+"y <a href=\"%3$s\">editar tu contraseña y detalles de cuenta</a>."
+
+msgid ""
+"From your account dashboard you can view your <a href=\"%1$s\">recent "
+"orders</a>, manage your <a href=\"%2$s\">shipping and billing addresses</a>, "
+"and <a href=\"%3$s\">edit your password and account details</a>."
+msgstr ""
+"Desde tu panel de cuenta puedes ver tus <a href=\"%1$s\">pedidos "
+"recientes</a>, administrar tus <a href=\"%2$s\">direcciones de envío y "
+"facturación</a>, y <a href=\"%3$s\">editar tu contraseña y detalles de "
+"cuenta</a>."
+
+msgid "Browse products"
+msgstr "Explorar productos"
+
+msgid "No downloads available yet."
+msgstr "Aún no hay descargas disponibles."
+
+msgid ""
+"New payment methods can only be added during checkout. Please contact us if "
+"you require assistance."
+msgstr ""
+"Los nuevos métodos de pago solo se pueden añadir durante el proceso de "
+"compra. Por favor contáctanos si necesitas ayuda."
+
+msgid "Add payment method"
+msgstr "Agregar método de pago"
+
+msgid "First name"
+msgstr "Nombre"
+
+msgid "Last name"
+msgstr "Apellido"
+
+msgid "Display name"
+msgstr "Nombre a mostrar"
+
+msgid ""
+"This will be how your name will be displayed in the account section and in "
+"reviews"
+msgstr ""
+"Este será el nombre que se mostrará en la sección de cuenta y en las reseñas"
+
+msgid "Email address"
+msgstr "Correo electrónico"
+
+msgid "Password change"
+msgstr "Cambio de contraseña"
+
+msgid "Current password (leave blank to leave unchanged)"
+msgstr "Contraseña actual (deja en blanco para no cambiar)"
+
+msgid "New password (leave blank to leave unchanged)"
+msgstr "Nueva contraseña (deja en blanco para no cambiar)"
+
+msgid "Confirm new password"
+msgstr "Confirmar nueva contraseña"
+
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+msgid "Billing address"
+msgstr "Dirección de facturación"
+
+msgid "Shipping address"
+msgstr "Dirección de envío"
+
+msgid "Save Address"
+msgstr "Guardar dirección"
+
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+msgid "Register"
+msgstr "Registrarse"
+
+msgid "A link to set a new password will be sent to your email address."
+msgstr ""
+"Se enviará un enlace para establecer una nueva contraseña a tu correo "
+"electrónico."
+
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+"¿Olvidaste tu contraseña? Ingresa tu nombre de usuario o correo electrónico. "
+"Recibirás un enlace por correo para crear una nueva contraseña."
+
+msgid "Reset password"
+msgstr "Restablecer contraseña"
+
+msgid "The following addresses will be used on the checkout page by default."
+msgstr "Las siguientes direcciones se usarán por defecto en la página de pago."
+
+msgid "Country"
+msgstr "País"
+
+msgid "Address"
+msgstr "Dirección"
+
+msgid "E-mail"
+msgstr "Correo electrónico"
+
+msgid "Phone"
+msgstr "Teléfono"
+
+msgid "No order has been made yet."
+msgstr "Aún no se ha realizado ningún pedido."
+
+msgid "%1$s for %2$s item"
+msgid_plural "%1$s for %2$s items"
+msgstr[0] "%1$s por %2$s artículo"
+msgstr[1] "%1$s por %2$s artículos"
+
+msgctxt "hash before order number"
+msgid "#"
+msgstr "#"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "No saved methods found."
+msgstr "No se encontraron métodos guardados."
+
+msgid "%1$s ending in %2$s"
+msgstr "%1$s terminando en %2$s"
+
+msgid ""
+"To track your order please enter your Order ID in the box below and press "
+"the \"Track\" button. This was given to you on your receipt and in the "
+"confirmation email you should have received."
+msgstr ""
+"Para rastrear tu pedido, por favor ingresa tu número de pedido en la casilla "
+"de abajo y presiona el botón \"Rastrear\". Este número se encuentra en tu "
+"recibo y en el correo de confirmación que debiste haber recibido."
+
+msgid "Order ID"
+msgstr "ID del pedido"
+
+msgid "Enter your order id. Found in your order confirmation email."
+msgstr ""
+"Ingresa el ID de tu pedido. Lo encontrarás en el correo de confirmación."
+
+msgid "Billing email"
+msgstr "Correo de facturación"
+
+msgid "Email you used during checkout."
+msgstr "Correo que usaste durante la compra."
+
+msgid "Track"
+msgstr "Rastrear"
+
+msgid "Track Order"
+msgstr "Rastrear pedido"
+
+msgid "Order again"
+msgstr "Pedir nuevamente"
+
+msgid "Order details"
+msgstr "Detalles del pedido"
+
+msgid "Note:"
+msgstr "Nota:"
+
+msgid "Downloads"
+msgstr "Descargas"
+
+msgid "&infin;"
+msgstr "&infin;"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Order #%1$s was placed on %2$s and is currently %3$s."
+msgstr "El pedido #%1$s fue realizado el %2$s y actualmente está %3$s."
+
+msgid "Order updates"
+msgstr "Actualizaciones del pedido"
+
+msgid "l jS o\\f F Y, h:ia"
+msgstr "l j \\d\\e F Y, h:ia"
+
+msgid "SKU :"
+msgstr "SKU :"
+
+msgid "N/A"
+msgstr "No disponible"
+
+msgid "Category :"
+msgid_plural "Categories :"
+msgstr[0] "Categoría:"
+msgstr[1] "Categorías:"
+
+msgid "Tag :"
+msgid_plural "Tags :"
+msgstr[0] "Etiqueta:"
+msgstr[1] "Etiquetas:"
+
+msgid "Related Products"
+msgstr "Productos relacionados"
+
+msgid "You may also like"
+msgstr "También te puede interesar"
+
+msgid "LTR"
+msgstr "LTR"
+
+msgid "RTL"
+msgstr "RTL"
+
+msgid "Additional Code"
+msgstr "Código adicional"
+
+msgid "This section contains options for header."
+msgstr "Esta sección contiene opciones para el encabezado."
+
+msgid "CSS Code"
+msgstr "Código CSS"
+
+msgid "Paste your css code here."
+msgstr "Pega tu código CSS aquí."
+
+msgid "Paste your custom CSS code here."
+msgstr "Pega tu código CSS personalizado aquí."
+
+msgid "JS Code"
+msgstr "Código JS"
+
+msgid "Paste your js code in footer."
+msgstr "Pega tu código JS en el pie de página."
+
+msgid "Paste your custom JS code here."
+msgstr "Pega tu código JS personalizado aquí."
+
+msgid "Paste your js code here."
+msgstr "Pega tu código JS aquí."
+
+msgid "Kivicare Dashboard CSS Code"
+msgstr "Código CSS del Panel de Kivicare"
+
+msgid "Kivicare Dashboard JS Code"
+msgstr "Código JS del Panel de Kivicare"
+
+msgid "Page Banner Setting"
+msgstr "Configuración del Banner de Página"
+
+msgid "This section contains options for Page Breadcrumbs Area."
+msgstr ""
+"Esta sección contiene opciones para el área de migas de pan de la página."
+
+msgid "Default Banner Image"
+msgstr "Imagen de Banner Predeterminada"
+
+msgid "Upload default banner image for your Website."
+msgstr "Sube la imagen de banner predeterminada para tu sitio web."
+
+msgid "Select Banner Style"
+msgstr "Seleccionar Estilo de Banner"
+
+msgid "Select the style that best fits your needs."
+msgstr "Selecciona el estilo que mejor se adapte a tus necesidades."
+
+msgid "Display Banner on inner Pages"
+msgstr "Mostrar banner en páginas internas"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "yes"
+msgstr "sí"
+
+msgid "Display Breadcrumbs on Banner"
+msgstr "Mostrar migas de pan en el banner"
+
+msgid "Display Breadcrumbs on Title"
+msgstr "Mostrar migas de pan en el título"
+
+msgid "Select Breadcrumbs Title Tag"
+msgstr "Seleccionar etiqueta del título de migas de pan"
+
+msgid "Set Title Color"
+msgstr "Establecer color del título"
+
+msgid "Banner Background Type"
+msgstr "Tipo de fondo del banner"
+
+msgid "Set Banner Body Image"
+msgstr "Establecer imagen del cuerpo del banner"
+
+msgid "Upload Image for your body."
+msgstr "Sube una imagen para el cuerpo."
+
+msgid "Set Background Color"
+msgstr "Establecer color de fondo"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "General Blogs"
+msgstr "Blogs generales"
+
+msgid "This section contains options for blog."
+msgstr "Esta sección contiene opciones para el blog."
+
+msgid "Blog Page Default Banner Image"
+msgstr "Imagen de banner predeterminada para la página del blog"
+
+msgid ""
+"Upload banner image for your Website. Otherwise blank field will be "
+"displayed in place of this section."
+msgstr ""
+"Sube una imagen de banner para tu sitio web. De lo contrario, se mostrará un "
+"campo en blanco en lugar de esta sección."
+
+msgid "Blog page Setting"
+msgstr "Configuración de la página del blog"
+
+msgid ""
+"<br />Choose among these structures (Right Sidebar, Left Sidebar, 1column, "
+"2column and 3column) for your blog section.<br />To filling these column "
+"sections you should go to appearance > widget.<br />And put every widget "
+"that you want in these sections."
+msgstr ""
+"<br />Elige entre estas estructuras (barra lateral derecha, barra lateral "
+"izquierda, 1 columna, 2 columnas y 3 columnas) para tu sección de blog.<br />"
+"Para rellenar estas secciones de columna, ve a Apariencia > Widgets.<br />Y "
+"coloca cada widget que desees en estas secciones."
+
+msgid "One Columns"
+msgstr "Una columna"
+
+msgid "Two Columns"
+msgstr "Dos columnas"
+
+msgid "Three Columns"
+msgstr "Tres columnas"
+
+msgid "Right Sidebar"
+msgstr "Barra lateral derecha"
+
+msgid "Left Sidebar"
+msgstr "Barra lateral izquierda"
+
+msgid "Previous/Next Pagination"
+msgstr "Paginación Anterior/Siguiente"
+
+msgid "Turn on to display the previous/next post pagination for blog page."
+msgstr ""
+"Activa esta opción para mostrar la paginación anterior/siguiente en la "
+"página del blog."
+
+msgid "On"
+msgstr "Activado"
+
+msgid "Off"
+msgstr "Desactivado"
+
+msgid "Featured Image on Blog Archive Page"
+msgstr "Imagen destacada en la página de archivo del blog"
+
+msgid "Turn on to display featured images on the blog or archive pages."
+msgstr ""
+"Activa esta opción para mostrar imágenes destacadas en las páginas del blog "
+"o de archivo."
+
+msgid "Blog Single Post"
+msgstr "Entrada individual del blog"
+
+msgid "Blog Single page Setting"
+msgstr "Configuración de la página individual del blog"
+
+msgid ""
+"<br />Choose among these structures (Right Sidebar, Left Sidebar and 1column)"
+" for your blog section.<br />To filling these column sections you should go "
+"to appearance > widget.<br />And put every widget that you want in these "
+"sections."
+msgstr ""
+"<br />Elige entre estas estructuras (barra lateral derecha, barra lateral "
+"izquierda y 1 columna) para tu sección de blog.<br />Para rellenar estas "
+"secciones de columna, ve a Apariencia > Widgets.<br />Y coloca cada widget "
+"que desees en estas secciones."
+
+msgid "Full Width"
+msgstr "Ancho completo"
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "Turn on to display comments."
+msgstr "Activa esta opción para mostrar comentarios."
+
+msgid "Select Posts for hide Featured Images"
+msgstr "Selecciona entradas para ocultar imágenes destacadas"
+
+msgid "Color Attribute"
+msgstr "Atributo de color"
+
+msgid "Change the default colors of your site."
+msgstr "Cambia los colores predeterminados de tu sitio."
+
+msgid "Set Custom Color"
+msgstr "Establecer color personalizado"
+
+msgid "Set Primary Color"
+msgstr "Establecer color primario"
+
+msgid "Select primary accent color."
+msgstr "Selecciona el color de acento primario."
+
+msgid "Set Secondary Color"
+msgstr "Establecer color secundario"
+
+msgid "Select secondary complementing color."
+msgstr "Selecciona el color complementario secundario."
+
+msgid "Title Color"
+msgstr "Color del título"
+
+msgid "Select default Title(Headings) color"
+msgstr "Selecciona el color predeterminado para títulos (encabezados)"
+
+msgid "Sub Title Color"
+msgstr "Color del subtítulo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Color.php:72
+msgid "Select default Sub Title color"
+msgstr "Seleccionar color predeterminado del subtítulo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Color.php:81
+msgid "Body Text Color"
+msgstr "Color del texto del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Color.php:82,
+#: ../kivicare/inc/Redux_Framework/Options/Color.php:92
+msgid "Select default body text color"
+msgstr "Seleccionar color predeterminado del texto del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Color.php:91
+msgid "Replace White Color"
+msgstr "Reemplazar color blanco"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:22
+msgid "Contact"
+msgstr "Contacto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:31,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:628
+msgid "1234 North Avenue Luke Lane, South Bend, IN 360001"
+msgstr "1234 Avenida Norte Luke Lane, South Bend, IN 360001"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:42,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:610
+msgid "+0123456789"
+msgstr "+0123456789"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:48
+msgid "Phone1"
+msgstr "Teléfono 1"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:53
+msgid "+234567890"
+msgstr "+234567890"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:61,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:619
+msgid "custom error message"
+msgstr "mensaje de error personalizado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Contact.php:62,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:620
+msgid "support@example.com"
+msgstr "soporte@ejemplo.com"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:26,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:93
+msgid "Footer"
+msgstr "Pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:33,
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:42,
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:53
+msgid "Footer Layout"
+msgstr "Diseño del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:36,
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:68,
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:145
+msgid "This section contains options for footer."
+msgstr "Esta sección contiene opciones para el pie de página."
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:44,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:37,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:44,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:65,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:91,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:128,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:169,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:242,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:338,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:417,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:523,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:559,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:687,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:724,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:764,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:856,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:902
+msgid "Default"
+msgstr "Predeterminado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:45,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:38,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:45,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:129,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:170,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:243,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:339,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:418,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:560,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:725,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:765,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:903
+msgid "Custom"
+msgstr "Personalizado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:54
+msgid "Select the layout variation that you want to use for Footer."
+msgstr ""
+"Seleccione la variación de diseño que desea usar para el pie de página."
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:56,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:49,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:56
+msgid "Create"
+msgstr "Crear"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:56,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:49,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:56
+msgid "New Layout"
+msgstr "Nuevo diseño"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:65
+msgid "Footer Image"
+msgstr "Imagen del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:77,
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:154,
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:265
+msgid "This options only works with Default Footer Layout"
+msgstr ""
+"Esta opción sólo funciona con el diseño predeterminado del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:84
+msgid "Display Footer Background Image"
+msgstr "Mostrar imagen de fondo del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:85
+msgid "Display Footer Background Image On All page"
+msgstr "Mostrar imagen de fondo del pie de página en todas las páginas"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:91,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:471,
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:39
+msgid "no"
+msgstr "no"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:98
+msgid "Footer Background Image"
+msgstr "Imagen de fondo del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:102
+msgid "Upload Footer image for your Website."
+msgstr "Suba la imagen del pie de página para su sitio web."
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:109
+msgid "Footer Logo"
+msgstr "Logo del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:112
+msgid "Upload Footer Logo for your Website."
+msgstr "Suba el logo del pie de página para su sitio web."
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:119
+msgid "Change Footer Color"
+msgstr "Cambiar color del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:120
+msgid "Turn on to Change Footer Background Color"
+msgstr "Activar para cambiar el color de fondo del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:126,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:33
+msgid "0"
+msgstr "0"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:132
+msgid "Choose Footer Background Color"
+msgstr "Elegir color de fondo del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:142
+msgid "Footer Option"
+msgstr "Opción de pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:161
+msgid "Display Footer Top"
+msgstr "Mostrar parte superior del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:162
+msgid "Display Footer Top On All page"
+msgstr "Mostrar la parte superior del pie de página en todas las páginas"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:173
+msgid "Footer Layout Type"
+msgstr "Tipo de diseño del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:175
+msgid ""
+"<br />Choose among these structures (1column, 2column and 3column) for your "
+"footer section.<br />To fill these column sections you should go to "
+"appearance > widget.<br />And add widgets as per your needs."
+msgstr ""
+"<br />Elija entre estas estructuras (1 columna, 2 columnas y 3 columnas) "
+"para su sección de pie de página.<br />Para llenar estas columnas, vaya a "
+"apariencia > widgets.<br />Y agregue widgets según sus necesidades."
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:177
+msgid "Footer Layout 1"
+msgstr "Diseño de pie de página 1"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:178
+msgid "Footer Layout 2"
+msgstr "Diseño de pie de página 2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:179
+msgid "Footer Layout 3"
+msgstr "Diseño de pie de página 3"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:180
+msgid "Footer Layout 4"
+msgstr "Diseño de pie de página 4"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:181
+msgid "Footer Layout 5"
+msgstr "Diseño de pie de página 5"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:189
+msgid "Select 1 Footer Alignment"
+msgstr "Seleccionar alineación 1 del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:202
+msgid "Select 2 Footer Alignment"
+msgstr "Seleccionar alineación 2 del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:215
+msgid "Select 3 Footer Alignment"
+msgstr "Seleccionar alineación 3 del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:228
+msgid "Select 4 Footer Alignment"
+msgstr "Seleccionar alineación 4 del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:241
+msgid "Select 5 Footer Alignment"
+msgstr "Seleccionar alineación 5 del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:254
+msgid "Footer Copyright"
+msgstr "Derechos de autor del pie de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:271
+msgid "Display Copyrights"
+msgstr "Mostrar derechos de autor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:282
+msgid "Copyrights Alignment"
+msgstr "Alineación de derechos de autor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:297
+msgid "Copyrights Text"
+msgstr "Texto de derechos de autor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Footer.php:298
+msgid "Copyright {{year}} KiviCare All Rights Reserved."
+msgstr "Derechos reservados © {{year}} KiviCare."
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:29
+msgid "This section contains options for 404."
+msgstr "Esta sección contiene opciones para la página 404."
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:35
+msgid "Page Layout"
+msgstr "Diseño de página"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:46
+msgid "404 Layout"
+msgstr "Diseño 404"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:47
+msgid "Select the layout variation that you want to use for 404 page."
+msgstr "Seleccione la variación de diseño que desea usar para la página 404."
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:57
+msgid "404 Page Default Banner Image"
+msgstr "Imagen de banner predeterminada para la página 404"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:68
+msgid "404 Page Title"
+msgstr "Título de la página 404"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:75
+msgid "404 Page Description"
+msgstr "Descripción de la página 404"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:76
+msgid "The requested page does not exists."
+msgstr "La página solicitada no existe."
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:81,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:91
+msgid "Enable"
+msgstr "Activar"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:82,
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:92
+msgid "Disable"
+msgstr "Desactivar"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:83,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:26
+msgid "Header"
+msgstr "Encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:84
+msgid "Enable / disable header on 404 page"
+msgstr "Activar / desactivar encabezado en la página 404"
+
+#: ../kivicare/inc/Redux_Framework/Options/FourZeroFour.php:94
+msgid "Enable / disable footer on 404 page"
+msgstr "Activar / desactivar pie de página en la página 404"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:26
+msgid "General"
+msgstr "General"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:33
+msgid "Body Layout"
+msgstr "Diseño del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:44
+msgid "Grid Container Width"
+msgstr "Ancho del contenedor en cuadrícula"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:45
+msgid "Adjust Your Site Container Width Wtih Help Of Above Opiton."
+msgstr "Ajuste el ancho del contenedor del sitio con la opción anterior."
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:54
+msgid "Set Body Options"
+msgstr "Configurar opciones del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:55
+msgid "Select this option for body color or image of the theme."
+msgstr "Seleccione esta opción para el color o imagen del cuerpo del tema."
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:68
+msgid "Set Body Image"
+msgstr "Configurar imagen del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:77
+msgid "Set Body Color"
+msgstr "Configurar color del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:78
+msgid "Choose Body Color"
+msgstr "Elegir color del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:89
+msgid "Back to Top"
+msgstr "Volver arriba"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:98
+msgid "\"Back to top\" Button"
+msgstr "Botón \"Volver arriba\""
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:99
+msgid "Turn on to show \"Back to top\" button."
+msgstr "Activar para mostrar el botón \"Volver arriba\"."
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:111
+msgid "Enable RTL?"
+msgstr "¿Activar RTL?"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:120
+msgid "Select Yes To convert site to rtl."
+msgstr "Seleccione Sí para convertir el sitio a RTL."
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:131
+msgid "Show Style Switcher"
+msgstr "Mostrar selector de estilo"
+
+#: ../kivicare/inc/Redux_Framework/Options/General.php:132
+msgid "The style switcher is only for preview on front-end"
+msgstr "El selector de estilo es solo para vista previa en el front-end."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:33
+msgid "Menu Layout"
+msgstr "Diseño del menú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:36
+msgid "This section contains options for Menu ."
+msgstr "Esta sección contiene opciones para el menú."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:42,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:53
+msgid "Header Layout"
+msgstr "Diseño del encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:54
+msgid "Select the layout variation that you want to use for header layout."
+msgstr "Seleccione la variación de diseño que desea usar para el encabezado."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:63
+msgid "Header Position"
+msgstr "Posición del encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:66
+msgid "Over"
+msgstr "Encima"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:74
+msgid "Header container"
+msgstr "Contenedor del encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:76
+msgid "full width"
+msgstr "ancho completo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:77
+msgid "Container"
+msgstr "Contenedor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:80
+msgid "container-fluid"
+msgstr "contenedor fluido"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:88,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:520,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:684,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:853
+msgid "Background"
+msgstr "Fondo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:89
+msgid "Select the variation for header background"
+msgstr "Seleccione la variación para el fondo del encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:92,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:524,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:688,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:857
+msgid "Color"
+msgstr "Color"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:93,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:525,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:689,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:858
+msgid "Image"
+msgstr "Imagen"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:94,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:526,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:690,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:859
+msgid "Transparent"
+msgstr "Transparente"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:97,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:132,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:173,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:246,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:341,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:420,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:528,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:692,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:727,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:767,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:861,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:905
+msgid "default"
+msgstr "predeterminado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:113,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:544,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:708,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:877
+msgid "Upload Image"
+msgstr "Subir imagen"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:116
+msgid "Upload background image for header."
+msgstr "Subir imagen de fondo para el encabezado."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:125,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:721
+msgid "Menu Color Options"
+msgstr "Opciones de color del menú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:126
+msgid "Select Menu color ."
+msgstr "Selecciona el color del menú."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:138
+msgid "Menu Color"
+msgstr "Color del menú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:147
+msgid "Active Menu Color"
+msgstr "Color del menú activo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:156
+msgid "Menu Hover Color"
+msgstr "Color al pasar el cursor sobre el menú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:166,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:760
+msgid "Submenu Color Options"
+msgstr "Opciones de color del submenú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:167,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:761
+msgid "Select submenu color."
+msgstr "Selecciona el color del submenú."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:179,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:773
+msgid "Submenu Color"
+msgstr "Color del submenú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:188,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:782
+msgid "Active Submenu Color"
+msgstr "Color del submenú activo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:197,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:791
+msgid "Submenu Hover Color"
+msgstr "Color al pasar el cursor sobre el submenú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:206,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:800
+msgid "Submenu Background Color"
+msgstr "Color de fondo del submenú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:215,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:808
+msgid "Submenu Background Active Color"
+msgstr "Color de fondo activo del submenú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:224,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:817
+msgid "Submenu Background Hover Color"
+msgstr "Color de fondo al pasar el cursor sobre el submenú"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:239
+msgid "Responsive Menu Color"
+msgstr "Color del menú responsive"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:240
+msgid "Select menu color for responsive mode."
+msgstr "Selecciona el color del menú para modo responsive."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:252
+msgid "Toggle button color"
+msgstr "Color del botón de alternancia"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:261
+msgid "Toggle button background color"
+msgstr "Color de fondo del botón de alternancia"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:270
+msgid "Responsive menu color"
+msgstr "Color del menú responsive"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:279
+msgid "Responsive menu hover color"
+msgstr "Color al pasar el cursor sobre el menú responsive"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:288
+msgid "Responsive menu background color"
+msgstr "Color de fondo del menú responsive"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:297
+msgid "Responsive menu active background color"
+msgstr "Color de fondo activo del menú responsive"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:308
+msgid "Button 1"
+msgstr "Botón 1"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:309
+msgid "Turn on to display the Login and CTA button in header."
+msgstr ""
+"Activar para mostrar el botón de Inicio de sesión y CTA en el encabezado."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:323,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:402
+msgid "Change Title (e.g.Download)."
+msgstr "Cambiar título (ej. Descargar)."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:329
+msgid "Add download link."
+msgstr "Agregar enlace de descarga."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:336
+msgid "Select for button color options."
+msgstr "Selecciona las opciones de color para el botón."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:347
+msgid "Button background color"
+msgstr "Color de fondo del botón"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:356
+msgid "Button background hover color"
+msgstr "Color de fondo al pasar el cursor sobre el botón"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:365
+msgid "Button text color"
+msgstr "Color del texto del botón"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:374
+msgid "Button text hover Color"
+msgstr "Color del texto al pasar el cursor sobre el botón"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:387
+msgid "Button 2"
+msgstr "Botón 2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:388
+msgid "Turn on to display the button 2 in header."
+msgstr "Activar para mostrar el botón 2 en el encabezado."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:408
+msgid "Add Button 2 link."
+msgstr "Agregar enlace para el botón 2."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:415
+msgid "Select for button 2 color options."
+msgstr "Selecciona las opciones de color para el botón 2."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:426
+msgid "Button 2 background color"
+msgstr "Color de fondo del botón 2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:435
+msgid "Button 2 background hover color"
+msgstr "Color de fondo al pasar el cursor sobre el botón 2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:444
+msgid "Button 2 text color"
+msgstr "Color del texto del botón 2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:453
+msgid "Button 2 text hover Color"
+msgstr "Color del texto al pasar el cursor sobre el botón 2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:464
+msgid "Shop & Wishlist Button"
+msgstr "Botón de Tienda y Lista de deseos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:465
+msgid "Turn on to display Shop & Wishlist Button in header."
+msgstr ""
+"Activar para mostrar el botón de Tienda y Lista de deseos en el encabezado."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:480
+msgid "Choose Shop Page"
+msgstr "Elegir página de tienda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:481
+msgid "Select Page that you want to display shop items"
+msgstr "Selecciona la página donde deseas mostrar los artículos de la tienda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:490
+msgid "Choose Wishlist Page"
+msgstr "Elegir página de lista de deseos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:491
+msgid "Select Page that you want to display wishlist items"
+msgstr ""
+"Selecciona la página donde deseas mostrar los artículos de la lista de deseos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:498
+msgid "Header Top"
+msgstr "Parte superior del encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:501,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:664
+msgid "The header Layout should be default, to visible the options"
+msgstr ""
+"El diseño del encabezado debe ser el predeterminado para mostrar las opciones"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:507
+msgid "Display Top Header"
+msgstr "Mostrar encabezado superior"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:508
+msgid "Turn on to display top header Email, Phone, Social Media."
+msgstr ""
+"Activar para mostrar correo electrónico, teléfono y redes sociales en el "
+"encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:547
+msgid "Upload background image for top header."
+msgstr "Subir imagen de fondo para el encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:556
+msgid "Text / Icon color options"
+msgstr "Opciones de color para texto / iconos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:557
+msgid "Select text / icon color for normal and hover ."
+msgstr ""
+"Selecciona el color de texto / iconos para estado normal y al pasar el "
+"cursor."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:562
+msgid "custom"
+msgstr "personalizado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:567
+msgid "Choose text color for top header."
+msgstr "Elige el color del texto para el encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:576
+msgid "Choose text hover color for top header."
+msgstr ""
+"Elige el color del texto al pasar el cursor para el encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:586
+msgid "Choose Icon color for top header."
+msgstr "Elige el color de los iconos para el encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:595
+msgid "Choose Icon hover color for top header."
+msgstr ""
+"Elige el color de los iconos al pasar el cursor para el encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:634
+msgid "Email/Phone on Header"
+msgstr "Correo/Teléfono en el encabezado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:636
+msgid "Turn on to display the Email and Phone number in top header menu."
+msgstr ""
+"Activar para mostrar el correo electrónico y número de teléfono en el menú "
+"del encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:647,
+#: ../kivicare/inc/Redux_Framework/Options/SocialMedia.php:21
+msgid "Social Media"
+msgstr "Redes Sociales"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:648
+msgid "Turn on to display Social Media in top header."
+msgstr "Activar para mostrar las redes sociales en el encabezado superior."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:660,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:670
+msgid "Sticky Header"
+msgstr "Encabezado fijo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:671
+msgid "Turn on to display sticky header."
+msgstr "Activar para mostrar el encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:685
+msgid "Select the variation for sticky header background"
+msgstr "Selecciona la variación para el fondo del encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:711
+msgid "Upload background image for sticky header."
+msgstr "Subir imagen de fondo para el encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:722
+msgid "Select Menu color for sticky."
+msgstr "Selecciona el color del menú para el encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:733
+msgid "Sticky header menu color"
+msgstr "Color del menú del encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:742
+msgid "Sticky header active menu color"
+msgstr "Color del menú activo en el encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:751
+msgid "Sticky header menu hover color"
+msgstr "Color del menú al pasar el cursor en el encabezado fijo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:833
+msgid "This section contains options for side area button in header."
+msgstr ""
+"Esta sección contiene opciones para el botón del área lateral en el "
+"encabezado."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:839
+msgid "Side Area (Sliding Panel)"
+msgstr "Área lateral (Panel deslizable)"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:840
+msgid "Set option for Sliding right side panel."
+msgstr "Configura la opción para el panel lateral deslizante derecho."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:854
+msgid "Select the variation for Sidearea background"
+msgstr "Selecciona la variación para el fondo del área lateral."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:880
+msgid "Upload background image for sidearea."
+msgstr "Subir imagen de fondo para el área lateral."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:888
+msgid "Adjust sidearea width"
+msgstr "Ajustar ancho del área lateral."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:889
+msgid "Choose Width, and/or unit."
+msgstr "Elige el ancho y/o la unidad."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:890
+msgid "Sidearea Width."
+msgstr "Ancho del área lateral."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:899
+msgid "Button color options"
+msgstr "Opciones de color para botones."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:900
+msgid "Select text normal / hover color ."
+msgstr "Selecciona el color normal / al pasar el cursor para el texto."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:911
+msgid "Open button color"
+msgstr "Color del botón de abrir."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:912
+msgid "Select color for normal / hover."
+msgstr "Selecciona el color para estado normal / al pasar el cursor."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:913
+msgid "Set open button color"
+msgstr "Configura el color del botón de abrir."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:921
+msgid "Set open button hover color"
+msgstr "Configura el color del botón de abrir al pasar el cursor."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:930
+msgid "Open button line color"
+msgstr "Color de la línea del botón de abrir"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:931
+msgid "Select normal / hover color of open button lines."
+msgstr ""
+"Selecciona el color normal / al pasar el cursor de las líneas del botón de "
+"abrir."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:932,
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:970
+msgid "Set open button line color"
+msgstr "Configurar color de la línea del botón de abrir"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:940
+msgid "Set open button line hover color"
+msgstr "Configurar color de la línea del botón de abrir al pasar el cursor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:949
+msgid "Close button color"
+msgstr "Color del botón de cerrar"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:950
+msgid "Select normal / hover color of close button inside sidearea."
+msgstr ""
+"Selecciona el color normal / al pasar el cursor del botón de cerrar dentro "
+"del área lateral."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:951
+msgid "Set close button color"
+msgstr "Configurar color del botón de cerrar"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:959
+msgid "Set close button hover color"
+msgstr "Configurar color del botón de cerrar al pasar el cursor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:968
+msgid "Close button line color"
+msgstr "Color de la línea del botón de cerrar"
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:969
+msgid "Select normal / hover color of close button lines."
+msgstr ""
+"Selecciona el color normal / al pasar el cursor de las líneas del botón de "
+"cerrar."
+
+#: ../kivicare/inc/Redux_Framework/Options/Header.php:978
+msgid "Set close button line hover color"
+msgstr "Configurar color de la línea del botón de cerrar al pasar el cursor"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:20
+msgid "Loader"
+msgstr "Cargador"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:28
+msgid "kivicare Loader"
+msgstr "Cargador kivicare"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:40
+msgid "Loader Background Color"
+msgstr "Color de fondo del cargador"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:42
+msgid "Choose Loader Background Color"
+msgstr "Selecciona el color de fondo del cargador"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:51
+msgid "Add GIF image for loader"
+msgstr "Agregar imagen GIF para el cargador"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:55
+msgid "Upload Loader GIF image for your Website."
+msgstr "Subir imagen GIF para el cargador de tu sitio web."
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:64
+msgid "Loader (Width/Height) Option"
+msgstr "Opción de ancho/alto para el cargador"
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:65,
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:57
+msgid "Allows you to choose width, height, and/or unit."
+msgstr "Te permite elegir ancho, alto y/o unidad."
+
+#: ../kivicare/inc/Redux_Framework/Options/Loader.php:66,
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:58
+msgid ""
+"You can enable or disable any piece of this field. Width, Height, or Units."
+msgstr ""
+"Puedes activar o desactivar cualquier parte de este campo: ancho, alto o "
+"unidades."
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:20,
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:43
+msgid "Logo"
+msgstr "Logo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:23
+msgid "The options will be displayed for default header"
+msgstr "Las opciones se mostrarán para el encabezado predeterminado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:29
+msgid "Select Logo Type"
+msgstr "Seleccionar tipo de logo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:30
+msgid "Select either Text or image for your Logo."
+msgstr "Selecciona texto o imagen para tu logo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:47
+msgid ""
+"Upload Logo image for your Website. Otherwise site title will be displayed "
+"in place of Logo."
+msgstr ""
+"Sube la imagen del logo para tu sitio web. De lo contrario, se mostrará el "
+"título del sitio en lugar del logo."
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:55
+msgid "Logo (Width/Height) Option"
+msgstr "Opción de ancho/alto del logo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:65
+msgid "Logo Text"
+msgstr "Texto del logo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:66
+msgid "Enter the text to be used instead of the logo image"
+msgstr "Ingresa el texto que se usará en lugar de la imagen del logo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:68
+msgid "Please enter correct value"
+msgstr "Por favor ingresa un valor correcto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:69
+msgid "kivicare"
+msgstr "kivicare"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:75
+msgid "Text Color"
+msgstr "Color del texto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Logo.php:76
+msgid "Choose Text Color"
+msgstr "Selecciona el color del texto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:24
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:27
+msgid "This section contains options for maintenance."
+msgstr "Esta sección contiene opciones para mantenimiento."
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:33
+msgid "On/Off Maintenance or Coming Soon mode"
+msgstr "Modo mantenimiento o próximamente activado / desactivado"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:34
+msgid "Turn on to active Maintenance or Coming Soon mode."
+msgstr "Activa para activar el modo mantenimiento o próximamente."
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:45
+msgid "Maintenance Mode"
+msgstr "Modo mantenimiento"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:58
+msgid "Maintenance Default Background Image"
+msgstr "Imagen de fondo predeterminada para mantenimiento"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:62,
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:89
+msgid ""
+"Upload background image for your Website. Otherwise blank field will be "
+"displayed in place of this section."
+msgstr ""
+"Sube una imagen de fondo para tu sitio web. De lo contrario, se mostrará un "
+"campo vacío en esta sección."
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:68
+msgid "Maintenance Title"
+msgstr "Título de mantenimiento"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:70
+msgid "Sorry,we are down for maintenance"
+msgstr "Lo sentimos, estamos en mantenimiento"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:76
+msgid "Maintenance Description"
+msgstr "Descripción de mantenimiento"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:78
+msgid "We will be back shortly"
+msgstr "Volveremos pronto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:85
+msgid "Coming Soon Default Background Image"
+msgstr "Imagen de fondo predeterminada para próximamente"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:95
+msgid "Coming Soon Date"
+msgstr "Fecha de Próximamente"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:97
+msgid "This is the description field, again good for additional info."
+msgstr "Este es el campo de descripción, útil para información adicional."
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:104
+msgid "Coming Soon Title"
+msgstr "Título de Próximamente"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:106
+msgid "Coming Soon"
+msgstr "Próximamente"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:112
+msgid "Coming Soon Description"
+msgstr "Descripción de Próximamente"
+
+#: ../kivicare/inc/Redux_Framework/Options/Maintenance.php:114
+msgid "We will be back with new and professional Ideas"
+msgstr "Volveremos con ideas nuevas y profesionales"
+
+#: ../kivicare/inc/Redux_Framework/Options/Page.php:20
+msgid "Page Settings"
+msgstr "Configuración de Página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Page.php:28
+msgid "Search page Setting"
+msgstr "Configuración de Página de Búsqueda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Page.php:29
+msgid ""
+"<br />Choose among these structures (Right Sidebar, Left Sidebar and 1column)"
+" for your Search page.<br />To filling these column sections you should go "
+"to appearance > widget.<br />And put every widget that you want in these "
+"sections."
+msgstr ""
+"<br />Elige entre estas estructuras (Barra lateral derecha, barra lateral "
+"izquierda y una columna) para tu página de búsqueda.<br />Para rellenar "
+"estas secciones de columnas debes ir a Apariencia > Widgets.<br />Y colocar "
+"cada widget que quieras en estas secciones."
+
+#: ../kivicare/inc/Redux_Framework/Options/SocialMedia.php:29
+msgid "Social Media Option"
+msgstr "Opción de Redes Sociales"
+
+#: ../kivicare/inc/Redux_Framework/Options/SocialMedia.php:30
+msgid "Enter social media url."
+msgstr "Introduce la URL de la red social."
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:23
+msgid "Typography"
+msgstr "Tipografía"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:26
+msgid "This section contains typography related options."
+msgstr "Esta sección contiene opciones relacionadas con la tipografía."
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:32
+msgid "Do you want to change fonts?"
+msgstr "¿Quieres cambiar las fuentes?"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:41
+msgid "Body Font"
+msgstr "Fuente del cuerpo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:42,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:62,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:81,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:100,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:118,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:136,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:154
+msgid "Select the font."
+msgstr "Selecciona la fuente."
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:53
+msgid "Poppins"
+msgstr "Poppins"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:61
+msgid "H1 Font"
+msgstr "Fuente H1"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:72,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:91,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:110,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:128,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:146,
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:164
+msgid "PT+Sans"
+msgstr "PT Sans"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:80
+msgid "H2 Font"
+msgstr "Fuente H2"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:99
+msgid "H3 Font"
+msgstr "Fuente H3"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:117
+msgid "H4 Font"
+msgstr "Fuente H4"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:135
+msgid "H5 Font"
+msgstr "Fuente H5"
+
+#: ../kivicare/inc/Redux_Framework/Options/Typography.php:153
+msgid "H6 Font"
+msgstr "Fuente H6"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:24
+msgid "User Account Settings"
+msgstr "Configuración de Cuenta de Usuario"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:33
+msgid "This options only works with Default Header Layout"
+msgstr ""
+"Estas opciones solo funcionan con el diseño de encabezado predeterminado"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:38,
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:47
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:46
+msgid "SignUp button title"
+msgstr "Título del botón de registro"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:55
+msgid "Select Page For SignUp"
+msgstr "Selecciona la página para registro"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:61,
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:70
+msgid "Sign In"
+msgstr "Iniciar sesión"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:69
+msgid "SignIn button title"
+msgstr "Título del botón de inicio de sesión"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:78
+msgid "Select Page For SignIn"
+msgstr "Selecciona la página para inicio de sesión"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:84,
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:94
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:93
+msgid "Logout Button title"
+msgstr "Título del botón de cerrar sesión"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:100,
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:108
+msgid "Profile"
+msgstr "Perfil"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:107
+msgid "Profile button title"
+msgstr "Título del botón de perfil"
+
+#: ../kivicare/inc/Redux_Framework/Options/UserOptions.php:116
+msgid "Select Page For Profile"
+msgstr "Selecciona la página de perfil"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:25
+msgid "WooCommerce "
+msgstr "WooCommerce"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:32
+msgid "Shop Page"
+msgstr "Página de Tienda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:39
+msgid "Shop page Setting"
+msgstr "Configuración de página de tienda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:40
+msgid ""
+"Choose among these structures (Product Listing, Product Grid) for your shop "
+"section.<br />To filling these column sections you should go to appearance > "
+"widget.<br />And put every widget that you want in these sections."
+msgstr ""
+"Elige entre estas estructuras (Listado de productos, cuadrícula de productos)"
+" para la sección de tu tienda.<br />Para llenar estas secciones de columnas "
+"debes ir a Apariencia > Widgets.<br />Y colocar cada widget que quieras en "
+"estas secciones."
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:42
+msgid "Product Listing"
+msgstr "Listado de Productos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:44
+msgid "Product Grid "
+msgstr "Cuadrícula de Productos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:53
+msgid "Shop Page Sidebar Setting"
+msgstr "Configuración de barra lateral de la página de tienda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:65
+msgid "Set Product Per Page"
+msgstr "Configurar productos por página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:66
+msgid "Here This option provide set post per paged item"
+msgstr "Esta opción permite configurar la cantidad de productos por página"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:75
+msgid "Product Page"
+msgstr "Página de Producto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:83
+msgid "Display Banner on Product Page"
+msgstr "Mostrar banner en la página de producto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:84
+msgid "This Option Display The Banner Of The Product"
+msgstr "Esta opción muestra el banner del producto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:94
+msgid "Display Related Product On Single Page"
+msgstr "Mostrar productos relacionados en la página individual"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:95
+msgid "This Option Display RElated Product On Single Page"
+msgstr "Esta opción muestra productos relacionados en la página individual"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:106
+msgid "Shop Page Products Setting"
+msgstr "Configuración de productos en página de tienda"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:113
+msgid "Display Category"
+msgstr "Mostrar categoría"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:114
+msgid "Here This option provide Category Of The Product"
+msgstr "Esta opción muestra la categoría del producto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:125
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:126
+msgid "Here This option provide Name Of The Product"
+msgstr "Esta opción muestra el nombre del producto"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:137
+msgid "Display Price"
+msgstr "Mostrar precio"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:138
+msgid "Here This option Display The Price"
+msgstr "Esta opción muestra el precio"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:149
+msgid "Display Rating"
+msgstr "Mostrar valoración"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:150
+msgid "Display The Ratings"
+msgstr "Mostrar las valoraciones"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:162,
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:163
+msgid "Display AddToCart Icon"
+msgstr "Mostrar ícono de Añadir al carrito"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:174
+msgid "Display Wishlist Icon"
+msgstr "Mostrar ícono de lista de deseos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:175
+msgid "Display The Wishlist Icon"
+msgstr "Mostrar el ícono de la lista de deseos"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:187,
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:188
+msgid "Display QuickView Icon"
+msgstr "Mostrar ícono de vista rápida"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:200
+msgid " Sale Badge Color"
+msgstr "Color de la etiqueta de oferta"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:201
+msgid "Color Of The Sale Badge"
+msgstr "Color de la etiqueta de oferta"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:209
+msgid " New Badge Color"
+msgstr "Color de la etiqueta de nuevo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:210
+msgid "Color Of The New Badge"
+msgstr "Color de la etiqueta de nuevo"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:219
+msgid " Sold Badge Color"
+msgstr "Color de la etiqueta de vendido"
+
+#: ../kivicare/inc/Redux_Framework/Options/Woocommerce.php:220
+msgid "Color Of The Sold BAdge"
+msgstr "Color de la etiqueta de vendido"
+
+#: ../kivicare/woocommerce/single-product/tabs/description.php:22
+msgid "Description"
+msgstr "Descripción"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/Importer.php:55
+msgid ""
+"The XMLReader class is missing! Please install the XMLReader PHP extension "
+"on your server"
+msgstr ""
+"¡Falta la clase XMLReader! Por favor, instala la extensión XMLReader de PHP "
+"en tu servidor"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/Importer.php:68
+msgid "Could not open the XML file for parsing!"
+msgstr "¡No se pudo abrir el archivo XML para su análisis!"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/Importer.php:248
+msgid "Content import start error: "
+msgstr "Error al iniciar la importación de contenido: "
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/Importer.php:280,
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:173,
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:291,
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:375
+msgid ""
+"This WXR file (version %s) is newer than the importer (version %s) and may "
+"not be supported. Please consider updating."
+msgstr ""
+"Este archivo WXR (versión %s) es más reciente que el importador (versión %s) "
+"y puede que no sea compatible. Por favor, considera actualizar."
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/Importer.php:504
+msgid "New AJAX call!"
+msgstr "¡Nueva llamada AJAX!"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:135
+msgid "Could not open the file for parsing"
+msgstr "No se pudo abrir el archivo para análisis"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:525
+msgid "The file does not exist, please try again."
+msgstr "El archivo no existe, por favor intenta nuevamente."
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:588
+msgid "Invalid author mapping"
+msgstr "Mapeo de autor inválido"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:689
+msgid "Cannot import auto-draft posts"
+msgstr "No se pueden importar publicaciones auto-borrador"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:781
+msgid "Failed to import \"%s\": Invalid post type %s"
+msgstr "Error al importar \"%s\": Tipo de publicación inválido %s"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:791
+msgid "%s \"%s\" already exists."
+msgstr "%s \"%s\" ya existe."
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:869
+msgid "Skipping attachment \"%s\", fetching attachments disabled"
+msgstr ""
+"Omitiendo el archivo adjunto \"%s\", la descarga de archivos adjuntos está "
+"desactivada"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:883
+msgid "Failed to import \"%s\" (%s)"
+msgstr "Error al importar \"%s\" (%s)"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:915,
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1833
+msgid "Imported \"%s\" (%s)"
+msgstr "Importado \"%s\" (%s)"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:920
+msgid "Post %d remapped to %d"
+msgstr "Publicación %d reasignada a %d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:960
+msgid "Failed to import term: %s - %s"
+msgstr "Error al importar término: %s - %s"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1105
+msgid "Invalid file type"
+msgstr "Tipo de archivo inválido"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1604
+msgid "Failed to import user \"%s\""
+msgstr "Error al importar usuario \"%s\""
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1625
+msgid "Imported user \"%s\""
+msgstr "Usuario \"%s\" importado"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1629
+msgid "User %d remapped to %d"
+msgstr "Usuario %d reasignado a %d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1794
+msgid "Failed to import %s %s"
+msgstr "Error al importar %s %s"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1838
+msgid "Term %d remapped to %d"
+msgstr "Término %d reasignado a %d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1906
+msgid "Meta for term_id %d : %s => %s ; successfully added!"
+msgstr "Meta para term_id %d : %s => %s ; ¡añadido con éxito!"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1897
+msgid "Failed to add metakey: %s, metavalue: %s to term_id: %d"
+msgstr "Error al añadir metakey: %s, metavalue: %s al term_id: %d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1958
+msgid "Remote server returned %1$d %2$s for %3$s"
+msgstr "El servidor remoto devolvió %1$d %2$s para %3$s"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1980
+msgid "Zero size file downloaded"
+msgstr "Se descargó un archivo de tamaño cero"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:1986
+msgid "Remote file is too large, limit is %s"
+msgstr "El archivo remoto es demasiado grande, el límite es %s"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2011
+msgid "Running post-processing for post %d"
+msgstr "Ejecutando post-procesamiento para la publicación %d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2024
+msgid "Could not find the post parent for \"%s\" (post #%d)"
+msgstr "No se pudo encontrar el post padre para \"%s\" (publicación #%d)"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2029
+msgid "Post %d was imported with parent %d, but could not be found"
+msgstr ""
+"La publicación %d fue importada con el padre %d, pero no pudo ser encontrada"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2043
+msgid "Could not find the author for \"%s\" (post #%d)"
+msgstr "No se pudo encontrar el autor para \"%s\" (publicación #%d)"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2048
+msgid "Post %d was imported with author \"%s\", but could not be found"
+msgstr ""
+"La publicación %d fue importada con el autor \"%s\", pero no pudo ser "
+"encontrado"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2074
+msgid "Post %d was marked for post-processing, but none was required."
+msgstr ""
+"La publicación %d fue marcada para post-procesamiento, pero no se requirió "
+"ninguno."
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2085
+msgid "Could not update \"%s\" (post #%d) with mapped data"
+msgstr "No se pudo actualizar \"%s\" (publicación #%d) con los datos asignados"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2130
+msgid "Could not find the menu object for \"%s\" (post #%d)"
+msgstr "No se pudo encontrar el objeto de menú para \"%s\" (publicación #%d)"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2135
+msgid ""
+"Post %d was imported with object \"%d\" of type \"%s\", but could not be "
+"found"
+msgstr ""
+"La publicación %d fue importada con el objeto \"%d\" de tipo \"%s\", pero no "
+"pudo ser encontrado"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2157
+msgid "Could not find the comment parent for comment #%d"
+msgstr "No se pudo encontrar el comentario padre para el comentario #%d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2161
+msgid "Comment %d was imported with parent %d, but could not be found"
+msgstr ""
+"El comentario %d fue importado con el padre %d, pero no pudo ser encontrado"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2175
+msgid "Could not find the author for comment #%d"
+msgstr "No se pudo encontrar el autor para el comentario #%d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2179
+msgid "Comment %d was imported with author %d, but could not be found"
+msgstr ""
+"El comentario %d fue importado con el autor %d, pero no pudo ser encontrado"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2196
+msgid "Could not update comment #%d with mapped data"
+msgstr "No se pudo actualizar el comentario #%d con los datos asignados"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2227
+msgid "Faulty term_id provided in terms-to-be-remapped array %s"
+msgstr ""
+"term_id incorrecto proporcionado en el arreglo de términos a reasignar %s"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2237
+msgid "No taxonomy provided in terms-to-be-remapped array for term #%d"
+msgstr ""
+"No se proporcionó taxonomía en el arreglo de términos a reasignar para el "
+"término #%d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2247
+msgid "No parent_slug identified in remapping-array for term: %d"
+msgstr ""
+"No se identificó parent_slug en el arreglo de reasignación para el término: "
+"%d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2255
+msgid "The term(%d)\"s parent_slug (%s) is not found in the remapping-array."
+msgstr ""
+"El parent_slug (%s) del término (%d) no se encuentra en el arreglo de "
+"reasignación."
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2269
+msgid "No data returned by get_term_by for term_id #%d"
+msgstr "No se devolvieron datos de get_term_by para term_id #%d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2288
+msgid "Could not update \"%s\" (term #%d) with mapped data"
+msgstr "No se pudo actualizar \"%s\" (término #%d) con los datos asignados"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2298
+msgid "Term %d was successfully updated with parent %d"
+msgstr "El término %d fue actualizado exitosamente con el padre %d"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2333
+msgid "Starting remapping of featured images"
+msgstr "Iniciando reasignación de imágenes destacadas"
+
+#: ../kivicare/inc/Merlin/vendor/proteusthemes/wp-content-importer-v2/src/WXRImporter.php:2342
+msgid "Remapping featured image ID %d to new ID %d for post ID %d"
+msgstr ""
+"Reasignando la imagen destacada ID %d a nuevo ID %d para la publicación ID %d"

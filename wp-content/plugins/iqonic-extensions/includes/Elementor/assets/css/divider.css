@@ -1,0 +1,60 @@
+/*---------------------------
+			Divider
+----------------------------------*/
+.iq-divider {
+  border-top: 1px solid var(--white-light-color);
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.iq-divider .iq-divider-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.iq-divider .iq-divider-icon {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 15px;
+  font-size: var(--font-size-45);
+}
+
+.iq-divider .iq-divider-icon i::before {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.iq-divider-style-2 {
+  border: none;
+  clear: both;
+  display: flex;
+}
+
+.iq-divider-style-2 .iq-divider-center {
+  margin: 0 15px;
+  text-align: center;
+}
+
+.iq-divider-style-2 .iq-divider-right,
+.iq-divider-style-2 .iq-divider-left {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 10%;
+}
+
+.iq-divider-style-2 .iq-divider-right::after,
+.iq-divider-style-2 .iq-divider-left::after {
+  border-top: 1px solid var(--white-light-color);
+  content: "";
+  width: 100%;
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}

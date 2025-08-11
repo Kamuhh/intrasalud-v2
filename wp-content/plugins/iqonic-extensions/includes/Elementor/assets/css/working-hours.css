@@ -1,0 +1,72 @@
+.kivicare-working-hours ul {
+    padding: 0;
+    margin: 0;
+}
+
+.kivicare-working-hours .iq-contact li.iq-week{
+    gap: 10px;
+}
+
+.kivicare-working-hours ul li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kivicare-working-hours ul li:last-child {
+    margin-bottom: 0;
+}
+
+.kivicare-working-hours ul li .iq-week-day,
+.kivicare-working-hours ul li .iq-time {
+    color: var(--color-theme-primary);
+}
+
+@media(max-width:479px) {
+    .kivicare-working-hours ul li {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+    }
+}
+
+.kivicare-working-hours .iq-contact li.iq-week {
+    border-bottom: 1px solid #FFFFFF26;
+}
+
+.kivicare-working-hours .iq-contact li.iq-week:last-child {
+    border-bottom: none!important;
+}
+
+.kivicare-working-hours .iq-contact li.iq-week .iq-time {
+    font-weight: var(--font-weight-regular);
+}
+
+.kivicare-working-hours .iq-contact li.iq-week {
+    padding: 10px 0;
+}
+
+.kivicare-working-hours .iq-contact li.iq-week:first-child {
+    padding-top: 0!important;
+}
+
+.kivicare-working-hours .iq-contact li.iq-week:last-child {
+    padding-bottom: 0;
+}
+
+.kivicare-working-hours .iq-contact li.iq-week {
+    margin: 0;
+}
+
+.kivicare-working-hours .iq-btn-container{
+    margin-top: 30px;
+}
+
+/*----------------------
+	rtl
+-----------------------------*/
+[dir=rtl] .kivicare-working-hours .iq-contact li.iq-week {
+    margin: 0;
+}

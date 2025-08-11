@@ -1,0 +1,131 @@
+/*-------------------------------
+		Lists
+-------------------------------------------*/
+.iq-list li {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    list-style-position: inside;
+}
+
+.iq-list li:last-child {
+    margin-bottom: 0;
+}
+
+.iq-list-with-icon,
+.iq-list-with-img,
+.iq-list ul {
+    padding: 0;
+    margin: 0;
+}
+
+.iq-list-with-icon li,
+.iq-list-with-img li {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iq-list-with-icon li i,
+.iq-list-with-img li img {
+    color: var(--primary-color);
+    width: auto;
+    height: 100%;
+}
+
+.iq-list.iq-one-column {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+}
+
+.iq-list.iq-two-column {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+.iq-list.iq-three-column {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+}
+
+.iq-list.iq-four-column {
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
+}
+
+.iq-list.iq-five-column {
+    columns: 5;
+    -webkit-columns: 5;
+    -moz-columns: 5;
+}
+
+.iq-list.iq-six-column {
+    columns: 6;
+    -webkit-columns: 6;
+    -moz-columns: 6;
+}
+
+.text-end .iq-list-with-icon li {
+    justify-content: end;
+}
+
+.iq-list ol li::marker {
+    color: var(--primary-color);
+}
+
+@media (max-width: 767px) {
+    .iq-list.iq-four-column {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+    }
+
+    .iq-list.iq-five-column {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+    }
+
+    .iq-list.iq-six-column {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+    }
+}
+
+@media (max-width: 479px) {
+    .iq-list.iq-two-column {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+
+    .iq-list.iq-three-column {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+
+    .iq-list.iq-four-column {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+
+    .iq-list.iq-five-column {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+
+    .iq-list.iq-six-column {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+}

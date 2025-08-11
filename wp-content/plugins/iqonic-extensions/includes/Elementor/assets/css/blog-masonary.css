@@ -1,0 +1,183 @@
+  /*------------------------
+  Blog Masanory style
+  ---------------------------------*/
+
+  /*hidden-items for loadmore option*/
+  .iq-masonry-block.iq-blog-masonary .loadmore-hidden-items {
+    display: none;
+  }
+
+  .iq-masonry-block.iq-blog-masonary .iq-portfolio-2 .iq-masonry-item img {
+    object-fit: cover;
+  }
+
+  .iq-masonry-block.iq-blog-masonary .iq-post-details a.iq-cat-name {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 8px 12px;
+    line-height: normal;
+    font-size: var(--font-size-13);
+    background: var(--primary-color);
+    color: var(--white-color);
+    margin-bottom: 15px;
+  }
+
+  .iq-masonry-block.iq-blog-masonary .iq-portfolio-2 .iq-portfolio .iq-post-details {
+    padding: 30px;
+  }
+
+  .iq-masonry-block.iq-blog-masonary .iq-portfolio-2 .iq-portfolio .details-box .consult-details {
+    border: none;
+  }
+
+  .iq-post-details .iq-btn-container {
+    margin-top: 15px;
+  }
+
+  .iq-masonry-block.iq-blog-masonary .iq-portfolio-content .details-box,
+  .iq-portfolio-2 .iq-portfolio .details-box .consult-details {
+    padding: 0;
+  }
+
+  .iq-blog-meta ul li a {
+    color: var(--body-text);
+  }
+
+  .iq-blog-meta ul li i {
+    color: var(--primary-color);
+  }
+
+  .iq-blog-meta ul li:hover i,
+  .iq-blog-meta ul li:hover a {
+    color: var(--primary-color);
+  }
+
+  .iq-masonry-block.iq-blog-masonary .iq-portfolio {
+    -webkit-box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+  }
+
+  [dir="rtl"] .iq-blog-masonary .iq-post-details{
+    text-align: right;
+  }
+
+  @media screen and (min-width:1200px) {
+    .iq-masonry-block.iq-blog-masonary .iq-masonry.iq-columns-2 .iq-masonry-item:not(:nth-child(3n+1)) .iq-portfolio {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+    }
+    
+    .iq-masonry-block.iq-blog-masonary .iq-masonry.iq-columns-2 .iq-masonry-item:not(:nth-child(3n+1)) .iq-portfolio-img {
+      width: 265px;
+      height: 265px;
+    }
+
+    .iq-masonry-block.iq-blog-masonary .iq-masonry.iq-columns-2 .iq-masonry-item:not(:nth-child(3n+1)) .iq-portfolio .iq-post-details {
+      width: 65%;
+    }
+
+    .iq-masonry-block.iq-blog-masonary .iq-portfolio a.iq-portfolio-img {
+      height: 308px;
+    }
+  }
+
+  .info-share {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-share li {
+    display: inline-block;
+  }
+
+  .iq-masonry.iq-columns-2 .iq-masonry-item {
+    width: 50%;
+    padding: 15px;
+  }
+
+  .iq-masonry.iq-columns-3 .iq-masonry-item {
+    width: 33.333333%;
+    padding: 15px;
+  }
+
+  .iq-masonry.iq-columns-4 .iq-masonry-item {
+    width: 25%;
+    padding: 15px;
+  }
+
+  .iq-masonry.iq-columns-5 .iq-masonry-item {
+    width: 20%;
+    padding: 15px;
+  }
+
+  .iq-portfolio img {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .iq-portfolio:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+  }
+
+  .iq-portfolio a.iq-portfolio-img {
+    display: inherit;
+    overflow: hidden;
+  }
+
+  .iq-masonry-item .iq-portfolio:hover .iq-portfolio-content .consult-details .consult-effect:before {
+    bottom: 98px;
+  }
+
+  .iq-masonry-item.style-two .iq-portfolio:hover .iq-portfolio-content .consult-details .consult-effect:before {
+    bottom: 81px;
+  }
+
+  @media(max-width:1199px) {
+    .isotope.iq-columns-4 .iq-grid-item, .iq-masonry.iq-columns-4 .iq-masonry-item {
+      width: 33.3%
+    }
+
+    .isotope.iq-columns-5 .iq-grid-item, .iq-masonry.iq-columns-5 .iq-masonry-item {
+      width: 25%;
+    }
+  }
+
+  @media(max-width:992px) {
+    .isotope.iq-columns-4 .iq-grid-item, .iq-masonry.iq-columns-4 .iq-masonry-item {
+      width: 50%;
+    }
+
+    .isotope.iq-columns-3 .iq-grid-item, .isotope.iq-columns-5 .iq-grid-item, .iq-masonry.iq-columns-3 .iq-masonry-item, .iq-masonry.iq-columns-5 .iq-masonry-item {
+      width: 50%;
+    }
+  }
+
+  @media(max-width:767px) {
+    .isotope.iq-columns-4 .iq-grid-item, .isotope.iq-columns-2 .iq-grid-item, .isotope.iq-columns-3 .iq-grid-item, .isotope.iq-columns-5 .iq-grid-item, .iq-masonry.iq-columns-2 .iq-masonry-item, .iq-masonry.iq-columns-3 .iq-masonry-item, .iq-masonry.iq-columns-4 .iq-masonry-item, .iq-masonry.iq-columns-5 .iq-masonry-item {
+      width: 100%
+    }
+  }
+
+  .iq-masonry-block .isotope-filters {
+    display: flex;
+    justify-content: center;
+  }
+
+  .iq-masonry-block .isotope-filters button {
+    padding: 15px 25px;
+    border: none;
+    margin-right: 16px;
+    margin-bottom: 30px;
+}
+.iq-masonry-block .isotope-filters button.active {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}

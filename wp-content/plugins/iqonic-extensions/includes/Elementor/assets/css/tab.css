@@ -1,0 +1,73 @@
+.kivicare-tabs .nav{
+    justify-content: space-between;
+    border-bottom: 1px solid var(--lab-border-color);
+    gap: 10px;
+}
+
+.kivicare-tabs .nav .nav-item .nav-link{
+    position: relative;
+    background-color: transparent;
+    padding: 0 0 17px;
+    transition: all .5s ease-in-out;
+}
+
+.kivicare-tabs .nav .nav-item .nav-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    background-color: transparent;
+    height: 2px;
+    width: 100%;
+    transition: all .5s ease-in-out;
+}
+
+.kivicare-tabs .nav .nav-item .nav-link.active::after{
+    background-color: var(--primary-color);
+}
+
+.kivicare-tabs .nav .nav-item .nav-link .tab-title{
+    color: var(--global-font-color);
+    transition: all .5s ease-in-out;
+}
+
+.kivicare-tabs .nav .nav-item .nav-link.active .tab-title,
+.kivicare-tabs .nav .nav-item .nav-link:hover .tab-title{
+    color: var(--primary-color);
+}
+
+.kivicare-tabs .tab-content{
+    margin-top: 56px;
+}
+
+.kivicare-tabs .tab-title-desc{
+    font-size: var(--font-size-h3);
+}
+
+.kivicare-tabs .tab-detail-desc{
+    margin: 20px 0 0;
+}
+
+.kivicare-tabs .iq-btn-container{
+    margin-top: 40px;
+}
+
+@media (max-width: 991px){
+    .kivicare-tabs .nav{
+        border-bottom: none;
+        gap: 16px 32px;
+        justify-content: center;
+    }
+
+    .kivicare-tabs .nav .nav-item .nav-link{
+        padding: 0 0 16px;
+    }
+
+    .kivicare-tabs .tab-content{
+        margin-top: 50px;
+    }
+
+    .kivicare-tabs .tab-details{
+        margin-top: 32px;
+    }
+}

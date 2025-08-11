@@ -1,0 +1,570 @@
+# Translation of Plugins - String locator - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - String locator - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-08-26 22:13:41+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - String locator - Stable (latest release)\n"
+
+#. translators: 1: The capability needed for this feature.
+#: views/search.php:80
+msgid "To use the search feature, you need to have the `%s` capability."
+msgstr "Para utilizar la función de búsqueda, necesitas tener la capacidad `%s`."
+
+#. translators: 1: The capability needed for this feature.
+#: views/search.php:57
+msgid "To edit files, you need to have the `%s` capability."
+msgstr "Para editar archivos, necesitas tener la capacidad `%s`."
+
+#: includes/Extension/SearchReplace/views/replace-form.php:59
+msgid "Install Staging Plugin"
+msgstr "Instalar el plugin Staging"
+
+#: includes/Extension/SearchReplace/views/replace-form.php:57
+msgid "It is always a good idea to create a staging site before making changes"
+msgstr "Siempre es una buena idea crear un sitio de prueba antes de hacer cambios"
+
+#: includes/Extension/SearchReplace/class-replace.php:224
+msgid "Go to InstaWP →"
+msgstr "Ir a InstaWP →"
+
+#: includes/Extension/SearchReplace/class-replace.php:222
+msgid "Plugin installed and activated successfully."
+msgstr "Plugin instalado y activado correctamente."
+
+#: includes/Extension/SearchReplace/class-replace.php:205
+msgid "You do not have permission to perform this action."
+msgstr "No tienes permisos para realizar esta acción."
+
+#: includes/Extension/SearchReplace/class-replace.php:118
+#: includes/Extension/SearchReplace/class-replace.php:135
+#: includes/Extension/SearchReplace/class-replace.php:158
+msgid "Create a Staging Site"
+msgstr "Crear un sitio de pruebas"
+
+#: includes/Extension/SearchReplace/class-replace.php:108
+msgid "Create a Staging Site (powered by InstaWP)"
+msgstr "Crear un sitio de prueba (con InstaWP)"
+
+#: includes/Extension/SearchReplace/class-replace.php:108
+msgid "Activate InstaWP"
+msgstr "Activar InstaWP"
+
+#: includes/Extension/SearchReplace/class-replace.php:108
+msgid "Go to InstaWP &rarr;"
+msgstr "Ir a InstaWP &rarr;"
+
+#: views/search.php:73
+msgid "Your user does not have the needed capabilities to edit, or search through files on this site."
+msgstr "Tu usuario no tiene las capacidades necesarias para editar, o buscar archivos en este sitio."
+
+#: views/search.php:69
+msgid "String Locator is restricted."
+msgstr "El localizador de cadenas estás restringido."
+
+#: views/templates/instawp.php:17
+msgid "Create Disposable WordPress Sites in Seconds."
+msgstr "Crea sitios WordPress desechables en segundos."
+
+#: views/templates/instawp.php:11
+msgid "Create a disposable site"
+msgstr "Crear un sitio desechable"
+
+#: views/templates/instawp.php:9
+msgid "InstaWP logo"
+msgstr "Logotipo de InstaWP"
+
+#: includes/Extension/SQL/views/editor/sql.php:161
+msgid "Database entry context"
+msgstr "Contexto de entrada de la base de datos"
+
+#. translators: 1: Primary database column name. 2: Primary database column
+#. key.
+#: includes/Extension/SQL/views/editor/sql.php:140
+msgid "Primary column and key: %1$s:%2$s"
+msgstr "Columna principal y clave: %1$s:%2$s"
+
+#. translators: 1: Column name being edited.
+#: includes/Extension/SQL/views/editor/sql.php:130
+msgid "Database Column: %s"
+msgstr "Columna de la base de datos: %s"
+
+#. translators: 1: Table name being edited.
+#: includes/Extension/SQL/views/editor/sql.php:120
+msgid "Database table: %s"
+msgstr "Tabla de la base de datos: %s"
+
+#: includes/Extension/SQL/views/editor/sql.php:94
+msgid "This data is serialized, that means extra care must be taken as string lengths, and special characters must be accurately representative of the various field descriptors also found in the database entry."
+msgstr "Estos datos están serializados, lo que significa que hay que tener un cuidado especial, ya que las longitudes de las cadenas y los caracteres especiales deben ser exactamente representativos de los diversos descriptores de campo que también se encuentran en la entrada de la base de datos."
+
+#: includes/Extension/SQL/views/editor/sql.php:88
+msgid "You are about to make modifications directly to the database. Even if you are familiar with such changes, it is strongly recommended you keep a backup, and to perform such changes on a <a href=\"https://wordpress.org/support/article/running-a-development-copy-of-wordpress/\">staging site</a> first."
+msgstr "Estás a punto de realizar modificaciones directamente en la base de datos. Aunque estés familiarizado con este tipo de cambios, se recomienda encarecidamente que guardes una copia de seguridad, y que realices dichos cambios en un <a href=\"https://wordpress.org/support/article/running-a-development-copy-of-wordpress/\">sitio de pruebas</a> primero."
+
+#: includes/Extension/SQL/views/editor/sql.php:85
+msgid "You are directly editing a database entry."
+msgstr "Estás editando directamente una entrada de la base de datos."
+
+#: includes/Extension/SQL/views/editor/sql.php:79 views/editors/default.php:116
+msgid "The editor requires JavaScript to be enabled before it can be used."
+msgstr "El editor requiere la activación de JavaScript para poder utilizarlo."
+
+#. translators: %s: The name of the database column being edited.
+#: includes/Extension/SQL/views/editor/sql.php:62
+msgid "You are currently editing a database entry from <em>%s</em>"
+msgstr "Actualmente estás editando una entrada de la base de datos desde <em>%s</em>"
+
+#. translators: Title on the editor page.
+#: includes/Extension/SQL/views/editor/sql.php:50
+msgid "String Locator - SQL Editor"
+msgstr "String Locator - Editor SQL"
+
+#: includes/Extension/SQL/Tests/class-serialized-data.php:126
+msgid "The data is meant to be serialized with PHP, but is no longer valid."
+msgstr "Los datos están destinados a ser serializados con PHP, pero ya no son válidos."
+
+#: includes/Extension/SQL/Tests/class-serialized-data.php:91
+msgid "If the SQL data is serialized, validate it before saving."
+msgstr "Si los datos SQL están serializados, valídalos antes de guardarlos."
+
+#. translators: 1: The search string used. 2: The error received
+#: includes/Extension/SQL/class-search.php:275
+msgid "Your search for <strong>%1$s</strong> led to an SQL error, and the search has been aborted. The error encountered was: %2$s"
+msgstr "Tu búsqueda de <strong>%1$s</strong> ha dado lugar a un error SQL, y la búsqueda se ha abortado. El error encontrado fue: %2$s"
+
+#. translators: %s: The search string used.
+#: includes/Extension/SQL/class-search.php:223
+msgid "The table identifier, combined with your database name, <strong>%s</strong>, is not a valid SQL pattern, and the search has been aborted."
+msgstr "El identificador de la tabla, combinado con el nombre de la base de datos <strong>%s</strong>, no es un patrón SQL válido, y la búsqueda ha sido abortada."
+
+#: includes/Extension/SQL/class-search.php:98
+msgid "All database tables"
+msgstr "Todas las tablas de la base de datos"
+
+#: includes/Extension/SQL/class-search.php:97
+msgid "Database"
+msgstr "Base de datos"
+
+#: includes/Extension/SQL/class-save.php:137
+msgid "The database entry has been updated."
+msgstr "La entrada de la base de datos ha sido actualizada."
+
+#: includes/Extension/SearchReplace/views/replace-form.php:51
+msgid "Replace selected strings"
+msgstr "Reemplazar las cadenas seleccionadas"
+
+#: includes/Extension/SearchReplace/views/replace-form.php:48
+msgid "Replace all strings"
+msgstr "Reemplazar todas las cadenas"
+
+#: includes/Extension/SearchReplace/views/replace-form.php:40
+msgid "Read more about loopbacks on WordPress.org"
+msgstr "Más información sobre los loopbacks en WordPress.org"
+
+#. translators: The link to the WordPress.org article about loopbacks.
+#: includes/Extension/SearchReplace/views/replace-form.php:35
+msgid "https://wordpress.org/support/article/loopbacks/"
+msgstr "https://wordpress.org/support/article/loopbacks/"
+
+#: includes/Extension/SearchReplace/views/replace-form.php:27
+msgid "Perform loopback check"
+msgstr "Realizar la comprobación del bucle de retorno"
+
+#: includes/Extension/SearchReplace/views/replace-form.php:20
+msgid "New string"
+msgstr "Nueva cadena"
+
+#: includes/Extension/SearchReplace/views/replace-form.php:16
+msgid "Replace in results"
+msgstr "Sustituir en los resultados"
+
+#. translators: 1: The URL being requested. 2: The HTTP status code returned.
+#: includes/Extension/SearchReplace/REST/class-replace.php:144
+msgid "The address `%1$s` returned an error code (%2$s), and the changes were therefore reverted."
+msgstr "La dirección `%1$s` devolvió un código de error (%2$s), por lo que los cambios han sido revertidos."
+
+#. translators: 1: The URL being requested.
+#: includes/Extension/SearchReplace/REST/class-replace.php:127
+msgid "The address `%s` could not be loaded after the edits were made, and the changes were therefore reverted."
+msgstr "La dirección `%s` no ha podido cargarse después de las ediciones, por lo que los cambios han sido revertidos."
+
+#: includes/Extension/SearchReplace/REST/class-replace.php:101
+msgid "Invalid request"
+msgstr "Solicitud no válida"
+
+#: includes/Extension/SearchReplace/class-replace.php:200
+#: includes/Extension/SearchReplace/REST/class-replace.php:54
+msgid "Invalid nonce."
+msgstr "Nonce no válido."
+
+#: includes/Extension/SearchReplace/Replace/class-sql.php:126
+msgid "Error updating the database."
+msgstr "Error al actualizar la base de datos."
+
+#: includes/Extension/SearchReplace/Replace/class-file.php:81
+msgid "The file could not be written."
+msgstr "El archivo no se ha podido escribir."
+
+#: includes/Extension/SearchReplace/Replace/class-file.php:67
+msgid "The file could not be read."
+msgstr "El archivo no se ha podido leer."
+
+#: includes/Extension/SearchReplace/class-replace.php:73
+msgid "Are you sure you want to replace all strings?"
+msgstr "¿Estás seguro de que quieres sustituir todas las cadenas?"
+
+#: includes/Extension/SearchReplace/class-replace.php:72
+msgid "Hide replacement controls"
+msgstr "Ocultar los controles de sustitución"
+
+#: includes/Extension/SearchReplace/class-replace.php:71
+#: includes/Extension/SearchReplace/class-replace.php:98
+msgid "Show replacement controls"
+msgstr "Mostrar los controles de sustitución"
+
+#: includes/Extension/SearchReplace/class-replace.php:70
+msgid "Running replacemenets..."
+msgstr "Ejecutando reemplazos..."
+
+#: includes/class-string-locator.php:375
+msgid "ID / Line number"
+msgstr "ID / Número de línea"
+
+#: includes/class-string-locator.php:374
+msgid "File / Table"
+msgstr "Archivo / Tabla"
+
+#: includes/class-string-locator.php:122
+msgid "Create Disposable WordPress Sites in Seconds"
+msgstr "Crea sitios WordPress desechables en segundos"
+
+#. Author URI of the plugin
+#: string-locator.php
+msgid "https://instawp.com/"
+msgstr "https://instawp.com/"
+
+#. Author of the plugin
+#: string-locator.php
+msgid "InstaWP"
+msgstr "InstaWP"
+
+#. Plugin URI of the plugin
+#: string-locator.php
+msgid "https://wordpress.org/plugins/string-locator/"
+msgstr "http://es.wordpress.org/plugins/string-locator/"
+
+#: views/editors/default.php:127
+msgid "When making changes to a theme, it is recommended you make a <a href=\"https://developer.wordpress.org/themes/advanced-topics/child-themes/\">Child Theme</a>."
+msgstr "Cuando hagas cambios en un tema, se recomienda que crees un <a href=\"https://developer.wordpress.org/themes/advanced-topics/child-themes/\">tema hijo</a>."
+
+#: includes/Tests/class-loopback.php:172
+msgid "A 500 server error was detected on your sites backend after updating your file. We have restored the previous version of the file for you."
+msgstr "Se ha detectado un error 500 del servidor en tu sitio después de actualizar tu archivo. Hemos restaurado por ti la versión anterior del archivo."
+
+#: includes/Tests/class-loopback.php:154
+msgid "Your changes were not saved, as a check of your sites backend could not be completed afterwards. This may be due to a <a href=\"https://wordpress.org/support/article/loopbacks/\">loopback</a> error."
+msgstr "Tus cambios no se han guardado, y la comprobación de tu sitio no se pudo completar. Esto puede deberse a un error de <a href=\"https://wordpress.org/support/article/loopbacks/\">loopback</a>."
+
+#: includes/REST/class-directory-structure.php:51
+msgid "Invalid search source provided."
+msgstr "Se ha proporcionado una fuente de búsqueda no válida."
+
+#: views/search.php:31
+msgid "No previous searches could be restored."
+msgstr "No se ha podido restaurar ninguna búsqueda anterior."
+
+#: includes/Extension/SQL/views/editor/sql.php:249
+#: views/editors/default.php:282
+msgid "Dismiss this notice."
+msgstr "Descartar este aviso."
+
+#. translators: File path.
+#: views/editors/default.php:197
+msgid "Full file path: %s"
+msgstr "Ruta completa al archivo: %s"
+
+#: views/editors/default.php:210
+msgid "Last modified:"
+msgstr "Última modificación:"
+
+#: views/editors/default.php:202
+msgid "File size:"
+msgstr "Tamaño del archivo:"
+
+#: includes/Tests/class-loopback.php:65
+msgid "This feature is highly recommended, and is what WordPress does when using the plugin- or theme-editor."
+msgstr "Esta característica es altamente recomendable y es lo que hace WordPress al usar el editor de plugins o temas."
+
+#: includes/Tests/class-loopback.php:61
+msgid "Enable loopback tests after making a save."
+msgstr "Activar las pruebas de retorno después de hacer un guardado."
+
+#: includes/Extension/SQL/views/editor/sql.php:152
+#: views/editors/default.php:181
+msgid "Save checks"
+msgstr "Guardar comprobaciones"
+
+#: includes/Extension/SQL/views/editor/sql.php:114
+#: views/editors/default.php:164
+msgid "Details"
+msgstr "Detalles"
+
+#. translators: %s: The name of the file being edited.
+#: views/editors/default.php:99
+msgid "You are currently editing <em>%s</em>"
+msgstr "Actualmente estás editando <em>%s</em>"
+
+#. translators: %s: The file location that was sent.
+#: includes/class-save.php:106
+msgid "The file location provided, <strong>%s</strong>, is not valid."
+msgstr "La ubicación del archivo proporcionada, <strong>%s</strong>, no es válida."
+
+#: includes/Tests/class-loopback.php:115
+msgid "Your changes were not saved, as a check of your site could not be completed afterwards. This may be due to a <a href=\"https://wordpress.org/support/article/loopbacks/\">loopback</a> error."
+msgstr "Tus cambios no se han guardado porque no se ha podido completar la verificación de tu sitio posteriormente. Esto puede deberse a un error de <a href=\"https://wordpress.org/support/article/loopbacks/\">loopback</a>."
+
+#: includes/class-string-locator.php:376
+msgid "Line position"
+msgstr "Posición de la línea"
+
+#: views/search.php:51
+msgid "Because this site is configured to not allow direct file editing, the String Locator plugin has limited functionality and may noy allow you to directly edit files with your string in them."
+msgstr "Como este sitio está configurado para o permitir la edición directa de archivos, el plugin String Locator tiene una funcionalidad limitada y solo te permitirá buscar archivos que contengan tu cadena."
+
+#: views/search.php:47
+msgid "String Locator is limited to search mode only."
+msgstr "String Locator está limitado a solo el modo de búsqueda."
+
+#: views/search.php:101
+msgid "RegEx search"
+msgstr "Búsqueda RegEx"
+
+#: includes/class-string-locator.php:466
+msgid "Next file: "
+msgstr "Siguiente archivo: "
+
+#: includes/class-string-locator.php:244
+msgid "All must-use plugins"
+msgstr "Todos los plugins imprescindibles"
+
+#: includes/class-string-locator.php:96
+msgid "Must Use Plugins"
+msgstr "Plugins imprescindibles"
+
+#: views/editors/default.php:138
+msgid "Keep in mind that edits to core files will be lost when WordPress is updated. Please consider <a href=\"https://make.wordpress.org/core/handbook/\">contributing to WordPress core</a> instead."
+msgstr "Ten en cuenta que, cuando se actualice WordPress, se perderán las ediciones hechas en los archivos del núcleo. Por favor, en su lugar, plantéate <a href=\"https://make.wordpress.org/core/handbook/\">contribuir al núcleo de WordPress</a>."
+
+#: views/editors/default.php:135
+msgid "You appear to be editing a Core file."
+msgstr "Parece que estás editando un archivo del núcleo."
+
+#: includes/Extension/SQL/views/editor/sql.php:85 views/editors/default.php:135
+msgid "Warning:"
+msgstr "Advertencia:"
+
+#. translators: The WordPress description, used when a core file is opened in
+#. the editor.
+#: views/editors/default.php:26
+msgid "WordPress is web software you can use to create a beautiful website or blog. We like to say that WordPress is both free and priceless at the same time."
+msgstr "WordPress es un software web que puedes usar para crear una hermosa web o blog. Nos gusta decir que WordPress, al mismo tiempo, es gratuito e impagable."
+
+#: includes/class-search.php:233
+msgid "Filename matches search"
+msgstr "El nombre de archivo coincide con la búsqueda"
+
+#. translators: %s: The search string used.
+#: includes/class-search.php:103 includes/Extension/SQL/class-search.php:204
+msgid "Your search string, <strong>%s</strong>, is not a valid pattern, and the search has been aborted."
+msgstr "Tu cadena de búsqueda, <strong>%s</strong>, no es un patrón válido y la búsqueda se ha cancelado."
+
+#: views/editors/default.php:193
+msgid "File location:"
+msgstr "Ubicación del archivo:"
+
+#: views/editors/default.php:190
+msgid "File information"
+msgstr "Información del archivo"
+
+#: includes/class-string-locator.php:472
+msgid "Warning"
+msgstr "Advertencia"
+
+#. translators: %1$d: Current amount of used system memory resources. %2$d: The
+#. maximum available system memory.
+#: includes/class-search.php:83
+msgid "The memory limit is about to be exceeded before the search has started, this could be an early indicator that your site may soon struggle as well, unfortunately this means the plugin is unable to perform any searches. Current memory consumption: %1$d of %2$d bytes"
+msgstr "El límite de memoria está a punto de superarse antes de empezar la búsqueda, esto podría ser un indicador temprano de que tu sitio podría caerse también, desafortunadamente esto significa que el plugin no es capaz de realizar ninguna búsqueda. Consumo actual de memoria: %1$d de %2$d bytes"
+
+#. translators: %1$d: The time a PHP file can run, as defined by the server
+#. configuration. %2$d: The amount of time used by the PHP file so far.
+#: includes/class-search.php:70
+msgid "The maximum time your server allows a script to run (%1$d) is too low for the plugin to run as intended, at startup %2$d seconds have passed"
+msgstr "El tiempo máximo que tu servidor permite ejecutarse a un script (%1$d) es demasiado bajo para que el plugin se ejecute como es deseable, al empezar se han pasado %2$d segundos"
+
+#: includes/class-string-locator.php:471
+msgid "Your search was completed, but no results were found."
+msgstr "Tu búsqueda se ha completado, pero no se han encontrado resultados."
+
+#: includes/class-string-locator.php:470
+msgid "The above error was returned by your server, for more details please consult your servers error logs."
+msgstr "El error anterior fue devuelto por el servidor, para más detalles, por favor consulta los registros de error de los servidores."
+
+#: includes/class-string-locator.php:469
+msgid "Preparations completed, search started&hellip;"
+msgstr "Preparativos completados, búsqueda iniciada&hellip;"
+
+#: includes/class-save.php:142
+msgid "We detected a PHP code tag ending, this has been automatically stripped out to help prevent errors in your code."
+msgstr "Hemos detectado una etiqueta final de código PHP, esto se ha eliminado automáticamente para ayudar a prevenir errores en tu código."
+
+#: includes/class-string-locator.php:467
+msgid "Saving search results&hellip;"
+msgstr "Guardando los resultados de la búsqueda..."
+
+#. translators: %d: The numbered reference to a file being searched.
+#: includes/class-search.php:57
+msgid "The file-number, %d, that was sent could not be found."
+msgstr "El número de archivo enviado, %d, no se ha podido encontrar."
+
+#: includes/class-string-locator.php:468 views/search.php:122
+msgid "Preparing search&hellip;"
+msgstr "Preparar la búsqueda&hellip;"
+
+#: includes/class-string-locator.php:90
+msgid "Everything under wp-content"
+msgstr "Todo en wp-content"
+
+#: views/editors/default.php:123
+msgid "It seems you are making direct edits to a theme."
+msgstr "Parece que estás editando directamente un tema."
+
+#. Description of the plugin
+#: string-locator.php
+msgid "Scan through theme and plugin files looking for text strings"
+msgstr "Escanear los archivos de los temas y plugins en busca de cadenas de texto"
+
+#. translators: The row-action edit link label.
+#: includes/class-string-locator.php:318
+#: includes/Extension/SearchReplace/REST/class-replace.php:164
+#: includes/Extension/SQL/class-search.php:71
+#: includes/Extension/SQL/views/template/search.php:17
+#: includes/Extension/SQL/views/template/search.php:18
+#: views/templates/search-default.php:17 views/templates/search-default.php:18
+msgid "Edit"
+msgstr "Editor"
+
+#: includes/class-string-locator.php:373
+msgid "String"
+msgstr "Cadena"
+
+#. translators: 1: Filename.
+#: includes/class-search.php:311
+msgid "Could not read file: %s"
+msgstr "No se ha podido leer el archivo: %s"
+
+#: includes/class-save.php:95
+msgid "The file has been saved"
+msgstr "El archivo se ha guardado"
+
+#: includes/Tests/class-loopback.php:133
+msgid "A 500 server error was detected on your site after updating your file. We have restored the previous version of the file for you."
+msgstr "Se detectó un error de servidor 500 en tu sitio después de actualizar tu archivo. Hemos restaurado la versión anterior del archivo."
+
+#. translators: 1: Line number with an error.
+#: includes/Tests/class-smart-scan.php:164
+msgid "There is an inconsistency in the opening and closing braces, ( and ), of your file on line %s"
+msgstr "Hay una inconsistencia en los paréntesis de apertura y cierre, ( y ), de tu archivo en la línea %s"
+
+#. translators: 1: Line number with an error.
+#: includes/Tests/class-smart-scan.php:138
+msgid "There is an inconsistency in the opening and closing braces, [ and ], of your file on line %s"
+msgstr "Hay una inconsistencia en los corchetes de apertura y cierre, [ y ], de tu archivo en la línea %s"
+
+#. translators: 1: Line number with an error.
+#: includes/Tests/class-smart-scan.php:114
+msgid "There is an inconsistency in the opening and closing braces, { and }, of your file on line %s"
+msgstr "Hay una inconsistencia en las llaves de apertura y cierre, { y }, de tu archivo en la línea %s"
+
+#: includes/class-save.php:42
+msgid "The file could not be written to, please check file permissions or edit it manually."
+msgstr "No se puede escribir en el archivo, por favor, comprueba los permisos del archivo o edítalo manualmente."
+
+#: views/search.php:105
+msgid "Restore last search"
+msgstr "Restaurar la última búsqueda"
+
+#: views/search.php:104
+msgid "Search"
+msgstr "Buscar"
+
+#: views/search.php:98
+msgid "Search string"
+msgstr "Buscar cadena"
+
+#: includes/class-string-locator.php:213
+msgid "All plugins"
+msgstr "Todos los plugins"
+
+#: includes/class-string-locator.php:100
+msgid "Plugins"
+msgstr "Plugins"
+
+#: includes/class-string-locator.php:141
+msgid "All themes"
+msgstr "Todos los temas"
+
+#: includes/class-string-locator.php:92
+msgid "Themes"
+msgstr "Temas"
+
+#: includes/class-string-locator.php:89
+msgid "The whole WordPress directory"
+msgstr "Todo el directorio de WordPress"
+
+#: includes/class-string-locator.php:88
+msgid "Core"
+msgstr "Núcleo"
+
+#: views/search.php:89
+msgid "Search through"
+msgstr "Buscar en"
+
+#. Plugin Name of the plugin
+#: string-locator.php includes/class-string-locator.php:523
+#: includes/class-string-locator.php:524 includes/class-string-locator.php:539
+#: includes/class-string-locator.php:540 views/search.php:38
+msgid "String Locator"
+msgstr "String Locator"
+
+#: includes/Extension/SQL/views/editor/sql.php:233
+#: views/editors/default.php:266
+msgid "WordPress functions"
+msgstr "Funciones de WordPress"
+
+#: includes/Extension/SQL/views/editor/sql.php:71 views/editors/default.php:108
+msgid "Save changes"
+msgstr "﻿Guardar los cambios"
+
+#: includes/Tests/class-smart-scan.php:62
+msgid "Enable a smart-scan of your code to help detect bracket mismatches before saving."
+msgstr "Antes de guardar, activa una exploración inteligente de tu código para ayudar a detectar discrepancias."
+
+#: views/editors/default.php:170
+msgid "By"
+msgstr "Por"
+
+#: includes/Extension/SQL/views/editor/sql.php:70 views/editors/default.php:107
+msgid "Return to search results"
+msgstr "Volver a los resultados de la búsqueda"
+
+#. translators: Title on the editor page.
+#: views/editors/default.php:87
+msgid "String Locator - Editor"
+msgstr "String Locator - Editor"

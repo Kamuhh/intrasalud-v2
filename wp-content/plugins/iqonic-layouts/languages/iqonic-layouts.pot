@@ -1,0 +1,380 @@
+# Copyright (C) 2023 Iqonic Design.
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Iqonic Layouts 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iqonic-layouts\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-02-04T14:19:30+05:30\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: iqonic-layouts\n"
+
+#. Plugin Name of the plugin
+msgid "Iqonic Layouts"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://iqonic.design/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Iqonic Layouts."
+msgstr ""
+
+#. Author of the plugin
+msgid "Iqonic Design."
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:83
+msgid "Enable Megamenu"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:89
+msgid "select"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:99
+msgid "No record found"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:103
+msgid "Create"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:103
+#: includes/Custom_Post/HeaderFooterLayout.php:13
+msgid "New Layout"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:110
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:131
+msgid "Default"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:113
+msgid "Full Width"
+msgstr ""
+
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:116
+#: includes/Admin/Classes/Iqonic_Layouts_Admin.php:134
+#: includes/Elementor/Elements/Logo/Widget.php:95
+#: includes/Layouts/LayoutMeta.php:52
+msgid "Custom"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:7
+#: includes/Custom_Post/HeaderFooterLayout.php:8
+#: includes/Custom_Post/HeaderFooterLayout.php:9
+#: includes/Custom_Post/HeaderFooterLayout.php:10
+#: includes/Elementor/Iqonic_Layouts_Extension_Elementor.php:28
+msgid "Layout"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:11
+msgid "Add New"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:12
+msgid "Add New Layout"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:14
+msgid "Edit Layout"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:15
+msgid "View Layout"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:16
+msgid "All Layout"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:17
+msgid "Search Layout"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:18
+msgid "Parent Layout:"
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:19
+msgid "No Layout found."
+msgstr ""
+
+#: includes/Custom_Post/HeaderFooterLayout.php:20
+msgid "No Layout found in Trash."
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:16
+msgid "iqonic_layouts"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:21
+#: includes/Elementor/Elements/Layout/Widget.php:38
+msgid "Layouts"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:45
+msgid "Custom Layout"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:49
+msgid "Select any previously created layout to insert to this sidebar"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:56
+msgid "Popup (panel) ID"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:59
+msgid "Popup (panel) ID is required!"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:68
+msgid " Add this Popup (panel) ID  with # prefix in any link  for the dynamic close button."
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:76
+msgid "Hide close button ?"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:77
+msgid "Hide default close button if you want dynamic close button."
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:79
+#: includes/Elementor/Elements/Layout/Widget.php:109
+#: includes/Elementor/Utils/helpers.php:56
+msgid "Yes"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:80
+#: includes/Elementor/Elements/Layout/Widget.php:110
+#: includes/Elementor/Utils/helpers.php:55
+msgid "No"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:89
+msgid "Panel Position"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:93
+#: includes/Elementor/Elements/Logo/Widget.php:142
+#: includes/Elementor/Utils/helpers.php:82
+msgid "Left"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:94
+#: includes/Elementor/Elements/Logo/Widget.php:150
+#: includes/Elementor/Utils/helpers.php:83
+msgid "Right"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:95
+msgid "Top"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:96
+msgid "Bottom"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:97
+msgid "Top left corner"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:98
+msgid "Top right corner"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:106
+msgid "Custom Height / Width"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:107
+msgid "Widht: Right/Left Toggle, Height: Top/Bottom Toggle"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:119
+#: includes/Elementor/Elements/Logo/Widget.php:69
+msgid "Width"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:150
+msgid "Height"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:181
+msgid "Set Panel Background Color"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:192
+msgid "Panel Box Shadow"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:202
+msgid "Close Button"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:210
+msgid "Button Icon"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:220
+msgid " Button Color"
+msgstr ""
+
+#: includes/Elementor/Elements/Layout/Widget.php:230
+msgid "Button Background Color"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/render.php:21
+#: includes/Elementor/Elements/Logo/render.php:35
+#: includes/Elementor/Elements/Logo/render.php:42
+msgid "iqonic"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:36
+msgid "Layouts: Logo"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:43
+msgid "Max height"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:91
+msgid "Logo Options"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:94
+msgid "Theme Logo"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:96
+msgid "Page Option"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:105
+msgid "Logo"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:106
+msgid "Default Logo.Show if custom logo option is selected or if page option logo is empty."
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:117
+msgid "Logo text"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:119
+msgid "Site name (used if logo is empty). If not specified - use blog name"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:128
+msgid "Logo slogan"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:130
+msgid "Slogan or description below site name (used if logo is empty). If not specified - use blog description"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:138
+#: includes/Elementor/Utils/helpers.php:77
+msgid "Alignment"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:146
+#: includes/Elementor/Utils/helpers.php:84
+msgid "Center"
+msgstr ""
+
+#: includes/Elementor/Elements/Logo/Widget.php:162
+msgid "Additional CSS Classes"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:51
+msgid "Fix Row"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:64
+msgid "Default Hidden ?"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:66
+msgid "yes"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:67
+msgid "no"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:81
+msgid "Inherit"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:85
+msgid "Space Between"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:92
+msgid "Position"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:96
+msgid "None"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:97
+msgid "Static"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:108
+msgid "Visiblity on laptop"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:112
+#: includes/Layouts/LayoutMeta.php:54
+msgid "Select"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:113
+msgid "Show"
+msgstr ""
+
+#: includes/Elementor/Utils/helpers.php:114
+msgid "Hide"
+msgstr ""
+
+#: includes/Layouts/LayoutMeta.php:13
+msgid "Select Layout"
+msgstr ""
+
+#: includes/Layouts/LayoutMeta.php:49
+msgid "Header"
+msgstr ""
+
+#: includes/Layouts/LayoutMeta.php:50
+msgid "Mega Menu"
+msgstr ""
+
+#: includes/Layouts/LayoutMeta.php:51
+msgid "Footer"
+msgstr ""
+
+#: includes/Layouts/LayoutMeta.php:53
+msgid "404"
+msgstr ""
+
+#: includes/Utils/helpers.php:177
+msgid "Edit "
+msgstr ""
+
+#: includes/Utils/helpers.php:177
+msgid "With Elementor"
+msgstr ""

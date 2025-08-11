@@ -1,0 +1,61 @@
+/* Image Effect */
+
+.kivicare-image-effect.animated {
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+}
+
+.kivicare-image-effect {
+    -webkit-clip-path: inset(0 0 100% 0);
+    clip-path: inset(0 0 100% 0);
+    -webkit-transition: 1.2s cubic-bezier(.63, .25, .25, 1);
+    -o-transition: 1.2s cubic-bezier(.63, .25, .25, 1);
+    transition: 1.2s cubic-bezier(.63, .25, .25, 1);
+
+}
+
+.kivicare-image-effect.rotation-effect img {
+    -webkit-animation: rotation 12s linear infinite;
+    -moz-animation: rotation 12s linear infinite;
+    animation: rotation 12s linear infinite;
+}
+
+.kivicare-image-effect .image-box-link {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: 2;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

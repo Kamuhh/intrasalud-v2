@@ -1,0 +1,134 @@
+/*---------------------------
+	FAQ
+------------------------------------*/
+.iq-accordion {
+	z-index: 9;
+	position: relative;
+}
+
+.iq-accordion .iq-accordion-title {
+	position: relative;
+	border-radius: 0;
+	padding: 15px 60px 15px 30px;
+	background: var(--white-color);
+	line-height: normal;
+	cursor: pointer;
+	display: flex;
+	text-align: left;
+	color: var(--title-color);
+	font-weight: var(--font-weight-semi-bold);
+	text-decoration: none;
+}
+
+.iq-active .iq-accordion-title {
+	background: var(--primary-color);
+}
+
+.iq-accordion .iq-active .iq-accordion-title .accordion-title {
+	color: var(--white-color);
+}
+
+.iq-accordion .iq-accordion-title .accordion-title {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.iq-accordion .iq-accordion-details {
+	display: none;
+	text-align: left;
+	background: var(--white-light-color);
+	padding: 15px 30px;
+}
+
+.iq-accordion .iq-accordion-details p {
+	margin: 0;
+}
+
+.iq-accordion .iq-accordion-block {
+	margin-bottom: 30px;
+	border: 1px solid var(--white-light-color);
+	padding: 0;
+}
+
+.iq-accordion .iq-accordion-block:last-child {
+	margin-bottom: 0!important;
+}
+
+.iq-accordion .iq-accordion-block .iq-accordion-title i {
+	vertical-align: middle;
+	color: var(--title-color);
+}
+
+.iq-accordion .iq-accordion-block .iq-accordion-title .iq-icon-right {
+	right: 30px;
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.iq-accordion .iq-accordion-block .iq-accordion-title i::before {
+	vertical-align: middle;
+}
+
+.iq-accordion .iq-accordion-block .iq-accordion-title i.active {
+	display: none;
+}
+
+.iq-accordion .iq-accordion-block.iq-active .iq-accordion-title i.active {
+	display: inline-block;
+	vertical-align: middle;
+	color: var(--white-color);
+}
+
+.iq-accordion .iq-accordion-block.iq-active .iq-accordion-title i.inactive {
+	display: none;
+}
+
+.iq-accordion-square .iq-accordion-block {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.iq-accordion-semi-round .iq-accordion-block {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.iq-accordion .iq-accordion-block .iq-accordion-title .iq-icon-left {
+	margin-right: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.5em;
+}
+
+.iq-accordion-shadow .iq-accordion-block.iq-active {
+	-webkit-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+	-moz-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+	transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+}
+
+/* rtl css */
+[dir="rtl"] .iq-accordion .iq-accordion-block .iq-accordion-title .iq-icon-right {
+	left: 30px;
+	right: auto;
+}
+
+[dir="rtl"] .iq-accordion .iq-accordion-title{
+	text-align: right;
+	padding: 15px 30px 15px 60px;
+}
+
+[dir="rtl"] .iq-accordion .iq-accordion-details{
+	text-align: right;
+}
+
+[dir="rtl"] .iq-accordion .iq-accordion-title .accordion-title {
+    direction: ltr;
+}

@@ -1,0 +1,325 @@
+/* ======Old Css====== */
+
+/*----------------------------------------------------------------------
+                                Buttons
+-----------------------------------------------------------------------*/
+.button {
+    color: var(--white-color);
+    padding: 0;
+    border: none;
+    position: relative;
+    display: inline-block;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    background: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.button:hover {
+    background: transparent;
+}
+
+.white-btn.button:hover,
+.blue-btn.button:hover {
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.white-btn.button {
+    color: var(--primary-color);
+    background: var(--white-color);
+}
+
+.white-btn.button:focus {
+    color: var(--primary-color);
+}
+
+.blue-btn.button {
+    color: var(--white-color);
+    background: var(--primary-color);
+    display: inline-grid;
+}
+
+.blue-btn.button a {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.blue-btn.button:before {
+    background: var(--secondary-color);
+}
+
+.blue-btn.button:focus {
+    color: var(--secondary-color);
+}
+
+.button:hover {
+    text-decoration: none;
+    color: var(--white-color);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.button:focus,
+.button.blue-btn:focus {
+    color: var(--white-color);
+}
+
+.button span {
+    z-index: 2;
+    position: relative;
+}
+
+.kivicare-left-img img {
+    position: relative;
+    left: -47%;
+    max-width: 155% !important;
+}
+
+.kivicare-right-img img {
+    right: -19%;
+    max-width: 150% !important;
+    margin-bottom: -1px;
+}
+
+.iq-objects-03 {
+    z-index: 1;
+}
+
+.button.border-btn {
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background: var(--white-color);
+}
+
+.button.border-btn:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+/*---------------------------------------------------------------------
+Button
+-----------------------------------------------------------------------*/
+
+.iq-button-style-2,
+.iq-button-style-2:focus,
+.iq-button-style-1,
+.iq-button-style-1:focus {
+    z-index: 1;
+    font-size: var(--font-size-body);
+    font-weight: normal;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.iq-button-style-2 .iq-btn-text-holder {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--secondary-color);
+    line-height: 30px;
+    position: relative;
+}
+
+.iq-button-style-1 .iq-btn-text-holder {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--secondary-color);
+    line-height: 30px;
+}
+
+.iq-button-style-2 span.iq-btn-text-holder {
+    color: var(--white-color);
+}
+
+.iq-button-style-1 span.iq-btn-text-holder {
+    color: var(--white-color);
+}
+
+.iq-button-style-2 .iq-btn-icon-holder,
+.iq-button-style-1 .iq-btn-icon-holder {
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.iq-button-style-2 .iq-btn-icon-holder i,
+.iq-button-style-1 .iq-btn-icon-holder i {
+    color: var(--white-color);
+    position: relative;
+    z-index: 3;
+    margin-left: 0;
+}
+
+.iq-button-style-2:hover i {
+    color: var(--primary-color);
+}
+
+.iq-button-style-2:hover .iq-btn-icon-holder i {
+    transform: rotate(90deg);
+}
+
+.iq-button-style-2 .iq-btn-icon-holder:after,
+.iq-button-style-1 .iq-btn-icon-holder:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: var(--secondary-color);
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.iq-button-style-2:hover .iq-btn-text-holder,
+.iq-button-style-2:hover .iq-btn-icon-holder:after {
+    background: var(--primary-color);
+}
+
+.iq-reply.iq-button-style-2 {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: unset;
+}
+
+.iq-main-departments {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 30px;
+    background: var(--light-blue-color);
+}
+
+#iq-menu-departments.kivi-departments-menu ul li {
+    margin-top: 15px;
+}
+
+#iq-menu-departments.kivi-departments-menu ul li:first-child {
+    margin-top: 0;
+}
+
+.iq-main-departments .widget-title {
+    margin-bottom: 15px;
+}
+
+#iq-menu-departments.kivi-departments-menu ul li a {
+    padding: 12px 60px 12px 30px;
+    display: block;
+    background: var(--white-color);
+    -webkit-box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+    color: var(--title-color);
+    position: relative;
+}
+
+#iq-menu-departments.kivi-departments-menu ul li:hover>a,
+#iq-menu-departments.kivi-departments-menu ul li.current_page_item a {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+#iq-menu-departments.kivi-departments-menu ul li a:before {
+    content: "\f218";
+    right: 30px;
+    position: absolute;
+    color: inherit;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -khtml-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-family: "Ionicons";
+    font-size: var(--font-size-body);
+}
+
+.iq-overflow {
+    overflow: hidden !important;
+}
+
+.iq-button-style-2:hover,
+.iq-button-style-2:hover .iq-btn-icon-holder i {
+    color: var(--white-color);
+}
+
+#load-more-pf {
+    display: block;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+#load-more-pf a {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 30px;
+}
+
+.iq-button-style-2.slider span.iq-btn-text-holder,
+.iq-button-style-2.slider .iq-btn-icon-holder:after {
+    background: var(--primary-color);
+}
+
+.iq-button-style-2.slider:hover .iq-btn-text-holder,
+.iq-button-style-2.slider:hover .iq-btn-icon-holder:after {
+    background: var(--secondary-color);
+}
+
+.iq-z-index {
+    z-index: 0 !important;
+}
+
+@media(max-width:767px) {
+    .iq-reply.iq-button-style-2 {
+        position: relative;
+        margin: 10px 0 0;
+    }
+}
+
+@media(max-width:576px) {
+    .responsive-vertical-logo-btn .blue-btn.button {
+        display: none;
+    }
+}
+
+.iq-sidearea-btn-container {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+@media(max-width:1199px) {
+    .iq-sidearea-btn-container {
+        display: none;
+    }
+}
+
+@media(max-width:359px) {
+    .iq-fancy-box.iq-fancy-box-style-7 .iq-button-style-2 .iq-btn-icon-holder {
+        margin-top: 15px;
+    }
+}

@@ -1,0 +1,110 @@
+/*--------------------------------------------------------------
+								 Client
+--------------------------------------------------------------*/
+
+/*column*/
+.iq-client-grid {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  margin: 0;
+  float: left;
+  width: 100%;
+}
+
+.iq-client-grid li {
+  border-left: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 15px;
+  text-align: center;
+  float: left;
+  background: var(--white-color);
+}
+
+.iq-client-grid li:last-child {
+  border-right: 1px solid #f2f2f2;
+}
+
+.iq-client-col-6 li {
+  width: 16.66%
+}
+
+.iq-client-col-5 li {
+  width: 20%
+}
+
+.iq-client-col-4 li {
+  width: 25%
+}
+
+.iq-client-col-3 li {
+  width: 33.33%
+}
+
+.iq-client-col-2 li {
+  width: 50%
+}
+
+.iq-client .owl-carousel .owl-item img {
+  width: auto;
+  margin: 0 auto;
+}
+
+.iq-client .iq-client-info h6 {
+  margin-bottom: 10px;
+}
+
+.iq-client .iq-client-info p {
+  margin-bottom: 0;
+}
+
+.iq-client.iq-has-shadow li:hover {
+  -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06);
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: -webkit-transform .4s ease;
+  -o-transition: transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+.iq-client.iq-has-grascale li img,
+.iq-client.iq-has-grascale .item img {
+  opacity: .4;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.iq-client.iq-has-grascale li:hover img,
+.iq-client.iq-has-grascale .item:hover img {
+  opacity: 1;
+  -webkit-filter: none;
+  filter: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+  .iq-client-col-6 li,
+  .iq-client-col-5 li,
+  .iq-client-col-4 li {
+    width: 50%;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .iq-client-col-6 li,
+  .iq-client-col-5 li,
+  .iq-client-col-4 li,
+  .iq-client-col-3 li,
+  .iq-client-col-2 li {
+    width: 100%;
+  }
+}

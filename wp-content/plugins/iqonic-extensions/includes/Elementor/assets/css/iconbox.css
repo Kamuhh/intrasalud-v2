@@ -1,0 +1,276 @@
+/*--------------------------------------------------------------
+			   Icon Box
+--------------------------------------------------------------*/
+
+/*style 1*/
+.iq-icon-box-style-1 {
+  position: relative;
+  padding: 30px;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  background: var(--white-color);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.iq-icon-box-style-1 .icon-box-img i {
+  font-size: var(--font-size-45);
+  color: var(--primary-color);
+}
+
+.iq-icon-box-style-1 .icon-box-img {
+  line-height: normal;
+  display: inline-block;
+}
+
+.iq-icon-box-style-1 .icon-box-content .icon-box-title a {
+  margin: 15px 0;
+  display: inline-block;
+}
+
+.iq-icon-box-style-1 .icon-box-content .icon-box-desc {
+  margin: 0;
+}
+
+.iq-icon-box-style-1::before {
+  width: 0;
+  transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  height: 4px;
+  background: var(--primary-color);
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.iq-icon-box-style-1:hover::before,
+.iq-icon-box-style-1.active::before {
+  width: 100%;
+}
+
+.iq-icon-box-style-1:hover,
+.iq-icon-box-style-1.active {
+  -webkit-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+}
+
+/*style 2*/
+.iq-icon-box-style-2 {
+  display: flex;
+  padding: 30px;
+  border: 1px solid transparent;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+.iq-icon-box-style-2 .icon-box-img {
+  margin-right: 30px;
+}
+
+.iq-icon-box-style-2 .icon-box-img i {
+  font-size: var(--font-size-45);
+  color: var(--primary-color);
+  display: inline-block;
+  line-height: normal;
+}
+
+.iq-icon-box-style-2 .icon-box-content {
+  flex: 1;
+}
+
+.iq-icon-box-style-2 .icon-box-content .icon-box-title a {
+  display: inline-block;
+}
+
+.iq-icon-box-style-2 .icon-box-content .icon-box-desc {
+  margin: 0;
+}
+
+.iq-icon-box-style-2:hover,
+.iq-icon-box-style-2.active {
+  border-color: var(--white-light-color);
+  background: var(--white-color);
+  -webkit-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+}
+
+
+/*Icon Box*/
+.iq-icon-box-style-2 {
+  display: block;
+}
+
+.iq-icon-box-style-2 .icon-box-img {
+  margin-bottom: 30px;
+  display: block;
+}
+
+.iq-icon-box-style-2 .iq-button.iq-btn-link,
+.iq-icon-box-style-2 .iq-button.iq-btn-link i{
+  color: var(--primary-color);
+}
+
+.iq-icon-box-style-2:hover .iq-button.iq-btn-link,
+.iq-icon-box-style-2:hover .iq-button.iq-btn-link i{
+  color: var(--white-color);
+}
+
+/*style 3*/
+.iq-icon-box-style-3 p.icon-box-desc {
+  margin: 0;
+}
+
+.iq-icon-box-style-3 .iq-btn-container {
+  margin: 25px 0 0 0;
+}
+
+.iq-icon-box-style-3 .icon-box-title {
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-weight: normal;
+  margin: 0 0 15px 0;
+}
+
+.iq-icon-box-style-3 .icon-box-img {
+  margin-bottom: 25px;
+}
+
+.iq-icon-box-style-3 .icon-box-img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@-webkit-keyframes pulse-shrink-on-hover {
+  to {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes pulse-shrink-on-hover {
+  to {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+.iq-icon-box-style-3 .pulse-shrink-on-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.iq-icon-box-style-3 .pulse-shrink-on-hover:hover {
+  -webkit-animation-name: pulse-shrink-on-hover;
+  animation-name: pulse-shrink-on-hover;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+.iq-icon-box-style-3 .icon-box-img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*style 4*/
+.iq-icon-box-style-4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-gap-30 .iq-icon-box-style-4{
+  gap: 30px;
+}
+
+.iq-icon-box-style-4.content-reverse {
+  flex-direction: row-reverse;
+}
+
+.iq-icon-box-style-4 .icon-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.iq-icon-box-style-4 p.icon-box-desc {
+  margin: 0;
+  line-height: normal;
+}
+
+.iq-icon-box-style-4 .icon-box-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iq-fertility-icon-footer .iq-icon-box-style-4 {
+  gap: 40px;
+}
+
+@media (max-width: 767px) {
+  .iq-fertility-icon-footer .iq-icon-box-style-4 {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .iq-icon-box-style-4 .icon-box-content {
+    align-items: center;
+  }
+
+}
+
+/*----------------------------------------
+				 rtl
+  -----------------------------------------*/
+[dir=rtl] .iq-icon-box.iq-icon-box-style-1,
+[dir=rtl] .iq-icon-box-style-3 {
+  text-align: right;
+}
+
+[dir=rtl] .iq-icon-box-style-2 .icon-box-img {
+  margin-right: 0;
+}
+
+@media (max-width: 767px){
+  .custom-gap-30 .iq-icon-box-style-4{
+    gap: 15px;
+  }
+}
+
+@media(max-width:575px){
+  .iq-icon-box-style-4{
+    flex-direction: column;
+    text-align: center;
+  }
+}

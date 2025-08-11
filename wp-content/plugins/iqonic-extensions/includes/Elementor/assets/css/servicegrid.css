@@ -1,0 +1,202 @@
+.kivicare-service-blog {
+    margin-bottom: 32px;
+    overflow: hidden;
+}
+
+.kivicare-service-style1 {
+    padding: 50px;
+    background-color: var(--color-theme-orange-light);
+}
+
+.kivicare-service-style1 .kivicare-service-box-icon {
+    display: inline-block;
+    position: relative;
+    background-color: var(--color-theme-service-icon);
+    height: 80px;
+    line-height: 80px;
+    width: 80px;
+    float: right;
+    text-align: center;
+    margin-top: -45px;
+    margin-right: 32px;
+    z-index: 1;
+}
+
+[dir="rtl"] .kivicare-service-style1 .kivicare-service-box-icon{
+    float: left;
+    margin-right: 0;
+    margin-left: 32px;
+}
+
+.kivicare-service-style1 svg {
+    height: 40px;
+    width: 40px;
+}
+
+.kivicare-service-style1 svg path {
+    fill: var(--white-color);
+}
+
+.kivicare-service-style1 .kivicare-service-info {
+    margin-top: 35px;
+}
+
+.kivicare-service-style1 .kivicare-description {
+    margin: 18px 0 0;
+}
+
+.kivicare-service-style1 .kivicare-image {
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.kivicare-service-style1 .kivicare-image img,
+.kivicare-service-style3 .iq-service-image img {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.kivicare-service-style1:hover .kivicare-image img,
+.kivicare-service-style3:hover .iq-service-image img {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.kivicare-service-style1 .iq-btn-container {
+    margin-top: 50px;
+}
+
+/*==============
+responsive
+==================*/
+@media (max-width: 767px) {
+    .kivicare-service-style1 {
+        padding: 35px;
+    }
+}
+
+.kivicare-service-style2 {
+    padding: 30px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.kivicare-service-style2 svg {
+    width: 35px;
+    height: 35px;
+}
+
+.kivicare-service-style2 .kivicare-service-box-icon {
+    background-color: var(--color-theme-grey);
+    display: inline-flex;
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.kivicare-service-style2 .kivicare-heading-title{
+    padding-bottom: 12px;
+}
+
+.kivicare-service-style2 svg path {
+    fill: var(--primary-color);
+}
+
+.kivicare-service-style2 .kivicare-description {
+    margin: 0;
+}
+
+.kivicare-service-style2 .iq-btn-container{
+    margin-top: 15px;
+}
+
+/* Service box style 2 hover effect */
+.kivicare-service-style2.kivicare-hovereffect:hover,
+.kivicare-service-style2.kivicare-hovereffect.active {
+    border-color: var(--white-light-color);
+    background: var(--white-color);
+    -webkit-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Service box style 2 icon hover effect */
+.kivicare-service-style2 .pulse-shrink-on-hover {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.kivicare-service-style2 .pulse-shrink-on-hover:hover {
+    -webkit-animation-name: pulse-shrink-on-hover;
+    animation-name: pulse-shrink-on-hover;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+/*=========================
+style-3
+============================*/
+.kivicare-service-style3 .kivicare-service-inner {
+    background-color: var(--color-theme-blue-light);
+    padding: 35px;
+    position: relative;
+}
+
+.kivicare-service-style3 .kivicare_team-category a {
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-normal);
+    letter-spacing: var(--letter-spacing-one);
+    text-transform: uppercase;
+    color: var(--global-font-color);
+    transition: all .5s ease-in-out;
+}
+
+.kivicare-service-style3 .kivicare_team-category a:hover {
+    color: var(--primary-color);
+}
+
+.kivicare-service-style3 .kivicare-heading-title {
+    padding: 5px 0 0;
+}
+
+.kivicare-service-style3 .kivicare-service-box-icon img,
+.kivicare-service-style3 .kivicare-service-box-icon svg {
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    filter: grayscale(100%);
+}
+
+.kivicare-service-style3 .iq-btn-container{
+    margin-top: 30px;
+}
+
+/*=========================
+style-3
+============================*/
+[dir="rtl"] .kivicare-service-style3 .kivicare-service-box-icon img,
+[dir="rtl"] .kivicare-service-style3 .kivicare-service-box-icon svg {
+    right: auto;
+    left: 0;
+}

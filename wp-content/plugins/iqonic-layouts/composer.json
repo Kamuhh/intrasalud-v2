@@ -1,0 +1,19 @@
+{
+    "name": "iqonic/iqonic-layouts-extension",
+    "authors": [
+        {
+            "name": "Iqonic_Layouts Design",
+            "email": "hello@iqonic.com"
+        }
+    ],
+    "require": {},
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "Iqonic_Layouts\\": "./includes"
+        },
+        "files": [
+            "./includes/Utils/helpers.php"
+        ]
+    }
+}

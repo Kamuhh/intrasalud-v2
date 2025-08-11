@@ -1,0 +1,707 @@
+/*---------------------------------------------------------------------
+			   Testimonial
+-----------------------------------------------------------------------*/
+/*style 1*/
+.iq-testimonial .iq-testimonial-avtar img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.iq-testimonial .iq-testimonial-quote {
+  position: absolute;
+  font-size: var(--font-size-90);
+  line-height: 90px;
+  left: 50%;
+  top: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: -1;
+  opacity: 1;
+}
+
+[dir='rtl'] .iq-testimonial .iq-testimonial-quote {
+  margin-left: -50%;
+  margin-right: 0;
+}
+
+.iq-testimonial .iq-testimonial-quote i {
+  opacity: .2;
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-testimonial-avtar {
+  margin-right: 15px;
+  width: 60px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-testimonial-avtar img {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-testimonial-content {
+  z-index: 1;
+  position: relative;
+  background: rgba(255, 255, 255, 1.0);
+  padding: 15px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid var(--white-light-color);
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-testimonial-content:before {
+  content: "";
+  position: absolute;
+  z-index: 9;
+  bottom: -15px;
+  left: 5%;
+  height: 0;
+  width: 0;
+  border-top: 15px solid rgba(255, 255, 255, 1.0);
+  border-left: 15px solid transparent;
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-testimonial-content {
+  background: var(--white-light-color);
+}
+
+.iq-testimonial-1 .iq-testimonial-info .title {
+  font-size: (--font-size-18);
+}
+
+.iq-testimonial-1 .iq-testimonial-info .avtar-name {
+  display: table-cell;
+}
+
+.iq-testimonial-1 .iq-testimonial-info .avtar-name span {
+  font-size: (--font-size-sm);
+}
+
+.iq-testimonial-1 .iq-testimonial-info p {
+  margin-bottom: 0;
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-lead {
+  font-size: (--font-size-18);
+  line-height: 20px;
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+}
+
+.iq-testimonial-1 .iq-testimonial-info .iq-testimonial-member {
+  margin-top: 30px;
+  display: flex;
+}
+
+.iq-testimonial-1.text-right .iq-testimonial-info .iq-testimonial-content:before {
+  right: 5%;
+  left: auto;
+}
+
+.iq-testimonial-1.text-right .iq-testimonial-info .iq-testimonial-member {
+  float: right;
+  display: block
+}
+
+.iq-testimonial-1.text-right .iq-testimonial-info .iq-testimonial-avtar {
+  margin-right: 0;
+  margin-left: 15px;
+  float: right;
+}
+
+.iq-testimonial-1.text-center .iq-testimonial-info .iq-testimonial-content:before {
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.iq-testimonial-1.text-center .iq-testimonial-info .iq-testimonial-member {
+  display: block;
+  text-align: center;
+}
+
+.iq-testimonial-1.text-center .iq-testimonial-info .iq-testimonial-avtar {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.iq-testimonial-1.text-center .iq-testimonial-info .avtar-name {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/*Style 2*/
+.iq-testimonial-2 .iq-testimonial-avtar {
+  -webkit-border-radius: 90px;
+  -moz-border-radius: 90px;
+  border-radius: 90px;
+  vertical-align: middle;
+  z-index: 2;
+  position: relative;
+  width: 65px;
+  height: 65px;
+  display: inline-block;
+  margin-bottom: 45px;
+  -webkit-box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--white-color);
+}
+
+.iq-testimonial-2 .iq-testimonial-member {
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.iq-testimonial-2 .iq-testimonial-member .content {
+  display: inline-block;
+  font-weight: 400;
+}
+
+.iq-testimonial-2 .iq-testimonial-info p {
+  margin-bottom: 0;
+  z-index: 1;
+  position: relative;
+}
+
+.iq-testimonial-2 .iq-testimonial-info {
+  text-align: center;
+  padding: 45px 30px;
+  margin: 60px 30px 70px;
+  -webkit-box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  background: var(--white-color);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  position: relative;
+}
+
+.iq-testimonial-2 .iq-testimonial-info:before {
+  content: "";
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
+  width: 90%;
+  z-index: -1;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  height: 100%;
+  background: var(--white-color);
+  -webkit-box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+}
+
+.iq-testimonial-2 .iq-testimonial-info:after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  width: 82%;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  z-index: -2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  height: 100%;
+  background: var(--white-color);
+  -webkit-box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: -6px 15px 30px 0 rgba(0, 0, 0, 0.08);
+}
+
+/*style 3*/
+.iq-testimonial-3 .iq-testimonial-info .iq-testimonial-content {
+  font-size: var(--font-size-20);
+  padding: 30px;
+}
+
+.iq-testimonial-3 .iq-testimonial-info .iq-testimonial-content p {
+  margin-bottom: 0;
+}
+
+.iq-testimonial-3 .iq-testimonial-info .iq-testimonial-member {
+  padding: 0 30px;
+}
+
+.iq-testimonial-3 .iq-testimonial-info .iq-testimonial-member .avtar-name .iq-lead {
+  color: var(--secondary-color);
+  font-size: var(--font-size-26);
+  font-weight: var(--font-weight-bold);
+  font-family: 'Plus Jakarta Text', sans-serif;
+}
+
+.iq-testimonial-3 .iq-testimonial-info .iq-testimonial-avtar {
+  width: 60px;
+  margin: 0 auto;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.iq-testimonial-3.text-right .iq-testimonial-info .iq-testimonial-avtar {
+  float: right;
+}
+
+.iq-testimonial-3 .iq-testimonial-info .iq-testimonial-avtar img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+/* Style -4 */
+
+.iq-testimonial-4 .iq-testimonial-quote {
+  position: relative;
+  top: unset;
+  left: unset;
+  transform: unset;
+  margin-right: 0;
+  text-align: inherit;
+  margin-bottom: 60px;
+}
+
+.kivicare-testimonial-style-1.iq-testimonial-4 .kivicare-slider .kivicare-main-slider {
+  padding: 0;
+}
+
+/*testimonial*/
+.iq-testimonial-2 .iq-testimonial-member:before {
+  display: none;
+}
+
+.iq-testimonial-2 .iq-testimonial-info img {
+  margin-bottom: 15px;
+}
+
+.iq-testimonial-2 .iq-testimonial-member {
+  margin-bottom: 15px;
+}
+
+/*testimonial style three*/
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider {
+  display: flex;
+  position: relative;
+  padding: 0 60px 0 80px;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_top .testimonial-slider-img {
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  padding-right: 110px;
+  box-sizing: content-box;
+  overflow: hidden;
+}
+
+.kivicare-testimonial-style-1.iq-testimonial-3::before {
+  content: "";
+  background-color: var(--primary-color);
+  height: 100%;
+  width: 153px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.iq-testimonial.iq-testimonial-3 .iq-testimonial-quote {
+  left: 100px;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content {
+  position: relative;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon {
+  padding: 0 40px 0 69px;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon img {
+  height: 80px;
+  width: 200px;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-post-ratings {
+  color: var(--color-theme-primary-light);
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .text-dec {
+  margin-bottom: 16px;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .text-dec p {
+  margin: 0;
+  font-family: var(--global-font-family);
+  font-size: var(--font-size-20);
+  line-height: 40px;
+  font-style: italic;
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-one);
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kivicare-testimonial-style-1.iq-testimonial-3 .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+  display: block;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-user-info .kivicare-testimonial-user {
+  margin: 0;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-user-info .kivicare-testimonial-user .kivicare-designation {
+  position: relative;
+  font-size: var(--font-size-normal);
+  line-height: 26px;
+  letter-spacing: var(--letter-spacing-two);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-user-info h4 {
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-user-info .kivicare-testimonial-user .kivicare-designation::before {
+  content: "";
+  background: var(--color-theme-primary);
+  height: 1px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social {
+  margin-right: 40px;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social ul li {
+  margin-right: 8px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social ul li:last-child {
+  margin-right: 0;
+}
+
+.kivicare-testimonial-style-1 .testimonial-sliders .owl-dots {
+  margin-top: 16px;
+}
+
+.iq-testimonial-3 {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.iq-testimonial-3 .owl-carousel .owl-nav .owl-prev {
+  left: auto;
+  right: 60px;
+  bottom: 0;
+}
+
+.iq-testimonial-3 .owl-carousel .owl-nav {
+  top: inherit;
+  bottom: 60px;
+}
+
+.iq-testimonial-3 .owl-carousel .owl-nav .owl-next {
+  right: 0;
+}
+
+.iq-testimonial-3 .owl-carousel .owl-nav i {
+  background: var(--primary-color);
+}
+
+.iq-testimonial-3 .owl-carousel .owl-nav i:hover {
+  color: var(--primary-color);
+  background: var(--white-color);
+}
+
+.iq-testimonial-3 .owl-carousel .owl-item {
+  opacity: 0;
+}
+
+.iq-testimonial-3 .owl-carousel .owl-item.active {
+  opacity: 1;
+}
+
+.iq-testimonial-4 .iq-testimonial-avtar img {
+  height: 76px;
+  border-radius: 50%;
+  width: 76px;
+}
+
+.kivicare-testimonial-style-1.iq-testimonial-4 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+  justify-content: unset;
+  gap: 30px;
+}
+
+/*===========
+style-4-seprator
+=================*/
+.iq-testimonial-4.has-seprator .kivicare-slider .kivicare-lead {
+  position: relative;
+  padding-top: 58px;
+  border-top: 1px solid var(--lab-border-color);
+}
+
+.iq-testimonial-4.has-seprator .iq-testimonial-quote {
+  margin-bottom: 28px;
+  text-align: right;
+  font-size: initial;
+  line-height: normal;
+  color: var(--primary-color);
+}
+
+.iq-testimonial-4.has-seprator .owl-dots {
+  position: absolute;
+  left: auto;
+  right: 0;
+  bottom: 30px;
+  width: auto;
+  margin-top: 0;
+}
+
+/*======================
+rtl css 
+=============================*/
+[dir="ltr"] .iq-testimonial-3 .owl-rtl .kivicare-slider_top,
+[dir="rtl"] .iq-testimonial-3 .kivicare-slider_top,
+[dir="ltr"] .iq-testimonial-4 .owl-rtl .kivicare-lead .iq-testimonial-avtar,
+[dir="rtl"] .iq-testimonial-4 .kivicare-lead .iq-testimonial-avtar {
+  order: 1;
+}
+
+[dir="rtl"] .iq-testimonial-3 .owl-rtl .kivicare-slider_top,
+[dir="rtl"] .iq-testimonial-4 .owl-rtl .kivicare-lead .iq-testimonial-avtar {
+  order: inherit;
+}
+
+[dir="ltr"] .kivicare-testimonial-style-1.iq-testimonial-4 .owl-rtl .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead,
+[dir="rtl"] .kivicare-testimonial-style-1.iq-testimonial-4 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .kivicare-testimonial-style-1.iq-testimonial-4 .owl-rtl .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_top .testimonial-slider-img {
+  padding-left: 110px;
+  padding-right: 0;
+}
+
+[dir="rtl"] .kivicare-testimonial-style-1.iq-testimonial-3::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .iq-testimonial-3 .owl-carousel .owl-nav .owl-prev {
+  left: 60px;
+  right: auto;
+}
+
+[dir="rtl"] .iq-testimonial-3 .owl-carousel .owl-nav .owl-next {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .iq-testimonial-3 .owl-carousel .owl-nav .owl-next i {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .iq-testimonial-3 .owl-carousel .owl-nav .owl-prev i {
+  transform: rotate(-180deg);
+}
+
+[dir="rtl"] .kivicare-testimonial-style-1.iq-testimonial-4 .kivicare-slider .kivicare-main-slider {
+  padding: 0;
+}
+
+[dir="rtl"] .iq-testimonial-4 {
+  text-align: right;
+}
+
+[dir="rtl"] .iq-testimonial-4 .owl-carousel .owl-stage-outer .kivicare-slider {
+  transform: scalex(-1);
+}
+
+[dir="ltr"] .iq-testimonial-4 {
+  text-align: left;
+}
+
+[dir="rtl"] .iq-testimonial-4.has-seprator .iq-testimonial-quote {
+  text-align: left;
+  margin-left: 0;
+}
+
+[dir="rtl"] .iq-testimonial-4.has-seprator .owl-dots {
+  right: auto;
+  left: 0;
+}
+
+/*====================================
+                responsive
+====================================*/
+
+@media (max-width: 1199px) {
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider {
+    padding: 60px 0 60px 80px;
+  }
+
+  [dir="rtl"] .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider {
+    padding: 60px 80px 60px 0;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon {
+    padding: 0 40px;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social {
+    margin-right: 0;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon img {
+    width: 245px;
+  }
+
+  .iq-testimonial-4.has-seprator .owl-dots {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: inline-block;
+    line-height: normal;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider {
+    align-items: center;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social ul li {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider,
+  [dir="rtl"] .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider {
+    display: block;
+    padding: 0;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_top .testimonial-slider-img,
+  [dir="rtl"] .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_top .testimonial-slider-img {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider::before,
+  .kivicare-testimonial-style-1.iq-testimonial-3::before,
+  .iq-testimonial.kivicare-testimonial-style-1 .iq-testimonial-quote {
+    content: none;
+    display: none;
+  }
+
+  .iq-testimonial.iq-testimonial-4.has-seprator .iq-testimonial-quote {
+    display: block;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon {
+    padding: 0;
+    margin-top: 40px;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon img {
+    height: auto;
+    width: auto;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content {
+    margin-top: 28px;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+    margin-top: 25px;
+  }
+
+  .iq-testimonial-3 {
+    margin: 0;
+  }
+
+  .iq-testimonial-4.has-seprator .kivicare-slider .kivicare-lead {
+    padding-top: 35px;
+  }
+}
+
+@media (max-width: 479px) {
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+    display: block;
+  }
+
+  .iq-testimonial-4 .kivicare-lead .iq-testimonial-avtar {
+    display: inline-block;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .quote-icon {
+    margin-top: 30px;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content {
+    margin-top: 25px;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead {
+    margin-top: 20px;
+  }
+
+  .kivicare-testimonial-style-1 .kivicare-slider .kivicare-main-slider .kivicare-slider_content .kivicare-lead .kivicare-testimonial-social {
+    margin-top: 16px;
+  }
+}

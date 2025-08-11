@@ -1,0 +1,20 @@
+{
+    "name": "iqonic/iqonic-extension",
+    "authors": [
+        {
+            "name": "Iqonic Design",
+            "email": "hello@iqonic.com"
+        }
+    ],
+    "require": {},
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "Iqonic\\": "./includes"
+        },
+        "files": [
+            "./includes/Utils/helpers.php",
+            "./includes/Utils/ajax_helper.php"
+        ]
+    }
+}

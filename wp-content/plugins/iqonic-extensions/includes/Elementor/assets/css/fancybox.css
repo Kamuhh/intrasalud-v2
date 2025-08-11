@@ -1,0 +1,170 @@
+/*----------------------------------
+		Fancy Box
+-------------------------------------------*/
+.iq-fancy-box.text-center .iq-img-area {
+  margin: 0 auto;
+}
+
+/*style 4*/
+.iq-fancy-box-style-4 {
+  position: relative;
+  box-shadow: 0 0 150px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.iq-fancy-box-style-4 .iq-fancy-box-content {
+  padding: 30px;
+  background: var(--white-color);
+  position: relative;
+  z-index: 1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.iq-fancy-box-style-4 .iq-fancy-box-content .iq-img-area {
+  margin-bottom: 25px;
+  font-size: var(--font-size-45);
+  line-height: normal;
+}
+
+.iq-fancy-box-style-4 .iq-fancy-box-content .iq-img-area i::before {
+  vertical-align: middle;
+}
+
+.iq-fancy-box-style-4 .iq-fancy-box-content .iq-fancy-title {
+  margin-bottom: 15px;
+}
+
+.iq-fancy-box-style-4 .iq-fancy-box-content .fancy-box-content {
+  margin-bottom: 0;
+}
+
+.iq-fancy-box-style-4:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  z-index: -1;
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  transform: rotate(0deg);
+}
+
+.iq-fancy-box-style-4:hover:before,
+.iq-fancy-box-style-4.active:before {
+  transform: rotate(12deg);
+}
+
+.iq-fancy-box-style-4:hover .iq-fancy-box-content .iq-img-area,
+.iq-fancy-box-style-4.active .iq-fancy-box-content .iq-img-area {
+  color: var(--primary-color);
+}
+
+.iq-fancy-box.iq-fancy-box-style-4.text-right .iq-img-area {
+  text-align: right;
+}
+
+.iq-fancy-box.iq-fancy-box-style-4.text-left .iq-img-area {
+  text-align: left;
+}
+
+.iq-fancy-box.iq-fancy-box-style-4.text-center .iq-img-area {
+  text-align: center;
+}
+
+/*style 7*/
+.iq-fancy-box-style-7 {
+  top: 0;
+  background: var(--white-color);
+  -webkit-box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 87.3px 2.7px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 0 30px 40px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.iq-fancy-box-style-7 .iq-img-area i {
+  font-size: var(--font-size-62);
+  color: var(--primary-color);
+}
+
+.iq-fancy-box-style-7 .iq-img-area {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.iq-fancy-box-style-7 .iq-fancy-box-content .iq-fancy-title {
+  display: block;
+}
+
+.iq-fancy-box-style-7 .iq-img-area {
+  margin-bottom: 15px;
+}
+
+.iq-fancy-box.iq-fancy-box-style-7.text-center .iq-img-area {
+  margin-bottom: 15px;
+}
+
+.iq-fancy-box-style-7 .iq-fancy-box-content .fancy-box-content {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.iq-fancy-box-style-7 .iq-fancy-box-content .iq-button {
+  margin-top: 30px;
+}
+
+.iq-fancy-box-style-7:hover,
+.iq-fancy-box-style-7.active {
+  margin-top: -5px;
+}
+
+.iq-fancy-box-style-7 .iq-img-area i,
+.iq-fancy-box-style-7 .iq-img-area img {
+  margin-top: -30px;
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.iq-fancy-box.text-center .iq-img-area {
+  margin: 0 auto 30px;
+}
+
+.iq-fancy-box-style-7:hover .iq-img-area i,
+.iq-fancy-box-style-7:hover .iq-img-area img,
+.iq-fancy-box-style-7.active .iq-img-area i,
+.iq-fancy-box-style-7.active .iq-img-area img {
+  margin-top: -50px;
+}
+
+@media (max-width: 767px) {
+  .iq-fancy-box-style-7 .iq-img-area img {
+    margin-top: -55px;
+  }
+}

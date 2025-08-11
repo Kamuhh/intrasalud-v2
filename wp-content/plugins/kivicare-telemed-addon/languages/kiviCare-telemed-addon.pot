@@ -1,0 +1,172 @@
+# Copyright (C) 2025 iqonic
+# This file is distributed under the same license as the KiviCare - Telemed add-on plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: KiviCare - Telemed add-on 2.1.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kivicare-telemed-addon\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-04-08T17:47:15+05:30\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: kiviCare-telemed-addon\n"
+
+#. Plugin Name of the plugin
+#: kivicare-telemed-addon.php
+msgid "KiviCare - Telemed add-on"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: kivicare-telemed-addon.php
+msgid "https://iqonic.design"
+msgstr ""
+
+#. Description of the plugin
+#: kivicare-telemed-addon.php
+msgid "KiviCare - Telemed add-on is an impressive add-on for KiviCare - Clinic & Patient Management System (EHR) plugin."
+msgstr ""
+
+#. Author of the plugin
+#: kivicare-telemed-addon.php
+msgid "iqonic"
+msgstr ""
+
+#. Author URI of the plugin
+#: kivicare-telemed-addon.php
+msgid "http://iqonic.design/"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:76
+#: teleMedApp/baseClasses/KCTActivate.php:80
+msgid "Warning:"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:76
+#: teleMedApp/baseClasses/KCTActivate.php:80
+msgid "The KiviCare - Telemed add-on"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:76
+msgid "Requires Plugin Version : "
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:76
+msgid "KiviCare - Clinic & Patient Management System (EHR) V"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:76
+msgid "your current plugin version is"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:80
+msgid "Requires : "
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:80
+msgid "KiviCare - Clinic & Patient Management System (EHR)"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:84
+msgid "Warning: kiviCare-telemed-addon"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:84
+msgid " is deactivate Because kivicare-clinic-management-system is not active"
+msgstr ""
+
+#: teleMedApp/baseClasses/KCTActivate.php:84
+msgid "Note:kivicare-clinic-management-system plugin is active still receiving this message then Make sure that kivicare-clinic-management-system plugin folder is same as \" kivicare-clinic-management-system\" in wp-content/plugins."
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:46
+msgid "Meeting failed"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:64
+msgid "Zoom Telemed is not configured."
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:71
+msgid "Zoom Server-to-Server OAuth app is not configured."
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:87
+msgid "Meeting"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:117
+msgid "Meeting updated successfully"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:130
+#: teleMedApp/filters/KCTDoctorConfigFilters.php:72
+msgid "Invalid access token"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:156
+msgid "Meeting has been created"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:160
+msgid "Zoom appointment has not been generated."
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:214
+msgid "Meeting has been deleted"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:241
+msgid "Meetings has been deleted"
+msgstr ""
+
+#: teleMedApp/filters/KCTAppointmentFilters.php:261
+msgid "Meetings has email"
+msgstr ""
+
+#: teleMedApp/filters/KCTDoctorConfigFilters.php:32
+#: teleMedApp/filters/KCTDoctorConfigFilters.php:67
+msgid "Configuration saved"
+msgstr ""
+
+#: teleMedApp/filters/KCTDoctorConfigFilters.php:50
+msgid "Configuration Server To Server Oauth"
+msgstr ""
+
+#: teleMedApp/filters/KCTDoctorConfigFilters.php:108
+msgid "Zoom Telemed Server To Server Oauth Setting Saved Successfully."
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:36
+msgid "Zoom Telemed Setting Saved Successfully"
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:88
+msgid "Doctor is Connected To Zoom Telemed"
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:120
+msgid "Zoom server to server oauth credentials are missing. Please check your settings."
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:142
+msgid "Failed to connect to Zoom API: "
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:203
+msgid "Doctor Disonnected Zoom Telemed Successfully"
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:207
+msgid "SomeThing Went Wrong"
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:238
+msgid "Zoom Telemed Server To Server Oauth Status Changed."
+msgstr ""
+
+#: teleMedApp/filters/KCTMainFilters.php:273
+msgid "Doctor Disonnected Zoom Server To Server Oauth Successfully"
+msgstr ""

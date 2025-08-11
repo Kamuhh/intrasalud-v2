@@ -1,0 +1,144 @@
+.cart-btn {
+    position: relative;
+}
+
+.cart_count {
+    display: inline-block;
+    position: relative;
+}
+
+.cart_count .kivicare-cart .dropdown-back {
+    color: var(--color-theme-white);
+}
+
+.cart-btn .mini-cart-count-text {
+    font-size: var(--font-size-normal);
+    color: var(--global-font-title);
+    letter-spacing: var(--letter-spacing-three);
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+    margin-right: 5px;
+
+    /*---------------------  User Dropdown    -------------------*/
+    .kivicare-users-settings {
+        display: inline-block;
+        position: relative;
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown .kivicare-card-body div {
+        border-radius: 0;
+        text-align: left;
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown .kivicare-card-body .right-icon i {
+        color: var(--primary-color);
+        padding: 0;
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown {
+        width: 18.75em;
+        position: absolute;
+        top: 100%!important;
+        right: 0;
+        left: auto;
+        background: var(--white-color);
+        border-radius: var(--border-radius-box);
+        -webkit-box-shadow: 0 .0625em 2em 0 rgb(36 38 43 / 10%);
+        box-shadow: 0 .0625em 2em 0 rgb(36 38 43 / 10%);
+        z-index: 10;
+        display: none;
+        padding-top: 1em;
+        font-size: var(--font-size-body);
+        border: none;
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown .kivicare-sub-card {
+        position: relative;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        line-height: normal;
+        color: var(--body-text);
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+        border-bottom: .03em solid var(--border-color-light);
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown .kivicare-card-body .kivicare-sub-card:hover span {
+        color: var(--primary-color);
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown .kivicare-sub-card:last-child {
+        margin-bottom: 0;
+    }
+
+    .kivicare-usermenu-dropdown .kivicare-sub-dropdown a.kivicare-sub-card:last-child {
+        border-bottom: 0;
+    }
+
+    .header-user-rights .dropdown-toggle {
+        line-height: 3em;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-subtitle);
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .header-user-rights .dropdown-toggle .kivicare-avatar-icon {
+        margin-right: 10px;
+    }
+
+    .header-user-rights .dropdown-toggle .kivicare-avatar-image {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+    }
+
+    .sub-main .kivicare-usermenu-dropdown ul, .search-box.kivicare-search-bar ul {
+        margin: 0;
+        line-height: normal;
+    }
+
+    .header-user-rights .dropdown-menu.show {
+        display: none!important;
+    }
+
+    .header-user-rights .kivicare-user-list-item .kivicare-list-link span {
+        transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -ms-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+    }
+
+    .kivicare-users-settings .dropdown-toggle::after {
+        display: none;
+    }
+
+
+    @media(max-width:479px) {
+        .kivicare-usermenu-dropdown .kivicare-sub-dropdown {
+            right: 0;
+            width: 250px;
+        }
+    }
+}
+
+.cart-btn .mini-cart-count-total {
+    background: var(--color-theme-primary);
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: auto;
+    right: -10px;
+    color: var(--color-theme-white);
+    font-size: 10px;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+}

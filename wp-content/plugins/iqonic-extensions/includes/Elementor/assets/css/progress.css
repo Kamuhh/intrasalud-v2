@@ -1,0 +1,182 @@
+/*---------------------------------
+		Progressbar
+----------------------------------------------*/
+
+/*Style 1*/
+.iq-progressbar-content {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.iq-progressbar-content:last-child {
+    margin-bottom: 0;
+}
+
+.progress-value {
+    float: right;
+    color: var(--secondary-color);
+    line-height: 30px;
+    font-weight: 400;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;
+}
+
+.iq-progress-bar {
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;
+    background: #6f6f6f none repeat scroll 0 0;
+    box-shadow: 0 0 0;
+    height: 8px;
+    position: relative;
+    width: 100%;
+    margin: 10px 0 0;
+}
+
+.iq-progress-bar>span {
+    background: var(--primary-color) none repeat scroll 0 0;
+    display: block;
+    height: 100%;
+    width: 0;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;
+}
+
+/*Style-2*/
+.iq-progressbar-style-2 .iq-progress-bar {
+    height: 30px;
+    color: var(--white-color);
+    font-size: (--font-size-sm);
+    line-height: 30px;
+}
+
+.iq-progressbar-style-2 .iq-progress-bar .progress-title {
+    left: 15px;
+    right: auto;
+    position: absolute;
+}
+
+.iq-progressbar-style-2 .progress-value {
+    color: var(--white-color);
+    right: 15px;
+}
+
+/*Style-3*/
+.iq-progressbar-style-3 .progress-value {
+    display: inline-flex;
+    padding: 6px 10px;
+    margin-top: -50px;
+    align-items: center;
+    justify-content: center;
+    background-color: #6f6f6f;
+    line-height: 1.5em;
+    color: var(--white-color);
+    position: relative;
+    border-radius: 5px;
+}
+
+.iq-progressbar-style-3 .progress-value::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    border-style: solid;
+    border-color: #6f6f6f transparent transparent;
+}
+
+/*Circle Progressbar*/
+.iq-radial-progress.text-center .tox-progress {
+    margin: 0 auto 15px;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.iq-radial-progress .tox-progress-content .text-center {
+    width: 100%;
+}
+
+.iq-radial-progress .tox-progress {
+    margin-bottom: 15px;
+}
+
+.iq-radial-progress .tox-progress-content .text-center p {
+    font-weight: var(--font-weight-bold);
+}
+
+.iq-radial-progress p {
+    margin-bottom: 0;
+    color: var(--secondary-color);
+}
+
+/*style 2*/
+.iq-radial-progress.iq-radial-progress-2 .tox-progress-content .text-center p.iq-progress-value {
+    font-size: var(--font-size-32);
+    color: var(--text-color);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.progressbar-circle {
+    display: inline-block;
+    width: 100%;
+}
+
+.progressbar-circle .circle {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.progressbar-circle .circle canvas {
+    vertical-align: middle;
+    height: 160px!important;
+    width: 160px!important;
+}
+
+.progressbar-circle .circle div {
+    position: absolute;
+    top: 45px;
+    left: 5px;
+    width: 100%;
+    text-align: center;
+    line-height: 80px;
+    font-size: var(--font-size-32);
+    color: #8e989f;
+    font-weight: 900;
+}
+
+.progressbar-circle .circle strong i {
+    font-style: normal;
+    font-size: .6em;
+    font-weight: 400;
+}
+
+.progressbar-circle .circle span {
+    display: block;
+    color: #aaa;
+    margin-top: 12px;
+}
+
+.progressbar-circle .circle p {
+    color: var(--title-color);
+}
+
+/*----------------------------------------
+				 rtl
+-----------------------------------------*/
+[dir=rtl] .progress-value {
+    float: left;
+    left: 0;
+    right: auto;
+}

@@ -1,0 +1,326 @@
+.kivicare-price-table-1 .kivicare-inner-box {
+    background: var(--white-color);
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--box-border-radius);
+    padding: 40px;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+/*pricing header  */
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-header {
+    border-bottom: 1px solid var(--border-color-light);
+    position: relative;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-header .price-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .pricing-heading .kivicare-price-title {
+    color: var(--global-font-color);
+    line-height: 31px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-one);
+    font-weight: var(--font-weight-regular);
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .pricing-heading .price-label {
+    padding: 10px 22px;
+    background-image: linear-gradient(293deg, var(--text-gradient-one) -15.38%, var(--text-gradient-two) 57.43%, var(--text-gradient-three) 94.88%);
+    border-radius: 35px 0 0 35px;
+    color: var(--color-theme-white);
+    font-size: var(--font-size-normal);
+    line-height: var(--font-line-height-body);
+    position: absolute;
+    right: 0;
+    top: 35px;
+}
+
+.kivicare-price-table-1 .kivicare-price .price {
+    margin-top: 0;
+}
+
+.kivicare-price-table-1:hover .kivicare-inner-box .kivicare-price-header,
+.kivicare-price-table-1.active .kivicare-inner-box .kivicare-price-header,
+.kivicare-price-table-1:hover .kivicare-inner-box .kivicare-price-header .kivicare-price-label,
+.kivicare-price-table-1.active .kivicare-inner-box .kivicare-price-header .kivicare-price-label,
+.kivicare-price-table-1:hover .kivicare-inner-box .kivicare-price-service li,
+.kivicare-price-table-1.active .kivicare-inner-box .kivicare-price-service li {
+    color: var(--color-theme-white);
+}
+
+.kivicare-price-table-1:hover .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.kivicare-price-table-1.active .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button::before {
+    opacity: 1;
+}
+
+.kivicare-price-table-1 .kivicare-theme-button {
+    background: var(--color-theme-primary);
+    color: var(--color-theme-white);
+}
+
+.kivicare-price-table-1 .kivicare-theme-button:hover::after {
+    background: var(--color-theme-white);
+
+}
+
+.kivicare-price-table-1 .kivicare-theme-button:hover {
+    color: var(--color-theme-primary)!important;
+}
+
+.kivicare-price-table-1 .icon-box-img svg {
+    background: var(--color-theme-white);
+    padding: 20px;
+    height: 80px;
+    width: 80px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 17px 63px rgb(0 0 0 / 5%);
+}
+
+.kivicare-price-table-1 .kivicare-price-description {
+    padding: 0;
+    margin: 15px 0 40px;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.kivicare-price-table-1 .kivicare-price-body {
+    padding: 30px 0 40px;
+}
+
+.kivicare-price-table-1 .kivicare-Price-symbol {
+    display: inline-flex;
+    align-items: center;
+}
+
+.kivicare-price-table-1 .kivicare-price-service {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kivicare-price-table-1 .kivicare-price {
+    background: var(--color-theme-primary-light-bg);
+    margin: 12px 0 0;
+}
+
+.kivicare-price .month {
+    font-size: var(--font-size-body);
+    color: var(--global-font-color);
+    padding: 0;
+    font-weight: var(--font-weight-body);
+}
+
+.kivicare-price .dollar {
+    font-size: var(--font-size-h2);
+    padding: 0;
+    margin-top: 3px;
+    font-weight: var(--font-weight-light);
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-service li {
+    padding-left: 30px;
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-service li:last-child {
+    margin-bottom: 0;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-service li i {
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-footer {
+    padding: 15px 0;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-service li span {
+    margin-left: 18px;
+    transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+}
+
+.kivicare-price-description {
+    transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button {
+    padding: 15px;
+    background: var(--global-body-bgcolor);
+    display: block;
+    text-align: center;
+    position: relative;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button .text-btn {
+    z-index: 1;
+    position: relative;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button:before,
+.kivicare-price-table-1.active .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-theme-button::before {
+    content: "";
+    background-image: linear-gradient(293deg, var(--text-gradient-one) -15.38%, var(--text-gradient-two) 57.43%, var(--text-gradient-three) 94.88%);
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.kivicare-price-table-1:hover .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button:before {
+    opacity: 1;
+}
+
+.kivicare-price-table-1 .kivicare-inner-box .kivicare-price-footer {
+    padding: 0;
+    text-align: center;
+}
+
+/* style 2 */
+
+.kivicare-price-table-2 {
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.04);
+}
+
+.kivicare-price-table-2 .kivicare-price-header {
+    padding: 40px;
+    border-radius: 15px 15px 0 0;
+}
+
+.kivicare-price-table-2 .kivicare-price-body {
+    padding: 40px;
+}
+
+.kivicare-price-table-2 .kivicare-price-title {
+    margin: 0;
+}
+
+.kivicare-price-table-2 .kivicare-price-description {
+    margin-bottom: 0;
+}
+
+.kivicare-price-table-2 .kivicare-service-title {
+    font-family: var(--global-font-family);
+    font-weight: var(--font-weight-regular);
+    color: var(--global-font-color);
+    margin-bottom: 8px;
+
+}
+
+.kivicare-price-table-2 .kivicare-price .price,
+.kivicare-price-table-2 .kivicare-price .dollar {
+    font-family: var(--highlight-font-family);
+    font-weight: 700;
+    margin: 0;
+}
+
+.kivicare-price-table-2 .kivicare-Price-symbol {
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.kivicare-price-table-2 .kivicare-price-service {
+    list-style: none;
+    padding-left: unset;
+    margin-bottom: unset;
+}
+
+.kivicare-price-table-2 .kivicare-price-service li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.kivicare-price-footer {
+    padding: 0 40px 40px 60px;
+    border-radius: 0 0 15px 15px;
+}
+
+/* responsive  */
+@media (max-width:480px) {
+    .kivicare-price-table-1 .kivicare-inner-box {
+        padding: 30px;
+    }
+
+    .kivicare-price-table-1 .kivicare-inner-box .kivicare-price-header .price-heading {
+        flex-direction: column;
+    }
+
+    .kivicare-price-table-1 .kivicare-inner-box .pricing-heading .price-label {
+        padding: 5px 10px;
+        top: 15px;
+    }
+
+    .kivicare-price-table-1 .kivicare-inner-box .kivicare-price-footer .kivicare-button-container .kivicare-button {
+        padding: 10px 32px;
+    }
+}
+
+@media (max-width:767px) {
+    .kivicare-price .dollar {
+        font-size: 40px;
+    }
+}
+
+@media (max-width:991px) {
+    .kivicare-price-table-2 .kivicare-price .dollar {
+        font-size: 1em;
+    }
+}
+
+
+/* rtl css */
+[dir="rtl"] .kivicare-price-table-1 .kivicare-inner-box {
+    text-align: right;
+}
+
+[dir="rtl"] .kivicare-price-table-1 .kivicare-inner-box .kivicare-price-service li i {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .kivicare-price-table-1 .kivicare-inner-box .kivicare-price-service li {
+    padding-left: 0;
+    padding-right: 30px;
+}

@@ -1,0 +1,68 @@
+/*---------------------------------------------------------------------
+				   Section Title
+-----------------------------------------------------------------------*/
+.iq-title-box .iq-subtitle {
+   color: var(--global-font-color);
+   display: inline-block;
+   text-transform: uppercase;
+   font-size: var(--font-size-sm);
+   letter-spacing: var(--letter-spacing-two);
+   font-weight: var(--font-weight-semi-bold);
+}
+
+.iq-befor-line .iq-subtitle {
+   position: relative;
+   padding-left: 40px;
+}
+
+.iq-befor-line .iq-subtitle:after {
+   content: "";
+   position: absolute;
+   background: var(--primary-color);
+   width: 30px;
+   height: 2px;
+   left: 2px;
+   top: 11px;
+}
+
+.iq-title-box .iq-title {
+   margin-bottom: 0;
+}
+
+.iq-title-box .iq-title-desc {
+   margin-top: 15px;
+   margin-bottom: 0;
+}
+
+.iq-title-box {
+   margin-bottom: 35px;
+}
+
+.iq-title-box i {
+   font-size: var(--font-size-30);
+   margin-bottom: 15px;
+}
+
+.iq-title-box span.left-text {
+   font-weight: var(--font-weight-light);
+}
+
+/* Title Box Text Left*/
+.iq-title-box.text-center {
+   margin-bottom: 75px;
+}
+
+.iq-title-white .iq-subtitle,
+.iq-title-white .iq-title,
+.iq-title-white .iq-title-desc,
+.iq-title-white i {
+   color: var(--primary-color);
+}
+
+/*style 2*/
+.iq-title-box.iq-title-box-2 .iq-subtitle {
+   background: var(--primary-color);
+   color: var(--white-color);
+   padding: 5px 15px;
+   margin-bottom: 15px;
+}

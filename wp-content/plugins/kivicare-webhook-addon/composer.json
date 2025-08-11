@@ -1,0 +1,30 @@
+{
+    "name": "saurab/kivicare-webhooks-addon",
+    "description": "Kivicare webhooks addon for kivicare clinic management plugin",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Saurab Gupta",
+            "email": "saurab1234gupt@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "KCWebhookAddons\\": "./App"
+        },
+        "files": [
+            "./utils/helper.php"
+        ]
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

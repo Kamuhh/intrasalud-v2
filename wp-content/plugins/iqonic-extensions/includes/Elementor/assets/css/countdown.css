@@ -1,0 +1,94 @@
+/*-----------------------------
+					Count Down
+------------------------------------*/
+.iq-count-down .iq-data-countdown-timer.size_sm {
+  font-size: var(--font-size-30);
+  color: var(--secondary-color);
+}
+
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection {
+  display: inline-block;
+  margin: 0 45px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection::after {
+  content: ":";
+  position: absolute;
+  right: -45px;
+  top: 15%;
+  color: var(--secondary-color);
+  font-size: var(--font-size-50);
+  font-weight: var(--font-weight-bold);
+}
+
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection:last-child::after {
+  display: none;
+}
+
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection .numberDisplay {
+  display: block;
+  color: var(--secondary-color);
+  font-size: var(--font-size-h1);
+  line-height: normal;
+  font-weight: var(--font-weight-regular);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection .periodDisplay {
+  text-transform: uppercase;
+  display: block;
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection:first-child {
+  margin-left: 0;
+}
+
+/*count down*/
+.iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection {
+  margin-bottom: 30px;
+}
+
+@media(max-width:575px) {
+  .iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+
+  .iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection .numberDisplay {
+    margin-bottom: 0;
+  }
+
+  .mc4wp-form-fields {
+    text-align: center;
+  }
+
+  .iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection::after{
+    content: none;
+  }
+}
+
+@media (max-width:768px) {
+  .iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection .numberDisplay {
+    font-size: var(--font-size-h3);
+  }
+
+}
+
+/*----------------------------------------
+				 rtl
+-----------------------------------------*/
+
+[dir="rtl"] .iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection::after {
+  left: -45px;
+  right: auto;
+}
+
+[dir="rtl"] .iq-count-down .iq-data-countdown-timer .timerDisplay .displaySection:first-child {
+  margin-right: 0;
+  margin-left: 45px;
+}

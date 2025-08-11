@@ -1,0 +1,294 @@
+/*---------------------------
+			Flipbox
+------------------------------------------*/
+.iq-flip-box {
+  position: relative;
+  border-radius: 0;
+  margin-bottom: 30px;
+}
+
+.iq-flip-box .flipbox-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 270px;
+  perspective: 1000px;
+}
+
+.iq-flip-box.iq-flip-box-shadow .front-side,
+.iq-flip-box.iq-flip-box-shadow .back-side {
+  -webkit-box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+}
+
+.iq-flip-box .front-side,
+.iq-flip-box .back-side {
+  display: block;
+  -webkit-backface-visibility: unset;
+  backface-visibility: unset;
+  transition: transform 1s, visibility 0s .3s;
+  min-height: inherit;
+  border-radius: 0;
+  background-position: top left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--secondary-color);
+  perspective: inherit;
+  transform-style: preserve-3d;
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+
+  .iq-flip-box .front-side,
+  .iq-flip-box .back-side {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .8s cubic-bezier(0.5, 0.2, 0.2, 0.8);
+  }
+}
+
+.iq-flip-box .flip-media {
+  margin-bottom: 0;
+}
+
+.iq-flip-box .front-side .flip-media i {
+  font-size: var(--font-size-45);
+}
+
+.iq-flip-box .front-side {
+  box-sizing: border-box;
+  padding: 45px 30px;
+  visibility: visible;
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box .front-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: unset;
+  }
+}
+
+.iq-flip-box .front-side .flip-media,
+.iq-flip-box .front-side .flipbox-title,
+.iq-flip-box .front-side .flipbox-details {
+  transform-style: inherit;
+  perspective: inherit;
+  -webkit-backface-visibility: inherit;
+  backface-visibility: inherit;
+}
+
+.iq-flip-box .front-side .flip-media {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translate3d(0, 10px, 70px) scale(0.86);
+}
+
+.iq-flip-box .front-side .flipbox_subtitle {
+  transform: translate3d(0, 0, 60px) scale(0.68);
+}
+
+.iq-flip-box .front-side .flipbox-title {
+  color: var(--title-color);
+  padding: 0 15px;
+  margin: 0;
+  box-sizing: border-box;
+  transform: translate3d(0, 0, 70px) scale(0.86);
+}
+
+.iq-flip-box .front-side .flipbox-details {
+  color: var(--body-text);
+  padding: 0 10px;
+  font-size: (--font-size-body);
+  line-height: 1.875;
+  transform: translate3d(0, 0, 70px) scale(0.86);
+}
+
+.iq-flip-box .back-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  visibility: hidden;
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box .back-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    visibility: unset;
+  }
+}
+
+.iq-flip-box .back-side .flip-media,
+.iq-flip-box .back-side .flipbox-title,
+.iq-flip-box .back-side .flipbox-content {
+  transform-style: initial;
+  perspective: inherit;
+  -webkit-backface-visibility: inherit;
+  backface-visibility: inherit;
+}
+
+.iq-flip-box .back-side .flip-media {
+  height: 20px;
+  transform: translate3d(0px, -10px, 35px) scale(0.86);
+}
+
+.iq-flip-box .back-side .flipbox-title {
+  color: var(--title-color);
+  padding: 0 30px;
+  margin-bottom: 15px;
+  transform: translate3d(0, 0, 70px) scale(0.86);
+}
+
+.iq-flip-box .back-side .flipbox-content {
+  color: var(--body-text);
+  padding: 0 9px;
+  line-height: 1.875;
+  transform: translate3d(0, 0, 60px) scale(0.86);
+}
+
+.iq-flip-box .back-side .iq-flip-button {
+  margin-top: 30px;
+}
+
+.iq-flip-box .back-side .iq-flip-button a {
+  margin-bottom: 0;
+}
+
+.iq-flip-box .flipbox_button {
+  padding-top: 15px;
+}
+
+.iq-flip-box .flipbox_button:after {
+  color: inherit;
+}
+
+.iq-flip-box.flip-right .front-side {
+  transform: rotateY(0deg);
+}
+
+.iq-flip-box.flip-right .front-side .flip-media {
+  transform: translate3d(0, 0, 70px) scale(0.86);
+}
+
+.iq-flip-box.flip-right .back-side {
+  transform: rotateY(-180deg);
+}
+
+.iq-flip-box.flip-right:hover .front-side {
+  visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-right:hover .front-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-right:hover .back-side {
+  visibility: visible;
+  transform: rotateY(0);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-right:hover .back-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-left .front-side {
+  transform: rotateY(0deg);
+}
+
+.iq-flip-box.flip-left .back-side {
+  transform: rotateY(180deg);
+}
+
+.iq-flip-box.flip-left:hover .front-side {
+  visibility: hidden;
+  transform: rotateY(-180deg);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-left:hover .front-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-left:hover .back-side {
+  visibility: visible;
+  transform: rotateY(0);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-left:hover .back-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-top .front-side {
+  transform: rotateX(0deg);
+}
+
+.iq-flip-box.flip-top .back-side {
+  transform: rotateX(-180deg);
+}
+
+.iq-flip-box.flip-top:hover .front-side {
+  visibility: hidden;
+  transform: rotateX(180deg);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-top:hover .front-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-top:hover .back-side {
+  visibility: visible;
+  transform: rotateX(0);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-top:hover .back-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-bottom .front-side {
+  transform: rotateX(0deg);
+}
+
+.iq-flip-box.flip-bottom .back-side {
+  transform: rotateX(180deg);
+}
+
+.iq-flip-box.flip-bottom:hover .front-side {
+  visibility: hidden;
+  transform: rotateX(-180deg);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-bottom:hover .front-side {
+    visibility: unset;
+  }
+}
+
+.iq-flip-box.flip-bottom:hover .back-side {
+  visibility: visible;
+  transform: rotateX(0);
+}
+
+@supports ((-webkit-backface-visibility:hidden) or (backface-visibility:hidden)) {
+  .iq-flip-box.flip-bottom:hover .back-side {
+    visibility: unset;
+  }
+}

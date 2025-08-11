@@ -1,0 +1,276 @@
+.iqonic-custom-layouts {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    -webkit-transition: -webkit-transform 0.8s ease, opacity 6s ease;
+    -ms-transition: -ms-transform 0.8s ease, opacity 6s ease;
+    transition: transform 0.8s ease, opacity 6s ease;
+    opacity: 0;
+    scrollbar-width: thin;
+}
+.iqonic-custom-layouts{
+  pointer-events: none;
+}
+.iqonic-custom-layouts.top-slide.open,
+.iqonic-custom-layouts.left-slide.open,
+.iqonic-custom-layouts.right-slide.open,
+.iqonic-custom-layouts.bottom-slide.open{
+  pointer-events: all;
+}
+.iqonic-custom-layouts .sidebar-scrollbar {
+    background: var(--global-submenu-bg);
+    -webkit-transition: -webkit-transform 0.8s ease, opacity 6s ease;
+    -ms-transition: -ms-transform 0.8s ease, opacity 6s ease;
+    transition: transform 0.8s ease, opacity 6s ease;
+    height: 100%;
+}
+
+.iqonic-custom-layouts .btn-close {
+    height: 2.75em;
+    width: 2.75em;
+    line-height: 2.75em;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    left: auto;
+    right: 2em;
+    top: 3.25em;
+    border: none;
+    cursor: pointer;
+    z-index: 999999;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    background: #000;
+    opacity: 1;
+}
+.iqonic-custom-layouts  .btn-close:focus{
+  box-shadow: none;
+}
+.iqonic-custom-layouts .btn-close i {
+    color: var(--color-theme-white);
+}
+
+
+/* dark mode */
+.iqonic-custom-layouts.dark-mode {
+    background: var(--color-theme-secondary);
+    color: var(--color-theme-white);
+}
+
+/*-----------Scrollbar------*/
+.iqonic-custom-layouts.right-slide::-webkit-scrollbar,
+.iqonic-custom-layouts.left-slide::-webkit-scrollbar {
+    width: 0.3125em;
+}
+
+.iqonic-custom-layouts.right-slide::-webkit-scrollbar-track,
+.iqonic-custom-layouts.left-slide::-webkit-scrollbar-track {
+    box-shadow: none;
+}
+
+.iqonic-custom-layouts.right-slide::-webkit-scrollbar-thumb,
+.iqonic-custom-layouts.left-slide::-webkit-scrollbar-thumb {
+    background-color: transparent !important;
+    outline: 0.0625em solid transparent;
+
+}
+
+.iqonic-custom-layouts.right-slide,
+.iqonic-custom-layouts.left-slide {
+    scrollbar-color: #413c46 #c8c8c8;
+    scrollbar-width: thin;
+}
+
+/* Right panel */
+.iqonic-custom-layouts.right-slide {
+    width: 25em;
+    left: auto;
+    overflow-y: auto;
+    height: 100vh;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+}
+
+.iqonic-custom-layouts.right-slide.open,
+.iqonic-custom-layouts.left-slide.open {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    -webkit-transition: -webkit-transform 0.8s ease, opacity 0.3s ease;
+    -ms-transition: -ms-transform 0.8s ease, opacity 0.3s ease;
+    transition: transform 0.8s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Left panel */
+.iqonic-custom-layouts.left-slide {
+    width: 25em;
+    height: 100vh;
+    right: auto;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+}
+.iqonic-custom-layouts.left-slide,.iqonic-custom-layouts.right-slide{
+    max-width: 100%;
+}
+.iqonic-custom-layouts.left-slide.open,
+.iqonic-custom-layouts.right-slide.open {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    opacity: 1;
+}
+
+/* Top panel */
+.iqonic-custom-layouts.top-slide {
+    transform: translateY(-120%);
+    -webkit-transform: translateY(-120%);
+    -moz-transform: translateY(-120%);
+    -o-transform: translateY(-120%);
+    -ms-transform: translateY(-120%);
+    top: 0;
+}
+
+.iqonic-custom-layouts.top-slide.open {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.8s ease, opacity 0.3s ease;
+    -ms-transition: -ms-transform 0.8s ease, opacity 0.3s ease;
+    transition: transform 0.8s ease, opacity 0.3s ease;
+}
+
+/* Bottom panel */
+.iqonic-custom-layouts.bottom-slide {
+    top: auto;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    top: 0;
+}
+
+.iqonic-custom-layouts.bottom-slide.open {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.8s ease, opacity 0.3s ease;
+    -ms-transition: -ms-transform 0.8s ease, opacity 0.3s ease;
+    transition: transform 0.8s ease, opacity 0.3s ease;
+}
+
+.iqonic-custom-layouts .sidebar-scrollbar>.elementor,
+.iqonic-custom-layouts .elementor-section-wrap,
+.iqonic-custom-layouts .elementor-inner,
+.iqonic-custom-layouts .elementor-section.elementor-section-height-full {
+    height: 100%;
+    min-height: auto;
+}
+
+.iqonic-custom-layouts .elementor-section.elementor-section-height-full {
+    height: 100%;
+    min-height: auto;
+}
+.iqonic-custom-layouts .elementor-section.elementor-section-height-full > .elementor-container {
+    height: 100%;
+}
+/*
+----------------------------------------
+  animation top effect start
+----------------------------------------
+ */
+ @-webkit-keyframes scale-in-tl {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-tl {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+      opacity: 1;
+    }
+  }
+  
+  .iqonic-custom-layouts.top-right-corner-slide ,.iqonic-custom-layouts.top-left-corner-slide{
+	-webkit-animation: scale-in-tl 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: scale-in-tl 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-transition: -webkit-clip-path 1s ease-in-out;
+    transition: -webkit-clip-path 1s ease-in-out;
+    -o-transition: clip-path 1s ease-in-out;
+    transition: clip-path 1s ease-in-out;
+    transition: clip-path 1s ease-in-out,-webkit-clip-path 1s ease-in-out;
+  }
+  .iqonic-custom-layouts.top-right-corner-slide.open ,.iqonic-custom-layouts.top-left-corner-slide.open{
+    -webkit-transition: -webkit-clip-path 1s ease-in-out;
+    transition: -webkit-clip-path 1s ease-in-out;
+    -o-transition: clip-path 1s ease-in-out;
+    transition: clip-path 1s ease-in-out;
+    transition: clip-path 1s ease-in-out,-webkit-clip-path 1s ease-in-out;
+  }
+  /* Top Right*/
+  .iqonic-custom-layouts.top-right-corner-slide{
+    clip-path: circle(0% at 100% 0);
+    -webkit-clip-path: circle(0% at 100% 0);
+  }
+  .iqonic-custom-layouts.top-right-corner-slide.open{
+    clip-path: circle(150% at 100% 0);
+    -webkit-clip-path: circle(150% at 100% 0);
+  }
+
+ /* Top Left*/
+  .iqonic-custom-layouts.top-left-corner-slide{
+    clip-path: circle(0% at 0 0);
+    -webkit-clip-path: circle(0% at 0 0);
+  }
+  .iqonic-custom-layouts.top-left-corner-slide.open{
+    clip-path: circle(150% at 0 0);
+    -webkit-clip-path: circle(150% at 0 0);
+  }
+  /*
+----------------------------------------
+  animation top effect End
+----------------------------------------
+ */

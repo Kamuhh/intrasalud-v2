@@ -1,0 +1,2045 @@
+name,type,status
+A00 Cólera,clinical problems,1  
+A01 Fiebres tifoidea y paratifoidea,clinical problems,1  
+A02 Otras infecciones debidas a Salmonella,clinical problems,1  
+A03 Shigelosis,clinical problems,1  
+A04 Otras infecciones intestinales bacterianas,clinical problems,1  
+A05 Otras intoxicaciones alimentarias bacterianas (no clasificadas en otra parte),clinical problems,1  
+A06 Amebiasis,clinical problems,1  
+A07 Otras enfermedades intestinales debidas a protozoarios,clinical problems,1  
+A08 Infecciones intestinales debidas a virus y otros organismos especificados,clinical problems,1  
+A09 Diarrea y gastroenteritis de presunto origen infeccioso,clinical problems,1  
+A15 Tuberculosis respiratoria (confirmada bacteriológica e histológicamente),clinical problems,1  
+A16 Tuberculosis respiratoria (no confirmada bacteriológica o histológicamente),clinical problems,1  
+A17 Tuberculosis del sistema nervioso,clinical problems,1  
+A18 Tuberculosis de otros órganos,clinical problems,1  
+A19 Tuberculosis miliar,clinical problems,1  
+A20 Peste,clinical problems,1  
+A21 Tularemia,clinical problems,1  
+A22 Carbunco [ántrax],clinical problems,1  
+A23 Brucelosis,clinical problems,1  
+A24 Muermo y melioidosis,clinical problems,1  
+A25 Fiebres por mordedura de rata,clinical problems,1  
+A26 Erisipeloide,clinical problems,1  
+A27 Leptospirosis,clinical problems,1  
+A28 Otras enfermedades zoonóticas bacterianas (no clasificadas en otra parte),clinical problems,1  
+A30 Lepra [enfermedad de Hansen],clinical problems,1  
+A31 Infecciones debidas a otras micobacterias,clinical problems,1  
+A32 Listeriosis,clinical problems,1  
+A33 Tétanos neonatal,clinical problems,1  
+A34 Tétanos obstétrico,clinical problems,1  
+A35 Otros tétanos,clinical problems,1  
+A36 Difteria,clinical problems,1  
+A37 Tos ferina [tos convulsiva],clinical problems,1  
+A38 Escarlatina,clinical problems,1  
+A39 Infección meningocócica,clinical problems,1  
+A40 Septicemia estreptocócica,clinical problems,1  
+A41 Otras septicemias,clinical problems,1  
+A42 Actinomicosis,clinical problems,1  
+A43 Nocardiosis,clinical problems,1  
+A44 Bartonelosis,clinical problems,1  
+A46 Erisipela,clinical problems,1  
+A48 Otras enfermedades bacterianas (no clasificadas en otra parte),clinical problems,1  
+A49 Infección bacteriana de sitio no especificado,clinical problems,1  
+A50 Sífilis congénita,clinical problems,1  
+A51 Sífilis precoz,clinical problems,1  
+A52 Sífilis tardía,clinical problems,1  
+A53 Otras sífilis y las no especificadas,clinical problems,1  
+A54 Infección gonocócica,clinical problems,1  
+A55 Linfogranuloma (venéreo) por clamidias,clinical problems,1  
+A56 Otras enfermedades de transmisión sexual debidas a clamidias,clinical problems,1  
+A57 Chancro blando,clinical problems,1  
+A58 Granuloma inguinal,clinical problems,1  
+A59 Tricomoniasis,clinical problems,1  
+A60 Infección anogenital debida a virus del herpes [herpes simple],clinical problems,1  
+A63 Otras enfermedades de transmisión predominantemente sexual (no clasificadas en otra parte),clinical problems,1  
+A64 Enfermedad de transmisión sexual no especificada,clinical problems,1  
+A65 Sífilis no venérea,clinical problems,1  
+A66 Frambesia,clinical problems,1  
+A67 Pinta [carate],clinical problems,1  
+A68 Fiebres recurrentes,clinical problems,1  
+A69 Otras infecciones causadas por espiroquetas,clinical problems,1  
+A70 Infección debida a Chlamydia psittaci,clinical problems,1  
+A71 Tracoma,clinical problems,1  
+A74 Otras enfermedades causadas por clamidias,clinical problems,1  
+A75 Tifus,clinical problems,1  
+A77 Fiebre maculosa [rickettsiosis transmitida por garrapatas],clinical problems,1  
+A78 Fiebre Q,clinical problems,1  
+A79 Otras rickettsiosis,clinical problems,1  
+A80 Poliomielitis aguda,clinical problems,1  
+A81 Infecciones del sistema nervioso central por virus atípico,clinical problems,1  
+A82 Rabia,clinical problems,1  
+A83 Encefalitis viral transmitida por mosquitos,clinical problems,1  
+A84 Encefalitis viral transmitida por garrapatas,clinical problems,1  
+A85 Otras encefalitis virales (no clasificadas en otra parte),clinical problems,1  
+A86 Encefalitis viral no especificada,clinical problems,1  
+A87 Meningitis viral,clinical problems,1  
+A88 Otras infecciones virales del sistema nervioso central (no clasificadas en otra parte),clinical problems,1  
+A89 Infección viral del sistema nervioso central no especificada,clinical problems,1  
+A90 Fiebre del dengue [dengue clásico],clinical problems,1  
+A91 Fiebre del dengue hemorrágico,clinical problems,1  
+A92 Otras fiebres virales transmitidas por mosquitos,clinical problems,1  
+A93 Otras fiebres virales transmitidas por artrópodos (no clasificadas en otra parte),clinical problems,1  
+A94 Fiebre viral transmitida por artrópodos no especificada,clinical problems,1  
+A95 Fiebre amarilla,clinical problems,1  
+A96 Fiebre hemorrágica por arenavirus,clinical problems,1  
+A98 Otras fiebres virales hemorrágicas (no clasificadas en otra parte),clinical problems,1  
+A99 Fiebre viral hemorrágica no especificada,clinical problems,1  
+B00 Infecciones herpéticas [herpes simple],clinical problems,1  
+B01 Varicela,clinical problems,1  
+B02 Herpes zoster,clinical problems,1  
+B03 Viruela,clinical problems,1  
+B04 Viruela de los monos,clinical problems,1  
+B05 Sarampión,clinical problems,1  
+B06 Rubéola [sarampión alemán],clinical problems,1  
+B07 Verrugas víricas,clinical problems,1  
+B08 Otras infecciones víricas caracterizadas por lesiones de la piel y de las membranas mucosas (no clasificadas en otra parte),clinical problems,1  
+B09 Infección viral no especificada caracterizada por lesiones de la piel y de las membranas mucosas,clinical problems,1  
+B15 Hepatitis aguda tipo A,clinical problems,1  
+B16 Hepatitis aguda tipo B,clinical problems,1  
+B17 Otras hepatitis virales agudas,clinical problems,1  
+B18 Hepatitis viral crónica,clinical problems,1  
+B19 Hepatitis viral sin otra especificación,clinical problems,1  
+B20 Enfermedad por virus de la inmunodeficiencia humana [VIH] resultante en enfermedades infecciosas y parasitarias,clinical problems,1  
+B21 Enfermedad por virus de la inmunodeficiencia humana [VIH] resultante en tumores malignos,clinical problems,1  
+B22 Enfermedad por virus de la inmunodeficiencia humana [VIH] resultante en otras enfermedades especificadas,clinical problems,1  
+B23 Enfermedad por virus de la inmunodeficiencia humana [VIH] resultante en otras afecciones,clinical problems,1  
+B24 Enfermedad por virus de la inmunodeficiencia humana [VIH] sin otra especificación,clinical problems,1  
+B25 Enfermedad debida a virus citomegálico,clinical problems,1  
+B26 Parotiditis infecciosa,clinical problems,1  
+B27 Mononucleosis infecciosa,clinical problems,1  
+B30 Conjuntivitis viral,clinical problems,1  
+B33 Otras enfermedades virales (no clasificadas en otra parte),clinical problems,1  
+B34 Infección viral de sitio no especificado,clinical problems,1  
+B35 Dermatofitosis,clinical problems,1  
+B36 Otras micosis superficiales,clinical problems,1  
+B37 Candidiasis,clinical problems,1  
+B38 Coccidioidomicosis,clinical problems,1  
+B39 Histoplasmosis,clinical problems,1  
+B40 Blastomicosis,clinical problems,1  
+B41 Paracoccidioidomicosis,clinical problems,1  
+B42 Esporotricosis,clinical problems,1  
+B43 Cromomicosis y absceso feomicótico,clinical problems,1  
+B44 Aspergilosis,clinical problems,1  
+B45 Criptococosis,clinical problems,1  
+B46 Cigomicosis,clinical problems,1  
+B47 Micetoma,clinical problems,1  
+B48 Otras micosis (no clasificadas en otra parte),clinical problems,1  
+B49 Micosis no especificada,clinical problems,1  
+B50 Paludismo [malaria] debido a Plasmodium falciparum,clinical problems,1  
+B51 Paludismo [malaria] debido a Plasmodium vivax,clinical problems,1  
+B52 Paludismo [malaria] debido a Plasmodium malariae,clinical problems,1  
+B53 Otro paludismo [malaria] confirmado parasitológicamente,clinical problems,1  
+B54 Paludismo [malaria] no especificado,clinical problems,1  
+B55 Leishmaniasis,clinical problems,1  
+B56 Tripanosomiasis africana,clinical problems,1  
+B57 Enfermedad de Chagas,clinical problems,1  
+B58 Toxoplasmosis,clinical problems,1  
+B59 Neumocistosis,clinical problems,1  
+B60 Otras enfermedades debidas a protozoarios (no clasificadas en otra parte),clinical problems,1  
+B64 Enfermedad debida a protozoarios no especificada,clinical problems,1  
+B65 Esquistosomiasis [bilharziasis],clinical problems,1  
+B66 Otras infecciones debidas a trematodos,clinical problems,1  
+B67 Equinococosis,clinical problems,1  
+B68 Teniasis,clinical problems,1  
+B69 Cisticercosis,clinical problems,1  
+B70 Difilobotriasis y esparganosis,clinical problems,1  
+B71 Otras infecciones debidas a cestodos,clinical problems,1  
+B72 Dracontiasis,clinical problems,1  
+B73 Oncocercosis,clinical problems,1  
+B74 Filariasis,clinical problems,1  
+B75 Triquinosis,clinical problems,1  
+B76 Anquilostomiasis y necatoriasis,clinical problems,1  
+B77 Ascariasis,clinical problems,1  
+B78 Estrongiloidiasis,clinical problems,1  
+B79 Tricuriasis,clinical problems,1  
+B80 Enterobiasis,clinical problems,1  
+B81 Otras helminiasis intestinales (no clasificadas en otra parte),clinical problems,1  
+B82 Parasitosis intestinales sin otra especificación,clinical problems,1  
+B83 Otras helminiasis,clinical problems,1  
+B85 Pediculosis y phthiriasis,clinical problems,1  
+B86 Escabiosis,clinical problems,1  
+B87 Miasis,clinical problems,1  
+B88 Otras infestaciones,clinical problems,1  
+B89 Enfermedad parasitaria no especificada,clinical problems,1  
+B90 Secuelas de tuberculosis,clinical problems,1  
+B91 Secuelas de poliomielitis,clinical problems,1  
+B92 Secuelas de lepra,clinical problems,1  
+B94 Secuelas de otras enfermedades infecciosas y parasitarias y de las no especificadas,clinical problems,1  
+B95 Estreptococos y estafilococos como causa de enfermedades clasificadas en otros capítulos,clinical problems,1  
+B96 Otros agentes bacterianos como causa de enfermedades clasificadas en otros capítulos,clinical problems,1  
+B97 Agentes virales como causa de enfermedades clasificadas en otros capítulos,clinical problems,1  
+B99 Otras enfermedades infecciosas y las no especificadas,clinical problems,1  
+C00 Tumor maligno del labio (excepto la piel interna del labio),clinical problems,1  
+C01 Tumor maligno de la base de la lengua,clinical problems,1  
+C02 Otros tumores malignos de otras partes y las no especificadas de la lengua,clinical problems,1  
+C03 Tumor maligno de la encía,clinical problems,1  
+C04 Tumor maligno del piso de la boca,clinical problems,1  
+C05 Tumor maligno del paladar,clinical problems,1  
+C06 Tumor maligno de otras partes y las no especificadas de la boca,clinical problems,1  
+C07 Tumor maligno de la glándula parótida,clinical problems,1  
+C08 Tumor maligno de otras glándulas salivales mayores y de las no especificadas,clinical problems,1  
+C09 Tumor maligno de la amígdala,clinical problems,1  
+C10 Tumor maligno de la orofaringe,clinical problems,1  
+C11 Tumor maligno de la nasofaringe,clinical problems,1  
+C12 Tumor maligno del seno piriforme,clinical problems,1  
+C13 Tumor maligno de la hipofaringe,clinical problems,1  
+C14 Tumor maligno de otros sitios y de los no especificados de los labios, cavidad bucal y faringe,clinical problems,1  
+C15 Tumor maligno del esófago,clinical problems,1  
+C16 Tumor maligno del estómago,clinical problems,1  
+C17 Tumor maligno del intestino delgado,clinical problems,1  
+C18 Tumor maligno del colon,clinical problems,1  
+C19 Tumor maligno de la unión rectosigmoidea,clinical problems,1  
+C20 Tumor maligno del recto,clinical problems,1  
+C21 Tumor maligno del ano y del conducto anal,clinical problems,1  
+C22 Tumor maligno del hígado y de las vías biliares intrahepáticas,clinical problems,1  
+C23 Tumor maligno de la vesícula biliar,clinical problems,1  
+C24 Tumor maligno de otras partes y de las no especificadas de las vías biliares,clinical problems,1  
+C25 Tumor maligno del páncreas,clinical problems,1  
+C26 Tumor maligno de otros sitios y de los no especificados del aparato digestivo,clinical problems,1  
+C30 Tumor maligno de las fosas nasales y del oído medio,clinical problems,1  
+C31 Tumor maligno de los senos paranasales,clinical problems,1  
+C32 Tumor maligno de la laringe,clinical problems,1  
+C33 Tumor maligno de la tráquea,clinical problems,1  
+C34 Tumor maligno de los bronquios y del pulmón,clinical problems,1  
+C37 Tumor maligno del timo,clinical problems,1  
+C38 Tumor maligno del corazón, mediastino y pleura,clinical problems,1  
+C39 Tumor maligno de otros sitios y de los no especificados del aparato respiratorio e intratorácico,clinical problems,1  
+C40 Tumor maligno de los huesos y cartílagos articulares de los miembros,clinical problems,1  
+C41 Tumor maligno de los huesos y cartílagos articulares de otros sitios y de los no especificados,clinical problems,1  
+C43 Melanoma maligno de la piel,clinical problems,1  
+C44 Otros tumores malignos de la piel,clinical problems,1  
+C45 Mesotelioma maligno,clinical problems,1  
+C46 Sarcoma de Kaposi,clinical problems,1  
+C47 Tumor maligno de los nervios periféricos y del sistema nervioso autónomo,clinical problems,1  
+C48 Tumor maligno de partes peritoneales y retroperitoneales,clinical problems,1  
+C49 Tumor maligno de otros tejidos conjuntivos y de los no especificados,clinical problems,1  
+C50 Tumor maligno de la mama,clinical problems,1  
+C51 Tumor maligno de la vulva,clinical problems,1  
+C52 Tumor maligno de la vagina,clinical problems,1  
+C53 Tumor maligno del cuello del útero,clinical problems,1  
+C54 Tumor maligno del cuerpo del útero,clinical problems,1  
+C55 Tumor maligno del útero, parte no especificada,clinical problems,1  
+C56 Tumor maligno del ovario,clinical problems,1  
+C57 Tumor maligno de otros órganos genitales femeninos y de los no especificados,clinical problems,1  
+C58 Tumor maligno de la placenta,clinical problems,1  
+C60 Tumor maligno del pene,clinical problems,1  
+C61 Tumor maligno de la próstata,clinical problems,1  
+C62 Tumor maligno del testículo,clinical problems,1  
+C63 Tumor maligno de otros órganos genitales masculinos y de los no especificados,clinical problems,1  
+C64 Tumor maligno del riñón, excepto pelvis renal,clinical problems,1  
+C65 Tumor maligno de la pelvis renal,clinical problems,1  
+C66 Tumor maligno del uréter,clinical problems,1  
+C67 Tumor maligno de la vejiga urinaria,clinical problems,1  
+C68 Tumor maligno de otros órganos urinarios y de los no especificados,clinical problems,1  
+C69 Tumor maligno del ojo y sus anexos,clinical problems,1  
+C70 Tumor maligno de las meninges,clinical problems,1  
+C71 Tumor maligno del encéfalo,clinical problems,1  
+C72 Tumor maligno de la médula espinal, de los nervios craneales y de otras partes del sistema nervioso central,clinical problems,1  
+C73 Tumor maligno de la glándula tiroides,clinical problems,1  
+C74 Tumor maligno de la glándula suprarrenal,clinical problems,1  
+C75 Tumor maligno de otras glándulas endocrinas y de las no especificadas,clinical problems,1  
+C76 Tumor maligno de otras localizaciones mal definidas,clinical problems,1  
+C77 Ganglios linfáticos secundarios y no especificados,clinical problems,1  
+C78 Tumores malignos secundarios de los órganos respiratorios y digestivos,clinical problems,1  
+C79 Tumores malignos secundarios de otros sitios,clinical problems,1  
+C80 Tumor maligno, sin especificación de sitio,clinical problems,1  
+C81 Enfermedad de Hodgkin,clinical problems,1  
+C82 Linfoma no Hodgkin folicular (nodular),clinical problems,1  
+C83 Otros linfomas no Hodgkin,clinical problems,1  
+C84 Linfomas T/NK cutáneos periféricos,clinical problems,1  
+C85 Otros tipos de linfoma no Hodgkin,clinical problems,1  
+C88 Linfomas no clasificados en otra parte,clinical problems,1  
+C90 Mieloma múltiple y neoplasias malignas de células plasmáticas,clinical problems,1  
+C91 Leucemia linfoblástica,clinical problems,1  
+C92 Leucemia mieloide,clinical problems,1  
+C93 Leucemia monocítica,clinical problems,1  
+C94 Otras leucemias de tipo celular especificado,clinical problems,1  
+C95 Leucemia de tipo celular no especificado,clinical problems,1  
+C96 Otras neoplasias malignas de tejido linfático, hematopoyético y tejidos relacionados,clinical problems,1  
+C97 Neoplasias malignas de sitios múltiples independientes (primarios),clinical problems,1  
+D00 Neoplasias in situ del labio, de la cavidad bucal y de la faringe,clinical problems,1  
+D01 Neoplasias in situ del tracto digestivo,clinical problems,1  
+D02 Neoplasias in situ del tracto respiratorio y de los órganos intratorácicos,clinical problems,1  
+D03 Melanoma in situ,clinical problems,1  
+D04 Neoplasias in situ de la piel,clinical problems,1  
+D05 Neoplasias in situ de la mama,clinical problems,1  
+D06 Neoplasias in situ del cuello del útero,clinical problems,1  
+D07 Neoplasias in situ de otros órganos genitales y de los no especificados,clinical problems,1  
+D09 Neoplasias in situ de otros sitios y de los no especificados,clinical problems,1  
+D10 Neoplasia benigna de la boca y de la faringe,clinical problems,1  
+D11 Neoplasia benigna de las glándulas salivales mayores,clinical problems,1  
+D12 Neoplasia benigna del colon, del recto, del ano y del conducto anal,clinical problems,1  
+D13 Neoplasia benigna de otras partes del aparato digestivo,clinical problems,1  
+D14 Neoplasia benigna del aparato respiratorio e intratorácico,clinical problems,1  
+D15 Neoplasia benigna de otros órganos intratorácicos,clinical problems,1  
+D16 Neoplasia benigna del hueso y del cartílago articular,clinical problems,1  
+D17 Neoplasia benigna del tejido adiposo,clinical problems,1  
+D18 Hemangioma y linfangioma de cualquier localización,clinical problems,1  
+D19 Neoplasia benigna del tejido mesotelial y del tejido conjuntivo blando,clinical problems,1  
+D20 Neoplasia benigna de tejidos blandos del retroperitoneo y del peritoneo,clinical problems,1  
+D21 Otras neoplasias benignas del tejido conjuntivo y de otros tejidos blandos,clinical problems,1  
+D22 Nevos melanocíticos,clinical problems,1  
+D23 Otras neoplasias benignas de la piel,clinical problems,1  
+D24 Neoplasia benigna de la mama,clinical problems,1  
+D25 Leiomioma del útero,clinical problems,1  
+D26 Otras neoplasias benignas del útero,clinical problems,1  
+D27 Neoplasia benigna del ovario,clinical problems,1  
+D28 Neoplasia benigna de otros órganos genitales femeninos y de los no especificados,clinical problems,1  
+D29 Neoplasia benigna de órganos genitales masculinos,clinical problems,1  
+D30 Neoplasia benigna del aparato urinario,clinical problems,1  
+D31 Neoplasia benigna del ojo y de sus anexos,clinical problems,1  
+D32 Neoplasia benigna de las meninges,clinical problems,1  
+D33 Neoplasia benigna del encéfalo y de otros sitios del sistema nervioso central,clinical problems,1  
+D34 Neoplasia benigna de la glándula tiroides,clinical problems,1  
+D35 Neoplasia benigna de otras glándulas endocrinas y de las no especificadas,clinical problems,1  
+D36 Neoplasias benignas de otros sitios y de los no especificados,clinical problems,1  
+D37 Neoplasia de comportamiento incierto o desconocido del labio, cavidad bucal y faringe,clinical problems,1  
+D38 Neoplasia de comportamiento incierto o desconocido de los órganos respiratorios e intratorácicos,clinical problems,1  
+D39 Neoplasia de comportamiento incierto o desconocido de los órganos genitales femeninos,clinical problems,1  
+D40 Neoplasia de comportamiento incierto o desconocido de los órganos genitales masculinos,clinical problems,1  
+D41 Neoplasia de comportamiento incierto o desconocido del aparato urinario,clinical problems,1  
+D42 Neoplasia de comportamiento incierto o desconocido de las meninges,clinical problems,1  
+D43 Neoplasia de comportamiento incierto o desconocido del encéfalo y del sistema nervioso central,clinical problems,1  
+D44 Neoplasia de comportamiento incierto o desconocido de las glándulas endocrinas,clinical problems,1  
+D45 Policitemia vera,clinical problems,1  
+D46 Síndromes mielodisplásicos,clinical problems,1  
+D47 Otros síndromes mieloproliferativos,clinical problems,1  
+D48 Neoplasias de comportamiento incierto o desconocido de otros sitios y de los no especificados,clinical problems,1  
+D50 Anemia por deficiencia de hierro,clinical problems,1  
+D51 Anemia por deficiencia de vitamina B12,clinical problems,1  
+D52 Anemia por deficiencia de folato,clinical problems,1  
+D53 Otras anemias nutricionales,clinical problems,1  
+D55 Anemia debida a trastornos enzimáticos,clinical problems,1  
+D56 Talasemia,clinical problems,1  
+D57 Anemia de células falciformes,clinical problems,1  
+D58 Otras anemias hemolíticas hereditarias,clinical problems,1  
+D59 Anemia hemolítica adquirida,clinical problems,1  
+D60 Aplasia pura adquirida de glóbulos rojos,clinical problems,1  
+D61 Otros tipos de aplasia pura de glóbulos rojos y otros tipos de insuficiencia medular,clinical problems,1  
+D62 Anemia aguda poshemorrágica,clinical problems,1  
+D63 Anemia en enfermedades crónicas clasificadas en otra parte,clinical problems,1  
+D64 Otras anemias,clinical problems,1  
+D65 Coagulación intravascular diseminada,clinical problems,1  
+D66 Deficiencia hereditaria del factor VIII,clinical problems,1  
+D67 Deficiencia hereditaria del factor IX,clinical problems,1  
+D68 Otros trastornos de la coagulación,clinical problems,1  
+D69 Púrpura y otras diatesis hemorrágicas,clinical problems,1  
+D70 Agranulocitosis,clinical problems,1  
+D71 Trastornos funcionales persistentes de los glóbulos blancos,clinical problems,1  
+D72 Otros trastornos de los glóbulos blancos,clinical problems,1  
+D73 Enfermedades del bazo,clinical problems,1  
+D74 Metahemoglobinemia,clinical problems,1  
+D75 Otros trastornos de la sangre y de los órganos hematopoyéticos,clinical problems,1  
+D76 Trastornos relacionados con las células T y con células asesinas naturales,clinical problems,1  
+D77 Otros trastornos de la sangre y de los órganos hematopoyéticos en enfermedades clasificadas en otra parte,clinical problems,1  
+D78 Complicaciones de procedimientos quirúrgicos y médicos, no clasificadas en otra parte,clinical problems,1  
+D80 Inmunodeficiencia con predominio de déficit de anticuerpos,clinical problems,1  
+D81 Inmunodeficiencias combinadas,clinical problems,1  
+D82 Inmunodeficiencia asociada con otros defectos importantes,clinical problems,1  
+D83 Inmunodeficiencia común variable,clinical problems,1  
+D84 Otras inmunodeficiencias,clinical problems,1  
+D86 Sarcoidosis,clinical problems,1  
+D89 Otros trastornos que afectan al mecanismo inmunológico, no clasificados en otra parte,clinical problems,1  
+E00 Síndrome congénito de deficiencia de yodo,clinical problems,1  
+E01 Trastornos tiroideos y afecciones afines relacionados con deficiencia de yodo,clinical problems,1  
+E02 Hipotiroidismo subclínico por deficiencia de yodo,clinical problems,1  
+E03 Otros hipotiroidismos,clinical problems,1  
+E04 Otros bocios no tóxicos,clinical problems,1  
+E05 Tirotoxicosis (hipertiroidismo),clinical problems,1  
+E06 Tiroiditis,clinical problems,1  
+E07 Otros trastornos de la glándula tiroides,clinical problems,1  
+E10 Diabetes mellitus insulinodependiente,clinical problems,1  
+E11 Diabetes mellitus no insulinodependiente,clinical problems,1  
+E12 Diabetes mellitus malnutricional,clinical problems,1  
+E13 Otras formas especificadas de diabetes mellitus,clinical problems,1  
+E14 Diabetes mellitus, sin especificación,clinical problems,1  
+E15 Coma hipoglucémico, no diabético,clinical problems,1  
+E16 Otros trastornos de la secreción pancreática interna,clinical problems,1  
+E20 Hipoparatiroidismo,clinical problems,1  
+E21 Hiperparatiroidismo y otros trastornos de la glándula paratiroides,clinical problems,1  
+E22 Hiperfunción de la glándula hipófisis,clinical problems,1  
+E23 Hipofunción y otros trastornos de la glándula hipófisis,clinical problems,1  
+E24 Síndrome de Cushing,clinical problems,1  
+E25 Trastornos adrenogenitales, clinical problems,1  
+E26 Hiperaldosteronismo,clinical problems,1  
+E27 Otros trastornos de la corteza suprarrenal,clinical problems,1  
+E28 Disfunción ovárica,clinical problems,1  
+E29 Disfunción testicular,clinical problems,1  
+E30 Otros trastornos del desarrollo sexual,clinical problems,1  
+E31 Disfunción poliglandular,clinical problems,1  
+E32 Otros trastornos del timo,clinical problems,1  
+E34 Otros trastornos endocrinos,clinical problems,1  
+E35 Trastornos endocrinos en enfermedades clasificadas en otra parte,clinical problems,1  
+E40 Kwashiorkor,clinical problems,1  
+E41 Marasmo nutricional,clinical problems,1  
+E42 Marasmo nutricional con kwashiorkor,clinical problems,1  
+E43 Desnutrición proteico-calórica severa, no especificada,clinical problems,1  
+E44 Desnutrición proteico-calórica de grado moderado y leve,clinical problems,1  
+E45 Retraso del desarrollo debido a desnutrición proteico-calórica,clinical problems,1  
+E46 Desnutrición proteico-calórica, sin especificación,clinical problems,1  
+E50 Deficiencia de vitamina A,clinical problems,1  
+E51 Deficiencia de tiamina,clinical problems,1  
+E52 Deficiencia de riboflavina,clinical problems,1  
+E53 Deficiencia de otras vitaminas del grupo B,clinical problems,1  
+E54 Deficiencia de niacina (pelagra),clinical problems,1  
+E55 Deficiencia de vitamina D,clinical problems,1  
+E56 Otras deficiencias de vitaminas,clinical problems,1  
+E58 Deficiencia de calcio en la dieta,clinical problems,1  
+E59 Deficiencia de selenio en la dieta,clinical problems,1  
+E60 Deficiencia de zinc en la dieta,clinical problems,1  
+E61 Deficiencia de otros elementos nutricionales,clinical problems,1  
+E63 Otras deficiencias de la dieta,clinical problems,1  
+E64 Secuelas de desnutrición y otras deficiencias nutricionales,clinical problems,1  
+E65 Obesidad localizada,clinical problems,1  
+E66 Obesidad,clinical problems,1  
+E67 Otras formas de hiperalimentación,clinical problems,1  
+E68 Secuelas de hiperalimentación,clinical problems,1  
+E70 Trastornos del metabolismo de los aminoácidos aromáticos,clinical problems,1  
+E71 Trastornos del metabolismo de los aminoácidos ramificados y del metabolismo de los ácidos grasos,clinical problems,1  
+E72 Otros trastornos del metabolismo de los aminoácidos,clinical problems,1  
+E73 Intolerancia a la lactosa,clinical problems,1  
+E74 Otros trastornos del metabolismo de los carbohidratos,clinical problems,1  
+E75 Trastornos del metabolismo de los esfingolípidos y otros trastornos lipídicos,clinical problems,1  
+E76 Trastornos del metabolismo de los mucopolisacáridos,clinical problems,1  
+E77 Trastornos del metabolismo de las glucoproteínas,clinical problems,1  
+E78 Trastornos del metabolismo de las lipoproteínas y otras lipidemias,clinical problems,1  
+E79 Trastornos del metabolismo de las purinas y pirimidinas,clinical problems,1  
+E80 Trastornos del metabolismo de los pigmentos de la bilis,clinical problems,1  
+E83 Trastornos del metabolismo de los minerales,clinical problems,1  
+E84 Fibrosis quística,clinical problems,1  
+E85 Amiloidosis,clinical problems,1  
+E86 Depleción de volumen,clinical problems,1  
+E87 Otros trastornos del equilibrio hidroelectrolítico y ácido-base,clinical problems,1  
+E88 Otros trastornos metabólicos,clinical problems,1  
+E89 Trastornos endocrinos y metabólicos posteriores a procedimientos, no clasificados en otra parte,clinical problems,1  
+F00 Demencia en la enfermedad de Alzheimer,clinical problems,1  
+F01 Demencia vascular,clinical problems,1  
+F02 Demencia en otras enfermedades clasificadas en otra parte,clinical problems,1  
+F03 Demencia, no especificada,clinical problems,1  
+F04 Síndrome amnésico orgánico, no inducido por alcohol u otras sustancias psicoactivas,clinical problems,1  
+F05 Delirio, no inducido por alcohol u otras sustancias psicoactivas,clinical problems,1  
+F06 Otros trastornos mentales debidos a daño y disfunción cerebral y a enfermedad física,clinical problems,1  
+F07 Trastornos de la personalidad y del comportamiento debidos a enfermedad, daño y disfunción cerebral,clinical problems,1  
+F09 Trastorno mental orgánico o sintomático, no especificado,clinical problems,1  
+F10 Trastornos mentales y del comportamiento debidos al uso de alcohol,clinical problems,1  
+F11 Trastornos mentales y del comportamiento debidos al uso de opiáceos,clinical problems,1  
+F12 Trastornos mentales y del comportamiento debidos al uso de cannabinoides,clinical problems,1  
+F13 Trastornos mentales y del comportamiento debidos al uso de sedantes o hipnóticos,clinical problems,1  
+F14 Trastornos mentales y del comportamiento debidos al uso de cocaína,clinical problems,1  
+F15 Trastornos mentales y del comportamiento debidos al uso de otros estimulantes, incluidos la cafeína,clinical problems,1  
+F16 Trastornos mentales y del comportamiento debidos al uso de alucinógenos,clinical problems,1  
+F17 Trastornos mentales y del comportamiento debidos al uso de tabaco,clinical problems,1  
+F18 Trastornos mentales y del comportamiento debidos al uso de disolventes volátiles,clinical problems,1  
+F19 Trastornos mentales y del comportamiento debidos al uso de múltiples sustancias psicoactivas y al uso de otras sustancias psicoactivas,clinical problems,1  
+F20 Esquizofrenia,clinical problems,1  
+F21 Trastorno esquizotípico,clinical problems,1  
+F22 Trastornos delirantes persistentes,clinical problems,1  
+F23 Trastornos psicóticos agudos y transitorios,clinical problems,1  
+F24 Trastorno delirante inducido,clinical problems,1  
+F25 Trastornos esquizoafectivos,clinical problems,1  
+F28 Otros trastornos psicóticos no orgánicos,clinical problems,1  
+F29 Psicosis no orgánica, no especificada,clinical problems,1  
+F30 Episodio maníaco,clinical problems,1  
+F31 Trastorno afectivo bipolar,clinical problems,1  
+F32 Episodio depresivo,clinical problems,1  
+F33 Trastorno depresivo recurrente,clinical problems,1  
+F34 Trastornos afectivos persistentes,clinical problems,1  
+F38 Otros trastornos afectivos,clinical problems,1  
+F39 Trastorno afectivo, no especificado,clinical problems,1  
+F40 Trastornos fóbicos de ansiedad,clinical problems,1  
+F41 Otros trastornos de ansiedad,clinical problems,1  
+F42 Trastorno obsesivo-compulsivo,clinical problems,1  
+F43 Reacción a estrés grave y trastornos de adaptación,clinical problems,1  
+F44 Trastornos disociativos (de conversión),clinical problems,1  
+F45 Trastornos somatomorfos,clinical problems,1  
+F48 Otros trastornos neuróticos,clinical problems,1  
+F50 Trastornos de la ingestión de alimentos,clinical problems,1  
+F51 Trastornos del sueño no orgánicos,clinical problems,1  
+F52 Disfunción sexual no debida a trastorno o enfermedad orgánica,clinical problems,1  
+F53 Trastornos mentales y del comportamiento asociados con el puerperio, no clasificados en otra parte,clinical problems,1  
+F54 Factores psicológicos y del comportamiento asociados con trastornos o enfermedades clasificados en otra parte,clinical problems,1  
+F55 Abuso de sustancias que no producen dependencia,clinical problems,1  
+F59 Síntomas y signos no orgánicos, no especificados,clinical problems,1  
+F60 Trastornos específicos de la personalidad,clinical problems,1  
+F61 Trastornos mixtos y otros trastornos de la personalidad,clinical problems,1  
+F62 Cambios duraderos de la personalidad, no atribuibles a lesión o enfermedad cerebral,clinical problems,1  
+F63 Trastornos de los hábitos y del control de los impulsos,clinical problems,1  
+F64 Trastornos de la identidad sexual,clinical problems,1  
+F65 Trastornos de la preferencia sexual,clinical problems,1  
+F66 Trastornos psicológicos y del comportamiento asociados con el desarrollo sexual y su orientación,clinical problems,1  
+F68 Otros trastornos de la personalidad y del comportamiento del adulto,clinical problems,1  
+F69 Trastorno de la personalidad y del comportamiento del adulto, no especificado,clinical problems,1  
+F70 Retraso mental leve,clinical problems,1  
+F71 Retraso mental moderado,clinical problems,1  
+F72 Retraso mental grave,clinical problems,1  
+F73 Retraso mental profundo,clinical problems,1  
+F78 Otro retraso mental,clinical problems,1  
+F79 Retraso mental, no especificado,clinical problems,1  
+F80 Trastornos específicos del desarrollo del habla y del lenguaje,clinical problems,1  
+F81 Trastornos específicos del desarrollo de las habilidades escolares,clinical problems,1  
+F82 Trastorno específico del desarrollo de la función motora,clinical problems,1  
+F83 Trastornos mixtos del desarrollo psicológico,clinical problems,1  
+F84 Trastornos generalizados del desarrollo,clinical problems,1  
+F88 Otros trastornos del desarrollo psicológico,clinical problems,1  
+F89 Trastorno del desarrollo psicológico, no especificado,clinical problems,1  
+F90 Trastornos hipercinéticos,clinical problems,1  
+F91 Trastornos de la conducta,clinical problems,1  
+F92 Trastornos mixtos de la conducta y de las emociones,clinical problems,1  
+F93 Trastornos emocionales de comienzo habitual en la infancia,clinical problems,1  
+F94 Trastornos del funcionamiento social de comienzo habitual en la infancia y adolescencia,clinical problems,1  
+F95 Trastornos de tics,clinical problems,1  
+F98 Otros trastornos del comportamiento y de las emociones de comienzo habitual en la infancia y adolescencia,clinical problems,1  
+F99 Trastorno mental, no especificado,clinical problems,1  
+G00 Meningitis bacteriana, no clasificada en otra parte,clinical problems,1  
+G01 Meningitis en enfermedades bacterianas clasificadas en otra parte,clinical problems,1  
+G02 Meningitis en otras enfermedades infecciosas y parasitarias clasificadas en otra parte,clinical problems,1  
+G03 Meningitis debida a otras causas y las no especificadas,clinical problems,1  
+G04 Encefalitis, mielitis y encefalomielitis,clinical problems,1  
+G05 Encefalitis, mielitis y encefalomielitis en enfermedades clasificadas en otra parte,clinical problems,1  
+G06 Absceso e infarto intracraneanos e intrarraquídeos,clinical problems,1  
+G07 Absceso e infarto intracraneanos e intrarraquídeos en enfermedades clasificadas en otra parte,clinical problems,1  
+G08 Flebitis y tromboflebitis intracraneana e intrarraquídea,clinical problems,1  
+G09 Secuelas de enfermedades inflamatorias del sistema nervioso central,clinical problems,1  
+G10 Enfermedad de Huntington,clinical problems,1  
+G11 Ataxia hereditaria,clinical problems,1  
+G12 Atrofia muscular espinal y síndromes relacionados,clinical problems,1  
+G13 Atrofias sistémicas que afectan principalmente el sistema nervioso central en enfermedades clasificadas en otra parte,clinical problems,1  
+G20 Enfermedad de Parkinson,clinical problems,1  
+G21 Parkinsonismo secundario,clinical problems,1  
+G22 Parkinsonismo en enfermedades clasificadas en otra parte,clinical problems,1  
+G23 Otras enfermedades degenerativas del sistema nervioso extrapiramidal y del movimiento,clinical problems,1  
+G24 Distonía,clinical problems,1  
+G25 Otros trastornos extrapiramidales y del movimiento,clinical problems,1  
+G26 Trastornos extrapiramidales y del movimiento en enfermedades clasificadas en otra parte,clinical problems,1  
+G30 Enfermedad de Alzheimer,clinical problems,1  
+G31 Otros trastornos degenerativos del sistema nervioso, no clasificados en otra parte,clinical problems,1  
+G32 Otros trastornos degenerativos del sistema nervioso en enfermedades clasificadas en otra parte,clinical problems,1  
+G35 Esclerosis múltiple,clinical problems,1  
+G36 Otras desmielinizaciones agudas del sistema nervioso central,clinical problems,1  
+G37 Otras enfermedades desmielinizantes del sistema nervioso central,clinical problems,1  
+G40 Epilepsia,clinical problems,1  
+G41 Estado epiléptico,clinical problems,1  
+G43 Migraña,clinical problems,1  
+G44 Otros síndromes de cefalea,clinical problems,1  
+G45 Síndromes vasculares cerebrales transitorios,clinical problems,1  
+G46 Síndromes vasculares cerebrales que afectan las arterias precerebrales,clinical problems,1  
+G47 Trastornos del sueño,clinical problems,1  
+G50 Trastornos del nervio trigémino,clinical problems,1  
+G51 Trastornos del nervio facial,clinical problems,1  
+G52 Trastornos de otros nervios craneales,clinical problems,1  
+G53 Trastornos de los nervios craneales en enfermedades clasificadas en otra parte,clinical problems,1  
+G54 Trastornos de las raíces nerviosas y de los plexos nerviosos,clinical problems,1  
+G55 Trastornos de las raíces nerviosas y de los plexos nerviosos en enfermedades clasificadas en otra parte,clinical problems,1  
+G56 Mononeuropatías de los miembros superiores,clinical problems,1  
+G57 Mononeuropatías de los miembros inferiores,clinical problems,1  
+G58 Otras mononeuropatías,clinical problems,1  
+G59 Mononeuropatía en enfermedades clasificadas en otra parte,clinical problems,1  
+G60 Neuropatías hereditarias e idiopáticas,clinical problems,1  
+G61 Polineuropatía inflamatoria,clinical problems,1  
+G62 Otras polineuropatías,clinical problems,1  
+G63 Polineuropatía en enfermedades clasificadas en otra parte,clinical problems,1  
+G64 Otros trastornos del sistema nervioso periférico,clinical problems,1  
+G70 Miastenia gravis y otros trastornos neuromusculares,clinical problems,1  
+G71 Trastornos primarios de los músculos,clinical problems,1  
+G72 Otras miopatías,clinical problems,1  
+G73 Trastornos de la unión neuromuscular y del músculo en enfermedades clasificadas en otra parte,clinical problems,1  
+G80 Parálisis cerebral infantil,clinical problems,1  
+G81 Hemiplejía,clinical problems,1  
+G82 Paraplejía y tetraplejía,clinical problems,1  
+G83 Otros síndromes paralíticos,clinical problems,1  
+G90 Trastornos del sistema nervioso autónomo,clinical problems,1  
+G91 Hidrocefalia,clinical problems,1  
+G92 Encefalopatía tóxica,clinical problems,1  
+G93 Otros trastornos del encéfalo,clinical problems,1  
+G94 Otros trastornos del encéfalo en enfermedades clasificadas en otra parte,clinical problems,1  
+G95 Otros trastornos de la médula espinal,clinical problems,1  
+G96 Otros trastornos del sistema nervioso central,clinical problems,1  
+G97 Trastornos postprocedimiento del sistema nervioso, no clasificados en otra parte,clinical problems,1  
+G98 Otros trastornos del sistema nervioso, no clasificados en otra parte,clinical problems,1  
+G99 Otros trastornos del sistema nervioso en enfermedades clasificadas en otra parte,clinical problems,1  
+H00 Orzuelo y chalazión,clinical problems,1  
+H01 Otros trastornos inflamatorios del párpado,clinical problems,1  
+H02 Otros trastornos del párpado,clinical problems,1  
+H03 Trastornos del párpado en enfermedades clasificadas en otra parte,clinical problems,1  
+H04 Trastornos del aparato lagrimal,clinical problems,1  
+H05 Trastornos de la órbita,clinical problems,1  
+H06 Trastornos del aparato lagrimal y de la órbita en enfermedades clasificadas en otra parte,clinical problems,1  
+H10 Conjuntivitis,clinical problems,1  
+H11 Otros trastornos de la conjuntiva,clinical problems,1  
+H13 Trastornos de la conjuntiva en enfermedades clasificadas en otra parte,clinical problems,1  
+H15 Trastornos de la esclerótica,clinical problems,1  
+H16 Queratitis,clinical problems,1  
+H17 Opacidades y cicatrices corneales,clinical problems,1  
+H18 Otros trastornos de la córnea,clinical problems,1  
+H19 Trastornos de la esclerótica y de la córnea en enfermedades clasificadas en otra parte,clinical problems,1  
+H20 Iridociclitis,clinical problems,1  
+H21 Otros trastornos del iris y del cuerpo ciliar,clinical problems,1  
+H22 Trastornos del iris y del cuerpo ciliar en enfermedades clasificadas en otra parte,clinical problems,1  
+H25 Catarata senil,clinical problems,1  
+H26 Otras cataratas,clinical problems,1  
+H27 Otros trastornos del cristalino,clinical problems,1  
+H28 Catarata y otros trastornos del cristalino en enfermedades clasificadas en otra parte,clinical problems,1  
+H30 Trastornos inflamatorios de la coroides,clinical problems,1  
+H31 Otros trastornos de la coroides,clinical problems,1  
+H32 Trastornos de la coroides en enfermedades clasificadas en otra parte,clinical problems,1  
+H33 Desprendimiento y desgarro de la retina,clinical problems,1  
+H34 Oclusiones vasculares de la retina,clinical problems,1  
+H35 Otros trastornos de la retina,clinical problems,1  
+H36 Trastornos de la retina en enfermedades clasificadas en otra parte,clinical problems,1  
+H40 Glaucoma,clinical problems,1  
+H42 Glaucoma en enfermedades clasificadas en otra parte,clinical problems,1  
+H43 Trastornos del cuerpo vítreo,clinical problems,1  
+H44 Trastornos del globo ocular,clinical problems,1  
+H46 Trastornos del nervio óptico y de las vías ópticas en enfermedades clasificadas en otra parte,clinical problems,1  
+H47 Otros trastornos del nervio óptico y de las vías ópticas,clinical problems,1  
+H48 Trastornos del nervio óptico y de las vías ópticas en enfermedades clasificadas en otra parte,clinical problems,1  
+H49 Estrabismo paralítico,clinical problems,1  
+H50 Otras formas de estrabismo,clinical problems,1  
+H51 Otros trastornos del movimiento binocular,clinical problems,1  
+H52 Trastornos de la refracción y de la acomodación,clinical problems,1  
+H53 Trastornos visuales,clinical problems,1  
+H54 Ceguera y disminución de la agudeza visual,clinical problems,1  
+H55 Nistagmo y otros movimientos irregulares del ojo,clinical problems,1  
+H57 Otros trastornos del ojo y sus anexos,clinical problems,1  
+H58 Otros trastornos del ojo y sus anexos en enfermedades clasificadas en otra parte,clinical problems,1  
+H59 Trastornos postprocedimiento del ojo y sus anexos,clinical problems,1  
+H60 Otitis externa,clinical problems,1  
+H61 Otros trastornos del oído externo,clinical problems,1  
+H62 Trastornos del oído externo en enfermedades clasificadas en otra parte,clinical problems,1  
+H65 Otitis media no supurativa,clinical problems,1  
+H66 Otitis media supurativa y no especificada,clinical problems,1  
+H67 Otitis media en enfermedades clasificadas en otra parte,clinical problems,1  
+H68 Tumefacción y disfunción de la trompa de Eustaquio,clinical problems,1  
+H69 Otros trastornos del oído medio y de la apófisis mastoides,clinical problems,1  
+H70 Mastoiditis y trastornos relacionados,clinical problems,1  
+H71 Colesteatoma del oído medio,clinical problems,1  
+H72 Perforación de la membrana timpánica,clinical problems,1  
+H73 Otros trastornos de la membrana timpánica,clinical problems,1  
+H74 Otros trastornos del oído medio y de la apófisis mastoides,clinical problems,1  
+H75 Trastornos del oído medio y de la apófisis mastoides en enfermedades clasificadas en otra parte,clinical problems,1  
+H80 Otosclerosis,clinical problems,1  
+H81 Trastornos de la función vestibular,clinical problems,1  
+H82 Trastornos de la función vestibular en enfermedades clasificadas en otra parte,clinical problems,1  
+H83 Otros trastornos del oído interno,clinical problems,1  
+H90 Hipoacusia,clinical problems,1  
+H91 Otros trastornos de la audición,clinical problems,1  
+H92 Otalgia y secreción del oído,clinical problems,1  
+H93 Otros trastornos del oído no clasificados en otra parte,clinical problems,1  
+H94 Otros trastornos del oído en enfermedades clasificadas en otra parte,clinical problems,1  
+I00 Fiebre reumática sin mención de afectación del corazón,clinical problems,1  
+I01 Fiebre reumática con afectación del corazón,clinical problems,1  
+I02 Corea reumática,clinical problems,1  
+I05 Enfermedades reumáticas de la válvula mitral,clinical problems,1  
+I06 Enfermedades reumáticas de la válvula aórtica,clinical problems,1  
+I07 Enfermedades reumáticas de la válvula tricúspide,clinical problems,1  
+I08 Trastornos de las válvulas cardíacas múltiples,clinical problems,1  
+I09 Otras enfermedades reumáticas del corazón,clinical problems,1  
+I10 Hipertensión esencial (primaria),clinical problems,1  
+I11 Enfermedad cardíaca hipertensiva,clinical problems,1  
+I12 Enfermedad renal hipertensiva,clinical problems,1  
+I13 Enfermedad cardíaca y renal hipertensiva,clinical problems,1  
+I15 Hipertensión secundaria,clinical problems,1  
+I20 Angina de pecho,clinical problems,1  
+I21 Infarto agudo de miocardio,clinical problems,1  
+I22 Infarto subsiguiente de miocardio,clinical problems,1  
+I23 Ciertas complicaciones actuales tras infarto agudo de miocardio,clinical problems,1  
+I24 Otras enfermedades isquémicas cardíacas agudas,clinical problems,1  
+I25 Enfermedad isquémica crónica del corazón,clinical problems,1  
+I26 Embolia y trombosis pulmonar,clinical problems,1  
+I27 Otras enfermedades cardíacas pulmonares,clinical problems,1  
+I28 Otras enfermedades del corazón originadas en circulación pulmonar,clinical problems,1  
+I30 Pericarditis aguda,clinical problems,1  
+I31 Otras enfermedades del pericardio,clinical problems,1  
+I32 Pericarditis en enfermedades clasificadas en otra parte,clinical problems,1  
+I33 Endocarditis aguda y subaguda,clinical problems,1  
+I34 Trastornos no reumáticos de la válvula mitral,clinical problems,1  
+I35 Trastornos no reumáticos de la válvula aórtica,clinical problems,1  
+I36 Trastornos no reumáticos de la válvula tricúspide,clinical problems,1  
+I37 Trastornos no reumáticos de la válvula pulmonar,clinical problems,1  
+I38 Endocarditis, sin especificación,clinical problems,1  
+I39 Endocarditis y trastornos valvulares en enfermedades clasificadas en otra parte,clinical problems,1  
+I40 Miocarditis aguda,clinical problems,1  
+I41 Miocarditis en enfermedades clasificadas en otra parte,clinical problems,1  
+I42 Miocardiopatía,clinical problems,1  
+I43 Miocardiopatía en enfermedades clasificadas en otra parte,clinical problems,1  
+I44 Bloqueo auriculoventricular y de rama izquierda,clinical problems,1  
+I45 Otros trastornos de la conducción,clinical problems,1  
+I46 Paro cardíaco,clinical problems,1  
+I47 Taquicardia paroxística,clinical problems,1  
+I48 Fibrilación y aleteo auricular,clinical problems,1  
+I49 Otras arritmias cardíacas,clinical problems,1  
+I50 Insuficiencia cardíaca,clinical problems,1  
+I51 Otras enfermedades del corazón,clinical problems,1  
+I52 Otras enfermedades del corazón en enfermedades clasificadas en otra parte,clinical problems,1  
+I60 Hemorragia subaracnoidea,clinical problems,1  
+I61 Hemorragia intracerebral,clinical problems,1  
+I62 Otras hemorragias intracraneales no traumáticas,clinical problems,1  
+I63 Infarto cerebral,clinical problems,1  
+I64 Accidente cerebrovascular,clinical problems,1  
+I65 Oclusión y estenosis de arterias precerebrales sin infarto cerebral,clinical problems,1  
+I66 Oclusión y estenosis de arterias cerebrales sin infarto cerebral,clinical problems,1  
+I67 Otras enfermedades cerebrovasculares,clinical problems,1  
+I68 Enfermedades cerebrovasculares en enfermedades clasificadas en otra parte,clinical problems,1  
+I69 Secuelas de enfermedades cerebrovasculares,clinical problems,1  
+I70 Aterosclerosis,clinical problems,1  
+I71 Aneurisma y disección de la aorta,clinical problems,1  
+I72 Otros aneurismas,clinical problems,1  
+I73 Otras enfermedades vasculares periféricas,clinical problems,1  
+I74 Embolia y trombosis arteriales,clinical problems,1  
+I77 Otros trastornos de las arterias y arteriolas,clinical problems,1  
+I78 Enfermedades de los capilares,clinical problems,1  
+I79 Trastornos de las arterias, arteriolas y capilares en enfermedades clasificadas en otra parte,clinical problems,1  
+I80 Flebitis y tromboflebitis,clinical problems,1  
+I81 Trombosis de la vena porta,clinical problems,1  
+I82 Otras embolias y trombosis venosas,clinical problems,1  
+I83 Várices de los miembros inferiores,clinical problems,1  
+I84 Hemorroides,clinical problems,1  
+I85 Várices esofágicas,clinical problems,1  
+I86 Otras várices,clinical problems,1  
+I87 Otros trastornos de las venas,clinical problems,1  
+I88 Linfadenitis no especificada,clinical problems,1  
+I89 Otros trastornos no infecciosos del sistema linfático,clinical problems,1  
+I95 Hipotensión,clinical problems,1  
+I97 Trastornos postprocedimiento del sistema circulatorio,clinical problems,1  
+I98 Otros trastornos del sistema circulatorio en enfermedades clasificadas en otra parte,clinical problems,1  
+I99 Otros trastornos del sistema circulatorio,clinical problems,1  
+J00 Rinitis aguda,clinical problems,1  
+J01 Sinusitis aguda,clinical problems,1  
+J02 Faringitis aguda,clinical problems,1  
+J03 Amigdalitis aguda,clinical problems,1  
+J04 Laringitis y traqueítis agudas,clinical problems,1  
+J05 Laringitis obstructiva aguda y epiglotitis,clinical problems,1  
+J06 Infecciones agudas de las vías respiratorias superiores de localización múltiple y no especificada,clinical problems,1  
+J09 Gripe debida a virus de la gripe identificado,clinical problems,1  
+J10 Gripe debida a otro virus de la gripe identificado,clinical problems,1  
+J11 Gripe, virus no identificado,clinical problems,1  
+J12 Neumonía vírica, no clasificada en otra parte,clinical problems,1  
+J13 Neumonía debida a estreptococo del grupo B,clinical problems,1  
+J14 Neumonía debida a Haemophilus influenzae,clinical problems,1  
+J15 Neumonía bacteriana no clasificada en otra parte,clinical problems,1  
+J16 Neumonía debida a otros organismos infecciosos, no clasificados en otra parte,clinical problems,1  
+J17 Neumonía en enfermedades clasificadas en otra parte,clinical problems,1  
+J18 Neumonía, organismo no especificado,clinical problems,1  
+J20 Bronquitis aguda,clinical problems,1  
+J21 Bronquiolitis aguda,clinical problems,1  
+J22 Infección aguda de las vías respiratorias inferiores no especificada,clinical problems,1  
+J30 Rinitis alérgica y vasomotora,clinical problems,1  
+J31 Rinitis, faringitis y laringitis crónicas,clinical problems,1  
+J32 Sinusitis crónica,clinical problems,1  
+J33 Pólipo nasal,clinical problems,1  
+J34 Otros trastornos de la nariz y los senos paranasales,clinical problems,1  
+J35 Enfermedades crónicas de las amígdalas y adenoides,clinical problems,1  
+J36 Absceso periamigdalino,clinical problems,1  
+J37 Laringitis y laringotraqueítis crónicas,clinical problems,1  
+J38 Enfermedades de las cuerdas vocales y de la laringe,clinical problems,1  
+J39 Otros trastornos de las vías respiratorias superiores,clinical problems,1  
+J40 Bronquitis no especificada como aguda o crónica,clinical problems,1  
+J41 Bronquitis crónica simple y mucopurulenta,clinical problems,1  
+J42 Bronquitis crónica no especificada,clinical problems,1  
+J43 Enfisema,clinical problems,1  
+J44 Otras enfermedades pulmonares obstructivas crónicas,clinical problems,1  
+J45 Asma,clinical problems,1  
+J46 Estado asmático,clinical problems,1  
+J47 Bronquiectasias,clinical problems,1  
+J60 Neumoconiosis de los mineros del carbón,clinical problems,1  
+J61 Neumoconiosis debida al amianto y otras fibras minerales,clinical problems,1  
+J62 Neumoconiosis debida al polvo que contiene sílice,clinical problems,1  
+J63 Neumoconiosis debida a otros polvos inorgánicos,clinical problems,1  
+J64 Neumoconiosis no especificada,clinical problems,1  
+J65 Neumoconiosis asociada con tuberculosis,clinical problems,1  
+J66 Enfermedades de las vías aéreas debidas a polvo orgánico,clinical problems,1  
+J67 Alveolitis alérgica extrínseca,clinical problems,1  
+J68 Trastornos respiratorios debidos a agentes químicos, gases, humos y vapores,clinical problems,1  
+J69 Neumonitis debida a sólidos y líquidos,clinical problems,1  
+J70 Trastornos respiratorios debidos a otros agentes externos,clinical problems,1  
+J80 Síndrome de dificultad respiratoria aguda del adulto,clinical problems,1  
+J81 Edema pulmonar,clinical problems,1  
+J82 Eosinofilia pulmonar, no clasificada en otra parte,clinical problems,1  
+J84 Otras enfermedades pulmonares intersticiales,clinical problems,1  
+J85 Absceso del pulmón y del mediastino,clinical problems,1  
+J86 Piotórax,clinical problems,1  
+J90 Derrame pleural no clasificado en otra parte,clinical problems,1  
+J91 Derrame pleural en enfermedades clasificadas en otra parte,clinical problems,1  
+J92 Derrame pleural residual,clinical problems,1  
+J93 Neumotórax,clinical problems,1  
+J94 Otros trastornos de la pleura,clinical problems,1  
+J95 Trastornos respiratorios postprocedimiento,clinical problems,1  
+J96 Insuficiencia respiratoria,clinical problems,1  
+J98 Otros trastornos respiratorios,clinical problems,1  
+J99 Trastornos respiratorios en enfermedades clasificadas en otra parte,clinical problems,1  
+K00 Trastornos del desarrollo y de la erupción de los dientes,clinical problems,1  
+K01 Dientes incluidos e impactados,clinical problems,1  
+K02 Caries dental,clinical problems,1  
+K03 Otras enfermedades de los tejidos duros de los dientes,clinical problems,1  
+K04 Enfermedades de la pulpa y de los tejidos periapicales,clinical problems,1  
+K05 Gingivitis y enfermedades periodontales,clinical problems,1  
+K06 Otros trastornos de las encías y del reborde alveolar,clinical problems,1  
+K07 Anomalías dentofaciales,clinical problems,1  
+K08 Otros trastornos de los dientes y de sus estructuras de sostén,clinical problems,1  
+K09 Quistes de la región bucal no clasificados en otra parte,clinical problems,1  
+K10 Otras enfermedades de los maxilares,clinical problems,1  
+K11 Enfermedades de las glándulas salivales,clinical problems,1  
+K12 Estomatitis y lesiones afines,clinical problems,1  
+K13 Otras enfermedades de los labios y de la mucosa bucal,clinical problems,1  
+K14 Enfermedades de la lengua,clinical problems,1  
+K20 Esofagitis,clinical problems,1  
+K21 Enfermedad por reflujo gastroesofágico,clinical problems,1  
+K22 Otros trastornos del esófago,clinical problems,1  
+K23 Trastornos del esófago en enfermedades clasificadas en otra parte,clinical problems,1  
+K25 Úlcera gástrica,clinical problems,1  
+K26 Úlcera duodenal,clinical problems,1  
+K27 Úlcera péptica, sitio no especificado,clinical problems,1  
+K28 Úlcera gastroyeyunal,clinical problems,1  
+K29 Gastritis y duodenitis,clinical problems,1  
+K30 Dispepsia,clinical problems,1  
+K31 Otros trastornos del estómago y del duodeno,clinical problems,1  
+K35 Apendicitis aguda,clinical problems,1  
+K36 Otras apendicitis,clinical problems,1  
+K37 Apendicitis no especificada,clinical problems,1  
+K38 Otras enfermedades del apéndice,clinical problems,1  
+K40 Hernia inguinal,clinical problems,1  
+K41 Hernia femoral,clinical problems,1  
+K42 Hernia umbilical,clinical problems,1  
+K43 Hernia ventral,clinical problems,1  
+K44 Hernia diafragmática,clinical problems,1  
+K45 Otras hernias abdominales,clinical problems,1  
+K46 Hernia abdominal no especificada,clinical problems,1  
+K50 Enfermedad de Crohn,clinical problems,1  
+K51 Colitis ulcerativa,clinical problems,1  
+K52 Otras colitis no infecciosas,clinical problems,1  
+K55 Trastornos vasculares del intestino,clinical problems,1  
+K56 Íleo y obstrucción intestinal sin hernia,clinical problems,1  
+K57 Enfermedad diverticular del intestino,clinical problems,1  
+K58 Síndrome del intestino irritable,clinical problems,1  
+K59 Otros trastornos funcionales del intestino,clinical problems,1  
+K60 Fisura y fístula del ano y del recto,clinical problems,1  
+K61 Absceso del ano y del recto,clinical problems,1  
+K62 Otros trastornos del ano y del recto,clinical problems,1  
+K63 Otros trastornos del intestino,clinical problems,1  
+K65 Peritonitis,clinical problems,1  
+K66 Otros trastornos del peritoneo,clinical problems,1  
+K67 Trastornos del peritoneo en enfermedades clasificadas en otra parte,clinical problems,1  
+K70 Enfermedad hepática alcohólica,clinical problems,1  
+K71 Hepatitis tóxica,clinical problems,1  
+K72 Insuficiencia hepática no clasificada en otra parte,clinical problems,1  
+K73 Hepatitis crónica,clinical problems,1  
+K74 Fibrosis y cirrosis hepáticas,clinical problems,1  
+K75 Otras enfermedades inflamatorias del hígado,clinical problems,1  
+K76 Otras enfermedades del hígado,clinical problems,1  
+K77 Trastornos del hígado en enfermedades clasificadas en otra parte,clinical problems,1  
+K80 Colelitiasis,clinical problems,1  
+K81 Colecistitis,clinical problems,1  
+K82 Otros trastornos de la vesícula biliar,clinical problems,1  
+K83 Otros trastornos de las vías biliares,clinical problems,1  
+K85 Pancreatitis aguda,clinical problems,1  
+K86 Otros trastornos del páncreas,clinical problems,1  
+K87 Trastornos de la vesícula biliar, de las vías biliares y del páncreas en enfermedades clasificadas en otra parte,clinical problems,1  
+K90 Malabsorción intestinal,clinical problems,1  
+K91 Trastornos del aparato digestivo postprocedimiento,clinical problems,1  
+K92 Otros trastornos del aparato digestivo,clinical problems,1  
+K93 Trastornos del sistema digestivo en enfermedades clasificadas en otra parte,clinical problems,1  
+L00 Síndrome estafilocócico de la piel escaldada,clinical problems,1  
+L01 Impétigo,clinical problems,1  
+L02 Absceso cutáneo, furúnculo y antrax,clinical problems,1  
+L03 Celulitis aguda,clinical problems,1  
+L04 Linfadenitis aguda,clinical problems,1  
+L05 Pilonidal,clinical problems,1  
+L08 Otras infecciones localizadas de la piel y del tejido subcutáneo,clinical problems,1  
+L10 Penfigo,clinical problems,1  
+L11 Otras enfermedades ampollosas,clinical problems,1  
+L12 Penfigoide,clinical problems,1  
+L13 Otras afecciones ampollosas,clinical problems,1  
+L14 Afecciones ampollosas en enfermedades clasificadas en otra parte,clinical problems,1  
+L20 Dermatitis atópica,clinical problems,1  
+L21 Dermatitis seborreica,clinical problems,1  
+L22 Dermatitis del pañal,clinical problems,1  
+L23 Dermatitis alérgica de contacto,clinical problems,1  
+L24 Dermatitis irritativa de contacto,clinical problems,1  
+L25 Dermatitis de contacto no especificada,clinical problems,1  
+L26 Dermatitis exfoliativa,clinical problems,1  
+L27 Dermatitis debida a sustancias ingeridas,clinical problems,1  
+L28 Liquen simple crónico y prurigo,clinical problems,1  
+L29 Prurito,clinical problems,1  
+L30 Otras dermatitis,clinical problems,1  
+L40 Psoriasis,clinical problems,1  
+L41 Parapsoriasis,clinical problems,1  
+L42 Pitiriasis rosada,clinical problems,1  
+L43 Liquen plano,clinical problems,1  
+L44 Otros trastornos papuloescamosos,clinical problems,1  
+L45 Trastornos papuloescamosos en enfermedades clasificadas en otra parte,clinical problems,1  
+L50 Urticaria,clinical problems,1  
+L51 Eritema multiforme,clinical problems,1  
+L52 Eritema nudoso,clinical problems,1  
+L53 Otros eritemas,clinical problems,1  
+L54 Eritema en enfermedades clasificadas en otra parte,clinical problems,1  
+L55 Quemadura solar,clinical problems,1  
+L56 Otras afecciones de la piel y del tejido subcutáneo relacionadas con la radiación,clinical problems,1  
+L57 Trastornos de la piel y del tejido subcutáneo relacionados con la exposición crónica a radiación no ionizante,clinical problems,1  
+L58 Trastornos de la piel y del tejido subcutáneo debidos a radiación,clinical problems,1  
+L59 Otros trastornos de la piel y del tejido subcutáneo relacionados con causas externas,clinical problems,1  
+L60 Trastornos de las uñas,clinical problems,1  
+L62 Trastornos de las uñas en enfermedades clasificadas en otra parte,clinical problems,1  
+L63 Alopecia areata,clinical problems,1  
+L64 Alopecia androgénica,clinical problems,1  
+L65 Otras formas de pérdida de cabello no cicatricial,clinical problems,1  
+L66 Alopecia cicatricial,clinical problems,1  
+L67 Trastornos del color y de la estructura del cabello,clinical problems,1  
+L68 Hipertricosis,clinical problems,1  
+L70 Acné,clinical problems,1  
+L71 Rosácea,clinical problems,1  
+L72 Quistes foliculares de la piel y del tejido subcutáneo,clinical problems,1  
+L73 Otras afecciones de los folículos pilosos,clinical problems,1  
+L74 Trastornos de las glándulas sudoríparas ecrinas,clinical problems,1  
+L75 Trastornos de las glándulas sudoríparas apocrinas,clinical problems,1  
+L80 Vitiligo,clinical problems,1  
+L81 Otros trastornos de la pigmentación,clinical problems,1  
+L82 Queratosis seborreica,clinical problems,1  
+L83 Acantosis nigricans,clinical problems,1  
+L84 Heloma y callosidad,clinical problems,1  
+L85 Otros trastornos de la queratinización,clinical problems,1  
+L86 Trastornos de la queratinización en enfermedades clasificadas en otra parte,clinical problems,1  
+L87 Trastornos granulomatosos de la piel y del tejido subcutáneo,clinical problems,1  
+L88 Pioderma gangrenoso,clinical problems,1  
+L89 Úlcera por presión,clinical problems,1  
+L90 Trastornos atróficos de la piel,clinical problems,1  
+L91 Otras afecciones hipertróficas de la piel,clinical problems,1  
+L92 Otras afecciones localizadas de la piel y del tejido subcutáneo,clinical problems,1  
+L93 Lupus eritematoso,clinical problems,1  
+L94 Otras afecciones de la piel y del tejido subcutáneo relacionadas con enfermedades autoinmunitarias,clinical problems,1  
+L95 Vasculitis limitada a la piel,clinical problems,1  
+L97 Úlcera de la pierna no clasificada en otra parte,clinical problems,1  
+L98 Otros trastornos de la piel y del tejido subcutáneo no clasificados en otra parte,clinical problems,1  
+L99 Trastornos de la piel y del tejido subcutáneo en enfermedades clasificadas en otra parte,clinical problems,1  
+M00 Artritis piogénica,clinical problems,1  
+M01 Artritis directa en enfermedades infecciosas,clinical problems,1  
+M02 Artropatías postinfecciosas y reactivas,clinical problems,1  
+M03 Artropatías en enfermedades infecciosas clasificadas en otra parte,clinical problems,1  
+M05 Artritis reumatoide seropositiva,clinical problems,1  
+M06 Otras artritis reumatoides,clinical problems,1  
+M07 Artropatías psoriásicas y enteropáticas,clinical problems,1  
+M08 Artritis juvenil,clinical problems,1  
+M09 Artritis juvenil en enfermedades clasificadas en otra parte,clinical problems,1  
+M10 Gota,clinical problems,1  
+M11 Otras artropatías por cristales,clinical problems,1  
+M12 Otras artropatías especificadas,clinical problems,1  
+M13 Otras artritis,clinical problems,1  
+M14 Artropatías en enfermedades endocrinas, metabólicas y nutricionales,clinical problems,1  
+M15 Poliartrosis,clinical problems,1  
+M16 Coxartrosis [artrosis de la cadera],clinical problems,1  
+M17 Gonartrosis [artrosis de la rodilla],clinical problems,1  
+M18 Artrosis de la primera articulación carpometacarpiana,clinical problems,1  
+M19 Otras artrosis,clinical problems,1  
+M20 Deformidades adquiridas de los dedos de manos y pies,clinical problems,1  
+M21 Otras deformidades adquiridas de los miembros,clinical problems,1  
+M22 Trastornos de la rótula,clinical problems,1  
+M23 Trastornos internos de la rodilla,clinical problems,1  
+M24 Otras afecciones articulares especificadas,clinical problems,1  
+M25 Otras afecciones articulares no clasificadas en otra parte,clinical problems,1  
+M30 Poliarteritis nodosa y afecciones relacionadas,clinical problems,1  
+M31 Otras vasculopatías necrosantes,clinical problems,1  
+M32 Lupus eritematoso sistémico,clinical problems,1  
+M33 Dermatomiositis y polimiositis,clinical problems,1  
+M34 Esclerosis sistémica,clinical problems,1  
+M35 Otros trastornos sistémicos del tejido conjuntivo,clinical problems,1  
+M36 Trastornos sistémicos del tejido conjuntivo en enfermedades clasificadas en otra parte,clinical problems,1  
+M40 Cifosis y lordosis,clinical problems,1  
+M41 Escoliosis,clinical problems,1  
+M42 Osteocondrosis de la columna vertebral,clinical problems,1  
+M43 Otros trastornos de la columna vertebral,clinical problems,1  
+M45 Espondilitis anquilosante,clinical problems,1  
+M46 Otras espondilopatías inflamatorias,clinical problems,1  
+M47 Espondilosis,clinical problems,1  
+M48 Otros trastornos de los discos intervertebrales,clinical problems,1  
+M49 Espondilopatías en enfermedades clasificadas en otra parte,clinical problems,1  
+M50 Trastornos cervicales de los discos intervertebrales,clinical problems,1  
+M51 Otros trastornos de los discos intervertebrales,clinical problems,1  
+M53 Otras dorsopatías no clasificadas en otra parte,clinical problems,1  
+M54 Dorsalgia,clinical problems,1  
+M60 Miositis,clinical problems,1  
+M61 Otras afecciones inflamatorias del músculo,clinical problems,1  
+M62 Otros trastornos del músculo,clinical problems,1  
+M63 Trastornos del músculo en enfermedades clasificadas en otra parte,clinical problems,1  
+M65 Sinovitis y tenosinovitis,clinical problems,1  
+M66 Rotura espontánea de sinovia y tendones,clinical problems,1  
+M67 Otros trastornos de la sinovia y del tendón,clinical problems,1  
+M68 Trastornos de la sinovia y del tendón en enfermedades clasificadas en otra parte,clinical problems,1  
+M70 Trastornos de tejidos blandos relacionados con el uso, el uso excesivo y la presión,clinical problems,1  
+M71 Otras bursopatías,clinical problems,1  
+M72 Trastornos fibroblásticos,clinical problems,1  
+M73 Trastornos de los tejidos blandos en enfermedades clasificadas en otra parte,clinical problems,1  
+M75 Lesiones del hombro,clinical problems,1  
+M76 Entesopatías de los miembros inferiores,clinical problems,1  
+M77 Otras entesopatías,clinical problems,1  
+M79 Otros trastornos de los tejidos blandos,clinical problems,1  
+M80 Osteoporosis con fractura patológica,clinical problems,1  
+M81 Osteoporosis sin fractura patológica,clinical problems,1  
+M82 Osteoporosis en enfermedades clasificadas en otra parte,clinical problems,1  
+M83 Osteomalacia del adulto,clinical problems,1  
+M84 Trastornos de la continuidad del hueso,clinical problems,1  
+M85 Otros trastornos de la densidad y estructura óseas,clinical problems,1  
+M86 Osteomielitis,clinical problems,1  
+M87 Osteonecrosis,clinical problems,1  
+M88 Enfermedad de Paget del hueso [osteítis deformante],clinical problems,1  
+M89 Otros trastornos del hueso,clinical problems,1  
+M90 Trastornos óseos en enfermedades clasificadas en otra parte,clinical problems,1  
+M91 Osteocondrosis juvenil de la cabeza femoral,clinical problems,1  
+M92 Otras osteocondrosis juveniles,clinical problems,1  
+M93 Otras osteocondropatías,clinical problems,1  
+M94 Otros trastornos del cartílago,clinical problems,1  
+M95 Otros trastornos adquiridos del sistema osteomuscular y del tejido conjuntivo,clinical problems,1  
+M99 Trastornos biomecánicos no clasificados en otra parte,clinical problems,1  
+N00 Síndrome nefrítico agudo,clinical problems,1  
+N01 Síndrome nefrítico rápidamente progresivo,clinical problems,1  
+N02 Hematuria recurrente y persistente,clinical problems,1  
+N03 Síndrome nefrítico crónico,clinical problems,1  
+N04 Síndrome nefrótico,clinical problems,1  
+N05 Síndrome nefrótico no especificado como agudo o crónico,clinical problems,1  
+N06 Proteinuria persistente sin síndrome nefrótico,clinical problems,1  
+N07 Nefropatía hereditaria,clinical problems,1  
+N08 Trastornos glomerulares en enfermedades clasificadas en otra parte,clinical problems,1  
+N10 Nefritis tubulointersticial aguda,clinical problems,1  
+N11 Nefritis tubulointersticial crónica,clinical problems,1  
+N12 Nefritis tubulointersticial, no especificada como aguda o crónica,clinical problems,1  
+N13 Uropatía obstructiva y por reflujo,clinical problems,1  
+N14 Trastornos renales y ureterales inducidos por fármacos y metales pesados,clinical problems,1  
+N15 Otras afecciones renales tubulointersticiales,clinical problems,1  
+N16 Trastornos renales tubulointersticiales en enfermedades clasificadas en otra parte,clinical problems,1  
+N17 Insuficiencia renal aguda,clinical problems,1  
+N18 Enfermedad renal crónica,clinical problems,1  
+N19 Insuficiencia renal no especificada,clinical problems,1  
+N20 Cálculo del riñón y del uréter,clinical problems,1  
+N21 Cálculo de las vías urinarias inferiores,clinical problems,1  
+N22 Cálculos urinarios en enfermedades clasificadas en otra parte,clinical problems,1  
+N23 Cólico nefrítico,clinical problems,1  
+N25 Trastornos tubulares y afecciones renales metabólicas,clinical problems,1  
+N26 Riñón contraído, no especificado,clinical problems,1  
+N27 Riñón pequeño de causa no especificada,clinical problems,1  
+N28 Otras afecciones del riñón y del uréter,clinical problems,1  
+N29 Trastornos del riñón y del uréter en enfermedades clasificadas en otra parte,clinical problems,1  
+N30 Cistitis,clinical problems,1  
+N31 Trastornos funcionales de la vejiga,clinical problems,1  
+N32 Otras afecciones de la vejiga,clinical problems,1  
+N33 Trastornos de la vejiga en enfermedades clasificadas en otra parte,clinical problems,1  
+N34 Uretritis y síndrome uretral,clinical problems,1  
+N35 Estenosis de la uretra,clinical problems,1  
+N36 Otras afecciones de la uretra,clinical problems,1  
+N37 Trastornos de la uretra en enfermedades clasificadas en otra parte,clinical problems,1  
+N39 Otros trastornos del sistema urinario,clinical problems,1  
+N40 Hiperplasia de la próstata,clinical problems,1  
+N41 Inflamación de la próstata,clinical problems,1  
+N42 Otras afecciones de la próstata,clinical problems,1  
+N43 Hidrocele y espermatocele,clinical problems,1  
+N44 Torsión del testículo,clinical problems,1  
+N45 Orquitis y epididimitis,clinical problems,1  
+N46 Infertilidad masculina,clinical problems,1  
+N47 Trastornos del prepucio,clinical problems,1  
+N48 Otros trastornos del pene,clinical problems,1  
+N49 Trastornos inflamatorios de los órganos genitales masculinos,clinical problems,1  
+N50 Otras afecciones de los órganos genitales masculinos,clinical problems,1  
+N60 Enfermedades benignas de la mama,clinical problems,1  
+N61 Trastornos inflamatorios de la mama,clinical problems,1  
+N62 Hipertrofia de la mama,clinical problems,1  
+N63 Masa o bulto no especificado en la mama,clinical problems,1  
+N64 Otros trastornos de la mama,clinical problems,1  
+N70 Salpingitis y ooforitis,clinical problems,1  
+N71 Enfermedad inflamatoria del útero,clinical problems,1  
+N72 Enfermedad inflamatoria del cuello uterino,clinical problems,1  
+N73 Otras enfermedades inflamatorias de los órganos genitales femeninos,clinical problems,1  
+N74 Trastornos inflamatorios de los órganos genitales femeninos en enfermedades clasificadas en otra parte,clinical problems,1  
+N75 Enfermedades de las glándulas de Bartolino,clinical problems,1  
+N76 Otras enfermedades inflamatorias de la vagina y de la vulva,clinical problems,1  
+N77 Lesiones ulcerativas y trastornos inflamatorios en enfermedades clasificadas en otra parte,clinical problems,1  
+N80 Endometriosis,clinical problems,1  
+N81 Prolapso de órganos pélvicos femeninos,clinical problems,1  
+N82 Fístulas genitales femeninas,clinical problems,1  
+N83 Otros trastornos no inflamatorios del ovario, trompa de Falopio y ligamento ancho,clinical problems,1  
+N84 Pólipo del tracto genital femenino,clinical problems,1  
+N85 Otros trastornos no inflamatorios del útero,clinical problems,1  
+N86 Erosión y ectropión del cuello uterino,clinical problems,1  
+N87 Displasia del cuello uterino,clinical problems,1  
+N88 Otros trastornos no inflamatorios del cuello uterino,clinical problems,1  
+N89 Otros trastornos no inflamatorios de la vagina,clinical problems,1  
+N90 Otros trastornos no inflamatorios de la vulva y del periné,clinical problems,1  
+N91 Menstruación ausente escasa o poco frecuente,clinical problems,1
+N92 Menstruación excesiva frecuente e irregular,clinical problems,1 
+N93 Otros sangrados uterinos y vaginales anormales,clinical problems,1  
+N94 Dolor y otros trastornos relacionados con los órganos genitales femeninos y el ciclo menstrual,clinical problems,1  
+N95 Otros trastornos menopáusicos y perimenopáusicos,clinical problems,1  
+N96 Pérdida habitual del embarazo,clinical problems,1  
+N97 Infertilidad femenina,clinical problems,1  
+N98 Complicaciones asociadas a la fecundación artificial,clinical problems,1  
+N99 Trastornos del aparato genitourinario posteriores a procedimientos, no clasificados en otra parte,clinical problems,1  
+O00 Embarazo ectópico,clinical problems,1  
+O01 Mola hidatiforme,clinical problems,1  
+O02 Otros productos anormales de la concepción,clinical problems,1  
+O03 Aborto espontáneo,clinical problems,1  
+O04 Aborto provocado por razones médicas y legales,clinical problems,1  
+O05 Otros tipos de aborto provocado,clinical problems,1  
+O06 Aborto no especificado,clinical problems,1  
+O07 Fracaso de intento de aborto,clinical problems,1  
+O08 Complicaciones posteriores a un aborto y embarazo ectópico o molar,clinical problems,1  
+O10 Hipertensión preexistente con embarazo parto y puerperio,clinical problems,1  
+O11 Trastornos hipertensivos preexistentes con proteinuria superpuesta,clinical problems,1  
+O12 Edema proteinuria y trastornos hipertensivos del embarazo parto y puerperio,clinical problems,1  
+O13 Hipertensión gestacional sin proteinuria,clinical problems,1  
+O14 Preeclampsia,clinical problems,1  
+O15 Eclampsia,clinical problems,1  
+O16 Trastorno hipertensivo no especificado en el embarazo parto y puerperio,clinical problems,1  
+O20 Hemorragia en el embarazo temprano,clinical problems,1  
+O21 Hiperemesis gravídica,clinical problems,1  
+O22 Complicaciones venosas en el embarazo,clinical problems,1  
+O23 Infección del tracto urinario en el embarazo,clinical problems,1  
+O24 Diabetes mellitus en el embarazo,clinical problems,1  
+O25 Desnutrición en el embarazo,clinical problems,1  
+O26 Trastornos relacionados con el embarazo en general,clinical problems,1  
+O28 Resultados anormales en exámenes prenatales,clinical problems,1  
+O29 Complicaciones de la anestesia administrada durante el embarazo,clinical problems,1  
+O30 Embarazo múltiple,clinical problems,1  
+O31 Otras complicaciones específicas del embarazo múltiple,clinical problems,1  
+O32 Madre con presentación anormal del feto,clinical problems,1  
+O33 Madre con desproporción entre feto y pelvis,clinical problems,1  
+O34 Madre con anomalías de los órganos pélvicos,clinical problems,1  
+O35 Madre con sospecha de daño fetal,clinical problems,1  
+O36 Otras afecciones maternas relacionadas con el feto,clinical problems,1  
+O40 Polihidramnios,clinical problems,1  
+O41 Trastornos de las membranas amnióticas,clinical problems,1  
+O42 Ruptura prematura de membranas,clinical problems,1  
+O43 Trastornos de la placenta,clinical problems,1  
+O44 Placenta previa,clinical problems,1  
+O45 Desprendimiento prematuro de placenta,clinical problems,1  
+O46 Hemorragia anteparto no clasificada en otra parte,clinical problems,1  
+O47 Falso trabajo de parto,clinical problems,1  
+O48 Embarazo prolongado,clinical problems,1  
+O60 Trabajo de parto prematuro,clinical problems,1  
+O61 Fracaso en la inducción del trabajo de parto,clinical problems,1  
+O62 Anormalidades en la contracción uterina,clinical problems,1  
+O63 Trabajo de parto prolongado,clinical problems,1  
+O64 Obstrucción del trabajo de parto por presentación anormal,clinical problems,1  
+O65 Obstrucción del trabajo de parto por desproporción,clinical problems,1  
+O66 Otras formas de trabajo de parto obstruido,clinical problems,1  
+O67 Hemorragia durante el trabajo de parto,clinical problems,1  
+O68 Trastornos fetales durante el trabajo de parto,clinical problems,1  
+O69 Complicaciones relacionadas con el cordón umbilical,clinical problems,1  
+O70 Desgarro del periné durante el parto,clinical problems,1  
+O71 Otros traumatismos obstétricos durante el parto,clinical problems,1  
+O72 Hemorragia posparto,clinical problems,1  
+O73 Retención de placenta o membranas sin hemorragia,clinical problems,1  
+O74 Complicaciones de la anestesia administrada durante el trabajo de parto y el parto,clinical problems,1  
+O75 Otras complicaciones del trabajo de parto y del parto no clasificadas en otra parte,clinical problems,1  
+O80 Parto único espontáneo,clinical problems,1  
+O81 Parto único asistido con fórceps o ventosa,clinical problems,1  
+O82 Parto único por cesárea,clinical problems,1  
+O83 Otros tipos de parto único asistido,clinical problems,1  
+O84 Parto múltiple,clinical problems,1  
+O85 Sepsis puerperal,clinical problems,1  
+O86 Otras infecciones puerperales,clinical problems,1  
+O87 Complicaciones venosas puerperales,clinical problems,1  
+O88 Embolia obstétrica,clinical problems,1  
+O89 Complicaciones de la anestesia durante el puerperio,clinical problems,1  
+O90 Complicaciones del puerperio no clasificadas en otra parte,clinical problems,1  
+O91 Infecciones de la mama relacionadas con el parto,clinical problems,1  
+O92 Otras afecciones de la mama y de la lactancia,clinical problems,1  
+O95 Muerte materna por causas obstétricas no especificadas,clinical problems,1  
+O96 Muerte materna por causas obstétricas más de 42 días después del parto,clinical problems,1  
+O97 Muerte materna por secuelas de causas obstétricas directas,clinical problems,1  
+O98 Enfermedades infecciosas y parasitarias maternas clasificadas en otra parte,clinical problems,1  
+O99 Otras enfermedades maternas no clasificadas en otra parte,clinical problems,1  
+P00 Feto y recién nacido afectados por enfermedades maternas que pueden estar relacionadas con el embarazo,clinical problems,1  
+P01 Feto y recién nacido afectados por complicaciones maternas del embarazo,clinical problems,1  
+P02 Feto y recién nacido afectados por complicaciones de la placenta el cordón umbilical y las membranas,clinical problems,1  
+P03 Feto y recién nacido afectados por otros trastornos del parto y del trabajo de parto,clinical problems,1  
+P04 Feto y recién nacido afectados por influencias nocivas transmitidas por la placenta o la leche materna,clinical problems,1  
+P05 Trastornos relacionados con una duración corta de la gestación y con bajo peso al nacer no clasificados en otra parte,clinical problems,1  
+P06 Trastornos relacionados con una duración prolongada de la gestación y con exceso de peso al nacer,clinical problems,1  
+P07 Trastornos relacionados con la duración corta de la gestación y bajo peso al nacer,clinical problems,1  
+P08 Trastornos relacionados con la duración prolongada de la gestación y el exceso de peso al nacer,clinical problems,1  
+P10 Hemorragia intracraneal de origen natal,clinical problems,1  
+P11 Otras lesiones del sistema nervioso central de origen natal,clinical problems,1  
+P12 Lesiones del cuero cabelludo de origen natal,clinical problems,1  
+P13 Lesiones del esqueleto de origen natal,clinical problems,1  
+P14 Lesiones de los nervios periféricos de origen natal,clinical problems,1  
+P15 Otras lesiones de origen natal,clinical problems,1  
+P20 Hipoxia intrauterina,clinical problems,1  
+P21 Asfixia al nacer,clinical problems,1  
+P22 Insuficiencia respiratoria del recién nacido,clinical problems,1  
+P23 Neumonía congénita,clinical problems,1  
+P24 Aspiración neonatal de meconio y otros líquidos,clinical problems,1  
+P25 Enfermedades respiratorias de origen perinatal,clinical problems,1  
+P26 Hemorragia pulmonar neonatal,clinical problems,1  
+P27 Otras enfermedades respiratorias del período perinatal,clinical problems,1  
+P28 Otros trastornos respiratorios del recién nacido,clinical problems,1  
+P29 Trastornos cardiovasculares originados en el período perinatal,clinical problems,1  
+P35 Enfermedades virales congénitas,clinical problems,1  
+P36 Sepsis bacteriana del recién nacido,clinical problems,1  
+P37 Otras enfermedades infecciosas y parasitarias congénitas,clinical problems,1  
+P38 Onfalitis del recién nacido con o sin hemorragia leve,clinical problems,1  
+P39 Otras infecciones específicas del período perinatal,clinical problems,1  
+P50 Pérdida de sangre fetal,clinical problems,1  
+P51 Hemorragia del cordón umbilical,clinical problems,1  
+P52 Hemorragia intracraneal no traumática del feto y del recién nacido,clinical problems,1  
+P53 Trastornos hemorrágicos fetales y neonatales,clinical problems,1  
+P54 Otros trastornos hemorrágicos del feto y del recién nacido,clinical problems,1  
+P55 Enfermedad hemolítica del feto y del recién nacido,clinical problems,1  
+P56 Hidropesía fetal debida a enfermedad hemolítica,clinical problems,1  
+P57 Ictericia nuclear,clinical problems,1  
+P58 Ictericia neonatal debida a otras causas hemolíticas,clinical problems,1  
+P59 Ictericia neonatal por otras causas y por causas no especificadas,clinical problems,1  
+P60 Trastornos del metabolismo del recién nacido,clinical problems,1  
+P61 Otros trastornos hematológicos del recién nacido,clinical problems,1  
+P62 Otros trastornos del metabolismo del recién nacido,clinical problems,1  
+P70 Trastornos endocrinos transitorios del recién nacido,clinical problems,1  
+P71 Trastornos transitorios del metabolismo de los minerales del recién nacido,clinical problems,1  
+P72 Otros trastornos endocrinos y del metabolismo del recién nacido,clinical problems,1  
+P74 Otros trastornos de la regulación térmica del recién nacido,clinical problems,1  
+P75 Obstrucción intestinal del recién nacido,clinical problems,1  
+P76 Otros trastornos digestivos del recién nacido,clinical problems,1  
+P77 Enterocolitis necrosante del recién nacido,clinical problems,1  
+P78 Otras enfermedades del aparato digestivo del recién nacido,clinical problems,1  
+P80 Hipotermia del recién nacido,clinical problems,1  
+P81 Otros trastornos de la regulación de la temperatura del recién nacido,clinical problems,1  
+P83 Otros trastornos del recién nacido,clinical problems,1  
+P84 Otros signos y síntomas que afectan al recién nacido,clinical problems,1  
+P90 Convulsiones del recién nacido,clinical problems,1  
+P91 Otros trastornos del sistema nervioso central del recién nacido,clinical problems,1  
+P92 Trastornos de la alimentación del recién nacido,clinical problems,1  
+P93 Reacciones adversas y accidentes debidos a inmunización del recién nacido,clinical problems,1  
+P94 Trastornos del tono muscular del recién nacido,clinical problems,1  
+P95 Muerte fetal de causa no especificada,clinical problems,1  
+P96 Otras afecciones originadas en el período perinatal,clinical problems,1  
+Q00 Anencefalia y malformaciones similares,clinical problems,1  
+Q01 Encefalocele,clinical problems,1  
+Q02 Microcefalia,clinical problems,1  
+Q03 Hidrocefalia congénita,clinical problems,1  
+Q04 Otras malformaciones congénitas del cerebro,clinical problems,1  
+Q05 Espina bífida,clinical problems,1  
+Q06 Otras malformaciones congénitas de la médula espinal,clinical problems,1  
+Q07 Otras malformaciones congénitas del sistema nervioso,clinical problems,1  
+Q10 Malformaciones congénitas de los párpados aparato lagrimal y órbita,clinical problems,1  
+Q11 Anoftalmía microftalmía y macroftalmía,clinical problems,1  
+Q12 Malformaciones congénitas del cristalino,clinical problems,1  
+Q13 Malformaciones congénitas de la cámara anterior del ojo,clinical problems,1  
+Q14 Malformaciones congénitas de la retina el nervio óptico y otras partes del ojo,clinical problems,1  
+Q15 Otras malformaciones congénitas del ojo,clinical problems,1  
+Q16 Malformaciones congénitas del oído que causan deterioro de la audición,clinical problems,1  
+Q17 Otras malformaciones congénitas del oído,clinical problems,1  
+Q18 Otras malformaciones congénitas de cara y cuello,clinical problems,1  
+Q20 Malformaciones congénitas de las cavidades cardíacas y de las conexiones,clinical problems,1  
+Q21 Malformaciones congénitas de los tabiques cardíacos,clinical problems,1  
+Q22 Malformaciones congénitas de las válvulas cardíacas,clinical problems,1  
+Q23 Otras malformaciones congénitas del corazón,clinical problems,1  
+Q24 Otras malformaciones congénitas del corazón,clinical problems,1  
+Q25 Malformaciones congénitas de grandes vasos,clinical problems,1  
+Q26 Malformaciones congénitas de las arterias y venas pulmonares,clinical problems,1  
+Q27 Otras malformaciones congénitas del sistema circulatorio periférico,clinical problems,1  
+Q28 Otras malformaciones congénitas del sistema circulatorio,clinical problems,1  
+Q30 Malformaciones congénitas de la nariz,clinical problems,1  
+Q31 Malformaciones congénitas de la laringe,clinical problems,1  
+Q32 Malformaciones congénitas de la tráquea y los bronquios,clinical problems,1  
+Q33 Malformaciones congénitas de los pulmones,clinical problems,1  
+Q34 Otras malformaciones congénitas del aparato respiratorio,clinical problems,1  
+Q35 Fisura palatina,clinical problems,1  
+Q36 Fisura labial,clinical problems,1  
+Q37 Fisura labio palatina,clinical problems,1  
+Q38 Otras malformaciones congénitas de la lengua boca y faringe,clinical problems,1  
+Q39 Otras malformaciones congénitas del aparato digestivo superior,clinical problems,1  
+Q40 Malformaciones congénitas del intestino,clinical problems,1  
+Q41 Ausencia atresia y estenosis congénitas del intestino,clinical problems,1  
+Q42 Enfermedad de Hirschsprung y otros trastornos del colon,clinical problems,1  
+Q43 Otras malformaciones congénitas del intestino,clinical problems,1  
+Q44 Malformaciones congénitas de la vesícula biliar del conducto biliar y del hígado,clinical problems,1  
+Q45 Otras malformaciones congénitas del aparato digestivo,clinical problems,1  
+Q50 Malformaciones congénitas de los ovarios trompas y útero,clinical problems,1  
+Q51 Malformaciones congénitas de otros órganos genitales femeninos,clinical problems,1  
+Q52 Otras malformaciones congénitas del aparato genital femenino,clinical problems,1  
+Q53 Testículo no descendido,clinical problems,1  
+Q54 Hipospadias,clinical problems,1  
+Q55 Otras malformaciones congénitas de los órganos genitales masculinos,clinical problems,1  
+Q56 Hermafroditismo y otras malformaciones del sexo genético,clinical problems,1  
+Q60 Agenesia y otras malformaciones del riñón,clinical problems,1  
+Q61 Enfermedad renal quística congénita,clinical problems,1  
+Q62 Otras malformaciones congénitas del sistema pieloureteral,clinical problems,1  
+Q63 Otras malformaciones congénitas del riñón,clinical problems,1  
+Q64 Otras malformaciones congénitas del aparato urinario,clinical problems,1  
+Q65 Deformidades congénitas de la cadera,clinical problems,1  
+Q66 Deformidades congénitas del pie,clinical problems,1  
+Q67 Deformidades congénitas de la cabeza la cara la columna vertebral y el tórax,clinical problems,1  
+Q68 Otras deformidades congénitas osteomusculares,clinical problems,1  
+Q69 Polidactilia,clinical problems,1  
+Q70 Sindactilia,clinical problems,1  
+Q71 Ausencia congénita de extremidades,clinical problems,1  
+Q72 Otras reducciones congénitas de extremidades inferiores,clinical problems,1  
+Q73 Reducciones congénitas no especificadas de extremidades,clinical problems,1  
+Q74 Otras malformaciones congénitas del sistema osteomuscular,clinical problems,1  
+Q75 Otras malformaciones congénitas de los huesos de la cabeza y de la cara,clinical problems,1  
+Q76 Malformaciones congénitas de la columna vertebral y del tórax óseo,clinical problems,1  
+Q77 Osteocondrodisplasias con defectos del crecimiento de los huesos largos y de la columna vertebral,clinical problems,1  
+Q78 Otras osteocondrodisplasias,clinical problems,1  
+Q79 Malformaciones congénitas de los músculos y del diafragma,clinical problems,1  
+Q80 Ictiosis congénita,clinical problems,1  
+Q81 Epidermólisis ampollosa,clinical problems,1  
+Q82 Otras malformaciones congénitas de la piel,clinical problems,1  
+Q83 Malformaciones congénitas de la mama,clinical problems,1  
+Q84 Otras malformaciones congénitas del tegumento,clinical problems,1  
+Q85 Facomatosis no clasificada en otra parte,clinical problems,1  
+Q86 Síndromes malformativos debidos a causas conocidas exógenas,clinical problems,1  
+Q87 Síndromes malformativos con anomalías predominantemente de la cara,clinical problems,1  
+Q88 Otros síndromes malformativos especificados,clinical problems,1  
+Q89 Malformaciones congénitas de otras localizaciones y las no especificadas,clinical problems,1  
+Q90 Síndrome de Down,clinical problems,1  
+Q91 Síndrome de Edwards y de Patau,clinical problems,1  
+Q92 Otras trisomías autosómicas y trisomías parciales,clinical problems,1  
+Q93 Monosomías y deleciones autosómicas,clinical problems,1  
+Q95 Reordenamientos equilibrados y marcadores estructurales,clinical problems,1  
+Q96 Síndrome de Turner,clinical problems,1  
+Q97 Síndrome de Klinefelter,clinical problems,1  
+Q98 Otras anomalías de los cromosomas sexuales no clasificadas en otra parte,clinical problems,1  
+Q99 Otras anomalías cromosómicas no clasificadas en otra parte,clinical problems,1  
+R00 Anomalías del latido cardíaco,clinical problems,1  
+R01 Soplos y otros ruidos cardíacos,clinical problems,1  
+R02 Gangrena no clasificada en otra parte,clinical problems,1  
+R03 Lectura anormal de la presión arterial sin diagnóstico,clinical problems,1  
+R04 Hemorragia de las vías respiratorias,clinical problems,1  
+R05 Tos,clinical problems,1  
+R06 Anomalías de la respiración,clinical problems,1  
+R07 Dolor de garganta y pecho,clinical problems,1  
+R09 Otros síntomas y signos que afectan al aparato circulatorio y respiratorio,clinical problems,1  
+R10 Dolor abdominal y pélvico,clinical problems,1  
+R11 Náuseas y vómitos,clinical problems,1  
+R12 Acidez,clinical problems,1  
+R13 Trastornos de la deglución,clinical problems,1  
+R14 Flatulencia y afecciones conexas,clinical problems,1  
+R15 Incontinencia fecal,clinical problems,1  
+R16 Hepatomegalia y esplenomegalia no clasificadas en otra parte,clinical problems,1  
+R17 Ictericia no clasificada en otra parte,clinical problems,1  
+R18 Ascitis,clinical problems,1  
+R19 Otros síntomas y signos que afectan al aparato digestivo y al abdomen,clinical problems,1  
+R20 Trastornos de la sensibilidad cutánea,clinical problems,1  
+R21 Erupción y otras erupciones cutáneas no especificadas,clinical problems,1  
+R22 Tumefacción masa o bulto localizado en la piel y el tejido subcutáneo,clinical problems,1  
+R23 Otras alteraciones cutáneas,clinical problems,1  
+R25 Movimientos involuntarios anormales,clinical problems,1  
+R26 Anomalías de la marcha y de la movilidad,clinical problems,1  
+R27 Otras anomalías de la coordinación,clinical problems,1  
+R29 Otros síntomas y signos que afectan al sistema nervioso y musculoesquelético,clinical problems,1  
+R30 Dolor asociado a la micción,clinical problems,1  
+R31 Hematuria no especificada,clinical problems,1  
+R32 Incontinencia urinaria no especificada,clinical problems,1  
+R33 Retención urinaria,clinical problems,1  
+R34 Anuria y oliguria,clinical problems,1  
+R35 Poliuria,clinical problems,1  
+R36 Secreción uretral,clinical problems,1  
+R39 Otros síntomas y signos que afectan al aparato urinario,clinical problems,1  
+R40 Somnolencia estupor y coma,clinical problems,1  
+R41 Otros síntomas y signos que afectan al conocimiento la percepción la orientación y el estado emocional,clinical problems,1  
+R42 Mareo y trastornos del equilibrio,clinical problems,1  
+R43 Trastornos del olfato y del gusto,clinical problems,1  
+R44 Otros síntomas y signos que afectan a las sensaciones y a la percepción general,clinical problems,1  
+R45 Síntomas y signos que afectan al estado emocional,clinical problems,1  
+R46 Síntomas y signos que afectan a la apariencia y el comportamiento,clinical problems,1  
+R47 Trastornos del habla,clinical problems,1  
+R48 Otros síntomas y signos que afectan al habla y al lenguaje,clinical problems,1  
+R49 Trastornos de la voz,clinical problems,1  
+R50 Fiebre de origen desconocido,clinical problems,1  
+R51 Cefalea,clinical problems,1  
+R52 Dolor no clasificado en otra parte,clinical problems,1  
+R53 Malestar y fatiga,clinical problems,1  
+R54 Senilidad,clinical problems,1  
+R55 Síncope y colapso,clinical problems,1  
+R56 Convulsiones no epilépticas,clinical problems,1  
+R57 Shock no clasificado en otra parte,clinical problems,1  
+R58 Hemorragia no clasificada en otra parte,clinical problems,1  
+R59 Adenopatía,clinical problems,1  
+R60 Edema no clasificado en otra parte,clinical problems,1  
+R61 Hiperhidrosis,clinical problems,1  
+R62 Trastornos del crecimiento físico,clinical problems,1  
+R63 Síntomas y signos relacionados con la alimentación y la ingestión de líquidos,clinical problems,1  
+R64 Caquexia,clinical problems,1  
+R68 Otros síntomas y signos generales,clinical problems,1  
+R69 Causas desconocidas y no especificadas de morbilidad,clinical problems,1  
+R70 Anomalías del eritrosedimentación y de la viscosidad plasmática,clinical problems,1  
+R71 Anomalías de los glóbulos rojos,clinical problems,1  
+R72 Anomalías del glóbulo blanco,clinical problems,1  
+R73 Resultados anormales de la glucemia,clinical problems,1  
+R74 Resultados anormales de la función hepática,clinical problems,1  
+R75 Evidencia de infección por virus de inmunodeficiencia humana,clinical problems,1  
+R76 Otras respuestas inmunológicas anormales de laboratorio,clinical problems,1  
+R77 Otras alteraciones del plasma,clinical problems,1  
+R78 Presencia de drogas y otras sustancias anormales en la sangre,clinical problems,1  
+R79 Otros hallazgos anormales de sangre química,clinical problems,1  
+R80 Proteinuria aislada,clinical problems,1  
+R81 Glucosuria,clinical problems,1  
+R82 Hallazgos anormales en el examen de orina,clinical problems,1  
+R83 Hallazgos anormales en el examen de líquido cefalorraquídeo,clinical problems,1  
+R84 Hallazgos anormales en el examen de otros líquidos corporales,clinical problems,1  
+R85 Hallazgos anormales en el examen de material de tubo digestivo o de respiratorio,clinical problems,1  
+R86 Hallazgos anormales en el examen de semen de vagina y de piel,clinical problems,1  
+R87 Hallazgos anormales en el examen citológico y de otro tipo de material,clinical problems,1  
+R89 Hallazgos anormales en estudios de imágenes de otras partes del cuerpo,clinical problems,1  
+R90 Hallazgos anormales en estudios por imágenes del sistema nervioso central,clinical problems,1  
+R91 Hallazgos anormales en estudios por imágenes de pulmón,clinical problems,1  
+R92 Hallazgos anormales en estudios por imágenes de mama,clinical problems,1  
+R93 Hallazgos anormales en estudios por imágenes de otras partes específicas del cuerpo,clinical problems,1  
+R94 Resultados anormales en estudios funcionales,clinical problems,1  
+R95 Muerte súbita del lactante,clinical problems,1  
+R96 Otras muertes súbitas de causa desconocida,clinical problems,1  
+R98 Muerte sin asistencia,clinical problems,1  
+R99 Otras causas mal definidas y las no especificadas de mortalidad,clinical problems,1  
+S00 Traumatismo superficial de la cabeza,clinical problems,1  
+S01 Herida de la cabeza,clinical problems,1  
+S02 Fractura de cráneo y de huesos de la cara,clinical problems,1  
+S03 Luxación esguince y distensión de articulaciones y ligamentos de la cabeza,clinical problems,1  
+S04 Traumatismo de nervios craneales,clinical problems,1  
+S05 Traumatismo del ojo y de la órbita,clinical problems,1  
+S06 Traumatismo intracraneal,clinical problems,1  
+S07 Traumatismos aplastantes de la cabeza,clinical problems,1  
+S08 Amputación traumática de parte de la cabeza,clinical problems,1  
+S09 Otros traumatismos de la cabeza y los no especificados,clinical problems,1  
+S10 Traumatismo superficial del cuello,clinical problems,1  
+S11 Herida del cuello,clinical problems,1  
+S12 Fractura de vértebras cervicales,clinical problems,1  
+S13 Luxación esguince y distensión de articulaciones y ligamentos del cuello,clinical problems,1  
+S14 Traumatismo de nervios del cuello y del plexo braquial,clinical problems,1  
+S15 Traumatismo de vasos sanguíneos del cuello,clinical problems,1  
+S16 Traumatismo de músculos y tendones del cuello,clinical problems,1  
+S17 Traumatismos aplastantes del cuello,clinical problems,1  
+S18 Amputación traumática a nivel del cuello,clinical problems,1  
+S19 Otros traumatismos del cuello y los no especificados,clinical problems,1  
+S20 Traumatismo superficial del tórax,clinical problems,1  
+S21 Herida del tórax,clinical problems,1  
+S22 Fractura de costillas esternón y columna torácica,clinical problems,1  
+S23 Luxación esguince y distensión de articulaciones y ligamentos del tórax,clinical problems,1  
+S24 Traumatismo de nervios y de la médula espinal a nivel torácico,clinical problems,1  
+S25 Traumatismo de vasos sanguíneos del tórax,clinical problems,1  
+S26 Traumatismo de músculos y tendones del tórax,clinical problems,1  
+S27 Traumatismos de órganos intratorácicos,clinical problems,1  
+S28 Amputación traumática del tórax,clinical problems,1  
+S29 Otros traumatismos del tórax y los no especificados,clinical problems,1  
+S30 Traumatismo superficial del abdomen la parte baja de la espalda y la pelvis,clinical problems,1  
+S31 Herida del abdomen la parte baja de la espalda y la pelvis,clinical problems,1  
+S32 Fractura de la columna lumbar y de la pelvis,clinical problems,1  
+S33 Luxación esguince y distensión de articulaciones y ligamentos de la región lumbar y de la pelvis,clinical problems,1  
+S34 Traumatismo de nervios y de la médula espinal a nivel abdominal lumbar y sacro,clinical problems,1  
+S35 Traumatismo de vasos sanguíneos del abdomen parte baja de la espalda y pelvis,clinical problems,1  
+S36 Traumatismo de órganos intraabdominales,clinical problems,1  
+S37 Traumatismo de órganos del aparato urinario y de los órganos genitales pélvicos,clinical problems,1  
+S38 Amputación traumática del abdomen parte baja de la espalda y pelvis,clinical problems,1  
+S39 Otros traumatismos del abdomen parte baja de la espalda y pelvis y los no especificados,clinical problems,1  
+S40 Traumatismo superficial del hombro y del brazo,clinical problems,1  
+S41 Herida del hombro y del brazo,clinical problems,1  
+S42 Fractura del hombro y del brazo,clinical problems,1  
+S43 Luxación esguince y distensión de articulaciones y ligamentos del hombro y del brazo,clinical problems,1  
+S44 Traumatismo de nervios del hombro y del brazo,clinical problems,1  
+S45 Traumatismo de vasos sanguíneos del hombro y del brazo,clinical problems,1  
+S46 Traumatismo de músculos y tendones del hombro y del brazo,clinical problems,1  
+S47 Traumatismos aplastantes del hombro y del brazo,clinical problems,1  
+S48 Amputación traumática del hombro y del brazo,clinical problems,1  
+S49 Otros traumatismos del hombro y del brazo y los no especificados,clinical problems,1  
+S50 Traumatismo superficial del codo y del antebrazo,clinical problems,1  
+S51 Herida del codo y del antebrazo,clinical problems,1  
+S52 Fractura del antebrazo,clinical problems,1  
+S53 Luxación esguince y distensión de articulaciones y ligamentos del codo,clinical problems,1  
+S54 Traumatismo de nervios del antebrazo,clinical problems,1  
+S55 Traumatismo de vasos sanguíneos del antebrazo,clinical problems,1  
+S56 Traumatismo de músculos y tendones del antebrazo,clinical problems,1  
+S57 Traumatismos aplastantes del antebrazo,clinical problems,1  
+S58 Amputación traumática del antebrazo,clinical problems,1  
+S59 Otros traumatismos del antebrazo y los no especificados,clinical problems,1  
+S60 Traumatismo superficial de la muñeca y de la mano,clinical problems,1  
+S61 Herida de la muñeca y de la mano,clinical problems,1  
+S62 Fractura en la muñeca y en la mano,clinical problems,1  
+S63 Luxación esguince y distensión de articulaciones y ligamentos en la muñeca y en la mano,clinical problems,1  
+S64 Traumatismo de nervios a nivel de la muñeca y de la mano,clinical problems,1  
+S65 Traumatismo de vasos sanguíneos a nivel de la muñeca y de la mano,clinical problems,1  
+S66 Traumatismo de músculos y tendones a nivel de la muñeca y de la mano,clinical problems,1  
+S67 Traumatismos aplastantes de la muñeca y de la mano,clinical problems,1  
+S68 Amputación traumática a nivel de la muñeca y de la mano,clinical problems,1  
+S69 Otros traumatismos y los no especificados de la muñeca y de la mano,clinical problems,1  
+S70 Traumatismo superficial de la cadera y del muslo,clinical problems,1  
+S71 Herida de la cadera y del muslo,clinical problems,1  
+S72 Fractura del fémur,clinical problems,1  
+S73 Luxación esguince y distensión de articulaciones y ligamentos de la cadera y del muslo,clinical problems,1  
+S74 Traumatismo de nervios del nivel de la cadera y del muslo,clinical problems,1  
+S75 Traumatismo de vasos sanguíneos del nivel de la cadera y del muslo,clinical problems,1  
+S76 Traumatismo de músculos y tendones a nivel de la cadera y del muslo,clinical problems,1  
+S77 Traumatismos aplastantes de la cadera y del muslo,clinical problems,1  
+S78 Amputación traumática a nivel de la cadera y del muslo,clinical problems,1  
+S79 Otros traumatismos y los no especificados de la cadera y del muslo,clinical problems,1  
+S80 Traumatismo superficial de la pierna,clinical problems,1  
+S81 Herida de la pierna,clinical problems,1  
+S82 Fractura de la pierna,clinical problems,1  
+S83 Luxación esguince y distensión de articulaciones y ligamentos de la rodilla,clinical problems,1  
+S84 Traumatismo de nervios de la pierna,clinical problems,1  
+S85 Traumatismo de vasos sanguíneos de la pierna,clinical problems,1  
+S86 Traumatismo de músculos y tendones de la pierna,clinical problems,1  
+S87 Traumatismos aplastantes de la pierna,clinical problems,1  
+S88 Amputación traumática de la pierna,clinical problems,1  
+S89 Otros traumatismos y los no especificados de la pierna,clinical problems,1  
+S90 Traumatismo superficial del tobillo y del pie,clinical problems,1  
+S91 Herida del tobillo y del pie,clinical problems,1  
+S92 Fractura del pie,clinical problems,1  
+S93 Luxación esguince y distensión de articulaciones y ligamentos del tobillo y del pie,clinical problems,1  
+S94 Traumatismo de nervios del tobillo y del pie,clinical problems,1  
+S95 Traumatismo de vasos sanguíneos del tobillo y del pie,clinical problems,1  
+S96 Traumatismo de músculos y tendones del tobillo y del pie,clinical problems,1  
+S97 Traumatismos aplastantes del tobillo y del pie,clinical problems,1  
+S98 Amputación traumática del tobillo y del pie,clinical problems,1  
+S99 Otros traumatismos y los no especificados del tobillo y del pie,clinical problems,1  
+T00 Traumatismos superficiales que afectan múltiples regiones del cuerpo,clinical problems,1  
+T01 Heridas que afectan múltiples regiones del cuerpo,clinical problems,1  
+T02 Fracturas que afectan múltiples regiones del cuerpo,clinical problems,1  
+T03 Luxaciones esguinces y distensiones que afectan múltiples regiones del cuerpo,clinical problems,1  
+T04 Traumatismos aplastantes que afectan múltiples regiones del cuerpo,clinical problems,1  
+T05 Amputaciones traumáticas que afectan múltiples regiones del cuerpo,clinical problems,1  
+T06 Otros traumatismos que afectan múltiples regiones del cuerpo y los no especificados,clinical problems,1  
+T07 Traumatismos múltiples no especificados,clinical problems,1  
+T08 Fractura de la columna vertebral sin lesión medular,clinical problems,1  
+T09 Otros traumatismos de la columna vertebral y del tronco y los no especificados,clinical problems,1  
+T10 Fractura del miembro superior de nivel no especificado,clinical problems,1  
+T11 Otros traumatismos del miembro superior y los no especificados,clinical problems,1  
+T12 Fractura del miembro inferior de nivel no especificado,clinical problems,1  
+T13 Otros traumatismos del miembro inferior y los no especificados,clinical problems,1  
+T14 Traumatismo de región corporal no especificada,clinical problems,1  
+T15 Cuerpo extraño en la superficie externa del ojo,clinical problems,1  
+T16 Cuerpo extraño en el oído,clinical problems,1  
+T17 Cuerpo extraño en las vías respiratorias,clinical problems,1  
+T18 Cuerpo extraño en el tubo digestivo,clinical problems,1  
+T19 Cuerpo extraño en las vías genitourinarias,clinical problems,1  
+T20 Quemaduras y corrosiones de la superficie externa del cuerpo implicando cabeza y cuello,clinical problems,1  
+T21 Quemaduras y corrosiones del tronco,clinical problems,1  
+T22 Quemaduras y corrosiones del hombro y del miembro superior excepto la muñeca y la mano,clinical problems,1  
+T23 Quemaduras y corrosiones de la muñeca y de la mano,clinical problems,1  
+T24 Quemaduras y corrosiones de la cadera y del miembro inferior excepto el tobillo y el pie,clinical problems,1  
+T25 Quemaduras y corrosiones del tobillo y del pie,clinical problems,1  
+T26 Quemaduras y corrosiones limitadas al ojo y sus anexos,clinical problems,1  
+T27 Quemaduras y corrosiones de las vías respiratorias,clinical problems,1  
+T28 Quemaduras y corrosiones de otros órganos internos,clinical problems,1  
+T29 Quemaduras y corrosiones de múltiples regiones del cuerpo,clinical problems,1  
+T30 Quemaduras y corrosiones de región no especificada del cuerpo,clinical problems,1  
+T31 Quemaduras clasificadas según la extensión de la superficie corporal afectada,clinical problems,1  
+T32 Corrosiones clasificadas según la extensión de la superficie corporal afectada,clinical problems,1  
+T33 Congelamiento superficial,clinical problems,1  
+T34 Congelamiento con necrosis tisular,clinical problems,1  
+T35 Congelamiento de múltiples regiones del cuerpo y de región no especificada,clinical problems,1  
+T36 Envenenamiento por antibióticos sistémicos,clinical problems,1  
+T37 Envenenamiento por otros antiinfecciosos y antiparasitarios sistémicos,clinical problems,1  
+T38 Envenenamiento por hormonas y sus sustitutos sintéticos y por antagonistas no clasificados en otra parte,clinical problems,1  
+T39 Envenenamiento por analgésicos antipiréticos y antirreumáticos no esteroides,clinical problems,1  
+T40 Envenenamiento por narcóticos y psicodislépticos,clinical problems,1  
+T41 Envenenamiento por anestésicos y gases terapéuticos,clinical problems,1  
+T42 Envenenamiento por antiepilépticos sedantes hipnóticos y antiparkinsonianos,clinical problems,1  
+T43 Envenenamiento por psicotrópicos no clasificados en otra parte,clinical problems,1  
+T44 Envenenamiento por drogas que actúan sobre el sistema nervioso autónomo,clinical problems,1  
+T45 Envenenamiento por sustancias principalmente de acción sobre la sangre y órganos hematopoyéticos,clinical problems,1  
+T46 Envenenamiento por sustancias que actúan principalmente sobre el sistema cardiovascular,clinical problems,1  
+T47 Envenenamiento por sustancias que actúan principalmente sobre el aparato gastrointestinal,clinical problems,1  
+T48 Envenenamiento por sustancias que actúan principalmente sobre el metabolismo,clinical problems,1  
+T49 Envenenamiento por sustancias que actúan principalmente sobre la piel y mucosas y por drogas oftálmicas otorrinolaringológicas y dentales,clinical problems,1  
+T50 Envenenamiento por otras drogas medicamentos y sustancias biológicas y las no especificadas,clinical problems,1  
+T51 Efectos tóxicos del alcohol,clinical problems,1  
+T52 Efectos tóxicos de disolventes orgánicos,clinical problems,1  
+T53 Efectos tóxicos de hidrocarburos halogenados y sus derivados,clinical problems,1  
+T54 Efectos tóxicos de corrosivos,clinical problems,1  
+T55 Efectos tóxicos de jabones detergentes blanqueadores y desinfectantes,clinical problems,1  
+T56 Efectos tóxicos de metales,clinical problems,1  
+T57 Efectos tóxicos de otras sustancias inorgánicas,clinical problems,1  
+T58 Efectos tóxicos del monóxido de carbono,clinical problems,1  
+T59 Efectos tóxicos de otros gases vapores y humos,clinical problems,1  
+T60 Efectos tóxicos de plaguicidas,clinical problems,1  
+T61 Efectos tóxicos de sustancias nocivas ingeridas como alimento,clinical problems,1  
+T62 Efectos tóxicos de sustancias nocivas ingeridas con agua,clinical problems,1  
+T63 Efectos tóxicos del contacto con animales venenosos,clinical problems,1  
+T64 Efectos tóxicos de sustancias de origen vegetal principalmente no medicinales,clinical problems,1  
+T65 Efectos tóxicos de otras sustancias y de las no especificadas,clinical problems,1  
+T66 Efectos de la radiación no especificados,clinical problems,1  
+T67 Efectos del calor y de la luz,clinical problems,1  
+T68 Hipotermia,clinical problems,1  
+T69 Otros efectos de temperatura reducida y los no especificados,clinical problems,1  
+T70 Efectos de presión del aire y del agua,clinical problems,1  
+T71 Asfixia,clinical problems,1  
+T73 Efectos de otras privaciones,clinical problems,1  
+T74 Síndrome de maltrato,clinical problems,1  
+T75 Otros efectos de causas externas,clinical problems,1  
+T78 Efectos adversos no clasificados en otra parte,clinical problems,1  
+T79 Ciertas complicaciones precoces de traumatismos,clinical problems,1  
+T80 Complicaciones posteriores a la infusión transfusión y vacunación,clinical problems,1  
+T81 Complicaciones de procedimientos no clasificadas en otra parte,clinical problems,1  
+T82 Complicaciones de dispositivos protésicos implantes y injertos cardíacos y vasculares,clinical problems,1  
+T83 Complicaciones de dispositivos protésicos implantes e injertos genitourinarios,clinical problems,1  
+T84 Complicaciones de dispositivos protésicos implantes e injertos ortopédicos internos,clinical problems,1  
+T85 Complicaciones de otros dispositivos protésicos implantes e injertos internos,clinical problems,1  
+T86 Fallo y rechazo de órganos y tejidos trasplazados,clinical problems,1  
+T87 Complicaciones de reimplantación e injertos,clinical problems,1  
+T88 Otras complicaciones de la atención médica y quirúrgica no clasificadas en otra parte,clinical problems,1  
+T90 Secuelas de traumatismos de la cabeza,clinical problems,1  
+T91 Secuelas de traumatismos del cuello y del tronco,clinical problems,1  
+T92 Secuelas de traumatismos del miembro superior,clinical problems,1  
+T93 Secuelas de traumatismos del miembro inferior,clinical problems,1  
+T94 Secuelas de traumatismos que afectan múltiples regiones del cuerpo,clinical problems,1  
+T95 Secuelas de quemaduras corrosiones y congelaciones,clinical problems,1  
+T96 Secuelas de envenenamiento por drogas medicamentos y sustancias biológicas,clinical problems,1  
+T97 Secuelas de efectos tóxicos de sustancias de origen principalmente no medicinal,clinical problems,1  
+T98 Secuelas de otras causas externas de morbilidad y de las no especificadas,clinical problems,1  
+U04 Síndrome respiratorio agudo severo,clinical problems,1  
+U07 Trastornos relacionados con el COVID-19,clinical problems,1  
+U80 Resistencia a antibióticos,clinical problems,1  
+U81 Resistencia a antimicóticos,clinical problems,1  
+U82 Resistencia a agentes antiparasitarios,clinical problems,1  
+U83 Resistencia a antivirales,clinical problems,1  
+U84 Resistencia a otros agentes antimicrobianos y los no especificados,clinical problems,1  
+U85 Códigos adicionales para identificar otros agentes antimicrobianos,clinical problems,1  
+V01 Peatón lesionado en colisión con vehículo de pedal,clinical problems,1  
+V02 Peatón lesionado en colisión con vehículo de motor de dos o tres ruedas,clinical problems,1  
+V03 Peatón lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V04 Peatón lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V05 Peatón lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V06 Peatón lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V09 Peatón lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V10 Ciclista lesionado en colisión con peatón o animal,clinical problems,1  
+V11 Ciclista lesionado en colisión con otro ciclista,clinical problems,1  
+V12 Ciclista lesionado en colisión con vehículo de motor de dos o tres ruedas,clinical problems,1  
+V13 Ciclista lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V14 Ciclista lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V15 Ciclista lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V16 Ciclista lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V17 Ciclista lesionado en colisión con un objeto fijo o estacionario,clinical problems,1  
+V18 Ciclista lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V19 Ciclista lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V20 Motociclista lesionado en colisión con peatón o animal,clinical problems,1  
+V21 Motociclista lesionado en colisión con vehículo de pedal,clinical problems,1  
+V22 Motociclista lesionado en colisión con otro vehículo de motor de dos o tres ruedas,clinical problems,1  
+V23 Motociclista lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V24 Motociclista lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V25 Motociclista lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V26 Motociclista lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V27 Motociclista lesionado en colisión con un objeto fijo o estacionario,clinical problems,1  
+V28 Motociclista lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V29 Motociclista lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V30 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con peatón o animal,clinical problems,1  
+V31 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con vehículo de pedal,clinical problems,1  
+V32 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con otro vehículo de motor de dos o tres ruedas,clinical problems,1  
+V33 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V34 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V35 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V36 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V37 Ocupante de vehículo de motor de tres ruedas lesionado en colisión con objeto fijo o estacionario,clinical problems,1  
+V38 Ocupante de vehículo de motor de tres ruedas lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V39 Ocupante de vehículo de motor de tres ruedas lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V40 Ocupante de automóvil lesionado en colisión con peatón o animal,clinical problems,1  
+V41 Ocupante de automóvil lesionado en colisión con vehículo de pedal,clinical problems,1  
+V42 Ocupante de automóvil lesionado en colisión con vehículo de motor de dos o tres ruedas,clinical problems,1  
+V43 Ocupante de automóvil lesionado en colisión con otro automóvil camioneta o furgoneta,clinical problems,1  
+V44 Ocupante de automóvil lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V45 Ocupante de automóvil lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V46 Ocupante de automóvil lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V47 Ocupante de automóvil lesionado en colisión con objeto fijo o estacionario,clinical problems,1  
+V48 Ocupante de automóvil lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V49 Ocupante de automóvil lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V50 Ocupante de camioneta o furgoneta lesionado en colisión con peatón o animal,clinical problems,1  
+V51 Ocupante de camioneta o furgoneta lesionado en colisión con vehículo de pedal,clinical problems,1  
+V52 Ocupante de camioneta o furgoneta lesionado en colisión con vehículo de motor de dos o tres ruedas,clinical problems,1  
+V53 Ocupante de camioneta o furgoneta lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V54 Ocupante de camioneta o furgoneta lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V55 Ocupante de camioneta o furgoneta lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V56 Ocupante de camioneta o furgoneta lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V57 Ocupante de camioneta o furgoneta lesionado en colisión con objeto fijo o estacionario,clinical problems,1  
+V58 Ocupante de camioneta o furgoneta lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V59 Ocupante de camioneta o furgoneta lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V60 Ocupante de vehículo de transporte pesado lesionado en colisión con peatón o animal,clinical problems,1  
+V61 Ocupante de vehículo de transporte pesado lesionado en colisión con vehículo de pedal,clinical problems,1  
+V62 Ocupante de vehículo de transporte pesado lesionado en colisión con vehículo de motor de dos o tres ruedas,clinical problems,1  
+V63 Ocupante de vehículo de transporte pesado lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V64 Ocupante de vehículo de transporte pesado lesionado en colisión con otro vehículo de transporte pesado o autobús,clinical problems,1  
+V65 Ocupante de vehículo de transporte pesado lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V66 Ocupante de vehículo de transporte pesado lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V67 Ocupante de vehículo de transporte pesado lesionado en colisión con objeto fijo o estacionario,clinical problems,1  
+V68 Ocupante de vehículo de transporte pesado lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V69 Ocupante de vehículo de transporte pesado lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V70 Ocupante de autobús lesionado en colisión con peatón o animal,clinical problems,1  
+V71 Ocupante de autobús lesionado en colisión con vehículo de pedal,clinical problems,1  
+V72 Ocupante de autobús lesionado en colisión con vehículo de motor de dos o tres ruedas,clinical problems,1  
+V73 Ocupante de autobús lesionado en colisión con automóvil camioneta o furgoneta,clinical problems,1  
+V74 Ocupante de autobús lesionado en colisión con vehículo de transporte pesado o autobús,clinical problems,1  
+V75 Ocupante de autobús lesionado en colisión con tren o vehículo ferroviario,clinical problems,1  
+V76 Ocupante de autobús lesionado en colisión con otro vehículo sin motor,clinical problems,1  
+V77 Ocupante de autobús lesionado en colisión con objeto fijo o estacionario,clinical problems,1  
+V78 Ocupante de autobús lesionado en otros accidentes de transporte sin colisión,clinical problems,1  
+V79 Ocupante de autobús lesionado en otros accidentes de transporte terrestre y en los no especificados,clinical problems,1  
+V80 Jinete o pasajero de animal de transporte lesionado en accidente de transporte,clinical problems,1  
+V81 Ocupante de tranvía lesionado en accidente de transporte,clinical problems,1  
+V82 Ocupante de vehículo especial para transporte principalmente no en la vía pública lesionado en accidente,clinical problems,1  
+V83 Ocupante de otros vehículos especificados lesionado en accidente de transporte,clinical problems,1  
+V84 Ocupante de vehículo especificado no motorizado lesionado en accidente de transporte,clinical problems,1  
+V85 Ocupante de vehículo motorizado especificado no clasificado en otra parte lesionado en accidente de transporte,clinical problems,1  
+V86 Ocupante de vehículo especial con motor fuera de carretera lesionado en accidente de transporte,clinical problems,1  
+V87 Persona lesionada en colisión entre vehículos de transporte no clasificados en otra parte,clinical problems,1  
+V88 Persona lesionada en otros accidentes de transporte no clasificados en otra parte,clinical problems,1  
+V89 Persona lesionada en accidentes de transporte no especificados,clinical problems,1  
+V90 Accidente de embarcación no motorizada sin colisión,clinical problems,1  
+V91 Accidente de embarcación motorizada sin colisión,clinical problems,1  
+V92 Accidente de embarcación sin especificación de motor sin colisión,clinical problems,1  
+V93 Accidente de embarcación por colisión entre embarcaciones,clinical problems,1  
+V94 Otro accidente de embarcación y los no especificados,clinical problems,1  
+V95 Accidente de transporte aéreo con helicóptero,clinical problems,1  
+V96 Accidente de transporte aéreo con aeronave propulsada por motor a reacción o turbohélice,clinical problems,1  
+V97 Otro accidente de transporte aéreo especificado,clinical problems,1  
+V98 Otro accidente de transporte especificado,clinical problems,1  
+V99 Accidente de transporte no especificado,clinical problems,1  
+W00 Caída en el mismo nivel por hielo y nieve,clinical problems,1  
+W01 Caída en el mismo nivel por tropezón o resbalón,clinical problems,1  
+W02 Caída que involucra patines de ruedas, monopatines o patinetas,clinical problems,1  
+W03 Otra caída en el mismo nivel por colisión con otra persona,clinical problems,1  
+W04 Caída mientras se lleva o sostiene a otra persona,clinical problems,1  
+W05 Caída que involucra silla de ruedas,clinical problems,1  
+W06 Caída que involucra cama,clinical problems,1  
+W07 Caída que involucra silla,clinical problems,1  
+W08 Caída que involucra otra clase de mueble,clinical problems,1  
+W09 Caída que involucra equipo para deportes,clinical problems,1  
+W10 Caída en o desde escaleras o escalones,clinical problems,1  
+W11 Caída en o desde escalera de mano,clinical problems,1  
+W12 Caída en o desde andamios,clinical problems,1  
+W13 Caída desde o por edificios u otras estructuras,clinical problems,1  
+W14 Caída desde árbol,clinical problems,1  
+W15 Caída desde acantilado,clinical problems,1  
+W16 Zambullida o salto en aguas poco profundas que causa traumatismo que no sea ahogamiento o sumersión,clinical problems,1  
+W17 Otra caída desde un nivel a otro,clinical problems,1  
+W18 Otra caída en el mismo nivel,clinical problems,1  
+W19 Caída no especificada,clinical problems,1  
+W20 Golpe por objeto arrojado proyectado o que cae,clinical problems,1  
+W21 Golpe contra objeto deportivo,clinical problems,1  
+W22 Golpe contra otros objetos,clinical problems,1  
+W23 Atrapamiento aplastamiento empuje o colocación en objetos,clinical problems,1  
+W24 Contacto con dispositivos de levantamiento y transmisión no clasificados en otra parte,clinical problems,1  
+W25 Contacto con cuchillo espada y daga,clinical problems,1  
+W26 Contacto con otros instrumentos cortantes,clinical problems,1  
+W27 Contacto con herramienta de mano sin motor,clinical problems,1  
+W28 Contacto con herramienta de mano motorizada,clinical problems,1  
+W29 Contacto con otro equipo motorizado doméstico y de jardinería,clinical problems,1  
+W30 Contacto con maquinaria agrícola,clinical problems,1  
+W31 Contacto con otras máquinas y con las no especificadas,clinical problems,1  
+W32 Disparo de pistola,clinical problems,1  
+W33 Disparo de rifle escopeta y arma de fuego de mayor tamaño,clinical problems,1  
+W34 Descarga de otra arma de fuego y de las no especificadas,clinical problems,1  
+W35 Explosión de buque caldero y otros dispositivos presurizados,clinical problems,1  
+W36 Explosión de otros materiales presurizados,clinical problems,1  
+W37 Explosión de fuegos artificiales,clinical problems,1  
+W38 Explosión de otros dispositivos,clinical problems,1  
+W39 Explosión de calentadores de gas,clinical problems,1  
+W40 Explosión de otros dispositivos domésticos,clinical problems,1  
+W41 Contacto con electricidad de maquinaria,clinical problems,1  
+W42 Contacto con electricidad de aparatos domésticos,clinical problems,1  
+W43 Contacto con otras fuentes de electricidad de origen artificial,clinical problems,1  
+W44 Cuerpo extraño oído,clinical problems,1  
+W45 Cuerpo extraño piel,clinical problems,1  
+W46 Cuerpo extraño en ojo externo,clinical problems,1  
+W49 Exposición a otras fuerzas mecánicas inanimadas y a las no especificadas,clinical problems,1  
+W50 Golpe con la mano de otra persona,clinical problems,1  
+W51 Golpe con otra parte del cuerpo de otra persona,clinical problems,1  
+W52 Aplastamiento empuje o colocación entre personas,clinical problems,1  
+W53 Mordedura de rata,clinical problems,1  
+W54 Mordedura o ataque por perro,clinical problems,1  
+W55 Mordedura o ataque por otros mamíferos,clinical problems,1  
+W56 Mordedura o contacto traumático con animales marinos,clinical problems,1  
+W57 Mordedura o picadura por insectos y otros artrópodos no venenosos,clinical problems,1  
+W58 Mordedura o golpe por cocodrilo o caimán,clinical problems,1  
+W59 Mordedura o golpe por otros reptiles,clinical problems,1  
+W60 Contacto con espinas vegetales o astillas,clinical problems,1  
+W64 Exposición a otras fuerzas mecánicas animadas y a las no especificadas,clinical problems,1  
+W65 Ahogamiento y sumersión mientras se baña en una bañera,clinical problems,1  
+W66 Ahogamiento y sumersión después de caída dentro de bañera,clinical problems,1  
+W67 Ahogamiento y sumersión mientras se baña en piscina,clinical problems,1  
+W68 Ahogamiento y sumersión después de caída dentro de piscina,clinical problems,1  
+W69 Ahogamiento y sumersión mientras se baña en aguas naturales,clinical problems,1  
+W70 Ahogamiento y sumersión después de caída dentro de aguas naturales,clinical problems,1  
+W73 Otro ahogamiento y sumersión especificado,clinical problems,1  
+W74 Ahogamiento y sumersión no especificados,clinical problems,1  
+W75 Sofocación y estrangulación accidental en cama o cuna,clinical problems,1  
+W76 Otras estrangulaciones y ahorcamientos accidentales,clinical problems,1  
+W77 Inmersión en agua caliente,clinical problems,1  
+W78 Inhalación de alimentos que causa obstrucción de las vías respiratorias,clinical problems,1  
+W79 Inhalación de vómito que causa obstrucción de las vías respiratorias,clinical problems,1  
+W80 Inhalación y aspiración de otros objetos que causan obstrucción de las vías respiratorias,clinical problems,1  
+W81 Confinamiento y atrapamiento en un ambiente bajo presión de aire,clinical problems,1  
+W83 Otros riesgos especificados para la respiración,clinical problems,1  
+W84 Riesgo no especificado para la respiración,clinical problems,1  
+X00 Exposición a fuego no controlado en edificio o estructura,clinical problems,1  
+X01 Exposición a fuego no controlado fuera de edificio o estructura,clinical problems,1  
+X02 Exposición a fuego controlado en edificio o estructura,clinical problems,1  
+X03 Exposición a fuego controlado fuera de edificio o estructura,clinical problems,1  
+X04 Exposición a ignición de materiales altamente inflamables,clinical problems,1  
+X05 Exposición a ignición de vestimenta por fuego o llama,clinical problems,1  
+X06 Exposición a ignición de vestimenta por fuente de calor,clinical problems,1  
+X08 Exposición a otros humos fuegos y llamas especificados,clinical problems,1  
+X09 Exposición a humos fuego y llamas no especificados,clinical problems,1  
+X10 Contacto con agua hirviendo,clinical problems,1  
+X11 Contacto con vapor y vapores calientes,clinical problems,1  
+X12 Contacto con objetos calientes metálicos,clinical problems,1  
+X13 Contacto con líquidos calientes,clinical problems,1  
+X14 Contacto con otros objetos calientes,clinical problems,1  
+X15 Contacto con fuentes de calor domésticas,clinical problems,1  
+X16 Quemadura por radiación solar,clinical problems,1  
+X17 Quemadura por otra fuente de luz ultravioleta,clinical problems,1  
+X18 Contacto con otras fuentes de calor y luz,clinical problems,1  
+X19 Contacto con fuente de calor y luz no especificada,clinical problems,1  
+X20 Contacto con serpientes y lagartos venenosos,clinical problems,1  
+X21 Contacto con escorpiones,clinical problems,1  
+X22 Contacto con arañas venenosas,clinical problems,1  
+X23 Contacto con abejas avispas y avispones,clinical problems,1  
+X24 Contacto con otros artrópodos venenosos,clinical problems,1  
+X25 Contacto con otros animales venenosos terrestres,clinical problems,1  
+X26 Contacto con animales venenosos marinos,clinical problems,1  
+X27 Contacto con otras especies animales venenosas,clinical problems,1  
+X28 Contacto con animales venenosos no especificados,clinical problems,1  
+X29 Contacto con animales no venenosos,clinical problems,1  
+X30 Exposición a calor natural excesivo,clinical problems,1  
+X31 Exposición a frío natural excesivo,clinical problems,1  
+X32 Exposición a luz solar,clinical problems,1  
+X33 Víctima de rayo,clinical problems,1  
+X34 Víctima de terremoto,clinical problems,1  
+X35 Víctima de erupción volcánica,clinical problems,1  
+X36 Víctima de avalancha deslizamiento o hundimiento,clinical problems,1  
+X37 Víctima de tormenta cataclísmica,clinical problems,1  
+X38 Víctima de inundación,clinical problems,1  
+X39 Exposición a otras fuerzas naturales,clinical problems,1  
+X40 Envenenamiento por y exposición a analgésicos antipiréticos y antirreumáticos no opioides,clinical problems,1  
+X41 Envenenamiento por y exposición a anticonvulsivos sedantes hipnóticos antiparkinsonianos y psicotrópicos no clasificados en otra parte,clinical problems,1  
+X42 Envenenamiento por y exposición a narcóticos y psicodislépticos no clasificados en otra parte,clinical problems,1  
+X43 Envenenamiento por y exposición a otras drogas que afectan principalmente al sistema nervioso autónomo,clinical problems,1  
+X44 Envenenamiento por y exposición a otras drogas medicamentos y sustancias biológicas y a las no especificadas,clinical problems,1  
+X45 Envenenamiento por y exposición al alcohol,clinical problems,1  
+X46 Envenenamiento por y exposición a disolventes orgánicos halogenados y sus vapores,clinical problems,1  
+X47 Envenenamiento por y exposición a otros gases y vapores,clinical problems,1  
+X48 Envenenamiento por y exposición a pesticidas,clinical problems,1  
+X49 Envenenamiento por y exposición a otras sustancias químicas y a las no especificadas,clinical problems,1  
+X50 Exceso de ejercicio y movimientos o esfuerzos repentinos o prolongados,clinical problems,1  
+X51 Viaje y movimiento,clinical problems,1  
+X52 Inactividad física prolongada,clinical problems,1  
+X53 Privación de alimentos,clinical problems,1  
+X54 Privación de agua,clinical problems,1  
+X57 Privación de aire,clinical problems,1  
+X58 Exposición a otros factores especificados,clinical problems,1  
+X59 Exposición a factores no especificados,clinical problems,1  
+X60 Envenenamiento autoinfligido por y exposición a analgésicos antipiréticos y antirreumáticos no opioides,clinical problems,1  
+X61 Envenenamiento autoinfligido por y exposición a anticonvulsivos sedantes hipnóticos antiparkinsonianos y psicotrópicos no clasificados en otra parte,clinical problems,1  
+X62 Envenenamiento autoinfligido por y exposición a narcóticos y psicodislépticos no clasificados en otra parte,clinical problems,1  
+X63 Envenenamiento autoinfligido por y exposición a otras drogas que afectan principalmente al sistema nervioso autónomo,clinical problems,1  
+X64 Envenenamiento autoinfligido por y exposición a otras drogas medicamentos y sustancias biológicas y a las no especificadas,clinical problems,1  
+X65 Envenenamiento autoinfligido por y exposición al alcohol,clinical problems,1  
+X66 Envenenamiento autoinfligido por y exposición a disolventes orgánicos halogenados y sus vapores,clinical problems,1  
+X67 Envenenamiento autoinfligido por y exposición a otros gases y vapores,clinical problems,1  
+X68 Envenenamiento autoinfligido por y exposición a pesticidas,clinical problems,1  
+X69 Envenenamiento autoinfligido por y exposición a otras sustancias químicas y a las no especificadas,clinical problems,1  
+X70 Lesión autoinfligida por ahorcamiento estrangulación y sofocación,clinical problems,1  
+X71 Lesión autoinfligida por sumersión y ahogamiento,clinical problems,1  
+X72 Lesión autoinfligida por disparo de pistola,clinical problems,1  
+X73 Lesión autoinfligida por disparo de rifle escopeta y arma de fuego de mayor tamaño,clinical problems,1  
+X74 Lesión autoinfligida por disparo de otra arma de fuego y de las no especificadas,clinical problems,1  
+X75 Lesión autoinfligida por explosivos,clinical problems,1  
+X76 Lesión autoinfligida por humo fuego y llamas,clinical problems,1  
+X77 Lesión autoinfligida por vapor agua caliente y objetos calientes,clinical problems,1  
+X78 Lesión autoinfligida por objeto cortante o punzante,clinical problems,1  
+X79 Lesión autoinfligida por objeto romo,clinical problems,1  
+X80 Lesión autoinfligida por salto desde un lugar elevado,clinical problems,1  
+X81 Lesión autoinfligida por salto o colocación delante de un objeto en movimiento,clinical problems,1  
+X82 Lesión autoinfligida por colisión de vehículo de motor,clinical problems,1  
+X83 Lesión autoinfligida por otros medios especificados,clinical problems,1  
+X84 Lesión autoinfligida por medios no especificados,clinical problems,1  
+X85 Agresión por drogas medicamentos y sustancias biológicas,clinical problems,1  
+X86 Agresión por disolventes orgánicos halogenados y sus vapores,clinical problems,1  
+X87 Agresión por otros gases y vapores,clinical problems,1  
+X88 Agresión por pesticidas,clinical problems,1  
+X89 Agresión por productos químicos corrosivos y cáusticos,clinical problems,1  
+X90 Agresión por otras sustancias químicas y por las no especificadas,clinical problems,1  
+X91 Agresión por ahorcamiento estrangulación y sofocación,clinical problems,1  
+X92 Agresión por sumersión y ahogamiento,clinical problems,1  
+X93 Agresión por disparo de pistola,clinical problems,1  
+X94 Agresión por disparo de rifle escopeta y arma de fuego de mayor tamaño,clinical problems,1  
+X95 Agresión por disparo de otra arma de fuego y de las no especificadas,clinical problems,1  
+X96 Agresión por explosivos,clinical problems,1  
+X97 Agresión por humo fuego y llamas,clinical problems,1  
+X98 Agresión por vapor agua caliente y objetos calientes,clinical problems,1  
+X99 Agresión por objeto cortante o punzante,clinical problems,1  
+Y00 Agresión por objeto romo,clinical problems,1  
+Y01 Agresión por empujón desde un lugar elevado,clinical problems,1  
+Y02 Agresión por colocación delante de un objeto en movimiento,clinical problems,1  
+Y03 Agresión por colisión de vehículo de motor,clinical problems,1  
+Y04 Agresión por fuerza corporal,clinical problems,1  
+Y05 Agresión sexual con fuerza corporal,clinical problems,1  
+Y06 Negligencia y abandono,clinical problems,1  
+Y07 Otros síndromes de maltrato,clinical problems,1  
+Y08 Agresión por otros medios especificados,clinical problems,1  
+Y09 Agresión por medios no especificados,clinical problems,1  
+Y10 Envenenamiento por y exposición a analgésicos antipiréticos y antirreumáticos no opioides de intención no determinada,clinical problems,1  
+Y11 Envenenamiento por y exposición a anticonvulsivos sedantes hipnóticos antiparkinsonianos y psicotrópicos no clasificados en otra parte de intención no determinada,clinical problems,1  
+Y12 Envenenamiento por y exposición a narcóticos y psicodislépticos no clasificados en otra parte de intención no determinada,clinical problems,1  
+Y13 Envenenamiento por y exposición a otras drogas que afectan principalmente al sistema nervioso autónomo de intención no determinada,clinical problems,1  
+Y14 Envenenamiento por y exposición a otras drogas medicamentos y sustancias biológicas y a las no especificadas de intención no determinada,clinical problems,1  
+Y15 Envenenamiento por y exposición al alcohol de intención no determinada,clinical problems,1  
+Y16 Envenenamiento por y exposición a disolventes orgánicos halogenados y sus vapores de intención no determinada,clinical problems,1  
+Y17 Envenenamiento por y exposición a otros gases y vapores de intención no determinada,clinical problems,1  
+Y18 Envenenamiento por y exposición a pesticidas de intención no determinada,clinical problems,1  
+Y19 Envenenamiento por y exposición a otras sustancias químicas y a las no especificadas de intención no determinada,clinical problems,1  
+Y20 Ahorcamiento estrangulación y sofocación de intención no determinada,clinical problems,1  
+Y21 Sumersión y ahogamiento de intención no determinada,clinical problems,1  
+Y22 Disparo de pistola de intención no determinada,clinical problems,1  
+Y23 Disparo de rifle escopeta y arma de fuego de mayor tamaño de intención no determinada,clinical problems,1  
+Y24 Disparo de otra arma de fuego y de las no especificadas de intención no determinada,clinical problems,1  
+Y25 Explosivos de intención no determinada,clinical problems,1  
+Y26 Humo fuego y llamas de intención no determinada,clinical problems,1  
+Y27 Vapor agua caliente y objetos calientes de intención no determinada,clinical problems,1  
+Y28 Contacto con objetos cortantes romos o punzantes de intención no determinada,clinical problems,1  
+Y29 Caída salto o colocación delante de objeto en movimiento de intención no determinada,clinical problems,1  
+Y30 Colisión de vehículo de motor de intención no determinada,clinical problems,1  
+Y31 Otros medios especificados de intención no determinada,clinical problems,1  
+Y32 Medios no especificados de intención no determinada,clinical problems,1  
+Y33 Muerte de causa indeterminada,clinical problems,1  
+Y34 Evento no especificado,clinical problems,1  
+Y35 Intervención legal y su efecto,clinical problems,1  
+Y36 Operaciones de guerra,clinical problems,1  
+Y40 Efectos adversos de penicilinas y antibióticos betalactámicos,clinical problems,1  
+Y41 Efectos adversos de otros antibióticos sistémicos,clinical problems,1  
+Y42 Efectos adversos de hormonas y sus sustitutos y antagonistas no clasificados en otra parte,clinical problems,1  
+Y43 Efectos adversos de agentes antiinflamatorios antirreumáticos y analgésicos,clinical problems,1  
+Y44 Efectos adversos de agentes antipiréticos anticonvulsivos y antiparkinsonianos,clinical problems,1  
+Y45 Efectos adversos de agentes que afectan principalmente al sistema nervioso autónomo,clinical problems,1  
+Y46 Efectos adversos de drogas que afectan principalmente al sistema cardiovascular,clinical problems,1  
+Y47 Efectos adversos de drogas que afectan principalmente al sistema gastrointestinal,clinical problems,1  
+Y48 Efectos adversos de agentes que afectan principalmente al equilibrio hídrico mineral y ácido base,clinical problems,1  
+Y49 Efectos adversos de psicotrópicos,clinical problems,1  
+Y50 Efectos adversos de agentes que afectan principalmente a la sangre y órganos hematopoyéticos,clinical problems,1  
+Y51 Efectos adversos de agentes que afectan principalmente al sistema musculoesquelético,clinical problems,1  
+Y52 Efectos adversos de drogas que afectan principalmente al aparato respiratorio,clinical problems,1  
+Y53 Efectos adversos de drogas tópicas que afectan a la piel y mucosas y ojos,clinical problems,1  
+Y54 Efectos adversos de agentes que afectan al sistema inmunológico,clinical problems,1  
+Y55 Efectos adversos de sustancias no medicinales utilizadas terapéuticamente,clinical problems,1  
+Y56 Efectos adversos de otros fármacos y medicamentos no clasificados en otra parte,clinical problems,1  
+Y57 Efectos adversos de otras sustancias y de las no especificadas,clinical problems,1  
+Y58 Efectos adversos de vacunas bacterianas,clinical problems,1  
+Y59 Efectos adversos de otras vacunas y sustancias biológicas,clinical problems,1  
+Y60 Corte perforación punción accidental durante atención médica o quirúrgica,clinical problems,1  
+Y61 Introducción accidental de objeto extraño durante atención médica o quirúrgica,clinical problems,1  
+Y62 Fracaso en la aplicación de medidas profilácticas durante atención médica o quirúrgica,clinical problems,1  
+Y63 Error en la dosificación de medicación durante atención médica o quirúrgica,clinical problems,1  
+Y64 Contaminación accidental de medicación durante atención médica o quirúrgica,clinical problems,1  
+Y65 Otros incidentes durante atención médica o quirúrgica,clinical problems,1  
+Y66 Ausencia de intervención quirúrgica o médica indicada,clinical problems,1  
+Y69 Accidente no especificado durante atención médica o quirúrgica,clinical problems,1  
+Y70 Dispositivos y materiales médicos y quirúrgicos asociados con eventos adversos,clinical problems,1  
+Y71 Dispositivos médicos y quirúrgicos para diagnóstico asociados con eventos adversos,clinical problems,1  
+Y72 Otros dispositivos médicos y quirúrgicos terapéuticos asociados con eventos adversos,clinical problems,1  
+Y73 Otros dispositivos asociados con eventos adversos,clinical problems,1  
+Y74 Dispositivos médicos desechables asociados con eventos adversos,clinical problems,1  
+Y75 Sustancias biológicas asociadas con eventos adversos,clinical problems,1  
+Y76 Dispositivos médicos no especificados asociados con eventos adversos,clinical problems,1  
+Y77 Lentes de contacto y gafas asociadas con eventos adversos,clinical problems,1  
+Y78 Dispositivos médicos no activos asociados con eventos adversos,clinical problems,1  
+Y79 Dispositivos ortopédicos y prótesis asociados con eventos adversos,clinical problems,1  
+Y80 Materiales y dispositivos de tratamiento dental asociados con eventos adversos,clinical problems,1  
+Y81 Dispositivos quirúrgicos generales asociados con eventos adversos,clinical problems,1  
+Y82 Otros dispositivos médicos asociados con eventos adversos,clinical problems,1  
+Y83 Procedimientos quirúrgicos como causa de reacción anormal o complicación posterior sin mención de accidente,clinical problems,1  
+Y84 Otros procedimientos médicos como causa de reacción anormal o complicación posterior sin mención de accidente,clinical problems,1  
+Y85 Secuelas de accidentes de transporte,clinical problems,1  
+Y86 Secuelas de otros accidentes,clinical problems,1  
+Y87 Secuelas de lesiones autoinfligidas y agresiones,clinical problems,1  
+Y88 Secuelas de eventos adversos en atención médica,clinical problems,1  
+Y89 Secuelas de otras causas externas,clinical problems,1  
+Y90 Evidencia de alcohol en sangre,clinical problems,1  
+Y91 Evidencia de intoxicación por alcohol determinada por observación clínica,clinical problems,1  
+Y95 Condición nosocomial,clinical problems,1  
+Y96 Condición relacionada con el trabajo,clinical problems,1  
+Y97 Condición relacionada con contaminación ambiental,clinical problems,1  
+Y98 Condición relacionada con el estilo de vida,clinical problems,1  
+Y99 Situación de actividad,clinical problems,1  
+Z00 Examen general y de investigación de personas sin quejas o diagnóstico informado,clinical problems,1  
+Z01 Otros exámenes especiales de personas sin quejas o diagnóstico informado,clinical problems,1  
+Z02 Examen y encuentro con fines administrativos,clinical problems,1  
+Z03 Observación por sospecha de enfermedades y condiciones,clinical problems,1  
+Z04 Examen y observación por otras razones,clinical problems,1  
+Z08 Seguimiento de tratamiento de neoplasias,clinical problems,1  
+Z09 Seguimiento de tratamiento por otras afecciones,clinical problems,1  
+Z10 Examen de salud de rutina de subpoblaciones definidas,clinical problems,1  
+Z11 Examen especial para detección de enfermedades infecciosas y parasitarias,clinical problems,1  
+Z12 Examen especial para detección de neoplasias,clinical problems,1  
+Z13 Examen especial para detección de otros trastornos y enfermedades,clinical problems,1  
+Z20 Contacto y exposición con enfermedades transmisibles,clinical problems,1  
+Z21 Estado asintomático con infección por VIH,clinical problems,1  
+Z22 Portador de enfermedades infecciosas,clinical problems,1  
+Z23 Necesidad de inmunización,clinical problems,1  
+Z24 Necesidad de inmunización contra enfermedades específicas,clinical problems,1  
+Z25 Estado de inmunización incompleto,clinical problems,1  
+Z26 Estado de inmunización con anticuerpos,clinical problems,1  
+Z27 Otras inmunizaciones profilácticas,clinical problems,1  
+Z28 Inmunización no llevada a cabo,clinical problems,1  
+Z29 Necesidad de otras medidas profilácticas,clinical problems,1  
+Z30 Manejo general relacionado con la anticoncepción,clinical problems,1  
+Z31 Manejo general relacionado con la procreación,clinical problems,1  
+Z32 Prueba de embarazo y resultados,clinical problems,1  
+Z33 Estado de embarazo,clinical problems,1  
+Z34 Supervisión del embarazo normal,clinical problems,1  
+Z35 Supervisión del embarazo de alto riesgo,clinical problems,1  
+Z36 Examen prenatal de rutina,clinical problems,1  
+Z37 Resultado del parto,clinical problems,1  
+Z38 Nacido vivo según lugar del nacimiento y tipo de parto,clinical problems,1  
+Z39 Atención posterior al parto,clinical problems,1  
+Z40 Procedimientos profilácticos,clinical problems,1  
+Z41 Procedimientos para otras razones que no sean enfermedades,clinical problems,1  
+Z42 Atención de seguimiento posterior a cirugía plástica,clinical problems,1  
+Z43 Atención de seguimiento posterior a colocación de dispositivo,clinical problems,1  
+Z44 Ajuste y manejo de dispositivos externos,clinical problems,1  
+Z45 Ajuste y manejo de dispositivos implantables,clinical problems,1  
+Z46 Ajuste y manejo de otros dispositivos,clinical problems,1  
+Z47 Atención de seguimiento ortopédico,clinical problems,1  
+Z48 Atención de seguimiento posterior a cirugía,clinical problems,1  
+Z49 Atención de seguimiento para diálisis,clinical problems,1  
+Z50 Atención de seguimiento para rehabilitación,clinical problems,1  
+Z51 Atención de seguimiento para tratamiento antineoplásico y paliativo,clinical problems,1  
+Z52 Donación de órganos y tejidos,clinical problems,1  
+Z53 Procedimientos no realizados por razones específicas,clinical problems,1  
+Z54 Convalecencia,clinical problems,1  
+Z55 Problemas relacionados con la educación y la alfabetización,clinical problems,1  
+Z56 Problemas relacionados con el empleo y el desempleo,clinical problems,1  
+Z57 Exposición ocupacional a factores de riesgo,clinical problems,1  
+Z58 Problemas relacionados con el entorno físico,clinical problems,1  
+Z59 Problemas relacionados con la vivienda y las circunstancias económicas,clinical problems,1  
+Z60 Problemas relacionados con el entorno social,clinical problems,1  
+Z61 Problemas relacionados con eventos negativos en la infancia,clinical problems,1  
+Z62 Otros problemas relacionados con la educación y crianza,clinical problems,1  
+Z63 Otros problemas relacionados con el grupo primario de apoyo, incluidas circunstancias familiares,clinical problems,1  
+Z64 Problemas relacionados con circunstancias de la vida,clinical problems,1  
+Z65 Problemas relacionados con otras circunstancias psicosociales,clinical problems,1  
+Z66 Rechazo a tratamiento y procedimiento,clinical problems,1  
+Z67 Condición relacionada con el tipo de sangre Rh,clinical problems,1  
+Z68 Índice de masa corporal,clinical problems,1  
+Z69 Problemas relacionados con servicios de salud mental,clinical problems,1  
+Z70 Problemas relacionados con la orientación sexual y comportamiento sexual,clinical problems,1  
+Z71 Personas en contacto con servicios de salud por otras circunstancias,clinical problems,1  
+Z72 Problemas relacionados con el estilo de vida,clinical problems,1  
+Z73 Problemas relacionados con la organización de la vida,clinical problems,1  
+Z74 Problemas relacionados con la dependencia del cuidado de otros,clinical problems,1  
+Z75 Problemas relacionados con servicios médicos y otras razones,clinical problems,1  
+Z76 Personas en contacto con servicios de salud por otras razones,clinical problems,1  
+Z77 Contacto con y exposición a factores ambientales,clinical problems,1  
+Z78 Otros estados de salud definidos,clinical problems,1  
+Z79 Uso prolongado de medicamentos,clinical problems,1  
+Z80 Antecedentes familiares de neoplasias malignas,clinical problems,1  
+Z81 Antecedentes familiares de trastornos mentales y del comportamiento,clinical problems,1  
+Z82 Antecedentes familiares de ciertas discapacidades y enfermedades crónicas,clinical problems,1  
+Z83 Antecedentes familiares de otros trastornos,clinical problems,1  
+Z84 Antecedentes familiares de otras condiciones,clinical problems,1  
+Z85 Antecedentes personales de neoplasias malignas,clinical problems,1  
+Z86 Antecedentes personales de otras enfermedades,clinical problems,1  
+Z87 Antecedentes personales de otras enfermedades y condiciones,clinical problems,1  
+Z88 Antecedentes personales de alergia a drogas, medicamentos y sustancias biológicas,clinical problems,1  
+Z89 Ausencia adquirida de miembros,clinical problems,1  
+Z90 Ausencia adquirida de órganos, no clasificados en otra parte,clinical problems,1  
+Z91 Factores de riesgo personales, no clasificados en otra parte,clinical problems,1  
+Z92 Antecedentes personales de tratamiento médico, clinical problems,1  
+Z93 Presencia de dispositivos para procedimientos médicos,clinical problems,1  
+Z94 Trasplante de órganos y tejidos,clinical problems,1  
+Z95 Presencia de implantes y de injertos cardíacos y vasculares,clinical problems,1  
+Z96 Presencia de otros dispositivos funcionales,clinical problems,1  
+Z97 Presencia de otros dispositivos,clinical problems,1  
+Z98 Otros estados postprocedimiento,clinical problems,1  
+Z99 Dependencia de máquinas y dispositivos que apoyan funciones vitales,clinical problems,1  
+

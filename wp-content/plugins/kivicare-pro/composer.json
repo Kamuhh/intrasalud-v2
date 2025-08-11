@@ -1,0 +1,36 @@
+{
+    "name": "iqonic/kivicare-telemed-addon",
+    "authors": [
+        {
+            "name": "iqonic",
+            "email": "hello@iqonic.design"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "8.*",
+        "ext-json": "*",
+        "firebase/php-jwt": "^5.2",
+        "twilio/sdk": "^8.3.0",
+        "google/apiclient": "^2.0",
+        "phpoffice/phpspreadsheet": "^1.25"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Calendar"
+        ]
+    },
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "TeleMedApp\\": "../kivicare-telemed-addon/teleMedApp",
+            "App\\": "../kivicare-clinic-management-system/app",
+            "ProApp\\": "./proApp"
+        },
+        "files": [
+            "utils/kc_pro_helpers.php"
+        ]
+    }
+}

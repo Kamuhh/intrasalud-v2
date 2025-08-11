@@ -1,0 +1,89 @@
+.iq-price-container input[type=checkbox] {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.iq-price-container .switch {
+	cursor: pointer;
+	width: 230px;
+	height: 56px;
+	background: var(--color-theme-green-light);
+	border-radius: 120px;
+	position: relative;
+	margin: 0 auto 40px;
+}
+
+.iq-price-container .media-body:active:after {
+	width: 130px;
+}
+
+.iq-price-container {
+	text-align: center;
+}
+
+.iq-price-container .iq-price-monthly,
+.iq-price-container .iq-price-yearly {
+	font-family: var(--highlight-font-family);
+	font-size: 50.5px;
+	font-weight: var(--font-weight-bold);
+	color: var(--title-color);
+	margin: 0;
+	padding-bottom: 35px;
+	margin-bottom: 35px;
+	border-bottom: 1px solid #D8DDDD;
+}
+
+.iq-price-container .switch-content {
+	display: flex;
+	justify-content: space-around;
+	isolation: isolate;
+	z-index: 1;
+	align-content: center;
+	align-items: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.iq-price-container .service-name {
+	transition: all .4s ease-in-out;
+	padding: 10px 27px;
+	color: var(--body-text);
+	font-size: var(--font-size-body);
+	-moz-border-radius: 90px;
+	-webkit-border-radius: 90px;
+	border-radius: 90px;
+}
+
+.iq-price-container .service-name.active {
+	background-color: var(--color-theme-primary-green);
+	color: var(--white-color);
+}
+
+@media (max-width: 991px) {
+	.iq-price-container .iq-pricing {
+		margin-top: 30px;
+	}
+
+	.iq-price-container label {
+		margin-bottom: 20px;
+	}
+
+	.iq-price-container .switch {
+		margin: 0 auto 32px;
+	}
+}
+
+
+.price-content.active {
+	display: block;
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.price-content {
+	display: none;
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}

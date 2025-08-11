@@ -1,0 +1,143 @@
+/* ------------------------------
+Button
+---------------------------------*/
+.iq-button {
+    z-index: 1;
+    font-size: (--font-size-body);
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 30px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+/*semi round button*/
+.iq-btn-semi-round {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/*round button*/
+.iq-btn-round {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*Circle button*/
+.iq-btn-circle {
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;
+}
+
+/*Small button*/
+.iq-btn-small {
+    padding: 5px 15px;
+    font-size: var(--font-size-xs);
+}
+
+/*Medium button*/
+.iq-btn-medium {
+    padding: 10px 30px;
+    font-size: var(--font-size-sm);
+}
+
+/*Large button*/
+.iq-btn-large {
+    padding: 15px 45px;
+}
+
+/*Extra Large button*/
+.iq-btn-extra-large {
+    padding: 15px 60px;
+}
+
+/*Right side icon button*/
+.btn-icon-right i {
+    margin-left: 15px;
+}
+
+/*Left side icon button*/
+.btn-icon-left i {
+    margin-right: 15px;
+}
+
+/*button with Shadow*/
+.iq-button.iq-btn-shadow:hover {
+    -webkit-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: -1px 4px 30px 0 rgba(0, 0, 0, 0.06);
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+/*button with Outline*/
+.iq-btn-outline {
+    color: var(--primary-color);
+    background: transparent;
+    border: 2px solid var(--primary-color);
+}
+
+.iq-button.iq-btn-link,
+.iq-btn-link {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    letter-spacing: .15em;
+    font-weight: var(--font-weight-medium);
+    background: transparent;
+    padding: 0;
+    color: var(--primary-color);
+    transition: all .5s ease-in-out;
+}
+
+.iq-btn-link i {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    letter-spacing: .15em;
+    font-weight: var(--font-weight-semi-bold);
+    background: transparent;
+    padding: 0;
+    color: var(--primary-color);
+    transition: all .5s ease-in-out;
+}
+
+/*button Hover Effect */
+.iq-button:hover,
+.iq-button:focus {
+    color: var(--white-color);
+    background: var(--secondary-color);
+}
+
+.iq-btn-outline:hover,
+.iq-btn-outline:focus {
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.iq-btn-link:hover,
+.iq-btn-link:focus,
+.iq-btn-link:hover i,
+.iq-btn-link:focus i {
+    color: var(--secondary-color);
+    background: transparent;
+}
+
+.modal-backdrop {
+    z-index: initial!important;
+}

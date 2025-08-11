@@ -1,0 +1,704 @@
+# Translation of Plugins - Image Optimization by Optimole – Lazy Load, CDN, Convert WebP &amp; AVIF, Optimize Images - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Image Optimization by Optimole – Lazy Load, CDN, Convert WebP &amp; AVIF, Optimize Images - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-12-29 20:44:03+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Image Optimization by Optimole – Lazy Load, CDN, Convert WebP &amp; AVIF, Optimize Images - Stable (latest release)\n"
+
+#: inc/admin.php:1481
+msgid "25% off"
+msgstr "25% de descuento"
+
+#. translators: private sale
+#: inc/admin.php:1495
+msgid "private sale"
+msgstr "venta privada"
+
+#: inc/admin.php:1500
+msgid "25% discount"
+msgstr "25% de descuento"
+
+#: inc/admin.php:1474
+msgid "Private Sale"
+msgstr "Venta privada"
+
+#: inc/admin.php:1672
+msgid "Details"
+msgstr "Detalles"
+
+#: inc/admin.php:1673
+msgid "I've done this."
+msgstr "He hecho esto."
+
+#: inc/admin.php:1671
+msgid "We might have some possible conflicts with the plugins that you use. In order to benefit from Optimole's full potential you will need to address this issues."
+msgstr "Es posible que tengamos algunos conflictos con los plugins que utilizas. Para poder beneficiarte de todo el potencial de Optimole, deberás solucionar estos problemas."
+
+#. translators: errors details
+#. translators: Error details
+#: inc/cli/cli_setting.php:40 inc/rest.php:340 inc/rest.php:377
+#: inc/settings.php:791
+msgid ". ERROR details: %s"
+msgstr ". Detalles del error: %s"
+
+#: inc/admin.php:1674
+msgid "No conflicts found. We are all peachy now. 🍑"
+msgstr "No se han encontrado conflictos. Todos estamos de maravilla ahora. 🍑"
+
+#: inc/admin.php:1669
+msgid "Possible Issues"
+msgstr "Posibles problemas"
+
+#. translators: 1 is the start of the bold tag, 2 is ending bold tag, 3 is new
+#. line tag, 4 is anchor tag start, 5 is ending anchor tag
+#: inc/conflicts/jetpack_lazyload.php:25
+msgid "It seems your are using %1$sJetpack%2$s with Lazy loading option ON. %3$s Optimole already provides a lazy loading mechanism by it's own which might conflict with this. If you would like to further use Optimole lazy loading feature, you can turn that off from %4$sJetpack -> Perfomance%5$s page. "
+msgstr "Parece que estás usando %1$sJetpack%2$s con la opción de carga en diferido de imágenes activada. %3$s Optimole ya proporciona un mecanismo de carga en diferido propio que podría entrar en conflicto con esta. Si quieres seguir utilizando la función de carga en diferido de Optimole, puedes desactivarla desde la página %4$sJetpack -> Ajustes -> Rendimiento%5$s."
+
+#: inc/admin.php:1535
+msgid "Refresh Stats"
+msgstr "Actualizar estadísticas"
+
+#: inc/admin.php:1683
+msgid "View plans"
+msgstr "Ver planes"
+
+#: inc/admin.php:662
+msgid "Check upgrade plans"
+msgstr "Revisar los planes de actualización"
+
+#: inc/admin.php:2097
+msgid "Scale"
+msgstr "Escalar"
+
+#: inc/admin.php:2095
+msgid "Watermark offset"
+msgstr "Desplazamiento de marca de agua"
+
+#: inc/admin.php:2079
+msgid "Opacity"
+msgstr "Opacidad"
+
+#: inc/admin.php:2080
+msgid "Watermark opacity"
+msgstr "Opacidad de la marca de agua"
+
+#: inc/admin.php:2072
+msgid "Name"
+msgstr "Nombre"
+
+#: inc/admin.php:2099
+msgid "A value between 0 and 300 for the scale of the watermark (100 is the original size and 300 is 3x the size) relative to the resulting image size. If set to 0 it will default to the original size."
+msgstr "Un valor entre 0 y 300 para la escala de la marca de agua (100 es el tamaño riginal y 300 es el tamaño 3x) relativa al tamaño de imágen resultante. Si se ajusta a 0 corresponderá al tamaño original."
+
+#: inc/admin.php:2093
+msgid "Offset X"
+msgstr "Desplazamiento x"
+
+#: inc/admin.php:2076
+msgid "Add new watermark"
+msgstr "Añadir nueva marca de agua"
+
+#: inc/admin.php:2091
+msgid "South"
+msgstr "Sur"
+
+#: inc/admin.php:2089
+msgid "East"
+msgstr "Este"
+
+#: inc/admin.php:2073
+msgid "Type"
+msgstr "Tipo"
+
+#: inc/admin.php:2085
+msgid "North"
+msgstr "Norte"
+
+#: inc/admin.php:2092
+msgid "South-East"
+msgstr "Sudeste"
+
+#: inc/admin.php:2074
+msgid "Action"
+msgstr "Acción"
+
+#: inc/admin.php:2087
+msgid "West"
+msgstr "Izquierda"
+
+#: inc/admin.php:2086
+msgid "North-East"
+msgstr "Arriba-derecha"
+
+#: inc/admin.php:2084
+msgid "North-West"
+msgstr "Arriba-izquierda"
+
+#: inc/admin.php:2083
+msgid "The place relative to the image where the watermark should be placed."
+msgstr "Lugar relativo de la imagen donde debe colocarse la marca de agua."
+
+#: inc/admin.php:2082
+msgid "Watermark position"
+msgstr "Posición de marca de agua"
+
+#: inc/admin.php:2081
+msgid "A value between 0 and 100 for the opacity level. If set to 0 it will disable the watermark."
+msgstr "Un valor entre 0 y 100 para el nivel de opacidad. Si se establece en 0, se desactivará la marca de agua."
+
+#: inc/admin.php:2077
+msgid "Active watermark"
+msgstr "Marca de agua activa"
+
+#: inc/admin.php:2078
+msgid "The active watermark to use from the list of uploaded watermarks."
+msgstr "La marca de agua activa es para usarla en la lista de marcas de agua subidas."
+
+#: inc/admin.php:2075
+msgid "Upload"
+msgstr "Subir"
+
+#: inc/admin.php:2071
+msgid "ID"
+msgstr "ID"
+
+#: inc/admin.php:2069
+msgid "Watermarks position settings"
+msgstr "Ajustes de posición de la marca de agua"
+
+#: inc/admin.php:2068
+msgid "Possible watermarks"
+msgstr "Posibles marcas de agua"
+
+#: inc/admin.php:2067
+msgid "You are allowed to save maximum 5 images."
+msgstr "Se te permite guardar un máximo de 5 imágenes."
+
+#: inc/admin.php:2066
+msgid "Removing watermark resource ..."
+msgstr "Eliminando imagen de marca de agua ..."
+
+#: inc/admin.php:2070
+msgid "No images available for watermark. Please upload one."
+msgstr "No hay imágenes disponibles para la marca de agua. Por favor, sube una."
+
+#: inc/rest.php:430
+msgid "Error creating account."
+msgstr "Error al crear la cuenta."
+
+#: inc/admin.php:2098
+msgid "Watermark scale"
+msgstr "Escala de marca de agua"
+
+#: inc/admin.php:2096
+msgid "Offset the watermark from set position on X and Y axis. Values can be positive or negative."
+msgstr "Desplaza la marca de agua desde la posición establecida en los ejes X e Y. Los valores pueden ser positivos o negativos."
+
+#: inc/admin.php:2094
+msgid "Offset Y"
+msgstr "Eje Y"
+
+#: inc/admin.php:2090
+msgid "South-West"
+msgstr "Abajo-izquierda"
+
+#: inc/admin.php:2088
+msgid "Center"
+msgstr "Centro"
+
+#: inc/admin.php:1638
+msgid ""
+"It seems there is an issue with your WordPress configuration and the core REST API functionality is not available. This is crucial as Optimole relies on this functionality in order to work.<br/>\n"
+"The root cause might be either a security plugin which blocks this feature or some faulty server configuration which constrain this WordPress feature.You can try to disable any of the security plugins that you use in order to see if the issue persists or ask the hosting company to further investigate."
+msgstr ""
+"Parece que hay un problema con tu configuración de WordPress y la funcionalidad del  núcleo REST API no está disponible. Esto es crucial ya que Optimole se basa en esta funcionalidad para trabajar.<br/>\n"
+"La causa puede ser un plugin de seguridad que bloquea esta característica o alguna configuración del servidor defectuoso que constriñe esta característica de WordPress. Puedes tratar de desactivar cualquiera de los plugins de seguridad que utilizas para ver si el problema persiste o puedes pedir a la compañía de alojamiento que lo investigue."
+
+#: inc/admin.php:827
+msgid "I will do it later"
+msgstr "Yo lo haré luego"
+
+#: inc/admin.php:824
+msgid "Connect to OptiMole"
+msgstr "Conectar a OptiMole"
+
+#: inc/admin.php:1945 inc/admin.php:2100
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#. translators: 1 is the starting anchor tag, 2 is the ending anchor tag
+#: inc/admin.php:1920
+msgid "Height"
+msgstr "Alto"
+
+#: inc/admin.php:1964
+msgid "Width"
+msgstr "Ancho"
+
+#: inc/admin.php:1521
+msgid "Privacy"
+msgstr "Privacidad"
+
+#: inc/admin.php:1522
+msgid "Test Optimole"
+msgstr "Probar Optimole"
+
+#: inc/admin.php:1925
+msgid "High"
+msgstr "Alta"
+
+#: inc/admin.php:1523
+msgid "Image optimization service"
+msgstr "Servicio de optimización de imágenes"
+
+#. translators: 1 is the starting anchor tag, 2 is the ending anchor tag
+#: inc/admin.php:1935
+msgid "Option saved."
+msgstr "Opción guardada."
+
+#: inc/admin.php:1570
+msgid "Register account"
+msgstr "Registrar cuenta"
+
+#: inc/admin.php:1927
+msgid "Optimized"
+msgstr "Optimizado"
+
+#: inc/admin.php:1926
+msgid "Original"
+msgstr "Original"
+
+#: inc/admin.php:1734 inc/video_player.php:288
+msgid "Auto"
+msgstr "Auto"
+
+#. translators: 1 is the starting anchor tag, 2 is the ending anchor tag
+#: inc/admin.php:1931
+msgid "Low"
+msgstr "Baja"
+
+#: inc/admin.php:1932
+msgid "Medium"
+msgstr "Media"
+
+#: inc/admin.php:591 inc/admin.php:1167 inc/admin.php:1168 inc/admin.php:1360
+#: inc/admin.php:1660
+msgid "Settings"
+msgstr "Ajustes"
+
+#: inc/admin.php:1659
+msgid "Dashboard"
+msgstr "Escritorio"
+
+#: inc/admin.php:1933
+msgid "You dont have any images in your Media Library. Add one and check how the Optimole will perform."
+msgstr "No tienes ninguna imagen en tu biblioteca de medios. Añade una y verifica cómo funcionará el Optimole."
+
+#: inc/admin.php:1733
+msgid "Show in the WordPress admin bar the available quota from Optimole service."
+msgstr "Mostrar en la barra de administración de WordPress la cuota disponible del servicio Optimole."
+
+#: inc/admin.php:1569
+msgid "I already have an API key."
+msgstr "Ya tengo una clave API."
+
+#: inc/admin.php:1520
+msgid "Terms"
+msgstr "Condiciones"
+
+#: inc/admin.php:1552
+msgid "Your email address"
+msgstr "Tu correo electrónico"
+
+#: inc/admin.php:1556
+msgid "Enter your API key."
+msgstr "Introduce tu clave API."
+
+#: inc/admin.php:1939
+msgid "See one sample image which will help you choose the right quality of the compression."
+msgstr "Mira una imagen de muestra que te ayudará a elegir la calidad correcta de la compresión."
+
+#: inc/admin.php:1528
+msgid "Connect to Optimole"
+msgstr "Conectar con Optimole"
+
+#: inc/admin.php:2106
+msgid "Loading your optimized images..."
+msgstr "Cargando tus imágenes optimizadas..."
+
+#. Plugin Name of the plugin
+#: optimole-wp.php
+msgid "Image optimization service by Optimole"
+msgstr "Image optimization service by Optimole"
+
+#: inc/admin.php:1755
+msgid "Disabled"
+msgstr "Desactivado"
+
+#. Author of the plugin
+#: optimole-wp.php
+msgid "Optimole"
+msgstr "Optimole"
+
+#: inc/admin.php:1924
+msgid "Hide"
+msgstr "Ocultar"
+
+#: inc/admin.php:1578
+msgid "Monthly Usage"
+msgstr "Utilización mensual."
+
+#. translators: 1 is the starting anchor tag, 2 is the ending anchor tag
+#: inc/admin.php:2105
+msgid "Optimization"
+msgstr "Optimización"
+
+#: inc/cli/cli_setting.php:43 inc/rest.php:342 inc/rest.php:379
+msgid "Can not connect to Optimole service"
+msgstr "No se puede conectar al servicio de Optimole."
+
+#. Author URI of the plugin
+#: optimole-wp.php
+msgid "https://optimole.com"
+msgstr "https://optimole.com"
+
+#: inc/api.php:453 inc/api.php:465 inc/lazyload_replacer.php:615
+#: inc/lazyload_replacer.php:628 inc/main.php:246 inc/main.php:256
+#: inc/manager.php:780 inc/manager.php:793 inc/tag_replacer.php:596
+#: inc/tag_replacer.php:609 inc/url_replacer.php:304 inc/url_replacer.php:317
+msgid "Cheatin&#8217; huh?"
+msgstr "Haciendo trampa, ¿eh?"
+
+#: inc/admin.php:2110
+msgid "optimized images"
+msgstr "imágenes optimizadas"
+
+#: inc/admin.php:2107
+msgid "Last"
+msgstr "Último"
+
+#: inc/admin.php:2065 inc/admin.php:2103
+msgid "Image"
+msgstr "Imagen"
+
+#: inc/admin.php:1859
+msgid "Enabled"
+msgstr "Activado"
+
+#: inc/admin.php:1954
+msgid "Admin bar status"
+msgstr "Estado de la barra del administrador"
+
+#: inc/admin.php:1542
+msgid "Invalid API Key"
+msgstr "Clave API no válida"
+
+#: inc/admin.php:1529
+msgid "Disconnect"
+msgstr "Desconectar"
+
+#: inc/admin.php:1946
+msgid "Show"
+msgstr "Mostrar"
+
+#: inc/admin.php:2113
+msgid "🤓 We are on the right track, <strong>{ratio}</strong> squeezed."
+msgstr "🤓 Estamos en el camino correcto, <strong>{ratio}</strong> comprimido"
+
+#: inc/admin.php:2112
+msgid "😬 Not that much, just <strong>{ratio}</strong> smaller."
+msgstr "😬 No tanto, solo <strong>{ratio}</strong> mas pequeña."
+
+#. Description of the plugin
+#: optimole-wp.php
+msgid "Complete handling of your website images."
+msgstr "Gestión completa de las imágenes de tu web."
+
+#: inc/admin.php:1537
+msgid "API Key"
+msgstr "Clave de la API"
+
+#. translators: 1 is the starting anchor tag, 2 is the ending anchor tag
+#: inc/admin.php:1929
+msgid "The filter should be at least 3 characters long."
+msgstr "El filtro debe tener al menos 3 caracteres."
+
+#: inc/admin.php:1584
+msgid "Access our Premium Support"
+msgstr "Accede a nuestro soporte premium"
+
+#: inc/manager.php:187
+msgid "Optimized by Optimole"
+msgstr "Optimizado por Optimole"
+
+#: inc/admin.php:2109
+msgid "smaller"
+msgstr "mas pequeño"
+
+#: inc/admin.php:2108
+msgid "Saved"
+msgstr "Guardado"
+
+#: inc/admin.php:2062
+msgid "Custom Integration"
+msgstr "Integración personalizada"
+
+#: inc/admin.php:2061
+msgid "Exclude from Optimizing or Lazy Loading"
+msgstr "Excluir de la optimización o la carga diferida"
+
+#: inc/admin.php:2060
+msgid "Cloud Library Browsing"
+msgstr "Exploración de la biblioteca en la nube"
+
+#: inc/admin.php:2059
+msgid "API"
+msgstr "API"
+
+#: inc/admin.php:2058
+msgid "Adding Watermarks to your images"
+msgstr "Añadir marcas de agua a tus imágenes"
+
+#: inc/admin.php:2057
+msgid "How Optimole can serve WebP images"
+msgstr "Cómo Optimole puede servir imágenes WebP"
+
+#: inc/admin.php:2056
+msgid "Getting Started With Optimole"
+msgstr "Primeros pasos con Optimole"
+
+#: inc/admin.php:2055
+msgid "Image Processing"
+msgstr "Procesamiento de imágenes"
+
+#: inc/admin.php:2054
+msgid "Visits based plan"
+msgstr "Plan basado en visitas"
+
+#: inc/admin.php:2053
+msgid "What happens if I exceed plan limits?"
+msgstr "¿Qué sucede si excedo los límites del plan?"
+
+#. translators: 1 is the start of the bold tag, 2 is ending bold tag, 3 is new
+#. line tag, 4 is anchor tag start, 5 is ending anchor tag
+#: inc/conflicts/wprocket.php:25
+msgid "It seems your are using %1$sWP Rocket%2$s with Lazy loading for images option active. %3$s Optimole already provides a lazy loading mechanism by it's own which might conflict with this. If you would like to further use Optimole lazy loading feature, you can turn that off from %4$sSettings -> WP Rocket -> Media%5$s page."
+msgstr "Parece que están usando %1$sWP Rocket%2$s con la opción de carga diferida de imágenes activa. %3$s Optimole ya proporciona un mecanismo de carga diferida que podría entrar en conflicto con este. Si quieres seguir usando la función de carga diferida de Optimole, puedes desactivar la opción de WP Rocket desde la página %4$sAjustes -> WP Rocket -> Medios%5$s."
+
+#. translators: 1 is the start of the bold tag, 2 is ending bold tag, 3 is new
+#. line tag, 4 is anchor tag start, 5 is ending anchor tag, 6 is start of bold
+#. tag, 7 is ending bold tag
+#: inc/conflicts/jetpack_photon.php:26
+msgid "It seems your are using %1$sJetpack%2$s with site accelerator option enabled for images. %3$s To avoid any possible conflicts with Optimole replacement mechanism, you can go to %4$sJetpack -> Perfomance%5$s and turn off the site accelerator option for %6$simages%7$s"
+msgstr "Parece que estás usando %1$sJetpack%2$s con la opción del acelerador del sitios activada para las imágenes. %3$s Para evitar posibles conflictos con el sistema de reemplazo de Optimole, puedes ir a %4$sJetpack -> Ajustes -> Rendimiento%5$s y desactivar la opción de acelerar la carga de las %6$simágenes%7$s"
+
+#. translators: 1 - opening paragraph tag, 2 - PHP Version, 3 - opening bold
+#. tag, 4 - closing bold tag, 5 - opening bold tag, 6 - closing bold tag, 7 -
+#. opening anchor tag, 8 - closing anchor tag, 9 - closing paragraph tag
+#: optimole-wp.php:62
+msgid "%1$s You're using a PHP version lower than %2$s! %3$sOptimole%4$s requires at least %5$sPHP %2$s%6$s to function properly. Plugin has been deactivated. %7$sLearn more here%8$s. %9$s"
+msgstr "%1$s ¡Estás usando una versión de PHP inferior a la %2$s! %3$sOptimole%4$s requiere al menos %5$sPHP %2$s%6$s para funcionar correctamente. El plugin ha sido desactivado. %7$sMás información aquí%8$s. %9$s"
+
+#. translators: 1 - opening strong tag, 2 - closing strong tag, 3 - opening
+#. strong tag, 4 - closing strong tag
+#: inc/admin.php:814
+msgid "Welcome to %1$sOptimole%2$s, the easiest way to optimize your website images. Your users will enjoy a %3$sfaster%4$s website after you connect it with our service."
+msgstr "Bienvenido a %1$sOptiMole%2$s, la forma más fácil de optimizar las imágenes de tu web. Tus usuarios disfrutarán de una web %3$smás rápida%4$s después de que la conectes con nuestro servicio."
+
+#. translators: 1 is the starting anchor tag, 2 is the ending anchor tag
+#: inc/admin.php:1944
+msgid "Loading a sample image."
+msgstr " Cargando una imagen de muestra."
+
+#. translators: 1 is starting anchor tag, 2 is ending anchor tag
+#: inc/admin.php:1573
+msgid "Error registering account. You can try again %1$shere%2$s"
+msgstr "Error al registrar la cuenta. Puedes volver a intentarlo %1$saquí%2$s"
+
+#: inc/admin.php:2111
+msgid "🙉 We couldn't do better, this image is already optimized at maximum."
+msgstr "🙉 No podemos mejorarla, esta imagen ya está optimizada al máximo."
+
+#: inc/admin.php:2114
+msgid "❤️❤️❤️ Our moles just nailed it, this one is <strong>{ratio}</strong> smaller."
+msgstr "❤️❤️❤️ Nuestros topos han dado en el clavo, esta es <strong>{ratio}</strong> más pequeña."
+
+#: inc/admin.php:1986
+msgid "Show Logs"
+msgstr "Mostrar los registros"
+
+#: inc/admin.php:2022 inc/admin.php:2028
+msgid "Are you sure?"
+msgstr "¿Seguro?"
+
+#. translators: 1 is code to disable cron, 2 value of the constant
+#: inc/admin.php:2130
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: inc/logger.php:220
+msgid "Security check failed"
+msgstr "La comprobación de seguridad ha fallado"
+
+#: inc/admin.php:2017
+msgid "Cache cleared"
+msgstr "Caché vaciada"
+
+#: inc/admin.php:2015
+msgid "Settings saved"
+msgstr "Ajustes guardados"
+
+#: inc/admin.php:1988
+msgid "View Full Logs"
+msgstr "Ver todos los registros"
+
+#: inc/admin.php:1987
+msgid "Hide Logs"
+msgstr "Ocultar los registros"
+
+#: inc/admin.php:2014 inc/media_rename/attachment_edit.php:186
+msgid "Clear"
+msgstr "Vaciar"
+
+#: inc/admin.php:2013
+msgid "Placeholder Color"
+msgstr "Color del marcador de posición"
+
+#: inc/admin.php:2125
+msgid "Skip"
+msgstr "Omitir"
+
+#: inc/dam.php:436
+msgid "Loading"
+msgstr "Cargando"
+
+#: inc/admin.php:2126
+msgid "Submit"
+msgstr "Enviar"
+
+#: inc/admin.php:2123
+msgid "Excellent"
+msgstr "Excelente"
+
+#: inc/admin.php:2122
+msgid "Very Poor"
+msgstr "Muy pobre"
+
+#: inc/admin.php:2121
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: inc/admin.php:1985
+msgid "Stop"
+msgstr "Detener"
+
+#: inc/admin.php:2050
+msgid "View Changelog"
+msgstr "Ver el registro de cambios"
+
+#: inc/admin.php:2118
+msgid "Close"
+msgstr "Cerrar"
+
+#: inc/admin.php:2117
+msgid "Your opinion matters"
+msgstr "Tu opinión nos importa"
+
+#: inc/admin.php:2051
+msgid "Account"
+msgstr "Cuenta"
+
+#: inc/admin.php:2049
+msgid "Check our changelog to see latest fixes and features implemented."
+msgstr "Consulta nuestro registro de cambios para ver las últimas correcciones y características implementadas."
+
+#: inc/admin.php:2048
+msgid "Changelog"
+msgstr "Registro de cambios"
+
+#: inc/admin.php:2047
+msgid "Submit a Feature Request"
+msgstr "Envía una solicitud de característica"
+
+#: inc/admin.php:2045
+msgid "Have a feature request?"
+msgstr "¿Tienes una solicitud de característica?"
+
+#: inc/admin.php:886
+msgid "Dismiss this notice."
+msgstr "Descartar este aviso."
+
+#: inc/admin.php:806 inc/admin.php:860
+msgid "Logo"
+msgstr "Logotipo"
+
+#: inc/admin.php:2040
+msgid "Documentation"
+msgstr "Documentación"
+
+#: inc/admin.php:2039
+msgid "Help and Support"
+msgstr "Ayuda y soporte"
+
+#: inc/dashboard_widget.php:107
+msgid "Traffic"
+msgstr "Tráfico"
+
+#: inc/admin.php:1695
+msgid "Images optimized"
+msgstr "Imágenes optimizadas"
+
+#: inc/admin.php:1661
+msgid "Help"
+msgstr "Ayuda"
+
+#: inc/admin.php:879
+msgid "Manage Plugins"
+msgstr "Gestionar los plugins"
+
+#: inc/admin.php:1921
+msgid "Add size"
+msgstr "Añadir un tamaño"
+
+#: inc/admin.php:2012
+msgid "Do not restore images after disabling"
+msgstr "No restaurar imágenes después de desactivar"
+
+#: inc/admin.php:2011
+msgid "Restore images after disabling"
+msgstr "Restaurar imágenes después de desactivar"
+
+#: inc/admin.php:1997
+msgid "Important! Please read carefully"
+msgstr "¡Importante! Lee atentamente"
+
+#: inc/admin.php:1989
+msgid "Moving images into your media library..."
+msgstr "Moviendo las imágenes a tu biblioteca de medios…"
+
+#: inc/admin.php:1979
+msgid "Estimated time remaining"
+msgstr "Tiempo restante estimado"
+
+#: inc/admin.php:1951
+msgid "Select a website"
+msgstr "Selecciona un sitio web"
+
+#: inc/admin.php:1947
+msgid "CURRENTLY SHOWING IMAGES FROM"
+msgstr "MOSTRANDO ACTUALMENTE IMÁGENES DE"
+
+#: inc/admin.php:1908
+msgid "images"
+msgstr "imágenes"
+
+#: inc/admin.php:1907
+msgid "Exclude first"
+msgstr "Excluir primero"

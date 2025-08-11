@@ -1,0 +1,73 @@
+{
+    "system_colors": [
+        {
+            "_id": "primary",
+            "title": "Primary",
+            "color": "#6E7990"
+        },
+        {
+            "_id": "secondary",
+            "title": "Secondary",
+            "color": "#54595F"
+        },
+        {
+            "_id": "text",
+            "title": "Text",
+            "color": "#7A7A7A"
+        },
+        {
+            "_id": "accent",
+            "title": "Accent",
+            "color": "#61CE70"
+        }
+    ],
+    "custom_colors": [],
+    "system_typography": [
+        {
+            "_id": "primary",
+            "title": "Primary",
+            "typography_typography": "custom",
+            "typography_font_family": "Heebo",
+            "typography_font_weight": "500"
+        },
+        {
+            "_id": "secondary",
+            "title": "Secondary",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto Slab",
+            "typography_font_weight": "400"
+        },
+        {
+            "_id": "text",
+            "title": "Text",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto",
+            "typography_font_weight": "400"
+        },
+        {
+            "_id": "accent",
+            "title": "Accent",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto",
+            "typography_font_weight": "500"
+        }
+    ],
+    "custom_typography": [],
+    "default_generic_fonts": "Sans-serif",
+    "page_title_selector": "h1.entry-title",
+    "activeItemIndex": 1,
+    "viewport_md": 768,
+    "viewport_lg": 1025,
+    "active_breakpoints": [
+        "viewport_mobile",
+        "viewport_mobile_extra",
+        "viewport_tablet",
+        "viewport_tablet_extra",
+        "viewport_laptop",
+        "viewport_widescreen"
+    ],
+    "viewport_widescreen": 1921,
+    "viewport_mobile": 767,
+    "viewport_laptop": 1600,
+    "colors_enable_styleguide_preview": "yes"
+}

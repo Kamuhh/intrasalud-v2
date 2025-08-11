@@ -1,0 +1,23 @@
+{
+    "name": "iqonic/kivicare-telemed-addon",
+    "authors": [
+        {
+            "name": "iqonic",
+            "email": "hello@iqonic.design"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "8.*",
+        "ext-json": "*",
+        "firebase/php-jwt": "^5.2"
+    },
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "TeleMedApp\\": "./teleMedApp",
+            "App\\": "../kivicare-clinic-management-system/app"
+        },
+        "files": [
+        ]
+    }
+}

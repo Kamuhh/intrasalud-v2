@@ -1,0 +1,135 @@
+.woocommerce-form-login .woocommerce-form-row,
+.woocommerce-form-register .woocommerce-form-row {
+    margin: 0 0 2em;
+}
+
+.woocommerce-form-login .woocommerce-form__input {
+    height: 1.75em;
+}
+
+.woocommerce-form-login .login-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.woocommerce-form-login .login-inner .woocommerce-form__label,
+.woocommerce-form-login .login-inner .woocommerce-LostPassword {
+    margin: 0;
+}
+
+.woocommerce-form-login .form-submit-btn {
+    margin: 2em 0;
+}
+
+.woocommerce-form-login .sign_up_text a,
+.woocommerce-form-register .sign_in_text a {
+    color: var(--primary-color);
+    text-transform: unset;
+}
+
+.woocommerce-form-login .sign-link {
+    display: flex;
+    align-items: center;
+}
+
+.woocommerce-form-register .sign-up-btn {
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+.woocommerce-terms-and-conditions-link,
+.woocommerce-terms-and-conditions-link:hover {
+    color: var(--color-theme-primary);
+}
+
+@media(max-width:479px) {
+    .woocommerce-form-login .login-inner {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .woocommerce-form-login .login-inner .woocommerce-LostPassword {
+        margin-top: 1em;
+    }
+
+    .woocommerce-form-login .sign-link {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/**************************************************************
+********************* custom login css*************************
+************************************************************* */
+/* logo */
+.kivicare-woocommerce-custom-form .brand-logo {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.kivicare-woocommerce-custom-form {
+    padding: 50px;
+    background: var(--white-color);
+    max-width: 556px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+}
+
+.kivicare-woocommerce-custom-form .logo {
+    max-height: 65px;
+}
+
+.kivicare-woocommerce-custom-form .woocommerce-form {
+    margin-top: 30px;
+
+}
+
+/* input css */
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-login .form-row.woocommerce-form-row--wide input,
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-register .form-row.woocommerce-form-row--wide input,
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-track-order input {
+    position: relative;
+    width: 100%;
+    background: var(--white-light-color);
+    border-radius: 0;
+    padding-left: 15px;
+    height: 55px;
+    line-height: 55px;
+    clear: both;
+    border: 1px solid var(--white-light-color);
+}
+
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-login .login-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-login .login-inner .woocommerce-LostPassword a {
+    color: var(--secondary-color);
+}
+
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-login .login-inner .woocommerce-LostPassword a:hover {
+    color: var(--primary-color);
+}
+
+/* button */
+.kivicare-woocommerce-custom-form .form-submit-btn .iq-button-style-2.woocommerce-Button,
+.kivicare-woocommerce-custom-form .woocommerce-form .sign-up-btn .iq-button-style-2.woocommerce-Button,
+.kivicare-woocommerce-custom-form .woocommerce-ResetPassword .woocommerce-form-row .iq-button-style-2 {
+    border: none;
+}
+
+.kivicare-woocommerce-custom-form .woocommerce-form .sign-link .sign_up_text {
+    margin-top: 0;
+    font-size: var(--font-size-body);
+    font-family: var(--global-font-family);
+}
+
+.kivicare-woocommerce-custom-form .woocommerce-form.woocommerce-form-register .woocommerce-sign-in-btn {
+    display: flex;
+    flex-wrap: wrap;
+}

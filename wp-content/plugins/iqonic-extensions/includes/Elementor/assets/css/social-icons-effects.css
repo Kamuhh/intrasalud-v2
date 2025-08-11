@@ -1,0 +1,47 @@
+.kivicare-social ul li a, .rs_prefix-social ul li a {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 100%;
+    text-transform: uppercase;
+    font-size: var(--font-size-xs);
+    color: var(--body-text);
+}
+
+.kivicare-social ul, .rs_prefix-social ul {
+    padding-left: 0;
+}
+
+svg.base-circle.animated {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+svg.base-circle .c1 {
+    stroke-dasharray: 0 144;
+    -webkit-transition: .7s;
+    transition: .7s;
+    opacity: 0;
+    stroke: var(--primary-color);
+}
+
+svg.base-circle:hover .c1 {
+    stroke-dasharray: 144 144;
+    opacity: 1;
+    -webkit-transition-property: stroke-dasharray;
+    transition-property: stroke-dasharray;
+}
+
+/* revolution slider */
+.rs_prefix-social ul li {
+    margin: 0;
+}

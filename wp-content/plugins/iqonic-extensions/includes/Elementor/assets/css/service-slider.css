@@ -1,0 +1,195 @@
+.kivicare-service-slider-1 .iq-service-slide {
+    background: var(--color-theme-green-light);
+    border-radius: 200px;
+    padding: 112px 32px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    text-align: center;
+}
+
+.kivicare-service-slider-1 .iq-service-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kivicare-service-slider-1 .iq-service-slide::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.kivicare-service-slider-1 .iq-service-slide:hover {
+    background: var(--secondary-color);
+}
+
+.kivicare-service-slider-1 .iq-service-slide svg path {
+    fill: var(--secondary-color);
+}
+
+.kivicare-service-slider-1 .iq-service-slide:hover svg path {
+    fill: var(--primary-color);
+}
+
+.kivicare-service-slider-1 .iq-button.iq-btn-link,
+.kivicare-service-slider-1 .iq-btn-container a.iq-button.iq-btn-link i {
+    color: var(--primary-color);
+}
+
+.kivicare-service-slider-1 .iq-service-slide:hover .iq-button.iq-btn-link,
+.kivicare-service-slider-1 .iq-service-slide:hover .iq-btn-container a.iq-button.iq-btn-link i {
+    color: var(--white-color);
+}
+
+.kivicare-service-slider-1 .iq-service-slide:hover:before {
+    opacity: 1;
+}
+
+.kivicare-service-slider-1 .iq-service-slide:hover .service-content .iq-heading-title,
+.kivicare-service-slider-1 .iq-service-slide:hover .service-content p {
+    color: var(--white-color);
+}
+
+.kivicare-service-slider-1 .iq-button,
+.kivicare-service-slider-1 .iq-button-style-2 {
+    margin-top: 50px;
+}
+
+.kivicare-service-slider-1 .service-content {
+    position: relative;
+    z-index: 1;
+}
+
+.kivicare-service-slider-1 .iq-service-slide svg,
+.kivicare-service-slider-1 .iq-service-slide img {
+    margin-bottom: 50px;
+    transition: all 0.5s ease-in-out;
+    width: 74.13px;
+    height: 95px;
+}
+
+.kivicare-service-slider-1 .iq-service-slide img {
+    object-fit: cover;
+}
+
+@media (max-width: 767px) {
+    .kivicare-service-slider-1 .iq-service-slide {
+        padding: 70px 32px;
+    }
+}
+
+/*==================
+style-2
+=======================*/
+.kivicare-service-slider-2 .iq-service-slide {
+    padding: 0;
+}
+
+.kivicare-service-slider-2 .service-content-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.kivicare-service-slider-2 .service-content-inner .service-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    padding: 32px;
+    background-color: #f5fcff;
+}
+
+.kivicare-service-slider-2 .iq-service-desc{
+    margin: 25px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.kivicare-service-slider-2 .iq-btn-container{
+    margin-top: 35px;
+}
+
+/**********Animation***************/
+@keyframes animate-slide-out {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        -webkit-clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+        -webkit-clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes animate-slide-in {
+    0% {
+        clip-path: inset(0 0 0 100%);
+        -webkit-clip-path: inset(0 0 0 100%);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+        -webkit-clip-path: inset(0 0 0 0);
+    }
+}
+
+/*==========
+rtl
+=================*/
+[dir="rtl"] .kivicare-service-slider-2 .service-content{
+   flex-direction: row-reverse;
+}
+
+[dir="rtl"] .kivicare-service-slider-2 .service-content-inner .service-content-wrapper{
+   direction: rtl;
+}
+/*==================
+responsive
+=======================*/
+@media (min-width: 1200px){
+    .kivicare-service-slider-2 .service-content {
+        display: flex;
+        min-height: 100%;
+    }
+    
+    .kivicare-service-slider-2 .service-content-image {
+        width: 327px;
+        min-height: 360px;
+    }
+    
+    .kivicare-service-slider-2 .iq-service-slide.swiper-slide-active .service-content-image {
+        width: 50%;
+        min-width: 50%;
+    }
+
+    .kivicare-service-slider-2 .iq-service-slide .service-content-inner {
+        display: none;
+        animation: animate-slide-out;
+        animation-duration: 1.5s;
+    }
+
+    [dir="rtl"] .kivicare-service-slider-2 .iq-service-slide .service-content-inner {
+        animation: animate-slide-in;
+        animation-duration: 1.5s;
+    }
+    
+    .kivicare-service-slider-2 .iq-service-slide.swiper-slide-active .service-content-inner {
+        display: block;
+    }
+}

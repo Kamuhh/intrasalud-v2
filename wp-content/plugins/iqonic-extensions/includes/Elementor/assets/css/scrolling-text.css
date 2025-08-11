@@ -1,0 +1,12 @@
+/*---------------------------------------------------------------------
+	Scrollme Title
+-----------------------------------------------------------------------*/
+.scrolling-text {
+	font-size: 130px;
+	line-height: 94px;
+	font-family: var(--highlight-font-family);
+	font-weight: var(--font-weight-bold);
+	text-transform: uppercase;
+	color: var(--white-light-color);
+	z-index: -1;
+}

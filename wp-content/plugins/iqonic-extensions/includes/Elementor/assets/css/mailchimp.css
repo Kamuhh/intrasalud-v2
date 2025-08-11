@@ -1,0 +1,19 @@
+.kivicare-mailchimp-1 .mc4wp-form-fields input {
+    background: transparent;
+    border-color: var(--body-text);
+    color: var(--body-text);
+    border-radius: 5px;
+}
+
+.kivicare-mailchimp-1 .mc4wp-form-fields input:focus {
+    border-color: var(--body-text);
+}
+
+.kivicare-mailchimp-1 .mc4wp-form-fields button.btn-submit {
+    border-radius: 0 5px 5px 0;
+    background: var(--body-text);
+}
+
+[dir="rtl"] .kivicare-mailchimp-1 .mc4wp-form-fields button.btn-submit {
+    border-radius: 5px 0 0 5px;
+}

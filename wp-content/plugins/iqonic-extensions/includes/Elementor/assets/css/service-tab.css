@@ -1,0 +1,164 @@
+.kivicare-service-list .service-wrapper .service-content {
+  display: none;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.service-item-inner {
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+}
+
+.kivicare-service-list .service-wrapper .service-content.active {
+  display: block;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.kivicare-service-list .process-step-wrapper {
+  margin-bottom: 2em;
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+}
+
+.kivicare-service-list .process-step-wrapper .tab-title-desc{
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.kivicare-service-list .process-step-wrapper.active .tab-title-desc{
+  visibility: visible;
+  opacity: 1;
+}
+
+.kivicare-service-list .service-item:last-child {
+  margin-bottom: 0;
+}
+
+.service-content .wave-pattern .kivicare-wave-pattern-wrapper.animated .path {
+  animation: none!important;
+  visibility: visible!important;
+}
+
+.service-content.active .wave-pattern .kivicare-wave-pattern-wrapper .path {
+  animation: waveAnimOut 2s linear;
+  visibility: visible!important;
+}
+
+.fade-in {
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.kivicare-service-list .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 1.25em;
+  position: relative;
+}
+
+.kivicare-service-list .service-item .icon::after {
+  content: '';
+  position: absolute;
+  width: .0625em;
+  height: 2.1875em;
+  border-left: .13em dashed currentColor;
+  top: 130%;
+  right: auto;
+  bottom: auto;
+}
+
+.kivicare-service-list .service-item:last-child .icon::after {
+  content: none;
+}
+
+.service-item .tab-title-desc {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(35px);
+  color: var(--tertiry-color);
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.service-item.active .tab-title-desc {
+  display: block;
+  transform: translateY(0px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.kivicare-service-list .process-box-icon {
+  width: 3.4375em;
+  height: 3.4375em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.kivicare-service-list .process-box-icon svg{
+  height: 1.75em;
+  width: 1.75em;
+}
+
+.kivicare-service-list .process-step-wrapper .step-separator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -4.375em;
+  width: .125em;
+  height: 3.125em;
+  border-left: .13em dashed currentcolor;
+}
+
+.kivicare-service-list .process-step-wrapper:last-child .step-separator {
+  display: none;
+}
+
+@media (max-width:1199px) {
+  .kivicare-service-list .col-md-12.col-lg-12.col-xl-4 {
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width:1024px) {
+  .kivicare-service-list .service-item .icon::after {
+    content: none;
+  }
+}
+
+/* ----------------------------------------
+ * animation fade-in
+ * ----------------------------------------*/
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

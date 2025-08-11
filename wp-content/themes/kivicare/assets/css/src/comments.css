@@ -1,0 +1,443 @@
+/* ========= Old Css======= */
+/*---------------------------------------------------------------------
+                         Blog Page Comments
+-----------------------------------------------------------------------*/
+/* Comments Box */
+.comments-area,
+.comment-respond {
+    margin-top: 30px;
+    clear: both;
+}
+
+.comment-respond .comment-reply-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.comments-area .comments-title,
+.comment-respond .comment-reply-title {
+    position: relative;
+    padding-bottom: 0;
+}
+
+.comment-respond .comment-reply-title a {
+    color: var(--secondary-color);
+    font-size: 80%;
+    margin-left: 30px;
+    line-height: normal;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+
+.comment-respond .comment-reply-title a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.commentlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.commentlist .comment {
+    margin-top: 30px;
+    margin-bottom: 0;
+    vertical-align: top;
+    padding: 0;
+    list-style: none;
+}
+
+ol.commentlist .pingback,
+ol.commentlist .trackback {
+    margin-left: 25px;
+}
+
+ol.commentlist .pingback a,
+ol.commentlist .trackback a {
+    color: var(--secondary-color);
+}
+
+ol.commentlist .pingback a:hover,
+ol.commentlist .trackback a:hover {
+    color: var(--primary-color);
+}
+
+.commentlist li .comment-respond {
+    margin-top: 30px;
+}
+
+.commentlist .iq-comments-media {
+    position: relative;
+    border-radius: 0;
+    padding: 30px;
+    border: 1px solid var(--white-light-color);
+}
+
+.commentlist ol.children {
+    padding-left: 60px;
+}
+
+.commentlist .iq-comment-wrap {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.commentlist .iq-comments-photo {
+    padding-right: 15px;
+}
+
+.wp-block-group.has-background {
+    padding: 20px 30px;
+    margin-bottom: 15px;
+}
+
+.commentlist .iq-comments-photo img {
+    width: 80px;
+    height: auto;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.commentlist .iq-comments-info {
+    position: relative;
+    display: inline-block;
+    width: 91%;
+}
+
+.commentlist .iq-comments-info .title {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+
+.commentlist .iq-comments-info .title a:hover {
+    text-decoration: none;
+}
+
+.commentlist .iq-comment-metadata {
+    color: var(--body-text);
+    margin: 5px 0;
+}
+
+.commentlist .comment-content p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.commentlist .iq-comment-metadata a {
+    font-size: var(--font-size-sm);
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    color: var(--body-text);
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+.commentlist .iq-comment-metadata .edit-link a {
+    margin-left: 5px;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.commentlist .iq-comment-metadata a:hover,
+.commentlist .iq-comment-metadata a:hover i {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.commentlist .iq-comment-metadata i {
+    padding-right: 0;
+    color: var(--primary-color);
+}
+
+.commentlist .iq-comments-media .reply a {
+    border-radius: 0;
+    position: relative;
+    padding: 0;
+    color: var(--white-color);
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    line-height: normal;
+    display: inline-block;
+}
+
+.commentlist .iq-comment-metadata .edit-link{
+    display: inline-block;
+}
+
+.commentlist .iq-comments-media .reply a:hover {
+    text-decoration: none;
+}
+
+.no-comments,
+.comment-awaiting-moderation {
+    font-style: italic;
+    margin: 15px 0;
+}
+
+@media(max-width:1199px) {
+
+    .comment-respond .comment-form-author,
+    .comment-respond .comment-form-email,
+    .comment-respond .comment-form-url,
+    .commentlist .comment-respond .comment-form-author,
+    .comment-respond .comment-form-email,
+    .comment-respond .comment-form-url {
+        width: 100%;
+    }
+}
+
+@media(max-width:767px) {
+    .commentlist .iq-comments-info .title {
+        display: block;
+    }
+
+    .commentlist .iq-comment-metadata {
+        float: inherit;
+        margin-left: 0;
+    }
+
+    .commentlist .iq-comments-info {
+        margin-top: 20px;
+    }
+
+    .comment-respond .comment-form-author,
+    .comment-respond .comment-form-email,
+    .comment-respond .comment-form-url,
+    .commentlist .comment-respond .comment-form-author,
+    .comment-respond .comment-form-email,
+    .comment-respond .comment-form-url {
+        width: 100%;
+    }
+
+    .commentlist .iq-comment-wrap {
+        display: block
+    }
+
+    .commentlist ol.children {
+        padding-left: 30px
+    }
+}
+
+@media(max-width:479px) {
+    .commentlist .iq-comments-info .title {
+        display: block;
+    }
+
+    .commentlist .iq-comment-metadata {
+        margin-left: 0;
+    }
+}
+
+/* Comments Form */
+
+.comment-respond .comment-notes,
+.comment-respond .logged-in-as {
+    padding: 0;
+    margin: 0
+}
+
+.comment-respond .comment-form-url {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 23px;
+    width: 100%;
+}
+
+.comment-form-comment {
+    display: block;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.comment-respond textarea,
+.comment-respond input {
+    float: inherit;
+}
+
+.comment-respond .form-submit {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+    margin-bottom: 30px;
+    display: block;
+    float: left;
+    width: 100%
+}
+
+
+/*---------------------------------------------------------------------
+Replay Btn
+----------------------------------------------------------------------*/
+.iq-reply.iq-button-style-2 .iq-btn-icon-holder:after,
+.iq-reply.iq-button-style-2 .iq-btn-text-holder {
+    background-color: var(--primary-color);
+}
+
+.iq-reply.iq-button-style-2:hover .iq-btn-text-holder,
+.iq-reply.iq-button-style-2:hover .iq-btn-icon-holder:after {
+    background-color: var(--secondary-color);
+}
+
+.iq-reply.iq-button-style-2 .iq-btn-text-holder {
+    padding: 0 15px;
+    font-size: var(--font-size-sm);
+}
+
+.iq-reply.iq-button-style-2 .iq-btn-icon-holder {
+    padding: 0 15px;
+    font-size: var(--font-size-sm);
+}
+
+.commentlist li.iq-comments-item {
+    margin-bottom: 30px;
+}
+
+.commentlist .iq-comments-item .iq-type-date a {
+    color: var(--title-color);
+}
+
+.iq-comment-type-date a,
+ol.commentlist .pingback .iq-comment-type-date a,
+ol.commentlist .trackback .iq-comment-type-date a {
+    color: var(--body-text);
+    margin-top: 10px;
+    display: block;
+}
+
+.iq-comment-type-date a:hover,
+.iq-comment-type-date a:hover,
+ol.commentlist .pingback .iq-comment-type-date a:hover,
+ol.commentlist .trackback .iq-comment-type-date a:hover {
+    color: var(--primary-color);
+}
+
+.iq-comment-type-date a i {
+    color: var(--primary-color);
+}
+
+.iq-comment-btn .iq-btn-icon-holder {
+    font-size: var(--font-size-sm);
+    line-height: 26px;
+    display: inline-block;
+    text-align: center;
+    padding: 11px 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.iq-comment-btn .iq-btn-icon-holder i {
+    color: var(--white-color);
+    position: relative;
+    z-index: 3;
+    margin-left: 0;
+}
+
+.iq-comment-btn .iq-btn-icon-holder:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: var(--secondary-color);
+    z-index: 1;
+    opacity: 0.8;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.iq-comment-btn:hover .iq-btn-text-holder,
+.iq-comment-btn:hover .iq-btn-icon-holder:after,
+.iq-comment-btn:hover input[type=submit] {
+    background: var(--primary-color);
+}
+
+.iq-comment-btn .iq-btn-text-holder {
+    font-size: var(--font-size-sm);
+    line-height: 26px;
+    display: inline-block;
+    text-align: center;
+    padding: 11px 18px;
+    background: var(--secondary-color);
+    color: var(--white-color);
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.commentlist .iq-comments-media .reply a {
+    padding: 8px 16px;
+}
+
+.iq-comment-btn button {
+    padding: 0;
+    line-height: 0;
+    border: none;
+    background: transparent;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+.iq-comment-btn button:focus {
+    outline: none;
+}
+
+
+/* New CSS */
+ol.commentlist .pingback,
+ol.commentlist .trackback {
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgb(0 0 0/8%);
+    padding-bottom: 30px;
+}
+
+ol.commentlist .pingback a,
+ol.commentlist .trackback a {
+    color: var(--global-font-color);
+}
+
+ol.commentlist .pingback a, ol.commentlist .trackback a .commentlist li.kivicare-comments-item {
+    margin-bottom: 30px;
+    font-size: var(--font-size-h5);
+    color: var(--global-font-title);
+}
+
+.commentlist li.kivicare-comments-item .kivicare-type-date a,
+.commentlist li.kivicare-comments-item .edit-link a {
+    font-size: 18px;
+    font-family: var(--global-font-family);
+    letter-spacing: var(--font-letter-spacing-body);
+    font-weight: var(--font-weight-body);
+}
+
+.comments-area>.comments-title {
+    margin-top: 0;
+}

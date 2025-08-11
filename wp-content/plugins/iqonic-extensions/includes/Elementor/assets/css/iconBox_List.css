@@ -1,0 +1,32 @@
+.kivicare-icon-box-list {
+   border-radius: var(--border-radius-thirty);
+   padding: 30px;
+   background: var(--color-theme-primary-light);
+   border: .13em dashed var(--color-theme-primary);
+}
+
+.kivicare-list ul {
+   padding: 0;
+}
+
+.kivicare-list ul li {
+   padding-bottom: .625em;
+   display: flex;
+   align-items: center;
+   gap: .625em;
+}
+
+.kivicare-list ul li:last-child {
+   padding-bottom: 0;
+}
+
+.kivicare-list ul li p {
+   margin: 0;
+}
+
+/*----------------------------------------
+				 rtl
+  -----------------------------------------*/
+[dir=rtl] .kivicare-icon-box-list i {
+   transform: rotate(180deg);
+}

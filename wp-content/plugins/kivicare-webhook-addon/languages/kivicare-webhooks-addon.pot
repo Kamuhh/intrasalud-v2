@@ -1,0 +1,571 @@
+# Copyright (C) 2025 iqonic
+# This file is distributed under the same license as the KiviCare - Webhooks addon plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: KiviCare - Webhooks addon 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kivicare-webhook-addon\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-04-14T09:12:08+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: kivicare-webhooks-addon\n"
+
+#. Plugin Name of the plugin
+msgid "KiviCare - Webhooks addon"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://iqonic.design"
+msgstr ""
+
+#. Description of the plugin
+msgid "KiviCare Webhooks addon is Webhook/HTTPs addon of kivicare clinic and patient management plugin (EHR)."
+msgstr ""
+
+#. Author of the plugin
+msgid "iqonic"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://iqonic.design/"
+msgstr ""
+
+#: App/BaseClasses/KCWHBase.php:140
+msgid "KiviCare - Webhooks addon requires KiviCare - Clinic & Patient Management System(EHR) plugin to be updated. Please update KiviCare - Clinic & Patient Management System (EHR) for KiviCare - Webhooks addon to continue."
+msgstr ""
+
+#: App/BaseClasses/KCWHBase.php:141
+msgid "Update KiviCare - Clinic & Patient Management System (EHR)"
+msgstr ""
+
+#: App/BaseClasses/KCWHBase.php:157
+msgid "KiviCare - Webhooks addon requires KiviCare - Clinic & Patient Management System(EHR) plugin to be activated. Please activate KiviCare - Clinic & Patient Management System (EHR) for KiviCare - Webhooks addon to continue."
+msgstr ""
+
+#: App/BaseClasses/KCWHBase.php:158
+msgid "Activate KiviCare - Clinic & Patient Management System (EHR)"
+msgstr ""
+
+#: App/BaseClasses/KCWHBase.php:176
+msgid "KiviCare - Webhooks addon requires KiviCare - Clinic & Patient Management System(EHR) plugin to be installed and activated. Please install KiviCare - Clinic & Patient Management System (EHR) for KiviCare - Webhooks addon to continue."
+msgstr ""
+
+#: App/BaseClasses/KCWHBase.php:177
+msgid "Install KiviCare - Clinic & Patient Management System (EHR)"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:97
+#: App/FilterClasses/KCWHBaseFilter.php:147
+msgid "ID"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:101
+#: App/ControllerClasses/KCWHWebhooksLogController.php:104
+msgid "Filter by ID"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:107
+msgid "Name"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:111
+msgid "Filter by name"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:117
+msgid "Action type"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:121
+msgid "Filter by action type"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:128
+msgid "Module"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:132
+msgid "Filter by module"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:139
+msgid "Module event"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:143
+msgid "Filter by module event"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:151
+msgid "Last log"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:161
+msgid "Updated at"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:170
+#: App/ControllerClasses/KCWHWebhooksLogController.php:126
+msgid "Status"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:174
+msgid "Filter by Status"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:178
+msgid "Active"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:182
+msgid "Inactive"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:191
+#: App/ControllerClasses/KCWHWebhooksLogController.php:144
+msgid "Actions"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:201
+msgid "Body chart list"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:330
+msgid "No body chart data found"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:341
+#: App/ControllerClasses/KCWHWebhooksLogController.php:321
+msgid "Webhooks data list"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:374
+#: App/ControllerClasses/KCWHWebhooksController.php:375
+msgid "Webhooks data required"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:415
+msgid "Webhook data updated successfully."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:416
+msgid "Failed to update Webhook data."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:424
+msgid "Webhook data saved successfully."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:425
+msgid "Failed to save Webhook data."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:462
+#: App/ControllerClasses/KCWHWebhooksController.php:514
+#: App/ControllerClasses/KCWHWebhooksController.php:587
+#: App/ControllerClasses/KCWHWebhooksController.php:644
+#: App/ControllerClasses/KCWHWebhooksLogController.php:179
+msgid "Webhook id required"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:475
+msgid "Webhook data not found."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:487
+msgid "Webhook data found."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:532
+msgid "Failed to find the webhook data."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:539
+msgid " - copy"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:546
+msgid "Failed to clone webhook data."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:558
+msgid "Webhook data cloned successfully"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:605
+msgid "Failed to update status of webhook data."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:617
+msgid "Webhook data status updated successfully"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:662
+msgid "Failed to delete webhook data."
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksController.php:671
+msgid "Webhook data deleted successfully"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:101
+msgid "Logs ID"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:110
+msgid "Webhook ID"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:117
+msgid "Module - ID"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:120
+msgid "Filter by module ID"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:134
+msgid "Executed at"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:155
+msgid "Webhooks log list"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:194
+msgid "Webhook data not found"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:285
+#: App/FilterClasses/KCWHClinicFilter.php:58
+msgid "Clinic"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:286
+#: App/FilterClasses/KCWHAppointmentFilter.php:59
+msgid "Appointment"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:287
+#: App/FilterClasses/KCWHDoctorFilter.php:56
+msgid "Doctor"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:288
+#: App/FilterClasses/KCWHEncounterFilter.php:57
+msgid "Encounter"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:289
+#: App/FilterClasses/KCWHPatientFilter.php:56
+msgid "Patient"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:290
+#: App/FilterClasses/KCWHReceptionistFilter.php:56
+msgid "Receptionist"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:301
+msgid "%s - %s"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:310
+msgid "No webhook log data found"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:347
+msgid "Webhook log id required"
+msgstr ""
+
+#: App/ControllerClasses/KCWHWebhooksLogController.php:357
+msgid "Webhook logs data deleted successfully"
+msgstr ""
+
+#: App/FilterClasses/KCWHAppointmentFilter.php:81
+msgid "Add appointment"
+msgstr ""
+
+#: App/FilterClasses/KCWHAppointmentFilter.php:86
+msgid "Update appointment"
+msgstr ""
+
+#: App/FilterClasses/KCWHAppointmentFilter.php:91
+msgid "Delete appointment"
+msgstr ""
+
+#: App/FilterClasses/KCWHAppointmentFilter.php:96
+msgid "Update appointment Status"
+msgstr ""
+
+#: App/FilterClasses/KCWHAppointmentFilter.php:101
+msgid "Appointment payment complete"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:113
+msgid "Webhooks"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:114
+msgid "Webhooks list"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:115
+msgid "New Webhooks"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:116
+msgid "Create Webhooks"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:117
+msgid "Edit Webhooks"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:118
+msgid "Module name"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:119
+msgid "Select module name"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:120
+msgid "Module name required"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:121
+msgid "Event name"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:122
+msgid "select module"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:123
+msgid "Select event name"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:124
+msgid "Event name required"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:125
+msgid "Webhooks method"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:126
+msgid "Select webhooks method"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:127
+msgid "Webhooks method required"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:128
+msgid "https://example.webhooks.com/save/moduledata/"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:129
+msgid "Webhooks URL required"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:130
+msgid "Please enter valid Webhooks URL"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:131
+msgid "Keys"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:132
+msgid "Delete header data"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:133
+msgid "Delete query parameters"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:134
+msgid "Content type"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:135
+msgid "Select content type"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:136
+msgid "JSON data"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:137
+msgid "Form data"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:138
+msgid "Add form data"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:139
+msgid "Delete form data"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:140
+msgid "Key required"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:141
+msgid "Value required"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:142
+msgid "Select event name to get dynamic keys"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:143
+msgid "Please enter valid json data"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:144
+msgid "Select or enter value"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:145
+msgid "Loading....."
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:146
+msgid "Webhooks logs list"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:148
+msgid "Module ID"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:149
+msgid "Webhooks ID"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:150
+msgid "Created At"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:151
+msgid "Request"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:152
+msgid "Response"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:153
+msgid "N/A"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:154
+msgid "Search webhooks log by id and module id ..."
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:155
+msgid " log entry"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:156
+msgid "Logs list"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:157
+msgid "Press yes to delete webhooks"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:158
+msgid "Template dynamic key"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:159
+msgid "Success"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:160
+msgid "Fail"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:181
+msgid "HTTPS POST"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:185
+msgid "HTTPS GET"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:189
+msgid "HTTPS PUT"
+msgstr ""
+
+#: App/FilterClasses/KCWHBaseFilter.php:193
+msgid "HTTPS DELETE"
+msgstr ""
+
+#: App/FilterClasses/KCWHClinicFilter.php:81
+msgid "Add clinic"
+msgstr ""
+
+#: App/FilterClasses/KCWHClinicFilter.php:86
+msgid "Update clinic"
+msgstr ""
+
+#: App/FilterClasses/KCWHClinicFilter.php:91
+msgid "Delete clinic"
+msgstr ""
+
+#: App/FilterClasses/KCWHDoctorFilter.php:78
+msgid "Add doctor"
+msgstr ""
+
+#: App/FilterClasses/KCWHDoctorFilter.php:83
+msgid "Update doctor"
+msgstr ""
+
+#: App/FilterClasses/KCWHDoctorFilter.php:88
+msgid "Delete doctor"
+msgstr ""
+
+#: App/FilterClasses/KCWHEncounterFilter.php:79
+msgid "Add encounter"
+msgstr ""
+
+#: App/FilterClasses/KCWHEncounterFilter.php:84
+msgid "Update encounter"
+msgstr ""
+
+#: App/FilterClasses/KCWHEncounterFilter.php:89
+msgid "Delete encounter"
+msgstr ""
+
+#: App/FilterClasses/KCWHPatientFilter.php:78
+msgid "Add patient"
+msgstr ""
+
+#: App/FilterClasses/KCWHPatientFilter.php:83
+msgid "Update patient"
+msgstr ""
+
+#: App/FilterClasses/KCWHPatientFilter.php:88
+msgid "Delete patient"
+msgstr ""
+
+#: App/FilterClasses/KCWHReceptionistFilter.php:78
+msgid "Add receptionist"
+msgstr ""
+
+#: App/FilterClasses/KCWHReceptionistFilter.php:83
+msgid "Update receptionist"
+msgstr ""
+
+#: App/FilterClasses/KCWHReceptionistFilter.php:88
+msgid "Delete receptionist"
+msgstr ""

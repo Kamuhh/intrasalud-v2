@@ -1,0 +1,108 @@
+.footer-menu {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li a {
+    color: var(--global-font-color);
+    font-size: var(--global-font-size);
+}
+
+.footer-menu li:hover a,
+.iqonic-footer-menu-icon .footer-menu>li:hover::before {
+    color: var(--color-theme-primary);
+}
+
+.footer-menu>li {
+    margin-bottom: 1em;
+    position: relative;
+}
+
+/* menu horizontal */
+
+.footer-menu>li {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 1.5em;
+}
+
+.footer-menu>li:first-child {
+    padding-left: 0;
+}
+
+/* menu vertical */
+.vertical-menu-layout .footer-menu>li {
+    display: block;
+    padding: 0;
+}
+
+.iqonic-footer-menu-icon .vertical-menu-layout .footer-menu>li {
+    margin: 0 0 1.25em;
+}
+
+.iqonic-footer-gap-1 .vertical-menu-layout .footer-menu {
+    column-count: 1;
+}
+
+.iqonic-footer-gap-2 .vertical-menu-layout .footer-menu {
+    column-count: 2;
+}
+
+.iqonic-footer-gap-3 .vertical-menu-layout .footer-menu {
+    column-count: 3;
+}
+
+/* footer menu icon */
+.iqonic-footer-menu-icon .footer-menu>li::before {
+    content: "\f054";
+    font-family: Font Awesome\ 6 Free;
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: .1875em;
+    font-size: var(--font-size-xs);
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.iqonic-footer-menu-icon .footer-menu>li {
+    padding: 0 0 0 1.125em;
+    margin: 0 0 0 1.25em;
+}
+
+.iqonic-footer-menu-icon .footer-menu>li:first-child {
+    padding: 0 0 0 1.125em;
+}
+
+/* footer menu icon style two */
+.iqonic-footer-menu-icon.ft-nav-style-two .footer-menu>li::before {
+    display: none;
+}
+
+.iqonic-footer-menu-icon.ft-nav-style-two .footer-menu>li:first-child {
+    padding: 0;
+}
+
+.iqonic-footer-menu-icon.ft-nav-style-two .footer-menu>li {
+    margin: 0;
+    padding: 0;
+}
+
+.iqonic-footer-menu-icon.ft-nav-style-two .footer-menu>li a {
+    padding-right: 1.25em;
+    margin-right: 1.25em;
+    border-right: .0625em solid var(--global-font-color);
+}
+
+.iqonic-footer-menu-icon.ft-nav-style-two .footer-menu>li:last-child a {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: none;
+}
+
+footer .menu-footer-horizontal-container ul li {
+    margin-bottom: 0;
+}

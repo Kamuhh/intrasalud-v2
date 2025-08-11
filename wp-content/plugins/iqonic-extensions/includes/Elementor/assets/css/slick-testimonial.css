@@ -1,0 +1,249 @@
+/*-------------------------------
+  Swiper Slider
+--------------------------------------------*/
+/*style 1*/
+.iq-testimonial-slick .iq-testimonial-info .iq-testimonial-member {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.iq-testimonial-slick .iq-testimonial-info .iq-testimonial-avtar {
+  width: 60px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.iq-testimonial-slick .iq-testimonial-info .iq-testimonial-avtar img {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.iq-testimonial-slick .iq-testimonial-info .title {
+  font-size: (--font-size-18);
+}
+
+.iq-testimonial-slick .iq-testimonial-info .avtar-name {
+  display: table-cell;
+}
+
+.iq-testimonial-slick .iq-testimonial-info .avtar-name span {
+  font-size: (--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font-weight: var(--font-weight-medium);
+}
+
+.iq-testimonial-slick .iq-testimonial-info p {
+  margin-bottom: 0;
+}
+
+.iq-testimonial-slick .iq-testimonial-info .iq-lead {
+  font-size: var(--font-size-h5);
+  line-height: var(--font-line-height-h5);
+  color: var(--title-color);
+  font-family: var(--highlight-font-family);
+  font-weight: var(--font-weight-medium);
+}
+
+.iq-testimonial-slick.iq-testimonial-slick-1 .iq-testimonial-content p {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-regular);
+  line-height: 40px;
+  font-style: italic;
+}
+
+.iq-testimonial-slick.text-right .iq-testimonial-info .iq-testimonial-content:before {
+  right: 5%;
+  left: auto;
+}
+
+.iq-testimonial-slick.text-right .iq-testimonial-info .iq-testimonial-member {
+  float: right;
+  display: block
+}
+
+.iq-testimonial-slick.text-right .iq-testimonial-info .iq-testimonial-avtar {
+  margin-right: 0;
+  margin-left: 15px;
+  float: right;
+}
+
+.iq-testimonial-slick.text-center .iq-testimonial-info .iq-testimonial-content:before {
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+
+.iq-testimonial-slick.text-center .iq-testimonial-info .iq-testimonial-member {
+  display: block;
+  text-align: center;
+}
+
+.iq-testimonial-slick.text-center .iq-testimonial-info .iq-testimonial-avtar {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.iq-testimonial-slick.text-center .iq-testimonial-info .avtar-name {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.iq-swiper-line {
+  position: relative;
+}
+
+.iq-swiper-line:before {
+  content: '';
+  width: 50px;
+  height: 2px;
+  background: currentColor;
+  opacity: .6;
+  margin: 0 15px;
+  display: inherit;
+}
+
+/*style 2*/
+.iq-testimonial-slick.iq-testimonial-slick-2 .iq-testimonial-info .iq-testimonial-member {
+  margin: 0;
+  display: block;
+}
+
+.iq-testimonial-slick.iq-testimonial-slick-2 .iq-testimonial-info .iq-testimonial-avtar {
+  margin-bottom: 15px;
+}
+
+.iq-testimonial-slick-2 .iq-testimonial-info {
+  display: flex;
+}
+
+.iq-testimonial-slick-2 .iq-testimonial-content {
+  margin-left: 15px;
+}
+
+.iq-testimonial-slick.iq-testimonial-slick-2 .iq-testimonial-info .iq-testimonial-avtar {
+  width: 118px;
+}
+
+.iq-testimonial-slick .swiper .iq-swiper-arrow{
+  position: absolute;
+  right: 60px;
+  bottom: 30px;
+  top: auto;
+  transform: translateY(0);
+}
+
+.iq-testimonial-slick .swiper .swiper-button-prev,
+.iq-testimonial-slick .swiper-container-rtl .swiper-button-next,
+.iq-testimonial-slick .swiper-rtl .swiper-button-next {
+  left: inherit;
+  right: 70px;
+}
+
+.iq-testimonial-slick .swiper .swiper-pagination{
+  transition: .3s opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  width: auto;
+  align-items: center;
+  position: relative;
+  display: inline-flex;
+  font-weight: var(--font-weight-semi-bold);
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+/*----------------------------------------
+				 rtl
+-----------------------------------------*/
+[dir=rtl] .iq-testimonial-slick-1 .iq-testimonial-content,
+[dir=rtl] .iq-testimonial-slick .iq-testimonial-info .avtar-name {
+  text-align: right;
+}
+
+[dir=rtl] .iq-testimonial-slick .iq-testimonial-info .iq-testimonial-member{
+  justify-content: flex-end;
+}
+
+[dir=rtl] .iq-testimonial-slick .iq-testimonial-info .iq-testimonial-avtar{
+  order: 1;
+}
+
+[dir="rtl"] .iq-testimonial-slick .iq-swiper-arrow {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .iq-testimonial-slick .swiper-container-rtl .swiper-button-next,
+[dir="rtl"] .iq-testimonial-slick .swiper-rtl .swiper-button-next,
+[dir="rtl"] .iq-testimonial-slick .swiper-button-next {
+  left: 10px;
+  right: inherit;
+}
+
+[dir="rtl"] .iq-testimonial-slick .swiper-container-rtl .swiper-button-prev,
+[dir="rtl"] .iq-testimonial-slick .swiper-rtl .swiper-button-prev,
+[dir="rtl"] .iq-testimonial-slick .swiper-button-prev {
+  right: -120px;
+  left: auto;
+}
+
+[dir="rtl"] .iq-testimonial-slick .swiper-pagination-fraction {
+  left: -25px;
+  float: right;
+}
+
+/*======================
+responsive
+============================*/
+
+@media(max-width:767px) {
+  .iq-testimonial-slick-2 .iq-testimonial-info {
+    display: block;
+  }
+
+  .iq-testimonial-slick.iq-testimonial-slick-2 .iq-testimonial-info .iq-testimonial-avtar {
+    display: block;
+    width: 100%;
+  }
+
+  .iq-testimonial-slick-2 .iq-testimonial-content {
+    margin: 0;
+  }
+
+  .iq-testimonial-slick .swiper-button-next,
+  .iq-testimonial-slick .swiper-button-prev {
+    display: inline-block;
+  }
+
+  .iq-testimonial-slick .swiper .iq-swiper-arrow {
+    position: static;
+    right: inherit;
+    bottom: inherit;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .iq-testimonial-slick .iq-swiper-arrow .swiper-button-next,
+  .iq-testimonial-slick .iq-swiper-arrow .swiper-button-prev {
+    position: static;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+  }
+
+  [dir="rtl"] .iq-testimonial-slick .swiper-container-rtl .swiper-button-next, 
+  [dir="rtl"] .iq-testimonial-slick .swiper-rtl .swiper-button-next, 
+  [dir="rtl"] .iq-testimonial-slick .swiper-button-next{
+    left: auto;
+  }
+
+}

@@ -1,0 +1,99 @@
+.layout-editor-wrapper {
+    position: relative;
+}
+.layout-editor-wrapper::after{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+}
+.layout-editor-wrapper .iq-layout-editor {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    width: max-content;
+    inset: 0;
+    height: max-content;
+    margin: auto;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 99999;
+}
+.layout-editor-wrapper:hover .iq-layout-editor{
+    opacity: 1;
+}
+.layout-editor-wrapper .iq-layout-btn-wrapper {
+    display: flex;
+    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+}
+.layout-editor-wrapper .iq-layout-edit-btn {
+    background-color: #39b54a;
+    color: #fff;
+    padding: 10px 10px;
+    font-size: 12px;
+    line-height: normal;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.layout-editor-wrapper button.iq-layout-change-dropdown-btn {
+    background: #35a143;
+    border: none;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.layout-editor-wrapper .iq-layout-btn-wrapper a:hover ,
+.layout-editor-wrapper .iq-layout-btn-wrapper a:focus{
+    color:#fff;
+}
+.layout-editor-wrapper .iq-layout-selector-wrapper {
+    position: absolute;
+    top: 100%;
+    inset-inline: auto;
+    z-index: 99999;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+}
+.layout-editor-wrapper .iq-layout-selector {
+    margin-inline: auto;
+    padding: 10px 0;
+    list-style: none;
+    margin-bottom: 0;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 200px;
+}
+.layout-editor-wrapper .iq-layout-selector li{
+    padding: 2px 16px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.layout-editor-wrapper .iq-layout-selector li:hover{
+    color: #39b54a;
+}
+.layout-editor-wrapper .iq-layout-change-dropdown-btn{
+    position: relative;
+}
+.layout-editor-wrapper .layout-icon:after{
+    content: "\e87d";
+    font-family: eicons;
+    position: absolute;
+    right: 0;
+    transition: transform .3s;
+    top:0;
+    left: 0;
+    color: #fff;
+    font-size: 11px;
+    transform: rotate(90deg);
+}
