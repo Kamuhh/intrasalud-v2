@@ -1136,5 +1136,69 @@ class KCPatientEncounterController extends KCBase
         }
     }
 
+ public function getEncounterSummary()
+    {
+        try {
+            if (!is_user_logged_in()) {
+                return $this->sendError('No autorizado', 401);
+            }
+            $user = wp_get_current_user();
+            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
+            if (!$can) {
+                return $this->sendError('Permisos insuficientes', 403);
+            }
+
+            $encounter_id = isset($_GET['encounter_id']) ? intval($_GET['encounter_id']) : 0;
+            if ($encounter_id <= 0) {
+                return $this->sendError('encounter_id inválido', 400);
+            }
+
+            $encounter     = kc_get_encounter_by_id($encounter_id);
+            $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+            $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+            $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+            $diagnoses     = kc_get_encounter_diagnoses($encounter_id);
+            $orders        = kc_get_encounter_orders($encounter_id);
+            $indications   = kc_get_encounter_indications($encounter_id);
+            $prescriptions = kc_get_encounter_prescriptions($encounter_id);
+
+            ob_start();
+            include KIVI_CARE_DIR . 'templates/encounter-summary-modal.php';
+            $html = ob_get_clean();
+
+            return $this->sendSuccess(['html' => $html]);
+        } catch (\Throwable $e) {
+            return $this->sendError($e->getMessage(), 500);
+        }
+    }
+
+    public function emailEncounterSummary()
+    {
+        try {
+            if (!is_user_logged_in()) {
+                return $this->sendError('No autorizado', 401);
+            }
+            $user = wp_get_current_user();
+            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
+            if (!$can) {
+                return $this->sendError('Permisos insuficientes', 403);
+            }
+
+            $encounter_id = isset($_POST['encounter_id']) ? intval($_POST['encounter_id']) : 0;
+            $to = isset($_POST['to']) ? sanitize_email($_POST['to']) : '';
+            if ($encounter_id <= 0 || empty($to) || !is_email($to)) {
+                return $this->sendError('Parámetros inválidos', 400);
+            }
+
+            $body = kc_build_encounter_summary_text($encounter_id);
+            $ok = wp_mail($to, 'Resumen de atención', $body, ['Content-Type: text/plain; charset=UTF-8']);
+            if (!$ok) {
+                return $this->sendError('No se pudo enviar el correo', 500);
+            }
+            return $this->sendSuccess(['ok' => true]);
+        } catch (\Throwable $e) {
+            return $this->sendError($e->getMessage(), 500);
+        }
+    }
 
 }
