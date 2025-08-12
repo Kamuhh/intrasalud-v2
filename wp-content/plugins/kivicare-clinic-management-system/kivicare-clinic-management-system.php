@@ -50,6 +50,10 @@ if (!defined('KIVI_CARE_VERSION'))
     define('KIVI_CARE_VERSION', "3.6.11");
 }
 
+// Include helper and initialization files
+require_once KIVI_CARE_DIR . 'app/helpers/encounter-summary-helpers.php';
+require_once KIVI_CARE_DIR . 'app/init/Capabilities.php';
+
 /**
  * The code that runs during plugin activation
  */
