@@ -1,11 +1,16 @@
 (function () {
   const G = window.kcGlobals || {};
   const ajaxUrl = G.ajaxUrl || '/wp-admin/admin-ajax.php';
-  let useAjaxOnly = false; // se activa si REST falla una vez
+
+  // persistimos la preferencia de usar AJAX si REST falló alguna vez
+  let useAjaxOnly = (window.localStorage.getItem('kcSummaryUseAjax') === '1');
+
+  function setAjaxOnly() {
+    useAjaxOnly = true;
+    try { window.localStorage.setItem('kcSummaryUseAjax','1'); } catch(e){}
+  }
 
   // ===== util =====
-  const hasREST = !!G.apiBase && !useAjaxOnly;
-
   function extractId(str) {
     if (!str) return null;
     let m = String(str).match(/[?&#]\s*encounter_id\s*=\s*(\d+)/i); if (m) return m[1];
@@ -62,6 +67,7 @@
   }
 
   // endpoints
+  function hasREST() { return !!G.apiBase && !useAjaxOnly; }
   const REST = {
     summary: id => `${G.apiBase}/encounter/summary?encounter_id=${encodeURIComponent(id)}`,
     email:   () => `${G.apiBase}/encounter/summary/email`,
@@ -74,26 +80,31 @@
     headers: () => ({'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}),
   };
 
-  // fetch con fallback; si REST falla una vez, pasamos a AJAX-only para evitar 404s repetidos
+  // fetch con fallback; si REST falla una vez, pasamos a AJAX-only permanente
   function fetchJSON(restUrl, restHeaders, ajaxUrl2, ajaxHeaders){
-    if (!hasREST) {
+    if (!hasREST()) {
       return fetch(ajaxUrl2, {credentials:'include', headers:ajaxHeaders}).then(r=>r.json());
     }
     return fetch(restUrl, {credentials:'include', headers:restHeaders}).then(r=>{
-      if (!r.ok) { useAjaxOnly = true; return fetch(ajaxUrl2, {credentials:'include', headers:ajaxHeaders}).then(j=>j.json()); }
+      if (!r.ok) { setAjaxOnly(); return fetch(ajaxUrl2, {credentials:'include', headers:ajaxHeaders}).then(j=>j.json()); }
       return r.json();
     }).catch(()=>{
-      useAjaxOnly = true;
+      setAjaxOnly();
       return fetch(ajaxUrl2, {credentials:'include', headers:ajaxHeaders}).then(r=>r.json());
     });
   }
 
   // ===== inyección del botón =====
   function hookButton() {
-    // no tocar nada que esté dentro de cualquier modal
+    // no tocar nada dentro de modales
     const isInModal = el => !!el.closest('.kc-modal');
 
-    // buscar si ya existe un botón de Resumen en la barra (fuera de modales)
+    // evitar duplicados
+    document.querySelectorAll('.js-kc-open-summary').forEach(el=>{
+      if (isInModal(el)) el.remove();
+    });
+
+    // ya existe en la barra?
     let summaryBtns = Array.from(document.querySelectorAll('button, a, [role="button"]'))
       .filter(el => !isInModal(el))
       .filter(el => {
@@ -101,7 +112,7 @@
         return t.includes('resumen') && t.includes('atención');
       });
 
-    // si no existe, clonar al lado de "Detalles de la factura" (fuera de modales)
+    // si no existe, insertarlo a la derecha de “Detalles de la factura” (fuera de modales)
     if (summaryBtns.length === 0) {
       const billBtn = Array.from(document.querySelectorAll('button, a, [role="button"]'))
         .filter(el => !isInModal(el))
@@ -116,7 +127,6 @@
         b.className = 'button button-secondary js-kc-open-summary';
         b.style.marginLeft = '6px';
         b.textContent = 'Resumen de atención';
-        // setear id si ya lo tenemos
         const id = findEncounterId(); if (id) b.setAttribute('data-encounter-id', id);
         billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
         summaryBtns = [b];
@@ -129,6 +139,13 @@
       btn.classList.add('js-kc-open-summary');
       if (id && !btn.getAttribute('data-encounter-id')) btn.setAttribute('data-encounter-id', id);
     });
+  }
+
+  function plainTextFromModal(modalNode){
+    // genera texto simple para fallback de email
+    const clone = modalNode.cloneNode(true);
+    clone.querySelectorAll('style,script,.kc-modal__footer,.kc-modal__header,button').forEach(n=>n.remove());
+    return clone.innerText.replace(/\n{3,}/g,'\n\n').trim();
   }
 
   function openSummary(id) {
@@ -152,50 +169,71 @@
         const wrap = document.createElement('div'); wrap.innerHTML = data.html; document.body.appendChild(wrap);
 
         // cierre
-        wrap.querySelectorAll('.js-kc-summary-close').forEach(b => b.addEventListener('click', () => wrap.remove()));
+        wrap.querySelectorAll('.js-kc-summary-close').forEach(b => b.addEventListener('click', (ev) => { ev.stopPropagation(); wrap.remove(); }));
         wrap.addEventListener('click', e => { if (e.target.classList.contains('kc-modal')) wrap.remove(); });
         document.addEventListener('keydown', function esc(e){ if (e.key==='Escape'){ wrap.remove(); document.removeEventListener('keydown', esc);} });
 
-        // imprimir (abre vista limpia)
+        // imprimir (abre vista limpia y la cierra al terminar)
         const printBtn = wrap.querySelector('.js-kc-summary-print');
-        if (printBtn) printBtn.addEventListener('click', () => {
+        if (printBtn) printBtn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
           const node = wrap.querySelector('.kc-modal__dialog');
           const w = window.open('', '_blank'); if (!w) return;
           w.document.write('<html><head><title>Resumen de atención</title>');
-          // heredar estilos
           document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
           w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close{display:none}</style>');
           w.document.write('</head><body>' + node.outerHTML + '</body></html>');
-          w.document.close(); w.focus(); w.print();
+          w.document.close(); w.focus();
+          // cerrar después de imprimir (o si cancela)
+          w.onafterprint = () => { try{ w.close(); }catch(e){} };
+          setTimeout(()=>{ try{ w.close(); }catch(e){} }, 2000);
+          w.print();
         });
 
-        // correo: usar email de paciente si viene en la modal; si no, pedirlo
+        // correo: usa email del paciente si viene; si endpoint no existe, fallback a mailto:
         const emailBtn = wrap.querySelector('.js-kc-summary-email');
         const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
         const defaultEmail = modalRoot ? modalRoot.getAttribute('data-patient-email') : '';
-        if (emailBtn) emailBtn.addEventListener('click', () => {
+        if (emailBtn) emailBtn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
           const to = defaultEmail || prompt('Correo de destino', '') || '';
           if (!to) return;
+
           const restEmail = REST.email();
           const ajaxEmail = AJAX.email();
+
           fetchJSON(restEmail, REST.headers('POST'), ajaxEmail, AJAX.headers())
             .then(resp => {
               const ok2 = resp && (resp.status === 'success' || resp.success === true);
-              alert(ok2 ? 'Enviado' : (resp && resp.message) || 'No se pudo enviar');
+              if (ok2) { alert('Enviado'); return; }
+              // Fallback: mailto con el contenido visible
+              const body = encodeURIComponent(plainTextFromModal(wrap.querySelector('.kc-modal__dialog')));
+              const subject = encodeURIComponent('Resumen de la atención');
+              window.location.href = `mailto:${encodeURIComponent(to)}?subject=${subject}&body=${body}`;
+              alert('No se pudo enviar desde el sistema. Se abrió tu cliente de correo con el contenido.');
             })
-            .catch(() => alert('No se pudo enviar'));
+            .catch(() => {
+              const body = encodeURIComponent(plainTextFromModal(wrap.querySelector('.kc-modal__dialog')));
+              const subject = encodeURIComponent('Resumen de la atención');
+              window.location.href = `mailto:${encodeURIComponent(to)}?subject=${subject}&body=${body}`;
+              alert('No se pudo enviar desde el sistema. Se abrió tu cliente de correo con el contenido.');
+            });
         });
       })
       .catch(() => alert('Error de red'));
   }
 
-  // eventos
+  // eventos (evitamos burbujas que disparen otras acciones)
   document.addEventListener('click', e => {
     const btn = e.target.closest('.js-kc-open-summary');
-    if (btn) { e.preventDefault(); openSummary(btn.getAttribute('data-encounter-id')); }
-  });
+    if (btn) {
+      e.preventDefault();
+      e.stopPropagation();
+      openSummary(btn.getAttribute('data-encounter-id'));
+    }
+  }, true); // capture=true para “comernos” el click antes que otros handlers
 
-  // iniciar y observar SPA (sin botón flotante de debug)
+  // iniciar y observar SPA
   function boot(){ hookButton(); }
   document.addEventListener('DOMContentLoaded', boot);
   const mo = new MutationObserver(() => hookButton());
