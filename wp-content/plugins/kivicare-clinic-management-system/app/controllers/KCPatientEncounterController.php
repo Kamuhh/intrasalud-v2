@@ -1201,4 +1201,5 @@ class KCPatientEncounterController extends KCBase
         }
     }
 
+
 }
