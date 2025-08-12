@@ -4,7 +4,54 @@ namespace App\baseClasses;
 
 class KCRoutes
 {
+ /**
+     * Registered REST API routes
+     *
+     * @var array
+     */
+    protected $restRoutes = [];
 
+    public function __construct()
+    {
+        add_action('rest_api_init', [$this, 'registerRestRoutes']);
+
+        // Resumen de atención
+        $this->addRoute(
+            'kcGetEncounterSummary',
+            'GET',
+            'encounter/summary',
+            'KCPatientEncounterController@getEncounterSummary',
+            true
+        );
+
+        $this->addRoute(
+            'kcEmailEncounterSummary',
+            'POST',
+            'encounter/summary/email',
+            'KCPatientEncounterController@emailEncounterSummary',
+            true
+        );
+    }
+
+    protected function addRoute($name, $method, $endpoint, $action, $public = true)
+    {
+        $this->restRoutes[$name] = compact('method', 'endpoint', 'action', 'public');
+    }
+
+    public function registerRestRoutes()
+    {
+        foreach ($this->restRoutes as $route) {
+            $callback = explode('@', $route['action']);
+            $controller = '\\App\\controllers\\' . $callback[0];
+            $method = $callback[1] ?? '__invoke';
+
+            register_rest_route('kc/v1', '/' . $route['endpoint'], [
+                'methods'             => $route['method'],
+                'callback'            => [new $controller(), $method],
+                'permission_callback' => '__return_true',
+            ]);
+        }
+    }
     //all routes array
     public function routes()
     {
