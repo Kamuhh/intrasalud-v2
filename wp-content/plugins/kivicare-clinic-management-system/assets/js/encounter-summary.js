@@ -1,16 +1,52 @@
 (function () {
   const G = window.kcGlobals || {};
-  const hasREST = !!(G.apiBase);
-  const ajaxUrl = (G.ajaxUrl || '/wp-admin/admin-ajax.php');
+  const hasREST = !!G.apiBase;
+  const ajaxUrl = G.ajaxUrl || '/wp-admin/admin-ajax.php';
   if (G.debug) console.log('[kc] boot; hasREST=', hasREST, 'apiBase=', G.apiBase, 'ajaxUrl=', ajaxUrl);
 
+  // --- Resolver encounter_id de forma robusta (DOM, URL, Performance API) ---
+  function findEncounterId() {
+    // 1) DOM directo
+    const domIdEl = document.querySelector('[data-encounter-id]');
+    if (domIdEl) return domIdEl.getAttribute('data-encounter-id');
+
+    // 2) Controles ocultos comunes
+    const hidden = document.querySelector('[name="encounter_id"], #encounter_id, input[data-name="encounter_id"]');
+    if (hidden && hidden.value) return hidden.value;
+
+    // 3) URL query (SPA a veces deja ?id= o ?encounter_id=)
+    const qs = new URLSearchParams(window.location.search);
+    if (qs.get('encounter_id')) return qs.get('encounter_id');
+    if (qs.get('id')) return qs.get('id');
+
+    // 4) Performance API: detectar las peticiones que carga la SPA
+    try {
+      const entries = performance.getEntriesByType('resource');
+      for (let i = entries.length - 1; i >= 0; i--) {
+        const n = entries[i].name || '';
+        if (n.includes('admin-ajax.php')
+            && (n.includes('patient_encounter_details')
+                || n.includes('patient_bill_detail')
+                || n.includes('prescription_list')
+                || n.includes('get_patient_report'))) {
+          const m = n.match(/[?&](encounter_id|id)=(\d+)/);
+          if (m) return m[2];
+        }
+      }
+    } catch (e) {}
+
+    return null;
+  }
+
+  // --- Endpoints REST o admin-ajax (fallback) ---
   function endpoints() {
     if (hasREST) {
       return {
         summary: id => `${G.apiBase}/encounter/summary?encounter_id=${encodeURIComponent(id)}`,
         email:   () => `${G.apiBase}/encounter/summary/email`,
-        headers: (m) => (m === 'GET') ? {'X-WP-Nonce': G.nonce} :
-          {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8','X-WP-Nonce': G.nonce}
+        headers: m => (m === 'GET')
+          ? {'X-WP-Nonce': G.nonce}
+          : {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8','X-WP-Nonce': G.nonce}
       };
     }
     return {
@@ -21,43 +57,60 @@
   }
   const EP = endpoints();
 
-  function injectButtons() {
-    document.querySelectorAll('.js-kc-open-summary').forEach(el => el.remove());
+  // --- Inyección/enganche del botón ---
+  function hookButton() {
+    // 1) Si ya existe el botón "Resumen de atención" en la barra, lo enganchamos
+    let summaryBtn = Array.from(document.querySelectorAll('button, a, [role="button"]'))
+      .find(el => (el.textContent || '').toLowerCase().includes('resumen')
+               && (el.textContent || '').toLowerCase().includes('atención'));
 
-    const candidates = document.querySelectorAll('button, a');
-    candidates.forEach(btn => {
-      const label = (btn.textContent || '').toLowerCase();
-      if (!label) return;
+    if (!summaryBtn) {
+      // 2) Si no existe, buscamos "Detalles de la factura" para clonar su contenedor y crear uno nuevo
+      const billBtn = Array.from(document.querySelectorAll('button, a, [role="button"]'))
+        .find(el => {
+          const t = (el.textContent || '').toLowerCase();
+          return t.includes('detalle') && t.includes('factura');
+        });
 
-      // detectar "Detalles de la factura" de forma flexible
-      if (label.includes('detalle') && label.includes('factura')) {
-        const row = btn.closest('tr') || btn.parentElement;
-        if (!row) return;
-
-        let id =
-          row.getAttribute('data-encounter-id') ||
-          (row.querySelector('[data-encounter-id]') && row.querySelector('[data-encounter-id]').getAttribute('data-encounter-id')) ||
-          (row.querySelector('[name="encounter_id"]') && row.querySelector('[name="encounter_id"]').value) ||
-          (btn.getAttribute('data-encounter-id')) || '';
-
-        if (!id && btn.href) {
-          const m = btn.href.match(/[?&]encounter_id=(\d+)/);
-          if (m) id = m[1];
-        }
-        if (!id) return;
-
-        const b = document.createElement('button');
+      if (billBtn && !document.querySelector('.js-kc-open-summary')) {
+        const b = document.createElement(billBtn.tagName.toLowerCase() === 'a' ? 'a' : 'button');
         b.type = 'button';
-        b.className = 'button button-secondary js-kc-open-summary';
-        b.setAttribute('data-encounter-id', id);
+        b.className = (billBtn.className || '') + ' js-kc-open-summary';
         b.style.marginLeft = '6px';
         b.textContent = 'Resumen de atención';
-        btn.parentNode.insertBefore(b, btn.nextSibling);
+        billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
+        summaryBtn = b;
       }
-    });
+    }
+
+    // 3) Si lo tenemos, garantizamos la clase y data-id
+    if (summaryBtn) {
+      summaryBtn.classList.add('js-kc-open-summary');
+      if (!summaryBtn.getAttribute('data-encounter-id')) {
+        const id = findEncounterId();
+        if (id) summaryBtn.setAttribute('data-encounter-id', id);
+      }
+    }
+
+    // 4) Fallback extremo: si no pudimos ponerlo en la barra, creamos un botón fijo para depurar
+    if (!document.querySelector('.js-kc-open-summary')) {
+      const fixed = document.createElement('button');
+      fixed.type = 'button';
+      fixed.className = 'button button-primary js-kc-open-summary';
+      fixed.textContent = 'Resumen de atención';
+      fixed.style.position = 'fixed';
+      fixed.style.right = '16px';
+      fixed.style.bottom = '16px';
+      fixed.style.zIndex = '999999';
+      fixed.setAttribute('data-encounter-id', findEncounterId() || '');
+      document.body.appendChild(fixed);
+    }
   }
 
   function openSummary(id) {
+    if (!id) id = findEncounterId();
+    if (!id) { alert('No se pudo detectar el ID del encuentro'); return; }
+
     if (G.debug) console.log('[kc] openSummary id=', id, 'url=', EP.summary(id));
     fetch(EP.summary(id), { credentials: 'include', headers: EP.headers('GET') })
       .then(r => r.json())
@@ -101,19 +154,25 @@
       .catch(() => alert('Error de red'));
   }
 
+  // Delegación de eventos
   document.addEventListener('click', e => {
     const btn = e.target.closest('.js-kc-open-summary');
-    if (btn) { e.preventDefault(); const id = btn.getAttribute('data-encounter-id'); if (id) openSummary(id); }
+    if (btn) {
+      e.preventDefault();
+      const id = btn.getAttribute('data-encounter-id');
+      openSummary(id);
+    }
   });
 
-  function boot(){ injectButtons(); }
+  // Boot + observar cambios de la SPA
+  function boot(){ hookButton(); }
   document.addEventListener('DOMContentLoaded', boot);
-  const mo = new MutationObserver(() => injectButtons());
+  const mo = new MutationObserver(() => hookButton());
   mo.observe(document.documentElement, { childList: true, subtree: true });
 
   // Diagnóstico rápido
   window.kcSummaryDiag = function(){
-    console.log('[kc] diag: hasREST=', hasREST, 'apiBase=', G.apiBase, 'ajaxUrl=', ajaxUrl);
+    console.log('[kc] diag: hasREST=', hasREST, 'apiBase=', G.apiBase, 'ajaxUrl=', ajaxUrl, 'encounterId=', findEncounterId());
     console.log('[kc] buttons:', document.querySelectorAll('.js-kc-open-summary').length);
   };
 })();
