@@ -13,7 +13,6 @@ use App\baseClasses\KCActivate;
 use App\baseClasses\KCDeactivate;
 defined( 'ABSPATH' ) or die( 'Something went wrong' );
 
-
 // ── Definir constantes si no existen (evita E_ERROR en entornos donde no las trae el core del plugin)
 if ( ! defined('KC_PLUGIN_FILE') ) define('KC_PLUGIN_FILE', __FILE__);
 if ( ! defined('KC_PLUGIN_DIR') )  define('KC_PLUGIN_DIR', plugin_dir_path(__FILE__));
@@ -106,6 +105,7 @@ add_action('wp_ajax_kc_encounter_summary_email', function () {
 
     wp_send_json_success(['ok' => true]);
 });
+
 // Require once the Composer Autoload
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
