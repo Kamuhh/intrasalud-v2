@@ -16,7 +16,7 @@ function kc_enqueue_encounter_summary_assets($hook) {
     wp_enqueue_script(
         'kc-encounter-summary',
         KIVI_CARE_DIR_URI . 'assets/js/encounter-summary.js',
-        ['jquery'],
+        [],
         file_exists($js_file) ? filemtime($js_file) : KIVI_CARE_VERSION,
         true
     );
