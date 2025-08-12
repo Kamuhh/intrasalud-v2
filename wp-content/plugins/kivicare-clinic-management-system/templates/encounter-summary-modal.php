@@ -1,4 +1,4 @@
-<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true">
+<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>">
   <div class="kc-modal__dialog">
     <div class="kc-modal__header">
       <h3>Resumen de la atención</h3>
