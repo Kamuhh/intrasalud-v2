@@ -4,36 +4,94 @@
   const ajaxUrl = G.ajaxUrl || '/wp-admin/admin-ajax.php';
   if (G.debug) console.log('[kc] boot; hasREST=', hasREST, 'apiBase=', G.apiBase, 'ajaxUrl=', ajaxUrl);
 
-  // --- Resolver encounter_id de forma robusta (DOM, URL, Performance API) ---
-  function findEncounterId() {
-    // 1) DOM directo
-    const domIdEl = document.querySelector('[data-encounter-id]');
-    if (domIdEl) return domIdEl.getAttribute('data-encounter-id');
+  // --- Captura global del último encounter_id observado ---
+  window.__KC_LAST_ENCOUNTER_ID__ = window.__KC_LAST_ENCOUNTER_ID__ || null;
 
-    // 2) Controles ocultos comunes
+  function extractId(str) {
+    if (!str) return null;
+    // 1) parámetros comunes
+    let m = String(str).match(/[?&#]\s*encounter_id\s*=\s*(\d+)/i);
+    if (m) return m[1];
+    m = String(str).match(/[?&#]\s*id\s*=\s*(\d+)/i);
+    if (m) return m[1];
+    // 2) cuerpos x-www-form-urlencoded
+    m = String(str).match(/\bencounter_id\s*=\s*(\d+)/i);
+    if (m) return m[1];
+    m = String(str).match(/\bid\s*=\s*(\d+)/i);
+    if (m) return m[1];
+    // 3) hash/paths tipo #/encounter/178 o #encounter_id=178
+    m = String(str).match(/(?:encounter|consulta|encuentro)[\/=#-]+(\d+)/i);
+    if (m) return m[1];
+    return null;
+  }
+
+  // --- Espiamos XHR/fetch para aprender el ID que usa la SPA ---
+  (function hookXHRAndFetch(){
+    try {
+      // XHR
+      const _open = XMLHttpRequest.prototype.open;
+      const _send = XMLHttpRequest.prototype.send;
+      XMLHttpRequest.prototype.open = function(method, url) {
+        this.__kc_url = url;
+        return _open.apply(this, arguments);
+      };
+      XMLHttpRequest.prototype.send = function(body) {
+        try {
+          const id = extractId(this.__kc_url) || extractId(typeof body === 'string' ? body : '');
+          if (id) { window.__KC_LAST_ENCOUNTER_ID__ = id; if (G.debug) console.log('[kc] XHR id=', id); }
+        } catch(e){}
+        return _send.apply(this, arguments);
+      };
+
+      // fetch
+      if (window.fetch) {
+        const _fetch = window.fetch;
+        window.fetch = function(input, init) {
+          try {
+            const url  = typeof input === 'string' ? input : (input && input.url) || '';
+            const body = init && typeof init.body === 'string' ? init.body : '';
+            const id = extractId(url) || extractId(body);
+            if (id) { window.__KC_LAST_ENCOUNTER_ID__ = id; if (G.debug) console.log('[kc] fetch id=', id); }
+          } catch(e){}
+          return _fetch.apply(this, arguments);
+        };
+      }
+    } catch(e) {
+      if (G.debug) console.warn('[kc] hookXHRAndFetch error', e);
+    }
+  })();
+
+  // --- Resolver encounter_id combinando DOM, hash, XHR/fetch ---
+  function findEncounterId() {
+    // 0) último detectado por tráfico de red
+    if (window.__KC_LAST_ENCOUNTER_ID__) return window.__KC_LAST_ENCOUNTER_ID__;
+
+    // 1) DOM directo
+    const domEl = document.querySelector('[data-encounter-id]');
+    if (domEl) return domEl.getAttribute('data-encounter-id');
+
+    // 2) Controles ocultos típicos
     const hidden = document.querySelector('[name="encounter_id"], #encounter_id, input[data-name="encounter_id"]');
     if (hidden && hidden.value) return hidden.value;
 
-    // 3) URL query (SPA a veces deja ?id= o ?encounter_id=)
+    // 3) URL search y hash
     const qs = new URLSearchParams(window.location.search);
     if (qs.get('encounter_id')) return qs.get('encounter_id');
     if (qs.get('id')) return qs.get('id');
 
-    // 4) Performance API: detectar las peticiones que carga la SPA
+    const h = window.location.hash || '';
+    const hid = extractId(h);
+    if (hid) return hid;
+
+    // 4) Mirar recursos cargados recientemente (por si la SPA ya disparó peticiones)
     try {
       const entries = performance.getEntriesByType('resource');
       for (let i = entries.length - 1; i >= 0; i--) {
         const n = entries[i].name || '';
-        if (n.includes('admin-ajax.php')
-            && (n.includes('patient_encounter_details')
-                || n.includes('patient_bill_detail')
-                || n.includes('prescription_list')
-                || n.includes('get_patient_report'))) {
-          const m = n.match(/[?&](encounter_id|id)=(\d+)/);
-          if (m) return m[2];
-        }
+        const id = extractId(n);
+        if (id) return id;
       }
-    } catch (e) {}
+    } catch(e){}
 
     return null;
   }
@@ -59,52 +117,36 @@
 
   // --- Inyección/enganche del botón ---
   function hookButton() {
-    // 1) Si ya existe el botón "Resumen de atención" en la barra, lo enganchamos
-    let summaryBtn = Array.from(document.querySelectorAll('button, a, [role="button"]'))
-      .find(el => (el.textContent || '').toLowerCase().includes('resumen')
-               && (el.textContent || '').toLowerCase().includes('atención'));
+    // Si ya existe cualquier botón "Resumen de atención", solo asegurar clase/ID
+    let summaryBtns = Array.from(document.querySelectorAll('button, a, [role="button"]'))
+      .filter(el => (el.textContent || '').toLowerCase().includes('resumen')
+                 && (el.textContent || '').toLowerCase().includes('atención'));
 
-    if (!summaryBtn) {
-      // 2) Si no existe, buscamos "Detalles de la factura" para clonar su contenedor y crear uno nuevo
+    // Si no hay, clonar al lado de "Detalles de la factura"
+    if (summaryBtns.length === 0) {
       const billBtn = Array.from(document.querySelectorAll('button, a, [role="button"]'))
         .find(el => {
           const t = (el.textContent || '').toLowerCase();
           return t.includes('detalle') && t.includes('factura');
         });
 
-      if (billBtn && !document.querySelector('.js-kc-open-summary')) {
+      if (billBtn) {
         const b = document.createElement(billBtn.tagName.toLowerCase() === 'a' ? 'a' : 'button');
         b.type = 'button';
         b.className = (billBtn.className || '') + ' js-kc-open-summary';
         b.style.marginLeft = '6px';
         b.textContent = 'Resumen de atención';
         billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
-        summaryBtn = b;
+        summaryBtns = [b];
       }
     }
 
-    // 3) Si lo tenemos, garantizamos la clase y data-id
-    if (summaryBtn) {
-      summaryBtn.classList.add('js-kc-open-summary');
-      if (!summaryBtn.getAttribute('data-encounter-id')) {
-        const id = findEncounterId();
-        if (id) summaryBtn.setAttribute('data-encounter-id', id);
-      }
-    }
-
-    // 4) Fallback extremo: si no pudimos ponerlo en la barra, creamos un botón fijo para depurar
-    if (!document.querySelector('.js-kc-open-summary')) {
-      const fixed = document.createElement('button');
-      fixed.type = 'button';
-      fixed.className = 'button button-primary js-kc-open-summary';
-      fixed.textContent = 'Resumen de atención';
-      fixed.style.position = 'fixed';
-      fixed.style.right = '16px';
-      fixed.style.bottom = '16px';
-      fixed.style.zIndex = '999999';
-      fixed.setAttribute('data-encounter-id', findEncounterId() || '');
-      document.body.appendChild(fixed);
-    }
+    // Asegurar clase y data-id en todos los candidatos
+    const id = findEncounterId();
+    summaryBtns.forEach(btn => {
+      btn.classList.add('js-kc-open-summary');
+      if (id && !btn.getAttribute('data-encounter-id')) btn.setAttribute('data-encounter-id', id);
+    });
   }
 
   function openSummary(id) {
@@ -164,7 +206,7 @@
     }
   });
 
-  // Boot + observar cambios de la SPA
+  // Boot + observar cambios de la SPA (reintenta enganchar y detectar ID)
   function boot(){ hookButton(); }
   document.addEventListener('DOMContentLoaded', boot);
   const mo = new MutationObserver(() => hookButton());
@@ -172,7 +214,8 @@
 
   // Diagnóstico rápido
   window.kcSummaryDiag = function(){
-    console.log('[kc] diag: hasREST=', hasREST, 'apiBase=', G.apiBase, 'ajaxUrl=', ajaxUrl, 'encounterId=', findEncounterId());
+    console.log('[kc] diag: hasREST=', hasREST, 'apiBase=', G.apiBase, 'ajaxUrl=', ajaxUrl,
+      'encounterId=', findEncounterId(), 'lastId=', window.__KC_LAST_ENCOUNTER_ID__);
     console.log('[kc] buttons:', document.querySelectorAll('.js-kc-open-summary').length);
   };
 })();
