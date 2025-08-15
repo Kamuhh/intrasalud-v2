@@ -116,7 +116,6 @@ function kc_encounter_summary_email_cb() {
     }
     wp_send_json_error(['message' => 'Fallo al enviar'], 500);
 }
-);
 
 // Require once the Composer Autoload
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
