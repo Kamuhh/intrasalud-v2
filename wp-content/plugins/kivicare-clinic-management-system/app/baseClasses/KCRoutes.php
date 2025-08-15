@@ -4,7 +4,7 @@ namespace App\baseClasses;
 
 class KCRoutes
 {
- /**
+  /**
      * Registered REST API routes
      *
      * @var array
