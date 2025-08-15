@@ -122,7 +122,7 @@
       if (currentId) b.setAttribute('data-encounter-id', currentId);
 
       // Ícono + texto (usa Font Awesome si está cargado)
-      b.innerHTML = '<span class="dashicons-text-page" style="margin-right:6px;"></span>Resumen de la atención';
+      b.innerHTML = '<span class="dashicons dashicons-text-page" style="margin-right:6px;"></span>Resumen de la atención';
 
       billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
       summaryBtn = b;
