@@ -37,5 +37,7 @@
 @media print{
   .kc-modal{position:static;inset:auto;background:#fff;display:block}
   .kc-modal__dialog{max-width:none;width:100%;max-height:none;box-shadow:none}
-  .kc-modal__close,.kc-modal__footer{display:none}
+  .kc-modal__close,.kc-modal__footer{display:none !important}
+  .button, button { display:none !important; }
+  .dashicons { display:none !important; }
 }
