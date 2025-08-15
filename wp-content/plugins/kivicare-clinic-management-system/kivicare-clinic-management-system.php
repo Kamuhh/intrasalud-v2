@@ -83,28 +83,40 @@ add_action('wp_ajax_kc_encounter_summary', function () {
 });
 
 // ── Fallback AJAX: enviar por correo
-add_action('wp_ajax_kc_encounter_summary_email', function () {
-    if ( ! is_user_logged_in() ) wp_send_json_error(['message' => 'No autorizado'], 401);
+add_action('wp_ajax_kc_encounter_summary_email', 'kc_encounter_summary_email_cb');
 
-    $user = wp_get_current_user();
-    $can  = user_can($user, 'kc_view_encounter_summary')
-        || in_array('administrator', (array) $user->roles, true)
-        || in_array('kivi_doctor',  (array) $user->roles, true);
+function kc_encounter_summary_email_cb() {
+    if ( ! is_user_logged_in() ) {
+        wp_send_json_error(['message' => 'No autorizado'], 401);
+    }
 
-    if ( ! $can ) wp_send_json_error(['message' => 'Permisos insuficientes'], 403);
+    $to = isset($_POST['to']) ? sanitize_email($_POST['to']) : '';
+    $encounter_id = isset($_POST['encounter_id']) ? absint($_POST['encounter_id']) : 0;
 
-    $encounter_id = intval($_REQUEST['encounter_id'] ?? 0);
-    $to = sanitize_email($_REQUEST['to'] ?? '');
-    if ( $encounter_id <= 0 || empty($to) || ! is_email($to) ) {
+    if ( ! $to || ! is_email($to) || ! $encounter_id ) {
         wp_send_json_error(['message' => 'Parámetros inválidos'], 400);
     }
 
-    $body = kc_build_encounter_summary_text($encounter_id);
-    $ok   = wp_mail($to, 'Resumen de atención', $body, ['Content-Type: text/plain; charset=UTF-8']);
-    if ( ! $ok ) wp_send_json_error(['message' => 'No se pudo enviar el correo'], 500);
+    if ( ! function_exists('kc_render_encounter_summary_html') ) {
+        require_once KC_PLUGIN_DIR . 'app/helpers/encounter-summary-helpers.php';
+    }
+    $html = kc_render_encounter_summary_html($encounter_id);
+    if ( ! $html ) {
+        wp_send_json_error(['message' => 'No se pudo generar el resumen'], 500);
+    }
 
-    wp_send_json_success(['ok' => true]);
-});
+    $body = wp_strip_all_tags($html);
+    $subject = 'Resumen de la atención';
+    $headers = ['Content-Type: text/plain; charset=UTF-8'];
+
+    $ok = wp_mail($to, $subject, $body, $headers);
+
+    if ( $ok ) {
+        wp_send_json_success(['message' => 'Email enviado']);
+    }
+    wp_send_json_error(['message' => 'Fallo al enviar'], 500);
+}
+);
 
 // Require once the Composer Autoload
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
