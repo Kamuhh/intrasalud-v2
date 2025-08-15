@@ -93,7 +93,7 @@
 
     <div class="kc-modal__footer">
       <button type="button" class="button button-secondary js-kc-summary-email"><span class="dashicons dashicons-email"></span> Correo electrónico</button>
-      <button type="button" class="button button-secondary js-kc-summary-print"><span class="dashicons dashicons-print"></span> Imprimir</button>
+      <button type="button" class="button button-secondary js-kc-summary-print"><span class="dashicons dashicons-printer"></span> Imprimir</button>
       <button type="button" class="button button-primary js-kc-summary-close"><span class="dashicons dashicons-no"></span> Cerrar</button>
     </div>
   </div>
