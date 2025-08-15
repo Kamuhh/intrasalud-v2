@@ -104,28 +104,37 @@
       return t.includes('detalle') && t.includes('factura');
     });
 
-    if (!billBtn) return;
-
-    // si ya existe nuestro botón, solo refrescamos el encounter_id
-    const existing = billBtn.parentNode.querySelector('[data-kc-summary-btn="1"]');
+    // si ya existe nuestro botón, actualizar encounter_id
+    let summaryBtn = document.querySelector('[data-kc-summary-btn="1"]');
     const id = findEncounterId();
-    if (existing) {
-      if (id && !existing.getAttribute('data-encounter-id')) {
-        existing.setAttribute('data-encounter-id', id);
-      }
-      return;
+    if (summaryBtn && id && !summaryBtn.getAttribute('data-encounter-id')) {
+      summaryBtn.setAttribute('data-encounter-id', id);
     }
 
-    // 4) crear NUESTRO botón “Resumen de la atención”
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'button button-secondary';
-    b.style.marginLeft = '6px';
-    b.textContent = 'Resumen de la atención';
-    b.setAttribute('data-kc-summary-btn', '1');
-    if (id) b.setAttribute('data-encounter-id', id);
+     // si no existe, lo creamos al lado de “Detalles de la factura”
+    if (!summaryBtn) {
+      const bill = buttons.find(el => {
+        const t = (el.textContent || '').toLowerCase();
+        return t.includes('detalle') && t.includes('factura');
+      });
 
-    billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
+      if (bill && !document.querySelector('[data-kc-summary-btn="1"]')) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'button button-secondary js-kc-open-summary';
+        b.style.marginLeft = '6px';
+        b.setAttribute('data-kc-summary-btn', '1');
+
+        // Ícono + texto
+        b.innerHTML = '<span class="fa fa-print" style="margin-right:6px;"></span>Resumen de la atención';
+
+    const id = findEncounterId();
+        if (id) b.setAttribute('data-encounter-id', id);
+
+        bill.parentNode.insertBefore(b, bill.nextSibling);
+        summaryBtn = b;
+      }
+    }
   }
 
   // ---------- modal ----------
