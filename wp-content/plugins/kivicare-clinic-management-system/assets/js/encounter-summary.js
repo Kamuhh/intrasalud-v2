@@ -82,12 +82,23 @@
       .catch(()=>{ setAjaxOnly(); return fetch(ajaxUrl2,{credentials:'include',headers:ajaxHeaders}).then(r=>r.json()); });
   }
 
-  // ---------- inyección del botón (SOLO creamos el nuestro, no tocamos otros) ----------
+  // ---------- inyección del botón (SOLO creamos el nuestro y quitamos el antiguo) ----------
   function injectButtonOnce(){
-    // localizar botón "Detalles de la factura" fuera de modales
+    // localizar botones fuera de modales
     const all = Array.from(document.querySelectorAll('button,a,[role="button"]'))
       .filter(el => !el.closest('.kc-modal'));
 
+    // 1) ELIMINAR el botón antiguo de “Resumen de la atención” (el azul oscuro),
+    //    cualquier botón que diga “Resumen de la atención” y NO sea el nuestro.
+    const legacyBtns = all.filter(el => {
+      const t = (el.textContent || '').trim().toLowerCase();
+      const isSummary = t === 'resumen de la atención' || (t.includes('resumen') && t.includes('atención'));
+      const isOurs = el.matches('[data-kc-summary-btn="1"]');
+      return isSummary && !isOurs;
+    });
+    legacyBtns.forEach(el => el.remove());
+
+    // 2) Buscar “Detalles de la factura” como referencia para insertar nuestro botón al lado
     const billBtn = all.find(el => {
       const t = (el.textContent || '').toLowerCase();
       return t.includes('detalle') && t.includes('factura');
@@ -105,7 +116,7 @@
       return;
     }
 
-    // crear botón "Resumen de la atención" adyacente
+    // 4) crear NUESTRO botón “Resumen de la atención”
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'button button-secondary';
