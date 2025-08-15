@@ -1,5 +1,4 @@
-<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true"
-     data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>">
+<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>">
   <div class="kc-modal__dialog">
     <div class="kc-modal__header">
       <h3>Resumen de la atención</h3>
@@ -38,7 +37,7 @@
           <?php if (!empty($diagnoses)) : ?>
             <ul class="kc-list">
               <?php foreach ($diagnoses as $d): ?>
-                <li><?= esc_html(($d['code'] ?? '') . (isset($d['name']) ? ' - '.$d['name'] : '')) ?></li>
+                <li><?= esc_html( trim(($d['code'] ?? '').' '.($d['name'] ?? '')) ) ?></li>
               <?php endforeach; ?>
             </ul>
           <?php else: ?><p class="kc-empty">No se encontraron registros</p><?php endif; ?>
@@ -51,7 +50,7 @@
           <?php if (!empty($orders)) : ?>
             <ul class="kc-list">
               <?php foreach ($orders as $o): ?>
-                <li><?= esc_html($o['name'] ?? '') ?><?= isset($o['note']) ? ' — '.esc_html($o['note']) : '' ?></li>
+                <li><?= esc_html($o['name'] ?? '') ?><?php if(isset($o['note'])) echo ' — '.esc_html($o['note']); ?></li>
               <?php endforeach; ?>
             </ul>
           <?php else: ?><p class="kc-empty">No se encontraron registros</p><?php endif; ?>
@@ -62,7 +61,11 @@
         <div class="kc-card__header">Indicaciones</div>
         <div class="kc-card__body">
           <?php if (!empty($indications)) : ?>
-            <ul class="kc-list"><?php foreach ($indications as $i): ?><li><?= esc_html($i['text'] ?? '') ?></li><?php endforeach; ?></ul>
+            <ul class="kc-list">
+              <?php foreach ($indications as $i): ?>
+                <li><?= esc_html($i['text'] ?? '') ?></li>
+              <?php endforeach; ?>
+            </ul>
           <?php else: ?><p class="kc-empty">No se encontraron registros</p><?php endif; ?>
         </div>
       </section>
@@ -89,15 +92,9 @@
     </div>
 
     <div class="kc-modal__footer">
-      <button type="button" class="button button-secondary js-kc-summary-email">
-        <span class="dashicons dashicons-email"></span> Correo electrónico
-      </button>
-      <button type="button" class="button button-secondary js-kc-summary-print">
-        <span class="dashicons dashicons-print"></span> Imprimir
-      </button>
-      <button type="button" class="button button-primary js-kc-summary-close">
-        <span class="dashicons dashicons-no"></span> Cerrar
-      </button>
+      <button type="button" class="button button-secondary js-kc-summary-email"><span class="dashicons dashicons-email"></span> Correo electrónico</button>
+      <button type="button" class="button button-secondary js-kc-summary-print"><span class="dashicons dashicons-print"></span> Imprimir</button>
+      <button type="button" class="button button-primary js-kc-summary-close"><span class="dashicons dashicons-no"></span> Cerrar</button>
     </div>
   </div>
 </div>
