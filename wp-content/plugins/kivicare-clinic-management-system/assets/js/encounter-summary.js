@@ -106,6 +106,7 @@
         b.className='button button-secondary js-kc-open-summary';
         b.style.marginLeft='6px';
         b.textContent='Resumen de atención';
+        b.setAttribute('data-kc-summary-btn','1');
         const id=findEncounterId(); if(id) b.setAttribute('data-encounter-id',id);
         bill.parentNode.insertBefore(b,bill.nextSibling);
         summaryBtn = b;
@@ -116,6 +117,7 @@
     const id=findEncounterId();
     if(summaryBtn){
       summaryBtn.classList.add('js-kc-open-summary');
+      summaryBtn.setAttribute('data-kc-summary-btn','1');
       if(id && !summaryBtn.getAttribute('data-encounter-id')) summaryBtn.setAttribute('data-encounter-id',id);
     }
   }
@@ -166,29 +168,62 @@
         });
 
         // correo: por defecto el del paciente (data-patient-email); si falla => mailto con contenido
-        const emailBtn=wrap.querySelector('.js-kc-summary-email');
-        const modalRoot=wrap.querySelector('.kc-modal.kc-modal-summary');
+        const emailBtn = wrap.querySelector('.js-kc-summary-email');
+        const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
         const defaultEmail = modalRoot ? modalRoot.getAttribute('data-patient-email') : '';
-        if(emailBtn) emailBtn.addEventListener('click',(ev)=>{
+        const encounterId = findEncounterId();
+
+        function postEmail(restUrl, ajaxUrl2, to) {
+          const body = new URLSearchParams();
+          if (encounterId) body.set('encounter_id', encounterId);
+          body.set('to', to);
+
+          if (hasREST()) {
+            return fetch(restUrl, {
+              method: 'POST',
+              credentials: 'include',
+              headers: REST.headers('POST'),
+              body: body.toString(),
+            })
+              .then(r => {
+                if (!r.ok) { setAjaxOnly(); throw new Error('REST failed'); }
+                return r.json();
+              })
+              .catch(() => {
+                return fetch(ajaxUrl2, {
+                  method: 'POST',
+                  credentials: 'include',
+                  headers: AJAX.headers(),
+                  body: body.toString(),
+                }).then(r => r.json());
+              });
+          }
+
+          return fetch(ajaxUrl2, {
+            method: 'POST',
+            credentials: 'include',
+            headers: AJAX.headers(),
+            body: body.toString(),
+          }).then(r => r.json());
+        }
+
+        if (emailBtn) emailBtn.addEventListener('click', (ev) => {
           ev.stopPropagation();
           const to = defaultEmail || prompt('Correo de destino','') || '';
-          if(!to) return;
+          if (!to) return;
 
           const restEmail = REST.email();
           const ajaxEmail = AJAX.email();
 
-          fetchJSON(restEmail,REST.headers('POST'),ajaxEmail,AJAX.headers())
-            .then(resp=>{
-              const ok2 = resp && (resp.status==='success' || resp.success===true);
-              if(ok2){ alert('Enviado'); return; }
-              const body=encodeURIComponent(plainTextFromModal(wrap.querySelector('.kc-modal__dialog')));
-              const subject=encodeURIComponent('Resumen de la atención');
-              window.location.href = `mailto:${encodeURIComponent(to)}?subject=${subject}&body=${body}`;
-              alert('No se pudo enviar desde el sistema. Se abrió tu cliente de correo con el contenido.');
+          postEmail(restEmail, ajaxEmail, to)
+            .then(resp => {
+              const ok = resp && (resp.status === 'success' || resp.success === true);
+              if (ok) { alert('Enviado'); return; }
+              throw new Error('Backend dijo que no');
             })
-            .catch(()=>{
-              const body=encodeURIComponent(plainTextFromModal(wrap.querySelector('.kc-modal__dialog')));
-              const subject=encodeURIComponent('Resumen de la atención');
+            .catch(() => {
+              const body = encodeURIComponent(plainTextFromModal(wrap.querySelector('.kc-modal__dialog')));
+              const subject = encodeURIComponent('Resumen de la atención');
               window.location.href = `mailto:${encodeURIComponent(to)}?subject=${subject}&body=${body}`;
               alert('No se pudo enviar desde el sistema. Se abrió tu cliente de correo con el contenido.');
             });
@@ -199,7 +234,7 @@
 
   // Sólo manejamos NUESTRO botón (no tocamos el de factura)
   document.addEventListener('click', e => {
-    const btn = e.target.closest('.js-kc-open-summary');
+    const btn = e.target.closest('[data-kc-summary-btn="1"]');
     if (!btn) return;
     e.preventDefault();
     e.stopPropagation();
@@ -212,3 +247,26 @@
   const mo = new MutationObserver(() => injectButtonOnce());
   mo.observe(document.documentElement, { childList:true, subtree:true });
 })();
+
+// Fallback de impresión para "Detalle de la factura"
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.js-kc-bill-print, [data-kc-bill-print]');
+  if (!btn) return;
+
+  setTimeout(() => {
+    const billModal = document.querySelector('.kc-modal.kc-modal-billing .kc-modal__dialog');
+    if (!billModal) return;
+
+    const w = window.open('', '_blank');
+    if (!w) return;
+
+    w.document.write('<html><head><title>Detalle de la factura</title>');
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
+    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close{display:none}</style>');
+    w.document.write('</head><body>' + billModal.outerHTML + '</body></html>');
+    w.document.close(); w.focus();
+    w.onafterprint = () => { try { w.close(); } catch(e){} };
+    setTimeout(() => { try { w.close(); } catch(e){} }, 2000);
+    w.print();
+  }, 300);
+});
