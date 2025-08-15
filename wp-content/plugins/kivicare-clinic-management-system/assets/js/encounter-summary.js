@@ -82,44 +82,39 @@
       .catch(()=>{ setAjaxOnly(); return fetch(ajaxUrl2,{credentials:'include',headers:ajaxHeaders}).then(r=>r.json()); });
   }
 
-  // ---------- inyección del botón (no tocamos el de factura) ----------
+  // ---------- inyección del botón (SOLO creamos el nuestro, no tocamos otros) ----------
   function injectButtonOnce(){
-    // fuera de modales
-    const buttons = Array.from(document.querySelectorAll('button,a,[role="button"]'))
-      .filter(el=>!el.closest('.kc-modal'));
+    // localizar botón "Detalles de la factura" fuera de modales
+    const all = Array.from(document.querySelectorAll('button,a,[role="button"]'))
+      .filter(el => !el.closest('.kc-modal'));
 
-    // ya existe un resumen visible?
-    let summaryBtn = buttons.find(el=>{
-      const t=(el.textContent||'').toLowerCase();
-      return t.includes('resumen') && t.includes('atención');
+    const billBtn = all.find(el => {
+      const t = (el.textContent || '').toLowerCase();
+      return t.includes('detalle') && t.includes('factura');
     });
 
-    // si no existe, lo creamos al lado de “Detalles de la factura”
-    if(!summaryBtn){
-      const bill = buttons.find(el=>{
-        const t=(el.textContent||'').toLowerCase();
-        return t.includes('detalle') && t.includes('factura');
-      });
-      if(bill && !document.querySelector('.js-kc-open-summary')){
-        const b=document.createElement('button');
-        b.type='button';
-        b.className='button button-secondary js-kc-open-summary';
-        b.style.marginLeft='6px';
-        b.textContent='Resumen de atención';
-        b.setAttribute('data-kc-summary-btn','1');
-        const id=findEncounterId(); if(id) b.setAttribute('data-encounter-id',id);
-        bill.parentNode.insertBefore(b,bill.nextSibling);
-        summaryBtn = b;
+    if (!billBtn) return;
+
+    // si ya existe nuestro botón, solo refrescamos el encounter_id
+    const existing = billBtn.parentNode.querySelector('[data-kc-summary-btn="1"]');
+    const id = findEncounterId();
+    if (existing) {
+      if (id && !existing.getAttribute('data-encounter-id')) {
+        existing.setAttribute('data-encounter-id', id);
       }
+      return;
     }
 
-    // garantizar data-id
-    const id=findEncounterId();
-    if(summaryBtn){
-      summaryBtn.classList.add('js-kc-open-summary');
-      summaryBtn.setAttribute('data-kc-summary-btn','1');
-      if(id && !summaryBtn.getAttribute('data-encounter-id')) summaryBtn.setAttribute('data-encounter-id',id);
-    }
+    // crear botón "Resumen de la atención" adyacente
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'button button-secondary';
+    b.style.marginLeft = '6px';
+    b.textContent = 'Resumen de la atención';
+    b.setAttribute('data-kc-summary-btn', '1');
+    if (id) b.setAttribute('data-encounter-id', id);
+
+    billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
   }
 
   // ---------- modal ----------
@@ -151,15 +146,15 @@
         wrap.addEventListener('click',e=>{ if(e.target.classList.contains('kc-modal')) wrap.remove(); });
         document.addEventListener('keydown',function esc(e){ if(e.key==='Escape'){ wrap.remove(); document.removeEventListener('keydown',esc);} });
 
-        // imprimir (cierra la ventana temporal incluso si cancelan)
+        // imprimir (resumen)
         const printBtn=wrap.querySelector('.js-kc-summary-print');
         if(printBtn) printBtn.addEventListener('click',(ev)=>{
           ev.stopPropagation();
           const node=wrap.querySelector('.kc-modal__dialog');
           const w=window.open('','_blank'); if(!w) return;
-          w.document.write('<html><head><title>Resumen de atención</title>');
+          w.document.write('<html><head><title>Resumen de la atención</title>');
           document.querySelectorAll('link[rel="stylesheet"]').forEach(l=>w.document.write(l.outerHTML));
-          w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close{display:none}</style>');
+          w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
           w.document.write('</head><body>'+node.outerHTML+'</body></html>');
           w.document.close(); w.focus();
           w.onafterprint = ()=>{ try{ w.close(); }catch(e){} };
@@ -167,7 +162,7 @@
           w.print();
         });
 
-        // correo: por defecto el del paciente (data-patient-email); si falla => mailto con contenido
+        // correo (POST con encounter_id y to) + fallback mailto
         const emailBtn = wrap.querySelector('.js-kc-summary-email');
         const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
         const defaultEmail = modalRoot ? modalRoot.getAttribute('data-patient-email') : '';
@@ -232,7 +227,7 @@
       .catch(()=>alert('Error de red'));
   }
 
-  // Sólo manejamos NUESTRO botón (no tocamos el de factura)
+  // Sólo manejamos NUESTRO botón
   document.addEventListener('click', e => {
     const btn = e.target.closest('[data-kc-summary-btn="1"]');
     if (!btn) return;
@@ -248,25 +243,41 @@
   mo.observe(document.documentElement, { childList:true, subtree:true });
 })();
 
-// Fallback de impresión para "Detalle de la factura"
+// Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
 document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.js-kc-bill-print, [data-kc-bill-print]');
+  const btn = e.target.closest('button, a');
   if (!btn) return;
 
+  const modal = btn.closest('.kc-modal'); // solo si está dentro de una modal
+  if (!modal) return;
+
+  const titleEl = modal.querySelector('.kc-modal__header h3');
+  const title = (titleEl && titleEl.textContent || '').toLowerCase();
+  const isBill = /factura|bill|invoice/.test(title);
+
+  const isPrintTrigger =
+    btn.matches('.js-kc-bill-print, [data-kc-bill-print]') ||
+    ((btn.textContent || '').toLowerCase().includes('imprimir'));
+
+  if (!isBill || !isPrintTrigger) return;
+
   setTimeout(() => {
-    const billModal = document.querySelector('.kc-modal.kc-modal-billing .kc-modal__dialog');
-    if (!billModal) return;
+    const dialog = modal.querySelector('.kc-modal__dialog');
+    if (!dialog) return;
+
+    const clean = dialog.cloneNode(true);
+    clean.querySelectorAll('.kc-modal__footer, .kc-modal__close, .button, button, .dashicons').forEach(n => n.remove());
 
     const w = window.open('', '_blank');
     if (!w) return;
 
     w.document.write('<html><head><title>Detalle de la factura</title>');
     document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
-    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close{display:none}</style>');
-    w.document.write('</head><body>' + billModal.outerHTML + '</body></html>');
+    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
+    w.document.write('</head><body>' + clean.outerHTML + '</body></html>');
     w.document.close(); w.focus();
     w.onafterprint = () => { try { w.close(); } catch(e){} };
     setTimeout(() => { try { w.close(); } catch(e){} }, 2000);
     w.print();
-  }, 300);
+  }, 200);
 });
