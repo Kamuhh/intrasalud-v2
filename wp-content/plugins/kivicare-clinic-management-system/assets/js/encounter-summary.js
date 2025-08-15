@@ -2,11 +2,11 @@
   const G = window.kcGlobals || {};
   const ajaxUrl = G.ajaxUrl || '/wp-admin/admin-ajax.php';
 
-  // Si alguna vez falla REST, recordamos usar solo admin-ajax para evitar 404 repetidos
+  // Si REST falla una vez, persistimos usar admin-ajax para evitar 404 repetidos
   let useAjaxOnly = (window.localStorage.getItem('kcSummaryUseAjax') === '1');
   function setAjaxOnly(){ useAjaxOnly = true; try{ localStorage.setItem('kcSummaryUseAjax','1'); }catch(e){} }
 
-  // -------- util ----------
+  // ------------ util ------------
   function extractId(str){
     if(!str) return null;
     let m = String(str).match(/[?&#]\s*encounter_id\s*=\s*(\d+)/i); if(m) return m[1];
@@ -17,7 +17,7 @@
     return null;
   }
 
-  // recordamos último encounter_id visto en XHR/fetch (SPA)
+  // recuerda el último encounter_id visto (la UI es tipo SPA)
   window.__KC_LAST_ENCOUNTER_ID__ = window.__KC_LAST_ENCOUNTER_ID__ || null;
   (function hookNet(){
     try{
@@ -82,45 +82,47 @@
       .catch(()=>{ setAjaxOnly(); return fetch(ajaxUrl2,{credentials:'include',headers:ajaxHeaders}).then(r=>r.json()); });
   }
 
-  // ---------- inyección del botón (sin interferir con “Detalles de la factura”) ----------
-  function hookButton(){
-    // borrar botones nuestros que hayan quedado dentro de otros modales para no duplicar
-    document.querySelectorAll('.kc-modal .js-kc-open-summary').forEach(el=>el.remove());
+  // ---------- inyección del botón (no tocamos el de factura) ----------
+  function injectButtonOnce(){
+    // fuera de modales
+    const buttons = Array.from(document.querySelectorAll('button,a,[role="button"]'))
+      .filter(el=>!el.closest('.kc-modal'));
 
-    // ¿ya hay un “Resumen de atención” visible fuera de modales?
-    let btns = Array.from(document.querySelectorAll('button,a,[role="button"]'))
-      .filter(el=>!el.closest('.kc-modal'))
-      .filter(el => {
+    // ya existe un resumen visible?
+    let summaryBtn = buttons.find(el=>{
+      const t=(el.textContent||'').toLowerCase();
+      return t.includes('resumen') && t.includes('atención');
+    });
+
+    // si no existe, lo creamos al lado de “Detalles de la factura”
+    if(!summaryBtn){
+      const bill = buttons.find(el=>{
         const t=(el.textContent||'').toLowerCase();
-        return t.includes('resumen') && t.includes('atención');
+        return t.includes('detalle') && t.includes('factura');
       });
-
-    // si no existe, crear uno a la derecha de “Detalles de la factura” (pero SIN tocar el listener del de factura)
-    if(btns.length===0){
-      const billBtn = Array.from(document.querySelectorAll('button,a,[role="button"]'))
-        .filter(el=>!el.closest('.kc-modal'))
-        .find(el=>{ const t=(el.textContent||'').toLowerCase(); return t.includes('detalle') && t.includes('factura'); });
-
-      if(billBtn && !document.querySelector('.js-kc-open-summary')){
+      if(bill && !document.querySelector('.js-kc-open-summary')){
         const b=document.createElement('button');
         b.type='button';
         b.className='button button-secondary js-kc-open-summary';
         b.style.marginLeft='6px';
         b.textContent='Resumen de atención';
         const id=findEncounterId(); if(id) b.setAttribute('data-encounter-id',id);
-        billBtn.parentNode.insertBefore(b,billBtn.nextSibling);
-        btns=[b];
+        bill.parentNode.insertBefore(b,bill.nextSibling);
+        summaryBtn = b;
       }
     }
 
-    // asegurar data-id
+    // garantizar data-id
     const id=findEncounterId();
-    btns.forEach(b=>{ if(id && !b.getAttribute('data-encounter-id')) b.setAttribute('data-encounter-id',id); });
+    if(summaryBtn){
+      summaryBtn.classList.add('js-kc-open-summary');
+      if(id && !summaryBtn.getAttribute('data-encounter-id')) summaryBtn.setAttribute('data-encounter-id',id);
+    }
   }
 
-  // ---------- abrir modal ----------
-  function plainTextFromModal(modalNode){
-    const clone=modalNode.cloneNode(true);
+  // ---------- modal ----------
+  function plainTextFromModal(root){
+    const clone=root.cloneNode(true);
     clone.querySelectorAll('style,script,.kc-modal__footer,.kc-modal__header,button').forEach(n=>n.remove());
     return clone.innerText.replace(/\n{3,}/g,'\n\n').trim();
   }
@@ -138,7 +140,7 @@
         const data = json && (json.data || json);
         if(!ok || !data || !data.html){ alert((json && json.message)||'No se pudo cargar'); return; }
 
-        // limpiar y montar modal
+        // limpiar y montar
         const old=document.querySelector('.kc-modal.kc-modal-summary'); if(old) old.remove();
         const wrap=document.createElement('div'); wrap.innerHTML=data.html; document.body.appendChild(wrap);
 
@@ -147,7 +149,7 @@
         wrap.addEventListener('click',e=>{ if(e.target.classList.contains('kc-modal')) wrap.remove(); });
         document.addEventListener('keydown',function esc(e){ if(e.key==='Escape'){ wrap.remove(); document.removeEventListener('keydown',esc);} });
 
-        // imprimir (cierra sola la ventana temporal)
+        // imprimir (cierra la ventana temporal incluso si cancelan)
         const printBtn=wrap.querySelector('.js-kc-summary-print');
         if(printBtn) printBtn.addEventListener('click',(ev)=>{
           ev.stopPropagation();
@@ -163,7 +165,7 @@
           w.print();
         });
 
-        // correo: usa email del paciente si viene; si backend falla -> mailto con contenido
+        // correo: por defecto el del paciente (data-patient-email); si falla => mailto con contenido
         const emailBtn=wrap.querySelector('.js-kc-summary-email');
         const modalRoot=wrap.querySelector('.kc-modal.kc-modal-summary');
         const defaultEmail = modalRoot ? modalRoot.getAttribute('data-patient-email') : '';
@@ -195,22 +197,18 @@
       .catch(()=>alert('Error de red'));
   }
 
-  // Solo manejamos clicks de NUESTRO botón (no tocamos el de factura)
-  document.addEventListener('click', e=>{
+  // Sólo manejamos NUESTRO botón (no tocamos el de factura)
+  document.addEventListener('click', e => {
     const btn = e.target.closest('.js-kc-open-summary');
-    if(btn){ e.preventDefault(); e.stopPropagation(); openSummary(btn.getAttribute('data-encounter-id')); }
-  }, false); // <- sin capture para no interceptar otros
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const id = btn.getAttribute('data-encounter-id') || '';
+    openSummary(id);
+  });
 
-  // boot + observar SPA
-  function boot(){ hookButton(); }
+  function boot(){ injectButtonOnce(); }
   document.addEventListener('DOMContentLoaded', boot);
-  const mo = new MutationObserver(()=>hookButton());
-  mo.observe(document.documentElement,{childList:true,subtree:true});
-
-  // helper de diagnóstico
-  window.kcSummaryDiag = function(){
-    console.log('[kc] diag: useAjaxOnly=',useAjaxOnly,'hasREST=',!!G.apiBase && !useAjaxOnly,
-      'apiBase=',G.apiBase,'ajaxUrl=',ajaxUrl,'encounterId=',findEncounterId(),
-      'buttons=',document.querySelectorAll('.js-kc-open-summary').length);
-  };
+  const mo = new MutationObserver(() => injectButtonOnce());
+  mo.observe(document.documentElement, { childList:true, subtree:true });
 })();
