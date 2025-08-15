@@ -23,6 +23,7 @@ add_action('admin_enqueue_scripts', function () {
     // Mientras depuramos, encolamos siempre en admin. Luego filtramos por screen/page.
     $js  = KC_PLUGIN_DIR . 'assets/js/encounter-summary.js';
     $css = KC_PLUGIN_DIR . 'assets/css/encounter-summary.css';
+	$js2 = KC_PLUGIN_DIR . 'assets/js/kc-encounter.js';
 
     if ( file_exists($js) ) {
         wp_enqueue_script(
@@ -41,6 +42,16 @@ add_action('admin_enqueue_scripts', function () {
         ]);
     }
 
+	if ( file_exists($js2) ) {
+        wp_enqueue_script(
+            'kc-encounter',
+            KC_PLUGIN_URL . 'assets/js/kc-encounter.js',
+            ['jquery'],
+            filemtime($js2),
+            true
+        );
+    }
+	
     if ( file_exists($css) ) {
         wp_enqueue_style(
             'kc-encounter-summary',
@@ -156,6 +167,7 @@ if (!defined('KIVI_CARE_VERSION'))
 
 // Include helper and initialization files
 require_once KIVI_CARE_DIR . 'app/helpers/encounter-summary-helpers.php';
+require_once KIVI_CARE_DIR . 'app/helpers/kc-utils.php';
 require_once KIVI_CARE_DIR . 'app/init/Capabilities.php';
 
 /**
@@ -182,6 +194,13 @@ add_action('admin_enqueue_scripts', function () {
         KC_PLUGIN_URL . 'assets/js/encounter-summary.js',
         [],
         filemtime(KC_PLUGIN_DIR . 'assets/js/encounter-summary.js'),
+        true
+    );
+	wp_enqueue_script(
+        'kc-encounter',
+        KC_PLUGIN_URL . 'assets/js/kc-encounter.js',
+        ['jquery'],
+        filemtime(KC_PLUGIN_DIR . 'assets/js/kc-encounter.js'),
         true
     );
     wp_enqueue_style(
