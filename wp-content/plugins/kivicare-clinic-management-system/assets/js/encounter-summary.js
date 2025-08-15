@@ -85,55 +85,47 @@
   // ---------- inyección del botón (SOLO creamos el nuestro y quitamos el antiguo) ----------
   function injectButtonOnce(){
     // localizar botones fuera de modales
-    const all = Array.from(document.querySelectorAll('button,a,[role="button"]'))
+    const buttons = Array.from(document.querySelectorAll('button,a,[role="button"]'))
       .filter(el => !el.closest('.kc-modal'));
 
-    // 1) ELIMINAR el botón antiguo de “Resumen de la atención” (el azul oscuro),
-    //    cualquier botón que diga “Resumen de la atención” y NO sea el nuestro.
-    const legacyBtns = all.filter(el => {
+    // 1) ELIMINAR cualquier botón legacy de “Resumen de la atención” que NO sea el nuestro
+    buttons.forEach(el => {
       const t = (el.textContent || '').trim().toLowerCase();
       const isSummary = t === 'resumen de la atención' || (t.includes('resumen') && t.includes('atención'));
       const isOurs = el.matches('[data-kc-summary-btn="1"]');
-      return isSummary && !isOurs;
+      if (isSummary && !isOurs) el.remove();
     });
-    legacyBtns.forEach(el => el.remove());
 
-    // 2) Buscar “Detalles de la factura” como referencia para insertar nuestro botón al lado
-    const billBtn = all.find(el => {
+    // 2) Buscar “Detalles de la factura” para insertar nuestro botón al lado
+    const billBtn = buttons.find(el => {
       const t = (el.textContent || '').toLowerCase();
       return t.includes('detalle') && t.includes('factura');
     });
 
-    // si ya existe nuestro botón, actualizar encounter_id
+    // 3) Si ya existe nuestro botón, refrescar encounter_id y salir
     let summaryBtn = document.querySelector('[data-kc-summary-btn="1"]');
-    const id = findEncounterId();
-    if (summaryBtn && id && !summaryBtn.getAttribute('data-encounter-id')) {
-      summaryBtn.setAttribute('data-encounter-id', id);
+    const currentId = findEncounterId();
+    if (summaryBtn) {
+      if (currentId && !summaryBtn.getAttribute('data-encounter-id')) {
+        summaryBtn.setAttribute('data-encounter-id', currentId);
+      }
+      return;
     }
 
-     // si no existe, lo creamos al lado de “Detalles de la factura”
-    if (!summaryBtn) {
-      const bill = buttons.find(el => {
-        const t = (el.textContent || '').toLowerCase();
-        return t.includes('detalle') && t.includes('factura');
-      });
+     // 4) Crear NUESTRO botón si aún no existe
+    if (billBtn) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'button button-secondary js-kc-open-summary';
+      b.style.marginLeft = '6px';
+      b.setAttribute('data-kc-summary-btn', '1');
+      if (currentId) b.setAttribute('data-encounter-id', currentId);
 
-      if (bill && !document.querySelector('[data-kc-summary-btn="1"]')) {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'button button-secondary js-kc-open-summary';
-        b.style.marginLeft = '6px';
-        b.setAttribute('data-kc-summary-btn', '1');
+      // Ícono + texto (usa Font Awesome si está cargado)
+      b.innerHTML = '<span class="fa fa-print" style="margin-right:6px;"></span>Resumen de la atención';
 
-        // Ícono + texto
-        b.innerHTML = '<span class="fa fa-print" style="margin-right:6px;"></span>Resumen de la atención';
-
-    const id = findEncounterId();
-        if (id) b.setAttribute('data-encounter-id', id);
-
-        bill.parentNode.insertBefore(b, bill.nextSibling);
-        summaryBtn = b;
-      }
+      billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
+      summaryBtn = b;
     }
   }
 
