@@ -1200,6 +1200,4 @@ class KCPatientEncounterController extends KCBase
             return $this->sendError($e->getMessage(), 500);
         }
     }
-
-
 }
