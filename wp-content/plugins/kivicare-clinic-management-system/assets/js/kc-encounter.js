@@ -14,6 +14,12 @@
         if(!res || !res.success){ return; }
         var p = res.data.patient || {};
         var e = res.data.encounter || {};
+        var $root = $('.kc-modal.kc-modal-summary');
+        if($root.length){
+          $root.attr('data-encounter-id', encounterId);
+          $root.attr('data-patient-id', patientId);
+          $root.attr('data-patient-email', p.email || '');
+        }
 
         // Paciente
         $('#kc-sum-name').text(p.name || '');
@@ -37,6 +43,9 @@
         fillList($('#kc-sum-dx-list'), e.diagnosticos || []);
         fillList($('#kc-sum-orders-list'), e.ordenes || []);
         fillList($('#kc-sum-ind-list'), e.indicaciones || []);
+      },
+      error: function(){
+        alert('Error de red');
       }
     });
   };
