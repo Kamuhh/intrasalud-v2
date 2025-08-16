@@ -1,65 +1,27 @@
 <?php
 function kc_get_encounter_by_id($id){
-    static $cache = [];
-    if(isset($cache[$id])){
-        return $cache[$id];
-    }
-    if(!class_exists('App\\Controllers\\KCPatientEncounterController')){
-        require_once KC_PLUGIN_DIR . 'app/controllers/KCPatientEncounterController.php';
-    }
-    $controller = new \App\Controllers\KCPatientEncounterController();
-    $data = $controller->getEncounterData((int)$id);
-    $cache[$id] = $data ? (array)$data : [];
-    return $cache[$id];
+    global $wpdb;
+    $table = $wpdb->prefix . 'kc_patient_encounters';
+    $row = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table} WHERE id = %d", (int)$id), ARRAY_A);
+    return $row ? $row : [];
 }
 
 function kc_get_patient_by_id($id){
     $user = get_userdata($id);
     if(!$user){ return []; }
     $basic = json_decode(get_user_meta($id, 'basic_data', true), true);
-    $cedula   = $basic['dni'] ?? '';
-    $username = $user->user_login;
-    $ci = !empty($cedula) ? $cedula : $username;
-
-    $genderKey = strtolower($basic['gender'] ?? '');
-    $genderMap = [
-        'male'   => 'masculino',
-        'female' => 'femenino'
-    ];
-    $gender = $genderMap[$genderKey] ?? 'no especificado';
-
-    $dob = $basic['dob'] ?? '';
-    if(!empty($dob)){
-        try{
-            $birth = new DateTime($dob);
-            $today = new DateTime('today');
-            $years = $today->diff($birth)->y;
-            $dob = sprintf('%s (%d años)', $dob, $years);
-        }catch(Exception $e){
-            // keep original format
-        }
-    } else {
-        $dob = '-';
-    }
-    
     return [
         'id'    => $id,
         'name'  => $user->display_name,
         'email' => $user->user_email,
-        'ci'    => $ci,
-        'gender'=> $gender,
-        'dob'   => $dob,
+        'gender'=> $basic['gender'] ?? '',
+        'dob'   => $basic['dob'] ?? '',
+        'dni'   => $basic['dni'] ?? '',
     ];
 }
 
 function kc_get_doctor_by_id($id){
-    $user = get_userdata($id);
-    if(!$user){ return []; }
-    return [
-        'id'   => $id,
-        'name' => $user->display_name,
-        'email'=> $user->user_email,
-    ];
+    return kc_get_patient_by_id($id);
 }
 
 function kc_get_clinic_by_id($id){
@@ -189,8 +151,8 @@ function kc_build_encounter_summary_text($encounter_id){
 function kc_render_encounter_summary_html($encounter_id){
     $encounter     = kc_get_encounter_by_id($encounter_id);
     $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
-    $doctor        = ['name' => $encounter['doctor_name'] ?? ''];
-    $clinic        = ['name' => $encounter['clinic_name'] ?? ''];
+    $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+    $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
     $diagnoses     = kc_get_encounter_diagnoses($encounter_id);
     $orders        = kc_get_encounter_orders($encounter_id);
     $indications   = kc_get_encounter_indications($encounter_id);
