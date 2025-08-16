@@ -15,7 +15,22 @@ class KCRoutes
     {
         add_action('rest_api_init', [$this, 'registerRestRoutes']);
 
-        
+        // Resumen de atención
+        $this->addRoute(
+            'kcGetEncounterSummary',
+            'GET',
+            'encounter/summary',
+            'KCPatientEncounterController@getEncounterSummary',
+            true
+        );
+
+        $this->addRoute(
+            'kcEmailEncounterSummary',
+            'POST',
+            'encounter/summary/email',
+            'KCPatientEncounterController@emailEncounterSummary',
+            true
+        );
     }
 
     protected function addRoute($name, $method, $endpoint, $action, $public = true)
