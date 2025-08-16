@@ -1144,83 +1144,79 @@ class KCPatientEncounterController extends KCBase
 
         $encounter_id = isset($_REQUEST['encounter_id']) ? intval($_REQUEST['encounter_id']) : 0;
         $patient_id   = isset($_REQUEST['patient_id']) ? intval($_REQUEST['patient_id']) : 0;
-
         if ($encounter_id <= 0 || $patient_id <= 0) {
             wp_send_json_error(['message' => 'Parámetros inválidos']);
         }
 
-        // === Paciente
-        $user   = get_user_by('id', $patient_id);
-        $email  = $user ? $user->user_email : '';
-        $name   = $user ? trim($user->first_name . ' ' . $user->last_name) : '';
-        $ci     = $user ? $user->user_login : '';
+        $encounter = kc_get_encounter_by_id($encounter_id);
+        if (empty($encounter) || intval($encounter['patient_id'] ?? 0) !== $patient_id) {
+            wp_send_json_error(['message' => 'Parámetros inválidos']);
+        }
 
-        $dob    = get_user_meta($patient_id, 'dob', true);
+        $patient = kc_get_patient_by_id($patient_id);
+        $user    = get_userdata($patient_id);
+
+        $ci = '';
+        foreach (['cedula','ci','dni','documento'] as $k) {
+            $ci = get_user_meta($patient_id, $k, true);
+            if ($ci) break;
+        }
+        if (!$ci) {
+            $ci = $patient['dni'] ?? ($user ? $user->user_login : '');
+        }
+
+        $dob = '';
+        foreach (['dob','date_of_birth','birthdate','fecha_nacimiento'] as $k) {
+            $dob = get_user_meta($patient_id, $k, true);
+            if ($dob) break;
+        }
+        if (!$dob) {
+            $dob = $patient['dob'] ?? '';
+        }
         $age    = kc_age_from_dob($dob);
-        $dob_es = $dob ? date_i18n('Y-m-d', strtotime($dob)) . ($age !== '' ? " ({$age} años)" : '') : '';
+        $dob_es = $dob ? date_i18n('Y-m-d', strtotime($dob)) . ($age !== '' ? " ({$age} años)" : '') : '—';
 
-        $gender_raw = get_user_meta($patient_id, 'gender', true);
-        $gender_es  = kc_gender_es($gender_raw);
-
-        // === Datos del encuentro
-        $diagnosticos = get_post_meta($encounter_id, 'kc_diagnosis', true);
-        $ordenes      = get_post_meta($encounter_id, 'kc_orders', true);
-        $indicaciones = get_post_meta($encounter_id, 'kc_indications', true);
-
-        if (empty($diagnosticos) || empty($ordenes) || empty($indicaciones)) {
-            global $wpdb;
-            $tbl_diag = $wpdb->prefix . 'kc_diagnosis';
-            $tbl_ord  = $wpdb->prefix . 'kc_orders';
-            $tbl_ind  = $wpdb->prefix . 'kc_indications';
-
-            if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $tbl_diag))) {
-                $diagnosticos = $wpdb->get_results($wpdb->prepare(
-                    "SELECT code, name FROM {$tbl_diag} WHERE encounter_id = %d ORDER BY id ASC", $encounter_id
-                ), ARRAY_A);
-            }
-            if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $tbl_ord))) {
-                $ordenes = $wpdb->get_results($wpdb->prepare(
-                    "SELECT test_name AS name FROM {$tbl_ord} WHERE encounter_id = %d ORDER BY id ASC", $encounter_id
-                ), ARRAY_A);
-            }
-            if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $tbl_ind))) {
-                $indicaciones = $wpdb->get_results($wpdb->prepare(
-                    "SELECT note AS name FROM {$tbl_ind} WHERE encounter_id = %d ORDER BY id ASC", $encounter_id
-                ), ARRAY_A);
-            }
-		}
-
-           $diag_list = [];
-        if (!empty($diagnosticos)) {
-            foreach ((array) $diagnosticos as $d) {
-                if (is_array($d)) {
-                    $code = isset($d['code']) ? trim($d['code']) : '';
-                    $name = isset($d['name']) ? trim($d['name']) : '';
-                    $diag_list[] = trim($code . ' ' . $name);
-                } else {
-                    $diag_list[] = (string) $d;
-                }
-            }
+        $gender = '';
+        foreach (['gender','sexo','sex'] as $k) {
+            $gender = get_user_meta($patient_id, $k, true);
+            if ($gender) break;
+        }
+        if (!$gender) {
+            $gender = $patient['gender'] ?? '';
+        }
+        $gender_es = kc_gender_es($gender);
+        if ($gender_es === '') {
+            $gender_es = 'Otro';
         }
 
-            $ord_list = [];
-        if (!empty($ordenes)) {
-            foreach ((array) $ordenes as $o) {
-                $ord_list[] = is_array($o) ? trim($o['name'] ?? '') : (string) $o;
-            }
-        }
+        $diagnoses   = kc_get_encounter_diagnoses($encounter_id);
+        $orders      = kc_get_encounter_orders($encounter_id);
+        $indications = kc_get_encounter_indications($encounter_id);
 
-           $ind_list = [];
-        if (!empty($indicaciones)) {
-            foreach ((array) $indicaciones as $i) {
-                $ind_list[] = is_array($i) ? trim($i['name'] ?? '') : (string) $i;
-            }
+        $diag_list = [];
+        foreach ($diagnoses as $d) {
+            $code = trim($d['code'] ?? '');
+            $name = trim($d['name'] ?? '');
+            $diag_list[] = trim($code . ' ' . $name);
         }
-		
-		$payload = [
+        $diag_list = array_values(array_unique(array_filter($diag_list)));
+
+        $ord_list = [];
+        foreach ($orders as $o) {
+            $ord_list[] = trim($o['name'] ?? '');
+        }
+        $ord_list = array_values(array_unique(array_filter($ord_list)));
+
+        $ind_list = [];
+        foreach ($indications as $i) {
+            $ind_list[] = trim(($i['text'] ?? '') ?: ($i['name'] ?? ''));
+        }
+        $ind_list = array_values(array_unique(array_filter($ind_list)));
+
+        $payload = [
             'patient' => [
-                'name'      => $name,
-                'email'     => $email,
+                'name'      => $patient['name'] ?? ($user ? $user->display_name : ''),
+                'email'     => $patient['email'] ?? ($user ? $user->user_email : ''),
                 'ci'        => $ci,
                 'dob'       => $dob_es,
                 'gender_es' => $gender_es,
