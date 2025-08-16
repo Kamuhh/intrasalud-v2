@@ -11,7 +11,7 @@
         <div class="kc-card__body">
           <div class="kc-grid kc-grid-3">
             <div><strong>Nombre:</strong> <span id="kc-sum-name"><?= esc_html($patient['name'] ?? '') ?></span></div>
-            <div><strong>C.I.:</strong> <span id="kc-sum-ci"><?= esc_html($patient['dni'] ?? '') ?></span></div>
+            <div><strong>C.I.:</strong> <span id="kc-sum-ci"><?= esc_html($patient['ci'] ?? '') ?></span></div>
             <div><strong>Correo:</strong> <span id="kc-sum-email"><?= esc_html($patient['email'] ?? '') ?></span></div>
             <div><strong>Género:</strong> <span id="kc-sum-gender"><?= esc_html($patient['gender'] ?? '') ?></span></div>
             <div><strong>Fecha de nacimiento:</strong> <span id="kc-sum-dob"><?= esc_html($patient['dob'] ?? '') ?></span></div>
@@ -26,7 +26,8 @@
             <div><strong>Fecha:</strong> <?= esc_html($encounter['encounter_date'] ?? $encounter['date'] ?? '') ?></div>
             <div><strong>Clínica:</strong> <?= esc_html($clinic['name'] ?? '') ?></div>
             <div><strong>Doctor:</strong> <?= esc_html($doctor['name'] ?? '') ?></div>
-            <div class="kc-grid-span-3"><strong>Descripción:</strong> <?= esc_html($encounter['description'] ?? '') ?></div>
+            <?php $desc = $encounter['description'] ?? $encounter['summary'] ?? $encounter['chief_complaint'] ?? $encounter['notes'] ?? ''; $desc = trim($desc) !== '' ? $desc : 'No se encontraron registros'; ?>
+            <div class="kc-grid-span-3"><strong>Descripción:</strong> <?= esc_html($desc) ?></div>
           </div>
         </div>
       </section>
@@ -39,8 +40,7 @@
               <?php foreach ($diagnoses as $d): ?>
                 <li><?= esc_html( trim(($d['code'] ?? '').' '.($d['name'] ?? '')) ) ?></li>
               <?php endforeach; ?>
-            </ul>
-          <?php else: ?>
+            <?php else: ?>
               <li>No se encontraron registros</li>
             <?php endif; ?>
           </ul>
