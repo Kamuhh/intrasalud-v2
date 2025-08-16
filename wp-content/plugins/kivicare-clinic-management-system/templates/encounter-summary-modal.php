@@ -1,4 +1,4 @@
-<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>" data-encounter-id="<?= isset($encounter['id']) ? esc_attr($encounter['id']) : '' ?>" data-patient-id="<?= isset($patient['id']) ? esc_attr($patient['id']) : '' ?>" style="display:none">
+<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>" data-encounter-id="<?= isset($encounter['id']) ? esc_attr($encounter['id']) : '' ?>">
   <div class="kc-modal__dialog">
     <div class="kc-modal__header">
       <h3>Resumen de la atención</h3>
@@ -11,7 +11,7 @@
         <div class="kc-card__body">
           <div class="kc-grid kc-grid-3">
             <div><strong>Nombre:</strong> <span id="kc-sum-name"><?= esc_html($patient['name'] ?? '') ?></span></div>
-            <div><strong>C.I.:</strong> <span id="kc-sum-ci"><?= esc_html($patient['ci'] ?? '') ?></span></div>
+            <div><strong>C.I.:</strong> <span id="kc-sum-ci"><?= esc_html($patient['dni'] ?? '') ?></span></div>
             <div><strong>Correo:</strong> <span id="kc-sum-email"><?= esc_html($patient['email'] ?? '') ?></span></div>
             <div><strong>Género:</strong> <span id="kc-sum-gender"><?= esc_html($patient['gender'] ?? '') ?></span></div>
             <div><strong>Fecha de nacimiento:</strong> <span id="kc-sum-dob"><?= esc_html($patient['dob'] ?? '') ?></span></div>
@@ -26,8 +26,7 @@
             <div><strong>Fecha:</strong> <?= esc_html($encounter['encounter_date'] ?? $encounter['date'] ?? '') ?></div>
             <div><strong>Clínica:</strong> <?= esc_html($clinic['name'] ?? '') ?></div>
             <div><strong>Doctor:</strong> <?= esc_html($doctor['name'] ?? '') ?></div>
-            <?php $desc = $encounter['description'] ?? $encounter['summary'] ?? $encounter['chief_complaint'] ?? $encounter['notes'] ?? ''; $desc = trim($desc) !== '' ? $desc : 'No se encontraron registros'; ?>
-            <div class="kc-grid-span-3"><strong>Descripción:</strong> <?= esc_html($desc) ?></div>
+            <div class="kc-grid-span-3"><strong>Descripción:</strong> <?= esc_html($encounter['description'] ?? '') ?></div>
           </div>
         </div>
       </section>
@@ -40,7 +39,8 @@
               <?php foreach ($diagnoses as $d): ?>
                 <li><?= esc_html( trim(($d['code'] ?? '').' '.($d['name'] ?? '')) ) ?></li>
               <?php endforeach; ?>
-            <?php else: ?>
+            </ul>
+          <?php else: ?>
               <li>No se encontraron registros</li>
             <?php endif; ?>
           </ul>
