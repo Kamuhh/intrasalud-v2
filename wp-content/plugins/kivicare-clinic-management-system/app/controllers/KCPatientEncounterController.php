@@ -1136,100 +1136,40 @@ class KCPatientEncounterController extends KCBase
         }
     }
 
-    public function getEncounterSummary()
+ public function getEncounterSummary()
     {
-        if (!current_user_can('read')) {
-            wp_send_json_error(['message' => 'Unauthorized'], 403);
-        }
+        try {
+            if (!is_user_logged_in()) {
+                return $this->sendError('No autorizado', 401);
+            }
+            $user = wp_get_current_user();
+            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
+            if (!$can) {
+                return $this->sendError('Permisos insuficientes', 403);
+            }
 
-        $encounter_id = isset($_REQUEST['encounter_id']) ? intval($_REQUEST['encounter_id']) : 0;
-        $patient_id   = isset($_REQUEST['patient_id']) ? intval($_REQUEST['patient_id']) : 0;
-        if ($encounter_id <= 0 || $patient_id <= 0) {
-            wp_send_json_error(['message' => 'Parámetros inválidos']);
-        }
+            $encounter_id = isset($_GET['encounter_id']) ? intval($_GET['encounter_id']) : 0;
+            if ($encounter_id <= 0) {
+                return $this->sendError('encounter_id inválido', 400);
+            }
 
-        $encounter = kc_get_encounter_by_id($encounter_id);
-        if (empty($encounter) || intval($encounter['patient_id'] ?? 0) !== $patient_id) {
-            wp_send_json_error(['message' => 'Parámetros inválidos']);
-        }
+            $encounter     = kc_get_encounter_by_id($encounter_id);
+            $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+            $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+            $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+            $diagnoses     = kc_get_encounter_diagnoses($encounter_id);
+            $orders        = kc_get_encounter_orders($encounter_id);
+            $indications   = kc_get_encounter_indications($encounter_id);
+            $prescriptions = kc_get_encounter_prescriptions($encounter_id);
 
-        $patient = kc_get_patient_by_id($patient_id);
-        $user    = get_userdata($patient_id);
+            ob_start();
+            include KIVI_CARE_DIR . 'templates/encounter-summary-modal.php';
+            $html = ob_get_clean();
 
-        $ci = '';
-        foreach (['cedula','ci','dni','documento'] as $k) {
-            $ci = get_user_meta($patient_id, $k, true);
-            if ($ci) break;
+            return $this->sendSuccess(['html' => $html]);
+        } catch (\Throwable $e) {
+            return $this->sendError($e->getMessage(), 500);
         }
-        if (!$ci) {
-            $ci = $patient['dni'] ?? ($user ? $user->user_login : '');
-        }
-
-        $dob = '';
-        foreach (['dob','date_of_birth','birthdate','fecha_nacimiento'] as $k) {
-            $dob = get_user_meta($patient_id, $k, true);
-            if ($dob) break;
-        }
-        if (!$dob) {
-            $dob = $patient['dob'] ?? '';
-        }
-        $age    = kc_age_from_dob($dob);
-        $dob_es = $dob ? date_i18n('Y-m-d', strtotime($dob)) . ($age !== '' ? " ({$age} años)" : '') : '—';
-
-        $gender = '';
-        foreach (['gender','sexo','sex'] as $k) {
-            $gender = get_user_meta($patient_id, $k, true);
-            if ($gender) break;
-        }
-        if (!$gender) {
-            $gender = $patient['gender'] ?? '';
-        }
-        $gender_es = kc_gender_es($gender);
-        if ($gender_es === '') {
-            $gender_es = 'Otro';
-        }
-
-        $diagnoses   = kc_get_encounter_diagnoses($encounter_id);
-        $orders      = kc_get_encounter_orders($encounter_id);
-        $indications = kc_get_encounter_indications($encounter_id);
-
-        $diag_list = [];
-        foreach ($diagnoses as $d) {
-            $code = trim($d['code'] ?? '');
-            $name = trim($d['name'] ?? '');
-            $diag_list[] = trim($code . ' ' . $name);
-        }
-        $diag_list = array_values(array_unique(array_filter($diag_list)));
-
-        $ord_list = [];
-        foreach ($orders as $o) {
-            $ord_list[] = trim($o['name'] ?? '');
-        }
-        $ord_list = array_values(array_unique(array_filter($ord_list)));
-
-        $ind_list = [];
-        foreach ($indications as $i) {
-            $ind_list[] = trim(($i['text'] ?? '') ?: ($i['name'] ?? ''));
-        }
-        $ind_list = array_values(array_unique(array_filter($ind_list)));
-
-        $payload = [
-            'patient' => [
-                'name'      => $patient['name'] ?? ($user ? $user->display_name : ''),
-                'email'     => $patient['email'] ?? ($user ? $user->user_email : ''),
-                'ci'        => $ci,
-                'dob'       => $dob_es,
-                'gender_es' => $gender_es,
-            ],
-            'encounter' => [
-                'id'           => $encounter_id,
-                'diagnosticos' => $diag_list,
-                'ordenes'      => $ord_list,
-                'indicaciones' => $ind_list,
-            ],
-        ];
-
-        wp_send_json_success($payload);
     }
 
     public function emailEncounterSummary()
@@ -1261,6 +1201,3 @@ class KCPatientEncounterController extends KCBase
         }
     }
 }
-
-\add_action('wp_ajax_kc_get_encounter_summary', [new KCPatientEncounterController(), 'getEncounterSummary']);
-\add_action('wp_ajax_nopriv_kc_get_encounter_summary', [new KCPatientEncounterController(), 'getEncounterSummary']);
