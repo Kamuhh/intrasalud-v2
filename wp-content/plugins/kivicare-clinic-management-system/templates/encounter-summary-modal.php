@@ -1,4 +1,4 @@
-<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>" data-encounter-id="<?= isset($encounter['id']) ? esc_attr($encounter['id']) : '' ?>">
+<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>" data-encounter-id="<?= isset($encounter['id']) ? esc_attr($encounter['id']) : '' ?>" data-patient-id="<?= isset($patient['id']) ? esc_attr($patient['id']) : '' ?>" style="display:none">
   <div class="kc-modal__dialog">
     <div class="kc-modal__header">
       <h3>Resumen de la atención</h3>
