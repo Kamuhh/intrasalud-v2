@@ -37,10 +37,9 @@
           <ul class="kc-list" id="kc-sum-dx-list">
             <?php if (!empty($diagnoses)) : ?>
               <?php foreach ($diagnoses as $d): ?>
-                <li><?= esc_html( trim(($d['code'] ?? '').' '.($d['name'] ?? '')) ) ?></li>
+                <li><?= esc_html($d['title'] ?? '') ?></li>
               <?php endforeach; ?>
-            </ul>
-          <?php else: ?>
+            <?php else: ?>
               <li>No se encontraron registros</li>
             <?php endif; ?>
           </ul>
