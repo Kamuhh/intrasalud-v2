@@ -47,12 +47,12 @@
       </section>
 
       <section class="kc-card">
-        <div class="kc-card__header">Órdenes clínicas</div>
+        <div class="kc-card__header">Indicaciones</div>
         <div class="kc-card__body">
-          <ul class="kc-list" id="kc-sum-orders-list">
-            <?php if (!empty($orders)) : ?>
-              <?php foreach ($orders as $o): ?>
-                <li><?= esc_html($o['name'] ?? '') ?><?php if(isset($o['note'])) echo ' — '.esc_html($o['note']); ?></li>
+          <ul class="kc-list" id="kc-sum-ind-list">
+            <?php if (!empty($indications)) : ?>
+              <?php foreach ($indications as $i): ?>
+                <li><?= esc_html($i['title'] ?? '') ?></li>
               <?php endforeach; ?>
             <?php else: ?>
               <li>No se encontraron registros</li>
@@ -62,12 +62,12 @@
       </section>
 
       <section class="kc-card">
-        <div class="kc-card__header">Indicaciones</div>
+        <div class="kc-card__header">Órdenes clínicas</div>
         <div class="kc-card__body">
-          <ul class="kc-list" id="kc-sum-ind-list">
-            <?php if (!empty($indications)) : ?>
-              <?php foreach ($indications as $i): ?>
-                <li><?= esc_html($i['text'] ?? '') ?></li>
+          <ul class="kc-list" id="kc-sum-orders-list">
+            <?php if (!empty($orders)) : ?>
+              <?php foreach ($orders as $o): ?>
+                <li><?= esc_html($o['title'] ?? '') ?><?php if(isset($o['note'])) echo ' — '.esc_html($o['note']); ?></li>
               <?php endforeach; ?>
             <?php else: ?>
               <li>No se encontraron registros</li>
