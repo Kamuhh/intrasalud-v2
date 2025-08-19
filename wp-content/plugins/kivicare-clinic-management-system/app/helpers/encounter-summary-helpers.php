@@ -31,16 +31,25 @@ function kc_get_clinic_by_id($id){
     return $row ? $row : [];
 }
 
-function kc_get_encounter_problems($encounter_id){
-    $medical_history = collect((new \App\models\KCMedicalHistory())->get_by([
-        'encounter_id' => (int)$encounter_id,
-    ]));
+function kc_get_encounter_medical_history_grouped($encounter_id){
+    static $cache = [];
+    if (!isset($cache[$encounter_id])) {
+        $medical_history = collect((new \App\models\KCMedicalHistory())->get_by([
+            'encounter_id' => (int)$encounter_id,
+        ]));
 
-    if(!$medical_history->count()){
-        return [];
+    if ($medical_history->count()) {
+            $cache[$encounter_id] = $medical_history->groupBy('type');
+        } else {
+            $cache[$encounter_id] = collect();
+        }
     }
 
-    $grouped = $medical_history->groupBy('type');
+    return $cache[$encounter_id];
+}
+
+function kc_get_encounter_problems($encounter_id){
+    $grouped = kc_get_encounter_medical_history_grouped($encounter_id);
     $problems = $grouped->get('problem', collect());
 
     return $problems->map(function($item){
@@ -53,23 +62,12 @@ function kc_get_encounter_diagnoses($encounter_id){
 }
 
 function kc_get_encounter_orders($encounter_id){
-    $enc = kc_get_encounter_by_id($encounter_id);
-    $out = [];
-    if (!empty($enc['observations'])) {
-        $decoded = json_decode($enc['observations'], true);
-        if (is_array($decoded)) {
-            foreach ($decoded as $o) {
-                if (is_array($o)) {
-                    $out[] = $o;
-                } else {
-                    $out[] = ['name' => $o];
-                }
-            }
-        } else {
-            $out[] = ['name' => $enc['observations']];
-        }
-    }
-    return $out;
+    $grouped = kc_get_encounter_medical_history_grouped($encounter_id);
+    $notes = $grouped->get('note', collect());
+
+    return $notes->map(function($item){
+        return (array)$item;
+    })->values()->all();
 }
 
 function kc_get_encounter_indications($encounter_id){
@@ -122,18 +120,23 @@ function kc_build_encounter_summary_text($encounter_id){
             $lines[] = '- '.($d['title'] ?? '');
         }
     }
-    $orders = kc_get_encounter_orders($encounter_id);
-    if ($orders) {
-        $lines[] = 'Órdenes:';
-        foreach ($orders as $o) {
-            $lines[] = '- '.($o['name'] ?? '');
-        }
-    }
+    
     $indications = kc_get_encounter_indications($encounter_id);
     if ($indications) {
         $lines[] = 'Indicaciones:';
         foreach ($indications as $i) {
-            $lines[] = '- '.($i['text'] ?? '');
+            $lines[] = '- '.($i['title'] ?? '');
+        }
+    }
+    $orders = kc_get_encounter_orders($encounter_id);
+    if ($orders) {
+        $lines[] = 'Órdenes:';
+        foreach ($orders as $o) {
+            $line = '- '.($o['title'] ?? '');
+            if (!empty($o['note'])) {
+                $line .= ' — '.$o['note'];
+            }
+            $lines[] = $line;
         }
     }
     $prescriptions = kc_get_encounter_prescriptions($encounter_id);
