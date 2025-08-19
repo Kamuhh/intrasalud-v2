@@ -31,27 +31,28 @@ function kc_get_clinic_by_id($id){
     return $row ? $row : [];
 }
 
-function kc_get_encounter_diagnoses($encounter_id){
-    $enc = kc_get_encounter_by_id($encounter_id);
-    $out = [];
-    if (!empty($enc['diagnosis'])) {
-        $decoded = json_decode($enc['diagnosis'], true);
-        if (is_array($decoded)) {
-            foreach ($decoded as $d) {
-                if (is_array($d)) {
-                    $out[] = [
-                        'code' => $d['code'] ?? '',
-                        'name' => $d['name'] ?? '',
-                    ];
-                } else {
-                    $out[] = ['code' => '', 'name' => $d];
-                }
+function kc_get_encounter_problems($encounter_id){
+    $medical_history = collect((new \App\models\KCMedicalHistory())->get_by([
+        'encounter_id' => (int)$encounter_id,
+    ]));
+
+    if(!$medical_history->count()){
+        return [];
             }
         } else {
             $out[] = ['code' => '', 'name' => $enc['diagnosis']];
         }
     }
-    return $out;
+    $grouped = $medical_history->groupBy('type');
+    $problems = $grouped->get('problem', collect());
+
+    return $problems->map(function($item){
+        return (array)$item;
+    })->values()->all();
+}
+
+function kc_get_encounter_diagnoses($encounter_id){
+    return kc_get_encounter_problems($encounter_id);
 }
 
 function kc_get_encounter_orders($encounter_id){
@@ -117,11 +118,11 @@ function kc_build_encounter_summary_text($encounter_id){
     $lines[] = 'Resumen de atención';
     $lines[] = 'Paciente: '.($p['name'] ?? '');
     $lines[] = 'Fecha: '.($e['encounter_date'] ?? $e['date'] ?? '');
-    $diagnoses = kc_get_encounter_diagnoses($encounter_id);
+    $diagnoses = kc_get_encounter_problems($encounter_id);
     if ($diagnoses) {
         $lines[] = 'Diagnósticos:';
         foreach ($diagnoses as $d) {
-            $lines[] = '- '.trim(($d['code'] ?? '').' '.($d['name'] ?? ''));
+            $lines[] = '- '.($d['title'] ?? '');
         }
     }
     $orders = kc_get_encounter_orders($encounter_id);
@@ -153,7 +154,7 @@ function kc_render_encounter_summary_html($encounter_id){
     $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
     $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
     $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
-    $diagnoses     = kc_get_encounter_diagnoses($encounter_id);
+    $diagnoses     = kc_get_encounter_problems($encounter_id);
     $orders        = kc_get_encounter_orders($encounter_id);
     $indications   = kc_get_encounter_indications($encounter_id);
     $prescriptions = kc_get_encounter_prescriptions($encounter_id);
