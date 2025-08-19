@@ -38,11 +38,8 @@ function kc_get_encounter_problems($encounter_id){
 
     if(!$medical_history->count()){
         return [];
-            }
-        } else {
-            $out[] = ['code' => '', 'name' => $enc['diagnosis']];
-        }
     }
+
     $grouped = $medical_history->groupBy('type');
     $problems = $grouped->get('problem', collect());
 
@@ -118,7 +115,7 @@ function kc_build_encounter_summary_text($encounter_id){
     $lines[] = 'Resumen de atención';
     $lines[] = 'Paciente: '.($p['name'] ?? '');
     $lines[] = 'Fecha: '.($e['encounter_date'] ?? $e['date'] ?? '');
-    $diagnoses = kc_get_encounter_problems($encounter_id);
+    $diagnoses = kc_get_encounter_diagnoses($encounter_id);
     if ($diagnoses) {
         $lines[] = 'Diagnósticos:';
         foreach ($diagnoses as $d) {
