@@ -1153,13 +1153,71 @@ class KCPatientEncounterController extends KCBase
                 return $this->sendError('encounter_id inválido', 400);
             }
 
-            $encounter     = kc_get_encounter_by_id($encounter_id);
-            $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
-            $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
-            $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
-            $diagnoses     = kc_get_encounter_problems($encounter_id);
-            $orders        = kc_get_encounter_orders($encounter_id);
-            $indications   = kc_get_encounter_indications($encounter_id);
+            $encounter   = kc_get_encounter_by_id($encounter_id);
+            $encounter_id = (int)($encounter['id'] ?? 0);
+            $patient     = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+            $doctor      = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+            $clinic      = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+            $diagnoses   = kc_get_encounter_problems($encounter_id);
+
+            // --- BEGIN: Indicaciones (NOTES) y Órdenes clínicas (OBSERVATIONS)
+            global $wpdb;
+            $kc_mp_table = $wpdb->prefix . 'kc_medical_problems';
+
+            // Helper para traer lista por varios tipos posibles
+            $__kc_get_list = function (array $types) use ($wpdb, $kc_mp_table, $encounter_id) {
+                if (!$encounter_id) {
+                    return [];
+                }
+                // placeholders dinámicos para IN (...)
+                $ph = implode(',', array_fill(0, count($types), '%s'));
+                // status puede venir como 1 / '1' / 'Active' o NULL
+                $sql = "
+        SELECT title, note
+        FROM {$kc_mp_table}
+        WHERE encounter_id = %d
+          AND type IN ($ph)
+          AND (status = 1 OR status = '1' OR status = 'Active' OR status IS NULL)
+        ORDER BY id ASC
+    ";
+                $params = array_merge([
+                    $encounter_id,
+                ], $types);
+                $rows = $wpdb->get_results($wpdb->prepare($sql, ...$params), ARRAY_A);
+
+                return array_map(function ($r) {
+                    return [
+                        'title' => isset($r['title']) ? (string)$r['title'] : '',
+                        'note'  => isset($r['note']) ? (string)$r['note'] : '',
+                    ];
+                }, is_array($rows) ? $rows : []);
+            };
+
+            // Tu template muestra:
+            //  - Indicaciones      desde $orders
+            //  - Órdenes clínicas  desde $indications
+
+            $orders      = $__kc_get_list(['note', 'notes']);                          // Indicaciones (antes NOTES)
+            $indications = $__kc_get_list(['observation', 'clinical_observations']);    // Órdenes clínicas (antes OBSERVATIONS)
+
+            // Fallbacks a campos legacy del encuentro
+            $notes_legacy = $encounter['notes'] ?? $encounter['note'] ?? '';
+            if (empty($orders) && !empty($notes_legacy)) {
+                $orders = [[
+                    'title' => (string) $notes_legacy,
+                    'note'  => '',
+                ]];
+            }
+
+            $obs_legacy = $encounter['observations'] ?? $encounter['observation'] ?? ($encounter['clinical_observations'] ?? '');
+            if (empty($indications) && !empty($obs_legacy)) {
+                $indications = [[
+                    'title' => (string) $obs_legacy,
+                    'note'  => '',
+                ]];
+            }
+            // --- END
+
             $prescriptions = kc_get_encounter_prescriptions($encounter_id);
 
             ob_start();
