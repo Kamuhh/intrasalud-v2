@@ -31,50 +31,30 @@ function kc_get_clinic_by_id($id){
     return $row ? $row : [];
 }
 
-function kc_get_encounter_medical_lists($encounter_id){
-    global $wpdb;
+function kc_get_encounter_medical_history_grouped($encounter_id){
     static $cache = [];
-    $encounter_id = (int)$encounter_id;
-    if(!isset($cache[$encounter_id])){
-        $table = $wpdb->prefix . 'kc_medical_problems';
-        $rows = $wpdb->get_results($wpdb->prepare(
-            "SELECT id, title, note, type FROM {$table} WHERE encounter_id = %d AND type IN ('problem','observation','note') AND status = 1 ORDER BY id ASC",
-            $encounter_id
-        ), ARRAY_A);
+    if (!isset($cache[$encounter_id])) {
+        $medical_history = collect((new \App\models\KCMedicalHistory())->get_by([
+            'encounter_id' => (int)$encounter_id,
+        ]));
 
-        $lists = [
-            'problem' => [],
-            'observation' => [],
-            'note' => [],
-        ];
-
-        foreach($rows as $row){
-            $type = $row['type'];
-            unset($row['type']);
-            $lists[$type][] = $row;
+    if ($medical_history->count()) {
+            $cache[$encounter_id] = $medical_history->groupBy('type');
+        } else {
+            $cache[$encounter_id] = collect();
         }
-
-        $enc = kc_get_encounter_by_id($encounter_id);
-        if(empty($lists['observation']) && !empty($enc['observations'])){
-            $lists['observation'][] = ['title' => $enc['observations']];
-        }
-        if(empty($lists['note']) && !empty($enc['notes'])){
-            $lists['note'][] = ['title' => $enc['notes']];
-        }
-
-        $cache[$encounter_id] = [
-            'problems' => $lists['problem'],
-            'observations' => $lists['observation'],
-            'notes' => $lists['note'],
-        ];
     }
 
     return $cache[$encounter_id];
 }
 
 function kc_get_encounter_problems($encounter_id){
-    $lists = kc_get_encounter_medical_lists($encounter_id);
-    return $lists['problems'];
+    $grouped = kc_get_encounter_medical_history_grouped($encounter_id);
+    $problems = $grouped->get('problem', collect());
+
+    return $problems->map(function($item){
+        return (array)$item;
+    })->values()->all();
 }
 
 function kc_get_encounter_diagnoses($encounter_id){
@@ -82,8 +62,8 @@ function kc_get_encounter_diagnoses($encounter_id){
 }
 
 function kc_get_encounter_orders($encounter_id){
-    $lists = kc_get_encounter_medical_lists($encounter_id);
-    return $lists['observations'];
+    $grouped = kc_get_encounter_medical_history_grouped($encounter_id);
+    $notes = $grouped->get('note', collect());
 
     return $notes->map(function($item){
         return (array)$item;
@@ -91,8 +71,23 @@ function kc_get_encounter_orders($encounter_id){
 }
 
 function kc_get_encounter_indications($encounter_id){
-    $lists = kc_get_encounter_medical_lists($encounter_id);
-    return $lists['notes'];
+    $enc = kc_get_encounter_by_id($encounter_id);
+    $out = [];
+    if (!empty($enc['notes'])) {
+        $decoded = json_decode($enc['notes'], true);
+        if (is_array($decoded)) {
+            foreach ($decoded as $i) {
+                if (is_array($i)) {
+                    $out[] = $i;
+                } else {
+                    $out[] = ['text' => $i];
+                }
+            }
+        } else {
+            $out[] = ['text' => $enc['notes']];
+        }
+    }
+    return $out;
 }
 
 function kc_get_encounter_prescriptions($encounter_id){
