@@ -1,174 +1,262 @@
-<style>
-    .kc-modal-summary .kc-nowrap {
-        white-space: nowrap;
-    }
-</style>
-
 <?php
-// ==== Normalizaciones para el modal ====
+/**
+ * Encounter Summary Helpers
+ * -----------------------------------------
+ * Funciones utilitarias para armar el resumen:
+ * - Diagnósticos  (problem)
+ * - Órdenes       (observation / clinical_observations)
+ * - Indicaciones  (note / notes)
+ * - Recetas       (JSON en la tabla de encuentros)
+ *
+ * Robusto a instalaciones con tablas legacy y sin columna `status`.
+ */
 
-// 1) Género -> español
-$rawGender = strtolower(trim((string) ($patient['gender'] ?? '')));
-$genderMap = [
-    'male' => 'Masculino',
-    'm' => 'Masculino',
-    'h' => 'Masculino',
-    '1' => 'Masculino',
-    'female' => 'Femenino',
-    'f' => 'Femenino',
-    'mujer' => 'Femenino',
-    '2' => 'Femenino',
-    'other' => 'otro',
-    'o' => 'otro',
-    '3' => 'otro',
-];
-$genderEs = $genderMap[$rawGender] ?? (in_array($rawGender, ['masculino', 'femenino', 'otro']) ? $rawGender : '');
-
-// 2) Fecha de nacimiento + edad (edad al momento del encuentro; si no hay fecha del encuentro, hoy)
-$dobRaw = $patient['dob'] ?? '';
-$dobOut = '';
-if (!empty($dobRaw)) {
-    try {
-        $dob = new DateTime($dobRaw);
-        $ref = !empty($encounter['encounter_date'] ?? null) ? new DateTime($encounter['encounter_date']) : new DateTime();
-        $age = $dob->diff($ref)->y;
-        $dobOut = $dob->format('Y-m-d') . ' (' . $age . ' años)';
-    } catch (Exception $e) {
-        $dobOut = (string) $dobRaw;
+if (!function_exists('kc__db_table_exists')) {
+    function kc__db_table_exists($table) {
+        global $wpdb;
+        $like = $wpdb->esc_like($table);
+        return (bool) $wpdb->get_var( $wpdb->prepare("SHOW TABLES LIKE %s", $like) );
     }
 }
-?>
 
-<div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true"
-    data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>"
-    data-encounter-id="<?= isset($encounter['id']) ? esc_attr($encounter['id']) : '' ?>">
-    <div class="kc-modal__dialog">
-        <div class="kc-modal__header">
-            <h3>Resumen de la atención</h3>
-            <button type="button" class="kc-modal__close js-kc-summary-close" aria-label="Cerrar">×</button>
-        </div>
+if (!function_exists('kc__db_columns')) {
+    function kc__db_columns($table) {
+        global $wpdb;
+        $cols = $wpdb->get_col("SHOW COLUMNS FROM {$table}", 0);
+        return is_array($cols) ? $cols : [];
+    }
+}
 
-        <div class="kc-modal__body">
-            <section class="kc-card">
-                <div class="kc-card__header">Detalles del paciente</div>
-                <div class="kc-card__body">
-                    <div class="kc-grid kc-grid-3">
-                        <div><strong>Nombre:</strong> <span
-                                id="kc-sum-name"><?= esc_html($patient['name'] ?? '') ?></span></div>
-                        <div><strong>C.I.:</strong> <span id="kc-sum-ci"><?= esc_html($patient['dni'] ?? '') ?></span>
-                        </div>
-                        <div><strong>Correo:</strong> <span
-                                id="kc-sum-email"><?= esc_html($patient['email'] ?? '') ?></span></div>
-                        <div><strong>Género:</strong> <span id="kc-sum-gender"><?= esc_html($genderEs) ?></span></div>
-                        <div><strong>Fecha de nacimiento:</strong> <span id="kc-sum-dob"
-                                class="kc-nowrap"><?= esc_html($dobOut) ?></span></div>
-                    </div>
-                </div>
-            </section>
+/* =========================
+ * Entidades base por ID
+ * ========================= */
+if (!function_exists('kc_get_encounter_by_id')) {
+    function kc_get_encounter_by_id($id){
+        global $wpdb;
+        $table = $wpdb->prefix . 'kc_patient_encounters';
+        $row = $wpdb->get_row(
+            $wpdb->prepare("SELECT * FROM {$table} WHERE id = %d", (int)$id),
+            ARRAY_A
+        );
+        return $row ?: [];
+    }
+}
 
-            <section class="kc-card">
-                <div class="kc-card__header">Detalles de la consulta</div>
-                <div class="kc-card__body">
-                    <div class="kc-grid kc-grid-3">
-                        <div><strong>Fecha:</strong>
-                            <?= esc_html($encounter['encounter_date'] ?? $encounter['date'] ?? '') ?></div>
-                        <div><strong>Clínica:</strong> <?= esc_html($clinic['name'] ?? '') ?></div>
-                        <div><strong>Doctor:</strong> <?= esc_html($doctor['name'] ?? '') ?></div>
-                        <div class="kc-grid-span-3"><strong>Descripción:</strong>
-                            <?= esc_html($encounter['description'] ?? '') ?>
-                        </div>
-                    </div>
-                </div>
-            </section>
+if (!function_exists('kc_get_patient_by_id')) {
+    function kc_get_patient_by_id($id){
+        $user = get_userdata((int)$id);
+        if(!$user){ return []; }
+        $basic = json_decode(get_user_meta((int)$id, 'basic_data', true), true) ?: [];
+        return [
+            'id'     => (int)$id,
+            'name'   => $user->display_name,
+            'email'  => $user->user_email,
+            'gender' => $basic['gender'] ?? '',
+            'dob'    => $basic['dob'] ?? '',
+            'dni'    => $basic['dni'] ?? '',
+        ];
+    }
+}
 
-            <section class="kc-card">
-                <div class="kc-card__header">Diagnóstico(s)</div>
-                <div class="kc-card__body">
-                    <ul class="kc-list" id="kc-sum-dx-list">
-                        <?php if (!empty($diagnoses)): ?>
-                            <?php foreach ($diagnoses as $d): ?>
-                                <li><?= esc_html($d['title'] ?? '') ?></li>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <li>No se encontraron registros</li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
-            </section>
+if (!function_exists('kc_get_doctor_by_id')) {
+    function kc_get_doctor_by_id($id){
+        // Para nuestro caso, estructura igual que paciente (display_name, email, basic_data)
+        return kc_get_patient_by_id($id);
+    }
+}
 
-            <!-- INDICACIONES (NOTES) — usa $orders -->
-            <section class="kc-card">
-                <div class="kc-card__header">Indicaciones</div>
-                <div class="kc-card__body">
-                    <ul class="kc-list" id="kc-sum-ind-list">
-                        <?php if (!empty($indications)): ?>
-                            <?php foreach ($indications as $i): ?>
-                                <li><?= esc_html($i['title'] ?? '') ?></li>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <li>No se encontraron registros</li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
-            </section>
+if (!function_exists('kc_get_clinic_by_id')) {
+    function kc_get_clinic_by_id($id){
+        global $wpdb;
+        $table = $wpdb->prefix . 'kc_clinics';
+        $row = $wpdb->get_row(
+            $wpdb->prepare("SELECT * FROM {$table} WHERE id = %d", (int)$id),
+            ARRAY_A
+        );
+        return $row ?: [];
+    }
+}
 
+/* ============================================
+ * Lector genérico de medical history / problems
+ * ============================================ */
+if (!function_exists('kc__get_encounter_items')) {
+    /**
+     * Devuelve filas normalizadas ['title'=>..., 'note'=>...]
+     * Buscando en kc_medical_history (si existe) y, si no, en kc_medical_problems (legacy).
+     * @param int   $encounter_id
+     * @param array $types lista de tipos a incluir (e.g. ['observation','clinical_observations'])
+     * @return array
+     */
+    function kc__get_encounter_items($encounter_id, array $types){
+        global $wpdb;
 
-            <!-- ÓRDENES CLÍNICAS (OBSERVATIONS) — usa $indications -->
-            <section class="kc-card">
-                <div class="kc-card__header">Órdenes clínicas</div>
-                <div class="kc-card__body">
-                    <ul class="kc-list" id="kc-sum-orders-list">
-                        <?php if (!empty($orders)): ?>
-                            <?php foreach ($orders as $o): ?>
-                                <li><?= esc_html($o['title'] ?? '') ?></li>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <li>No se encontraron registros</li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
-            </section>
+        $tbl_history  = $wpdb->prefix . 'kc_medical_history';
+        $tbl_problems = $wpdb->prefix . 'kc_medical_problems';
 
+        $table = kc__db_table_exists($tbl_history) ? $tbl_history : $tbl_problems;
 
-            <section class="kc-card">
-                <div class="kc-card__header">Receta médica</div>
-                <div class="kc-card__body">
-                    <?php if (!empty($prescriptions)): ?>
-                        <table class="kc-table">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Frecuencia</th>
-                                    <th>Duración</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($prescriptions as $p): ?>
-                                    <tr>
-                                        <td><?= esc_html($p['name'] ?? '') ?></td>
-                                        <td><?= esc_html($p['frequency'] ?? '') ?></td>
-                                        <td><?= esc_html($p['duration'] ?? '') ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    <?php else: ?>
-                        <p class="kc-empty">No se encontró receta</p>
-                    <?php endif; ?>
-                </div>
-            </section>
-        </div>
+        $cols      = kc__db_columns($table);
+        $hasStatus = in_array('status', $cols, true);
+        $hasNote   = in_array('note',   $cols, true);
 
-        <div class="kc-modal__footer">
-            <button type="button" class="button button-secondary js-kc-summary-email">
-                <span class="dashicons dashicons-email"></span> Correo electrónico
-            </button>
-            <button type="button" class="button button-secondary js-kc-summary-print">
-                <span class="dashicons dashicons-printer"></span> Imprimir
-            </button>
-            <button type="button" class="button button-primary js-kc-summary-close">
-                <span class="dashicons dashicons-no"></span> Cerrar
-            </button>
-        </div>
-    </div>
-</div>
+        if (empty($types)) { $types = ['observation', 'clinical_observations']; }
+
+        // SELECT dinámico
+        $select = 'title';
+        if ($hasNote) { $select .= ', note'; }
+
+        // placeholders para el IN(...)
+        $ph = implode(',', array_fill(0, count($types), '%s'));
+
+        $where = "encounter_id = %d AND type IN ($ph)";
+        if ($hasStatus) {
+            $where .= " AND (status = 1 OR status = '1' OR status = 'Active' OR status IS NULL)";
+        }
+
+        $sql     = "SELECT {$select} FROM {$table} WHERE {$where} ORDER BY id ASC";
+        $params  = array_merge([(int)$encounter_id], $types);
+        $prepared = call_user_func_array([$wpdb,'prepare'], array_merge([$sql], $params));
+
+        $rows = $wpdb->get_results($prepared, ARRAY_A) ?: [];
+
+        // Normalizar
+        $out = [];
+        foreach ($rows as $r) {
+            $out[] = [
+                'title' => (string)($r['title'] ?? ''),
+                'note'  => $hasNote ? (string)($r['note'] ?? '') : '',
+            ];
+        }
+        return $out;
+    }
+}
+
+/* =========================
+ * Wrappers semánticos
+ * ========================= */
+if (!function_exists('kc_get_encounter_problems')) {
+    // Diagnósticos (en tu BD están como type='problem')
+    function kc_get_encounter_problems($encounter_id){
+        return kc__get_encounter_items((int)$encounter_id, ['problem','clinical_problems']);
+    }
+}
+
+if (!function_exists('kc_get_encounter_orders')) {
+    // ÓRDENES CLÍNICAS = Observations
+    function kc_get_encounter_orders($encounter_id){
+        $list = kc__get_encounter_items((int)$encounter_id, ['observation','clinical_observations']);
+
+        // Fallback a la columna antigua del encuentro si no hay filas
+        if (empty($list)) {
+            $enc = kc_get_encounter_by_id($encounter_id);
+            $legacy = $enc['observations'] ?? $enc['observation'] ?? ($enc['clinical_observations'] ?? '');
+            if (!empty($legacy)) {
+                $list = [[ 'title' => (string)$legacy, 'note' => '' ]];
+            }
+        }
+        return $list;
+    }
+}
+
+if (!function_exists('kc_get_encounter_indications')) {
+    // INDICACIONES = Notes
+    function kc_get_encounter_indications($encounter_id){
+        $list = kc__get_encounter_items((int)$encounter_id, ['note','notes']);
+
+        // Fallback a la columna antigua del encuentro si no hay filas
+        if (empty($list)) {
+            $enc = kc_get_encounter_by_id($encounter_id);
+            $legacy = $enc['notes'] ?? $enc['note'] ?? '';
+            if (!empty($legacy)) {
+                $list = [[ 'title' => (string)$legacy, 'note' => '' ]];
+            }
+        }
+        return $list;
+    }
+}
+
+/* =============
+ * Prescripciones
+ * ============= */
+if (!function_exists('kc_get_encounter_prescriptions')) {
+    function kc_get_encounter_prescriptions($encounter_id){
+        $enc = kc_get_encounter_by_id($encounter_id);
+        $out = [];
+        if (!empty($enc['prescription'])) {
+            $decoded = json_decode($enc['prescription'], true);
+            if (is_array($decoded)) {
+                foreach ($decoded as $p) {
+                    if (is_array($p)) { $out[] = $p; }
+                }
+            }
+        }
+        return $out;
+    }
+}
+
+/* =================================
+ * Texto plano para enviar por email
+ * ================================= */
+if (!function_exists('kc_build_encounter_summary_text')) {
+    function kc_build_encounter_summary_text($encounter_id){
+        $e = kc_get_encounter_by_id($encounter_id);
+        $p = kc_get_patient_by_id($e['patient_id'] ?? 0);
+        $lines = [];
+        $lines[] = 'Resumen de atención';
+        $lines[] = 'Paciente: ' . ($p['name'] ?? '');
+        $lines[] = 'Fecha: ' . ($e['encounter_date'] ?? $e['date'] ?? '');
+
+        $diagnoses = kc_get_encounter_problems($encounter_id);
+        if ($diagnoses) {
+            $lines[] = 'Diagnósticos:';
+            foreach ($diagnoses as $d) { $lines[] = '- ' . ($d['title'] ?? ''); }
+        }
+
+        $indications = kc_get_encounter_indications($encounter_id);
+        if ($indications) {
+            $lines[] = 'Indicaciones:';
+            foreach ($indications as $i) { $lines[] = '- ' . ($i['title'] ?? ''); }
+        }
+
+        $orders = kc_get_encounter_orders($encounter_id);
+        if ($orders) {
+            $lines[] = 'Órdenes clínicas:';
+            foreach ($orders as $o) {
+                $line = '- ' . ($o['title'] ?? '');
+                if (!empty($o['note'])) { $line .= ' — ' . $o['note']; }
+                $lines[] = $line;
+            }
+        }
+
+        $prescriptions = kc_get_encounter_prescriptions($encounter_id);
+        if ($prescriptions) {
+            $lines[] = 'Receta:';
+            foreach ($prescriptions as $pr) {
+                $lines[] = '- ' . trim(($pr['name'] ?? '') . ' ' . ($pr['frequency'] ?? '') . ' ' . ($pr['duration'] ?? ''));
+            }
+        }
+        return implode("\n", $lines);
+    }
+}
+
+/* ==========================
+ * HTML del modal (si lo usas)
+ * ========================== */
+if (!function_exists('kc_render_encounter_summary_html')) {
+    function kc_render_encounter_summary_html($encounter_id){
+        $encounter     = kc_get_encounter_by_id($encounter_id);
+        $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+        $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+        $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+        $diagnoses     = kc_get_encounter_problems($encounter_id);
+        $orders        = kc_get_encounter_orders($encounter_id);       // ÓRDENES CLÍNICAS
+        $indications   = kc_get_encounter_indications($encounter_id);  // INDICACIONES
+        $prescriptions = kc_get_encounter_prescriptions($encounter_id);
+
+        ob_start();
+        $base = defined('KIVI_CARE_DIR') ? KIVI_CARE_DIR : plugin_dir_path(__FILE__);
+        include trailingslashit($base) . 'templates/encounter-summary-modal.php';
+        return ob_get_clean();
+    }
+}
