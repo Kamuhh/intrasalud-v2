@@ -979,61 +979,61 @@ class KCPatientEncounterController extends KCBase
 
 
         public function printEncounterSummary()
-    {
-        $request_data = $this->request->getInputs();
-        $encounter_id = isset($request_data['encounter_id']) ? (int) $request_data['encounter_id'] : 0;
-        $output_type = isset($request_data['type']) ? sanitize_text_field($request_data['type']) : 'html';
+{
+    // IMPORTANTE: que funcione tanto con REST como con admin-ajax
+    $request_data = is_callable([$this->request, 'getInputs']) ? $this->request->getInputs() : [];
+    $encounter_id = isset($_REQUEST['encounter_id']) ? (int) $_REQUEST['encounter_id'] : (int) ($request_data['encounter_id'] ?? 0);
+    $output_type  = isset($_REQUEST['type']) ? sanitize_text_field($_REQUEST['type']) : sanitize_text_field($request_data['type'] ?? 'html');
 
-        if (!((new KCPatientEncounter())->encounterPermissionUserWise($encounter_id))) {
-            wp_send_json(kcUnauthorizeAccessResponse(403));
+    if (!$encounter_id) {
+        wp_send_json(['status' => false, 'message' => 'encounter_id requerido'], 400);
+    }
+
+    if (
+        !((new KCPatientEncounter())->hasEncounterPermission($encounter_id, 'view')) &&
+        !$this->encounterPermissionUserWise($encounter_id)
+    ) {
+        wp_send_json(kcUnauthorizeAccessResponse(403));
+    }
+
+    // Helpers para reunir datos y renderizar HTML en formato carta
+    if (!function_exists('kc_render_encounter_summary_html')) {
+        require_once KIVI_CARE_DIR . 'templates/encounter-summary-helpers.php';
+    }
+
+    $html = kc_render_encounter_summary_html($encounter_id);
+
+    if ($output_type === 'html') {
+        wp_send_json(['status' => true, 'data' => $html]);
+    }
+
+    if ($output_type === 'pdf' || $output_type === 'sendEmail') {
+        if (!class_exists('\\Dompdf\\Dompdf')) {
+            require_once KIVI_CARE_DIR . 'vendor/autoload.php';
         }
+        $dompdf = new \Dompdf\Dompdf();
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->set_option('isRemoteEnabled', true);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('letter', 'portrait');
+        $dompdf->render();
+        $pdf_output = $dompdf->output();
 
-        if (!function_exists('kc_get_encounter_by_id')) {
-            require_once KIVI_CARE_DIR . 'app/helpers/encounter-summary-helpers.php';
-        }
-
-        $encounter = kc_get_encounter_by_id($encounter_id);
-        if (empty($encounter)) {
-            wp_send_json([
-                'status' => false,
-                'message' => esc_html__('No se encontró el encuentro', 'kc-lang'),
-            ]);
-        }
-
-        $patient = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
-        $doctor  = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
-        $clinic  = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
-        $diagnoses     = kc_get_encounter_problems($encounter_id);
-        $indications   = kc_get_encounter_indications($encounter_id);
-        $orders        = kc_get_encounter_orders($encounter_id);
-        $prescriptions = kc_get_encounter_prescriptions($encounter_id);
-
-        // Render con el nuevo template Carta
-        ob_start();
-        $base = defined('KIVI_CARE_DIR') ? KIVI_CARE_DIR : plugin_dir_path(__FILE__);
-        include trailingslashit($base) . 'templates/encounter-summary-print.php';
-        $html = ob_get_clean();
-
-        // Si pidieron PDF, reutiliza tu lógica Dompdf; si no, devuelve HTML para abrir ventana e imprimir
         if ($output_type === 'pdf') {
-            $dompdf = new \Dompdf\Dompdf();
-            $dompdf->set_option('isHtml5ParserEnabled', true);
-            $dompdf->set_option('isPhpEnabled', true);
-            $dompdf->set_option('isRemoteEnabled', true);
-            $dompdf->loadHtml($html);
-            $dompdf->setPaper('letter', 'portrait'); // carta
-            $dompdf->render();
-            $pdf_output = $dompdf->output();
-
             $file_name  = 'Encuentro_' . $encounter_id . '.pdf';
             $upload_dir = wp_upload_dir();
-            $pdf_path   = $upload_dir['path'] . '/' . $file_name;
+            $pdf_path   = trailingslashit($upload_dir['path']) . $file_name;
             file_put_contents($pdf_path, $pdf_output);
-            wp_send_json(['status' => true, 'file_url' => $upload_dir['url'] . '/' . $file_name]);
-        } else {
-            wp_send_json(['status' => true, 'data' => $html]);
+            wp_send_json(['status' => true, 'file_url' => trailingslashit($upload_dir['url']) . $file_name]);
         }
+
+        // Si en el futuro quieres enviar por email, aquí es donde lo implementas.
+        wp_send_json(['status' => false, 'message' => 'sendEmail no implementado'], 400);
     }
+
+    wp_send_json(['status' => true, 'data' => $html]);
+}
+
     public function getEncounterSummary()
     {
         try {
