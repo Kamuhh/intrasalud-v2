@@ -191,10 +191,10 @@ class KCPatientEncounterController extends KCBase
 		              ON {$patient_encounter_table}.clinic_id = {$clinics_table}.id
             WHERE 0 = 0  {$patient_user_condition}  {$doctor_user_condition}  {$clinic_condition} {$search_condition} ";
 
-        $encounters = $this->db->get_results("SELECT {$patient_encounter_table}.*,
-		       doctors.display_name  AS doctor_name,
-		       patients.display_name AS patient_name,
-		       {$clinics_table}.name AS clinic_name 
+        $encounters = $this->db->get_results("SELECT {$patient_encounter_table}.*
+		       , doctors.display_name  AS doctor_name
+		       , patients.display_name AS patient_name
+		       , {$clinics_table}.name AS clinic_name 
 			  {$common_query} {$orderByCondition} {$paginationCondition} ");
 
         if (!count($encounters)) {
@@ -549,8 +549,6 @@ class KCPatientEncounterController extends KCBase
             wp_send_json(kcUnauthorizeAccessResponse(403));
         }
 
-        //		$custom_fields = KCCustomField::getRequiredFields( 'patient_encounter_module' );
-
         if (!empty($request_data['custom_fields'])) {
             if (is_array($request_data['custom_fields']) && count($request_data['custom_fields']) > 0) {
                 if (strpos(array_key_first($request_data['custom_fields']), 'custom_field_') === false) {
@@ -607,8 +605,6 @@ class KCPatientEncounterController extends KCBase
 
         $encounter = $this->db->get_row($query);
 
-
-
         if (!empty($encounter)) {
             $patient_profile_image = get_user_meta($encounter->patient_id, 'patient_profile_image', true);
             $patient = get_user_meta($encounter->patient_id, 'basic_data', true);
@@ -658,8 +654,6 @@ class KCPatientEncounterController extends KCBase
 
         $request_data = $this->request->getInputs();
 
-
-
         try {
 
             if (!isset($request_data['id'])) {
@@ -681,8 +675,6 @@ class KCPatientEncounterController extends KCBase
                     $id
                 )
             );
-
-
 
             if (empty($encounter)) {
                 wp_send_json(kcThrowExceptionResponse(esc_html__('Encounter not found', 'kc-lang'), 400));
@@ -739,14 +731,14 @@ class KCPatientEncounterController extends KCBase
             $clinics_table = $this->db->prefix . 'kc_clinics';
             $users_table = $this->db->base_prefix . 'users';
             $encouter_id = (int) $request_data['id'];
-            $query = "SELECT {$patient_encounter_table}.*,
-                       doctors.display_name  AS doctor_name,
-                       doctors.user_email AS doctor_email,    
-                       patients.display_name AS patient_name,
-                       patients.user_email AS patient_email,
-                       CONCAT({$clinics_table}.address, ', ', {$clinics_table}.city,', '
-		              ,{$clinics_table}.postal_code,', ',{$clinics_table}.country) AS clinic_address,
-                       {$clinics_table}.* 
+            $query = "SELECT {$patient_encounter_table}.*
+                       , doctors.display_name  AS doctor_name
+                       , doctors.user_email AS doctor_email
+                       , patients.display_name AS patient_name
+                       , patients.user_email AS patient_email
+                       , CONCAT({$clinics_table}.address, ', ', {$clinics_table}.city,', '
+		              ,{$clinics_table}.postal_code,', ',{$clinics_table}.country) AS clinic_address
+                       , {$clinics_table}.*
                     FROM  {$patient_encounter_table}
                        LEFT JOIN {$users_table} doctors
                               ON {$patient_encounter_table}.doctor_id = doctors.id
@@ -1136,21 +1128,23 @@ class KCPatientEncounterController extends KCBase
         }
     }
 
- public function getEncounterSummary()
+    public function getEncounterSummary()
     {
         try {
-            if (!is_user_logged_in()) {
-                return $this->sendError('No autorizado', 401);
+            if ( ! is_user_logged_in() ) {
+                wp_send_json(['status'=>false,'message'=>'No autorizado'],401);
             }
             $user = wp_get_current_user();
-            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
+            $can = user_can($user, 'kc_view_encounter_summary')
+                || in_array('administrator', $user->roles, true)
+                || in_array('kivi_doctor', $user->roles ?? [], true);
             if (!$can) {
-                return $this->sendError('Permisos insuficientes', 403);
+                wp_send_json(['status'=>false,'message'=>'Permisos insuficientes'],403);
             }
 
             $encounter_id = isset($_GET['encounter_id']) ? intval($_GET['encounter_id']) : 0;
             if ($encounter_id <= 0) {
-                return $this->sendError('encounter_id inválido', 400);
+                wp_send_json(['status'=>false,'message'=>'encounter_id inválido'],400);
             }
 
             $encounter   = kc_get_encounter_by_id($encounter_id);
@@ -1160,63 +1154,58 @@ class KCPatientEncounterController extends KCBase
             $clinic      = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
             $diagnoses   = kc_get_encounter_problems($encounter_id);
 
-            // --- BEGIN: Indicaciones (NOTES) y Órdenes clínicas (OBSERVATIONS)
+            // === Indicaciones (NOTES) y Órdenes clínicas (OBSERVATIONS)
             global $wpdb;
-            $kc_mp_table = $wpdb->prefix . 'kc_medical_problems';
 
-            // Helper para traer lista por varios tipos posibles
-            $__kc_get_list = function (array $types) use ($wpdb, $kc_mp_table, $encounter_id) {
-                if (!$encounter_id) {
+            // Tablas posibles para registros del encuentro
+            $table_history  = $wpdb->prefix . 'kc_medical_history';
+            $table_problems = $wpdb->prefix . 'kc_medical_problems';
+
+            // ¿existe kc_medical_history?
+            $exists_history = $wpdb->get_var( $wpdb->prepare("SHOW TABLES LIKE %s", $table_history) );
+            $kc_table = $exists_history ? $table_history : $table_problems;
+
+            // Helper sin operador "..." (para compatibilidad PHP)
+            $fetch_list = function (array $types) use ($wpdb, $kc_table, $encounter_id) {
+                if (!$encounter_id || empty($types)) {
                     return [];
                 }
-                // placeholders dinámicos para IN (...)
-                $ph = implode(',', array_fill(0, count($types), '%s'));
-                // status puede venir como 1 / '1' / 'Active' o NULL
+                $placeholders = implode(',', array_fill(0, count($types), '%s'));
                 $sql = "
-        SELECT title, note
-        FROM {$kc_mp_table}
-        WHERE encounter_id = %d
-          AND type IN ($ph)
-          AND (status = 1 OR status = '1' OR status = 'Active' OR status IS NULL)
-        ORDER BY id ASC
-    ";
-                $params = array_merge([
-                    $encounter_id,
-                ], $types);
-                $rows = $wpdb->get_results($wpdb->prepare($sql, ...$params), ARRAY_A);
-
-                return array_map(function ($r) {
+                    SELECT title, note
+                    FROM {$kc_table}
+                    WHERE encounter_id = %d
+                      AND type IN ($placeholders)
+                    ORDER BY id ASC
+                ";
+                $params = array_merge([$encounter_id], $types);
+                $prepared = call_user_func_array([$wpdb, 'prepare'], array_merge([$sql], $params));
+                $rows = $wpdb->get_results($prepared, ARRAY_A);
+                if (!is_array($rows)) $rows = [];
+                return array_map(function($r){
                     return [
                         'title' => isset($r['title']) ? (string)$r['title'] : '',
-                        'note'  => isset($r['note']) ? (string)$r['note'] : '',
+                        'note'  => isset($r['note'])  ? (string)$r['note']  : '',
                     ];
-                }, is_array($rows) ? $rows : []);
+                }, $rows);
             };
 
-            // Tu template muestra:
-            //  - Indicaciones      desde $orders
-            //  - Órdenes clínicas  desde $indications
+            // Tu UI:
+            //  - $orders       => Indicaciones (notes)
+            //  - $indications  => Órdenes clínicas (observations)
+            $orders      = $fetch_list(['note','notes']);
+            $indications = $fetch_list(['observation','clinical_observations']);
 
-            $orders      = $__kc_get_list(['note', 'notes']);                          // Indicaciones (antes NOTES)
-            $indications = $__kc_get_list(['observation', 'clinical_observations']);    // Órdenes clínicas (antes OBSERVATIONS)
-
-            // Fallbacks a campos legacy del encuentro
+            // Fallbacks legacy desde el propio encuentro
             $notes_legacy = $encounter['notes'] ?? $encounter['note'] ?? '';
             if (empty($orders) && !empty($notes_legacy)) {
-                $orders = [[
-                    'title' => (string) $notes_legacy,
-                    'note'  => '',
-                ]];
+                $orders = [[ 'title' => (string)$notes_legacy, 'note' => '' ]];
             }
 
             $obs_legacy = $encounter['observations'] ?? $encounter['observation'] ?? ($encounter['clinical_observations'] ?? '');
             if (empty($indications) && !empty($obs_legacy)) {
-                $indications = [[
-                    'title' => (string) $obs_legacy,
-                    'note'  => '',
-                ]];
+                $indications = [[ 'title' => (string)$obs_legacy, 'note' => '' ]];
             }
-            // --- END
 
             $prescriptions = kc_get_encounter_prescriptions($encounter_id);
 
@@ -1224,38 +1213,40 @@ class KCPatientEncounterController extends KCBase
             include KIVI_CARE_DIR . 'templates/encounter-summary-modal.php';
             $html = ob_get_clean();
 
-            return $this->sendSuccess(['html' => $html]);
+            wp_send_json(['status'=>true,'data'=>['html'=>$html]]);
         } catch (\Throwable $e) {
-            return $this->sendError($e->getMessage(), 500);
+            wp_send_json(['status'=>false,'message'=>$e->getMessage()],500);
         }
     }
 
     public function emailEncounterSummary()
     {
         try {
-            if (!is_user_logged_in()) {
-                return $this->sendError('No autorizado', 401);
+            if ( ! is_user_logged_in() ) {
+                wp_send_json(['status'=>false,'message'=>'No autorizado'],401);
             }
             $user = wp_get_current_user();
-            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
+            $can = user_can($user, 'kc_view_encounter_summary')
+                || in_array('administrator', $user->roles, true)
+                || in_array('kivi_doctor', $user->roles ?? [], true);
             if (!$can) {
-                return $this->sendError('Permisos insuficientes', 403);
+                wp_send_json(['status'=>false,'message'=>'Permisos insuficientes'],403);
             }
 
             $encounter_id = isset($_POST['encounter_id']) ? intval($_POST['encounter_id']) : 0;
             $to = isset($_POST['to']) ? sanitize_email($_POST['to']) : '';
             if ($encounter_id <= 0 || empty($to) || !is_email($to)) {
-                return $this->sendError('Parámetros inválidos', 400);
+                wp_send_json(['status'=>false,'message'=>'Parámetros inválidos'],400);
             }
 
             $body = kc_build_encounter_summary_text($encounter_id);
             $ok = wp_mail($to, 'Resumen de atención', $body, ['Content-Type: text/plain; charset=UTF-8']);
             if (!$ok) {
-                return $this->sendError('No se pudo enviar el correo', 500);
+                wp_send_json(['status'=>false,'message'=>'No se pudo enviar el correo'],500);
             }
-            return $this->sendSuccess(['ok' => true]);
+            wp_send_json(['status'=>true,'data'=>['ok'=>true]]);
         } catch (\Throwable $e) {
-            return $this->sendError($e->getMessage(), 500);
+            wp_send_json(['status'=>false,'message'=>$e->getMessage()],500);
         }
     }
 }
