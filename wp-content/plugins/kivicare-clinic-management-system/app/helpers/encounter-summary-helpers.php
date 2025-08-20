@@ -42,18 +42,61 @@ if (!function_exists('kc_get_encounter_by_id')) {
     }
 }
 
+/* ============================================================
+ * NUEVO: resolver C.I. (dni) desde varias claves/meta/fallback
+ * ============================================================ */
+if (!function_exists('kc_get_patient_document')) {
+    function kc_get_patient_document($user_id) {
+        $user_id = (int)$user_id;
+
+        // 1) Intentar desde basic_data (JSON)
+        $basic = json_decode(get_user_meta($user_id, 'basic_data', true), true);
+        $candidates = [];
+        if (is_array($basic)) {
+            $candidates[] = $basic['dni']      ?? null;
+            $candidates[] = $basic['ci']       ?? null;
+            $candidates[] = $basic['cedula']   ?? null;
+            $candidates[] = $basic['document'] ?? null;
+        }
+
+        // 2) Metadatos sueltos
+        $candidates[] = get_user_meta($user_id, 'dni', true);
+        $candidates[] = get_user_meta($user_id, 'ci', true);
+        $candidates[] = get_user_meta($user_id, 'cedula', true);
+        $candidates[] = get_user_meta($user_id, 'document', true);
+
+        foreach ($candidates as $v) {
+            $v = is_string($v) ? trim($v) : '';
+            if ($v !== '') return $v;
+        }
+
+        // 3) Fallback final: user_login (opcional)
+        $u = get_userdata($user_id);
+        if ($u && !empty($u->user_login)) {
+            return (string)$u->user_login;
+        }
+        return '';
+    }
+}
+
 if (!function_exists('kc_get_patient_by_id')) {
     function kc_get_patient_by_id($id){
-        $user = get_userdata((int)$id);
+        $id   = (int)$id;
+        $user = get_userdata($id);
         if(!$user){ return []; }
-        $basic = json_decode(get_user_meta((int)$id, 'basic_data', true), true) ?: [];
+
+        $basic = json_decode(get_user_meta($id, 'basic_data', true), true) ?: [];
+
+        // C.I. resuelta con helper (dni/ci/cedula/document -> meta suelto -> user_login)
+        $dni = kc_get_patient_document($id);
+
         return [
-            'id'     => (int)$id,
+            'id'     => $id,
             'name'   => $user->display_name,
             'email'  => $user->user_email,
             'gender' => $basic['gender'] ?? '',
             'dob'    => $basic['dob'] ?? '',
-            'dni'    => $basic['dni'] ?? '',
+            'dni'    => $dni,
         ];
     }
 }
@@ -178,22 +221,95 @@ if (!function_exists('kc_get_encounter_indications')) {
 
 /* =============
  * Prescripciones
- * ============= */
+ * =============
+ */
 if (!function_exists('kc_get_encounter_prescriptions')) {
     function kc_get_encounter_prescriptions($encounter_id){
-        $enc = kc_get_encounter_by_id($encounter_id);
+        $encounter_id = (int)$encounter_id;
         $out = [];
+
+        // 1) JSON en la fila del encuentro (campo 'prescription')
+        $enc = kc_get_encounter_by_id($encounter_id);
         if (!empty($enc['prescription'])) {
             $decoded = json_decode($enc['prescription'], true);
             if (is_array($decoded)) {
                 foreach ($decoded as $p) {
-                    if (is_array($p)) { $out[] = $p; }
+                    $name = trim((string)($p['name'] ?? $p['medicine'] ?? $p['medicine_name'] ?? ''));
+                    $freq = trim((string)($p['frequency'] ?? $p['dose_frequency'] ?? $p['dosage'] ?? ''));
+                    $dur  = trim((string)($p['duration'] ?? $p['days'] ?? $p['period'] ?? ''));
+                    if ($name !== '' || $freq !== '' || $dur !== '') {
+                        $out[] = ['name' => $name, 'frequency' => $freq, 'duration' => $dur];
+                    }
                 }
             }
         }
+
+        if (!empty($out)) {
+            return $out;
+        }
+
+        // 2) Fallback a tablas típicas de recetas
+        global $wpdb;
+        $prefix = $wpdb->prefix;
+
+        $tryTables = [
+            $prefix . 'kc_prescription_medicine',
+            $prefix . 'kc_prescription_medicines',
+            $prefix . 'kc_prescriptions',
+            $prefix . 'kc_prescription',
+        ];
+
+        // posibles nombres de columnas
+        $idCols    = ['encounter_id','patient_encounter_id','appointment_id','visit_id'];
+        $nameCols  = ['name','medicine','medicine_name','title'];
+        $freqCols  = ['frequency','dose_frequency','dosage','dose'];
+        $durCols   = ['duration','days','period'];
+
+        foreach ($tryTables as $tbl) {
+            if (!kc__db_table_exists($tbl)) { continue; }
+
+            $cols = kc__db_columns($tbl);
+            if (empty($cols)) { continue; }
+
+            // columna del encuentro
+            $encCol = '';
+            foreach ($idCols as $c) { if (in_array($c, $cols, true)) { $encCol = $c; break; } }
+            if ($encCol === '') { continue; }
+
+            // columnas de datos
+            $selName = '';
+            foreach ($nameCols as $c) { if (in_array($c, $cols, true)) { $selName = $c; break; } }
+            $selFreq = '';
+            foreach ($freqCols as $c) { if (in_array($c, $cols, true)) { $selFreq = $c; break; } }
+            $selDur  = '';
+            foreach ($durCols as $c) { if (in_array($c, $cols, true)) { $selDur  = $c; break; } }
+
+            $selectParts = [];
+            if ($selName) { $selectParts[] = $selName; }
+            if ($selFreq) { $selectParts[] = $selFreq; }
+            if ($selDur)  { $selectParts[] = $selDur; }
+            if (empty($selectParts)) { continue; }
+
+            $sql  = "SELECT " . implode(',', $selectParts) . " FROM {$tbl} WHERE {$encCol} = %d ORDER BY id ASC";
+            $rows = $wpdb->get_results($wpdb->prepare($sql, $encounter_id), ARRAY_A) ?: [];
+
+            foreach ($rows as $r) {
+                $out[] = [
+                    'name'      => $selName && isset($r[$selName]) ? (string)$r[$selName] : '',
+                    'frequency' => $selFreq && isset($r[$selFreq]) ? (string)$r[$selFreq] : '',
+                    'duration'  => $selDur  && isset($r[$selDur])  ? (string)$r[$selDur]  : '',
+                ];
+            }
+
+            if (!empty($out)) {
+                break; // ya encontramos recetas en esta tabla
+            }
+        }
+
         return $out;
     }
 }
+
 
 /* =================================
  * Texto plano para enviar por email
