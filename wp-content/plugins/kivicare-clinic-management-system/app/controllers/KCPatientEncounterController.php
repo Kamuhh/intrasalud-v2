@@ -191,10 +191,10 @@ class KCPatientEncounterController extends KCBase
 		              ON {$patient_encounter_table}.clinic_id = {$clinics_table}.id
             WHERE 0 = 0  {$patient_user_condition}  {$doctor_user_condition}  {$clinic_condition} {$search_condition} ";
 
-        $encounters = $this->db->get_results("SELECT {$patient_encounter_table}.*
-		       , doctors.display_name  AS doctor_name
-		       , patients.display_name AS patient_name
-		       , {$clinics_table}.name AS clinic_name 
+        $encounters = $this->db->get_results("SELECT {$patient_encounter_table}.*,
+		       doctors.display_name  AS doctor_name,
+		       patients.display_name AS patient_name,
+		       {$clinics_table}.name AS clinic_name 
 			  {$common_query} {$orderByCondition} {$paginationCondition} ");
 
         if (!count($encounters)) {
@@ -549,6 +549,8 @@ class KCPatientEncounterController extends KCBase
             wp_send_json(kcUnauthorizeAccessResponse(403));
         }
 
+        //		$custom_fields = KCCustomField::getRequiredFields( 'patient_encounter_module' );
+
         if (!empty($request_data['custom_fields'])) {
             if (is_array($request_data['custom_fields']) && count($request_data['custom_fields']) > 0) {
                 if (strpos(array_key_first($request_data['custom_fields']), 'custom_field_') === false) {
@@ -605,6 +607,8 @@ class KCPatientEncounterController extends KCBase
 
         $encounter = $this->db->get_row($query);
 
+
+
         if (!empty($encounter)) {
             $patient_profile_image = get_user_meta($encounter->patient_id, 'patient_profile_image', true);
             $patient = get_user_meta($encounter->patient_id, 'basic_data', true);
@@ -654,6 +658,8 @@ class KCPatientEncounterController extends KCBase
 
         $request_data = $this->request->getInputs();
 
+
+
         try {
 
             if (!isset($request_data['id'])) {
@@ -675,6 +681,8 @@ class KCPatientEncounterController extends KCBase
                     $id
                 )
             );
+
+
 
             if (empty($encounter)) {
                 wp_send_json(kcThrowExceptionResponse(esc_html__('Encounter not found', 'kc-lang'), 400));
@@ -731,14 +739,14 @@ class KCPatientEncounterController extends KCBase
             $clinics_table = $this->db->prefix . 'kc_clinics';
             $users_table = $this->db->base_prefix . 'users';
             $encouter_id = (int) $request_data['id'];
-            $query = "SELECT {$patient_encounter_table}.*
-                       , doctors.display_name  AS doctor_name
-                       , doctors.user_email AS doctor_email
-                       , patients.display_name AS patient_name
-                       , patients.user_email AS patient_email
-                       , CONCAT({$clinics_table}.address, ', ', {$clinics_table}.city,', '
-		              ,{$clinics_table}.postal_code,', ',{$clinics_table}.country) AS clinic_address
-                       , {$clinics_table}.*
+            $query = "SELECT {$patient_encounter_table}.*,
+                       doctors.display_name  AS doctor_name,
+                       doctors.user_email AS doctor_email,    
+                       patients.display_name AS patient_name,
+                       patients.user_email AS patient_email,
+                       CONCAT({$clinics_table}.address, ', ', {$clinics_table}.city,', '
+		              ,{$clinics_table}.postal_code,', ',{$clinics_table}.country) AS clinic_address,
+                       {$clinics_table}.* 
                     FROM  {$patient_encounter_table}
                        LEFT JOIN {$users_table} doctors
                               ON {$patient_encounter_table}.doctor_id = doctors.id
@@ -975,15 +983,13 @@ class KCPatientEncounterController extends KCBase
         global $wpdb;
 
         $request_data = $this->request->getInputs();
-        $encounter_id = $encounter_id = isset($request_data['encounter_id']) ? (int)$request_data['encounter_id'] : 0;
+        $encounter_id = isset($request_data['encounter_id']) ? (int) $request_data['encounter_id'] : 0;
         $output_type = isset($request_data['type']) ? sanitize_text_field($request_data['type']) : 'html';
 
-        // Verificar permisos del usuario para este encuentro
         if (!((new KCPatientEncounter())->encounterPermissionUserWise($encounter_id))) {
             wp_send_json(kcUnauthorizeAccessResponse(403));
         }
 
-        // Obtener datos del encuentro, doctor, paciente y clínica
         $table_encounters = $wpdb->prefix . 'kc_patient_encounters';
         $table_clinics = $wpdb->prefix . 'kc_clinics';
         $table_users = $wpdb->base_prefix . 'users';
@@ -1009,7 +1015,7 @@ class KCPatientEncounterController extends KCBase
             ]);
         }
 
-        // Calcular género y edad del paciente a partir de sus datos básicos
+        // Edad
         $patient_basic_data = json_decode(get_user_meta((int) $encounter->patient_id, 'basic_data', true));
         $encounter->patient_gender = (!empty($patient_basic_data->gender) && $patient_basic_data->gender === 'female') ? 'F' : 'M';
         $encounter->patient_age = '';
@@ -1017,195 +1023,138 @@ class KCPatientEncounterController extends KCBase
             try {
                 $from = new DateTime($patient_basic_data->dob);
                 $to = new DateTime('today');
-                $years = $from->diff($to)->y;
-                $months = $from->diff($to)->m;
-                $days = $from->diff($to)->d;
-                if (empty($months) && empty($years)) {
-                    $encounter->patient_age = $days . esc_html__(' Días', 'kc-lang');
-                } elseif (empty($years)) {
-                    $encounter->patient_age = $months . esc_html__(' Meses', 'kc-lang');
-                } else {
-                    $encounter->patient_age = $years . esc_html__(' Años', 'kc-lang');
-                }
+                $y = $from->diff($to)->y;
+                $m = $from->diff($to)->m;
+                $d = $from->diff($to)->d;
+                $encounter->patient_age = ($y ? $y . esc_html__(' Años', 'kc-lang') : ($m ? $m . esc_html__(' Meses', 'kc-lang') : $d . esc_html__(' Días', 'kc-lang')));
             } catch (Exception $e) {
                 $encounter->patient_age = '';
             }
         }
 
-        // Convertir diagnósticos a array (por si vienen en JSON)
+        // Diagnósticos
         $diagnoses = [];
         if (!empty($encounter->diagnosis)) {
             $decoded = json_decode($encounter->diagnosis, true);
-            if (is_array($decoded)) {
-                $diagnoses = $decoded;
-            } else {
-                $diagnoses = [$encounter->diagnosis];
-            }
+            $diagnoses = is_array($decoded) ? $decoded : [$encounter->diagnosis];
         }
 
-        // Construir el HTML del resumen
+        // ÓRDENES CLÍNICAS = OBSERVATIONS
+        $orders = $this->kc_fetch_encounter_items($encounter_id, ['observation', 'clinical_observations']);
+
+        // INDICACIONES = NOTES
+        $indications = $this->kc_fetch_encounter_items($encounter_id, ['note', 'notes']);
+
+
+        // Fallback legacy
+        if (empty($indications) && !empty($encounter->observations)) {
+            $indications = [['title' => (string) $encounter->observations, 'note' => '']];
+        }
+        if (empty($orders) && !empty($encounter->notes)) {
+            $orders = [['title' => (string) $encounter->notes, 'note' => '']];
+        }
+
+        // Construcción HTML simple (igual a tu modal, reducido)
         ob_start(); ?>
-        <div class="kc-summary-modal">
-            <h2><?php echo esc_html__('Resumen de atención', 'kc-lang'); ?></h2>
-            <!-- Detalles del paciente -->
-            <h4><?php echo esc_html__('Detalles del paciente', 'kc-lang'); ?></h4>
-            <p>
-                <?php echo esc_html($encounter->patient_name); ?>
-                (<?php echo esc_html($encounter->patient_gender); ?>) –
-                <?php echo esc_html($encounter->patient_age); ?>
-            </p>
-            <!-- Diagnósticos -->
-            <h4><?php echo esc_html__('Diagnóstico(s)', 'kc-lang'); ?></h4>
-            <ul>
-                <?php foreach ($diagnoses as $diag): ?>
-                    <li><?php echo esc_html($diag); ?></li>
-                <?php endforeach; ?>
-            </ul>
-            <!-- Ordenes Clínicas -->
-            <h4><?php echo esc_html__('Ordenes Clínicas', 'kc-lang'); ?></h4>
-            <p>
-                <?php echo !empty($encounter->observations)
-                    ? esc_html($encounter->observations)
-                    : esc_html__('No se encontraron registros', 'kc-lang'); ?>
-            </p>
-            <!-- Indicaciones -->
-            <h4><?php echo esc_html__('Indicaciones', 'kc-lang'); ?></h4>
-            <p>
-                <?php echo !empty($encounter->notes)
-                    ? esc_html($encounter->notes)
-                    : esc_html__('No se encontraron registros', 'kc-lang'); ?>
-            </p>
-        </div>
-        <?php
-        $html = ob_get_clean();
+            <div class="kc-summary-modal">
+              <h2><?php echo esc_html__('Resumen de atención', 'kc-lang'); ?></h2>
 
-        // Generar PDF o enviar correo si se solicita
-        if ($output_type === 'pdf' || $output_type === 'sendEmail') {
-            $dompdf = new Dompdf();
-            $dompdf->set_option('isHtml5ParserEnabled', true);
-            $dompdf->set_option('isPhpEnabled', true);
-            $dompdf->set_option('isRemoteEnabled', true);
-            $dompdf->loadHtml($html);
-            $dompdf->setPaper('A4', 'portrait');
-            $dompdf->render();
-            $pdf_output = $dompdf->output();
+              <h4><?php echo esc_html__('Diagnóstico(s)', 'kc-lang'); ?></h4>
+              <?php if (!empty($diagnoses)): ?>
+                    <ul><?php foreach ($diagnoses as $d): ?><li><?php echo esc_html(is_array($d) ? ($d['title'] ?? '') : $d); ?></li><?php endforeach; ?></ul>
+              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
 
-            if ($output_type === 'pdf') {
-                // Guardar PDF en uploads y devolver la URL
-                $file_name = 'Encuentro_' . $encounter_id . '.pdf';
-                $upload_dir = wp_upload_dir();
-                $pdf_path = $upload_dir['path'] . '/' . $file_name;
-                file_put_contents($pdf_path, $pdf_output);
-                wp_send_json([
-                    'status' => true,
-                    'file_url' => $upload_dir['url'] . '/' . $file_name,
-                ]);
+              <h4><?php echo esc_html__('Ordenes Clínicas', 'kc-lang'); ?></h4>
+              <?php if (!empty($indications)): ?>
+                    <ul><?php foreach ($indications as $it): ?><li><?php echo esc_html($it['title'] ?? ''); ?></li><?php endforeach; ?></ul>
+              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
+
+              <h4><?php echo esc_html__('Indicaciones', 'kc-lang'); ?></h4>
+              <?php if (!empty($orders)): ?>
+                    <ul><?php foreach ($orders as $it): ?><li><?php echo esc_html($it['title'] ?? ''); ?></li><?php endforeach; ?></ul>
+              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
+            </div>
+            <?php
+            $html = ob_get_clean();
+
+            if ($output_type === 'pdf' || $output_type === 'sendEmail') {
+                $dompdf = new Dompdf();
+                $dompdf->set_option('isHtml5ParserEnabled', true);
+                $dompdf->set_option('isPhpEnabled', true);
+                $dompdf->set_option('isRemoteEnabled', true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $pdf_output = $dompdf->output();
+
+                if ($output_type === 'pdf') {
+                    $file_name = 'Encuentro_' . $encounter_id . '.pdf';
+                    $upload_dir = wp_upload_dir();
+                    $pdf_path = $upload_dir['path'] . '/' . $file_name;
+                    file_put_contents($pdf_path, $pdf_output);
+                    wp_send_json(['status' => true, 'file_url' => $upload_dir['url'] . '/' . $file_name]);
+                } else {
+                    $user_email = $wpdb->get_var('SELECT user_email FROM ' . $wpdb->base_prefix . 'users WHERE ID=' . (int) $encounter->patient_id);
+                    $attachment = [$pdf_output];
+                    $send_status = kcSendEmail([
+                        'user_email' => $user_email,
+                        'attachment_file' => $attachment,
+                        'attachment' => true,
+                        'email_template_type' => 'patient_summary',
+                    ]);
+                    wp_send_json([
+                        'status' => $send_status,
+                        'message' => $send_status ? esc_html__('Correo electrónico enviado con éxito', 'kc-lang')
+                            : esc_html__('No se pudo enviar el correo electrónico', 'kc-lang'),
+                    ]);
+                }
             } else {
-                // Enviar por correo al paciente con el PDF adjunto
-                $user_email = $wpdb->get_var(
-                    'SELECT user_email FROM ' . $wpdb->base_prefix . 'users WHERE ID=' . (int) $encounter->patient_id
-                );
-                $attachment = [$pdf_output];
-                $send_status = kcSendEmail([
-                    'user_email' => $user_email,
-                    'attachment_file' => $attachment,
-                    'attachment' => true,
-                    'email_template_type' => 'patient_summary',
-                ]);
-                wp_send_json([
-                    'status' => $send_status,
-                    'message' => $send_status
-                        ? esc_html__('Correo electrónico enviado con éxito', 'kc-lang')
-                        : esc_html__('No se pudo enviar el correo electrónico', 'kc-lang'),
-                ]);
+                wp_send_json(['status' => true, 'data' => $html]);
             }
-        } else {
-            // Devolver el HTML para el modal
-            wp_send_json([
-                'status' => true,
-                'data' => $html,
-            ]);
-        }
     }
+
 
     public function getEncounterSummary()
     {
         try {
-            if ( ! is_user_logged_in() ) {
-                wp_send_json(['status'=>false,'message'=>'No autorizado'],401);
+            if (!is_user_logged_in()) {
+                return $this->sendError('No autorizado', 401);
             }
             $user = wp_get_current_user();
-            $can = user_can($user, 'kc_view_encounter_summary')
-                || in_array('administrator', $user->roles, true)
-                || in_array('kivi_doctor', $user->roles ?? [], true);
+            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
             if (!$can) {
-                wp_send_json(['status'=>false,'message'=>'Permisos insuficientes'],403);
+                return $this->sendError('Permisos insuficientes', 403);
             }
 
             $encounter_id = isset($_GET['encounter_id']) ? intval($_GET['encounter_id']) : 0;
             if ($encounter_id <= 0) {
-                wp_send_json(['status'=>false,'message'=>'encounter_id inválido'],400);
+                return $this->sendError('encounter_id inválido', 400);
             }
 
-            $encounter   = kc_get_encounter_by_id($encounter_id);
-            $encounter_id = (int)($encounter['id'] ?? 0);
-            $patient     = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
-            $doctor      = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
-            $clinic      = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
-            $diagnoses   = kc_get_encounter_problems($encounter_id);
+            $encounter = kc_get_encounter_by_id($encounter_id);
+            $encounter_id = (int) ($encounter['id'] ?? 0);
+            $patient = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+            $doctor = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+            $clinic = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+            $diagnoses = kc_get_encounter_problems($encounter_id);
 
-            // === Indicaciones (NOTES) y Órdenes clínicas (OBSERVATIONS)
-            global $wpdb;
+            // ÓRDENES CLÍNICAS (observations) y INDICACIONES (notes) desde BD
+            $indications = $this->kc_fetch_encounter_items($encounter_id, ['observation', 'clinical_observations']);
+            $orders = $this->kc_fetch_encounter_items($encounter_id, ['note', 'notes']);
 
-            // Tablas posibles para registros del encuentro
-            $table_history  = $wpdb->prefix . 'kc_medical_history';
-            $table_problems = $wpdb->prefix . 'kc_medical_problems';
 
-            // ¿existe kc_medical_history?
-            $exists_history = $wpdb->get_var( $wpdb->prepare("SHOW TABLES LIKE %s", $table_history) );
-            $kc_table = $exists_history ? $table_history : $table_problems;
-
-            // Helper sin operador "..." (para compatibilidad PHP)
-            $fetch_list = function (array $types) use ($wpdb, $kc_table, $encounter_id) {
-                if (!$encounter_id || empty($types)) {
-                    return [];
-                }
-                $placeholders = implode(',', array_fill(0, count($types), '%s'));
-                $sql = "
-                    SELECT title, note
-                    FROM {$kc_table}
-                    WHERE encounter_id = %d
-                      AND type IN ($placeholders)
-                    ORDER BY id ASC
-                ";
-                $params = array_merge([$encounter_id], $types);
-                $prepared = call_user_func_array([$wpdb, 'prepare'], array_merge([$sql], $params));
-                $rows = $wpdb->get_results($prepared, ARRAY_A);
-                if (!is_array($rows)) $rows = [];
-                return array_map(function($r){
-                    return [
-                        'title' => isset($r['title']) ? (string)$r['title'] : '',
-                        'note'  => isset($r['note'])  ? (string)$r['note']  : '',
-                    ];
-                }, $rows);
-            };
-
-            // Tu UI:
-            //  - $orders       => Indicaciones (notes)
-            //  - $indications  => Órdenes clínicas (observations)
-            $orders      = $fetch_list(['note','notes']);
-            $indications = $fetch_list(['observation','clinical_observations']);
-
-            // Fallbacks legacy desde el propio encuentro
-            $notes_legacy = $encounter['notes'] ?? $encounter['note'] ?? '';
-            if (empty($orders) && !empty($notes_legacy)) {
-                $orders = [[ 'title' => (string)$notes_legacy, 'note' => '' ]];
-            }
-
+            // Fallbacks legacy desde columnas del encuentro (si existieran)
             $obs_legacy = $encounter['observations'] ?? $encounter['observation'] ?? ($encounter['clinical_observations'] ?? '');
-            if (empty($indications) && !empty($obs_legacy)) {
-                $indications = [[ 'title' => (string)$obs_legacy, 'note' => '' ]];
+            $note_legacy = $encounter['notes'] ?? $encounter['note'] ?? '';
+
+            // Si no vinieron registros, caemos a las columnas antiguas
+            if (empty($orders) && !empty($obs_legacy)) {          // ÓRDENES <- observations
+                $orders = [['title' => (string) $obs_legacy, 'note' => '']];
             }
+            if (empty($indications) && !empty($note_legacy)) {    // INDICACIONES <- notes
+                $indications = [['title' => (string) $note_legacy, 'note' => '']];
+            }
+
 
             $prescriptions = kc_get_encounter_prescriptions($encounter_id);
 
@@ -1213,40 +1162,113 @@ class KCPatientEncounterController extends KCBase
             include KIVI_CARE_DIR . 'templates/encounter-summary-modal.php';
             $html = ob_get_clean();
 
-            wp_send_json(['status'=>true,'data'=>['html'=>$html]]);
+            return $this->sendSuccess(['html' => $html]);
         } catch (\Throwable $e) {
-            wp_send_json(['status'=>false,'message'=>$e->getMessage()],500);
+            return $this->sendError($e->getMessage(), 500);
         }
     }
+
 
     public function emailEncounterSummary()
     {
         try {
-            if ( ! is_user_logged_in() ) {
-                wp_send_json(['status'=>false,'message'=>'No autorizado'],401);
+            if (!is_user_logged_in()) {
+                return $this->sendError('No autorizado', 401);
             }
             $user = wp_get_current_user();
-            $can = user_can($user, 'kc_view_encounter_summary')
-                || in_array('administrator', $user->roles, true)
-                || in_array('kivi_doctor', $user->roles ?? [], true);
+            $can = user_can($user, 'kc_view_encounter_summary') || in_array('administrator', $user->roles, true) || in_array('kivi_doctor', $user->roles ?? [], true);
             if (!$can) {
-                wp_send_json(['status'=>false,'message'=>'Permisos insuficientes'],403);
+                return $this->sendError('Permisos insuficientes', 403);
             }
 
             $encounter_id = isset($_POST['encounter_id']) ? intval($_POST['encounter_id']) : 0;
             $to = isset($_POST['to']) ? sanitize_email($_POST['to']) : '';
             if ($encounter_id <= 0 || empty($to) || !is_email($to)) {
-                wp_send_json(['status'=>false,'message'=>'Parámetros inválidos'],400);
+                return $this->sendError('Parámetros inválidos', 400);
             }
 
             $body = kc_build_encounter_summary_text($encounter_id);
             $ok = wp_mail($to, 'Resumen de atención', $body, ['Content-Type: text/plain; charset=UTF-8']);
             if (!$ok) {
-                wp_send_json(['status'=>false,'message'=>'No se pudo enviar el correo'],500);
+                return $this->sendError('No se pudo enviar el correo', 500);
             }
-            wp_send_json(['status'=>true,'data'=>['ok'=>true]]);
+            return $this->sendSuccess(['ok' => true]);
         } catch (\Throwable $e) {
-            wp_send_json(['status'=>false,'message'=>$e->getMessage()],500);
+            return $this->sendError($e->getMessage(), 500);
         }
+    }
+
+    /**
+     * Devuelve items (title/note) por encounter y tipos.
+     * Lee de kc_medical_history y/o kc_medical_problems (ambas si existen).
+     * No asume columnas status/note. Deduplica por título.
+     */
+    private function kc_fetch_encounter_items($encounter_id, array $types)
+    {
+        global $wpdb;
+
+        $encounter_id = (int) $encounter_id;
+        $types = array_values(array_unique(array_filter($types)));
+        if (!$encounter_id || empty($types)) {
+            return [];
+        }
+
+        $t_history = $wpdb->prefix . 'kc_medical_history';
+        $t_problems = $wpdb->prefix . 'kc_medical_problems';
+
+        // Escapar '_' y '%' para LIKE
+        $likeEsc = static function (string $s) {
+            return strtr($s, ['_' => '\_', '%' => '\%']); };
+
+        $exists = static function (string $tbl) use ($wpdb, $likeEsc): bool {
+            return (bool) $wpdb->get_var(
+                $wpdb->prepare("SHOW TABLES LIKE %s", $likeEsc($tbl))
+            );
+        };
+
+        $pieces = [];
+        $params = [];
+
+        // placeholders para IN(...)
+        $in = implode(',', array_fill(0, count($types), '%s'));
+
+        if ($exists($t_history)) {
+            // Seleccionamos title y una nota vacía (para no depender de columnas)
+            $pieces[] = "SELECT title, '' AS note FROM {$t_history} WHERE encounter_id = %d AND type IN ($in)";
+            $params[] = $encounter_id;
+            $params = array_merge($params, $types);
+        }
+
+        if ($exists($t_problems)) {
+            $pieces[] = "SELECT title, '' AS note FROM {$t_problems} WHERE encounter_id = %d AND type IN ($in)";
+            $params[] = $encounter_id;
+            $params = array_merge($params, $types);
+        }
+
+        if (empty($pieces)) {
+            return [];
+        }
+
+        $sql = implode(' UNION ALL ', $pieces) . ' ORDER BY title ASC';
+        $prepared = call_user_func_array([$wpdb, 'prepare'], array_merge([$sql], $params));
+        $rows = (array) $wpdb->get_results($prepared, ARRAY_A);
+
+        // Deduplicar por título
+        $seen = [];
+        $out = [];
+        foreach ($rows as $r) {
+            $t = trim((string) ($r['title'] ?? ''));
+            if ($t === '') {
+                continue;
+            }
+            $k = mb_strtolower($t);
+            if (isset($seen[$k])) {
+                continue;
+            }
+            $seen[$k] = true;
+            $out[] = ['title' => $t, 'note' => ''];
+        }
+
+        return $out;
     }
 }
