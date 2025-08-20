@@ -721,6 +721,61 @@ class KCPatientEncounterController extends KCBase
         $request_data = $this->request->getInputs();
         $request_data['id'] = (int) $request_data['id'];
     }
+public function handlePrintEncounterSummaryAjax() {
+    try {
+        // lee parámetros de la request (GET/POST)
+        $encounter_id = isset($_REQUEST['encounter_id']) ? (int) $_REQUEST['encounter_id'] : 0;
+        $type         = isset($_REQUEST['type']) ? sanitize_text_field($_REQUEST['type']) : 'html'; // 'html' | 'pdf'
+
+        if ($encounter_id <= 0) {
+            wp_send_json_error(['message' => 'encounter_id requerido'], 400);
+        }
+        if ( ! $this->encounterPermissionUserWise($encounter_id)) {
+            wp_send_json_error(['message' => 'Permiso denegado'], 403);
+        }
+
+        // Construye el HTML carta (con helpers)
+        if ( ! function_exists('kc_render_encounter_letter') ) {
+            // por si el helper aún no se cargó
+            require_once KIVI_CARE_DIR . 'app/helpers/encounter-summary-helpers.php';
+        }
+
+        // Preferimos el template de impresión tipo "carta"
+        if (function_exists('kc_render_encounter_letter')) {
+            $html = kc_render_encounter_letter($encounter_id);
+        } else {
+            // último recurso: el HTML del modal
+            $html = kc_render_encounter_summary_html($encounter_id);
+        }
+
+        if ($type === 'pdf') {
+            // Opcional: PDF con Dompdf
+            if ( ! class_exists('\Dompdf\Dompdf') ) {
+                wp_send_json_success($html); // si no está, devolvemos HTML
+            }
+            $dompdf = new \Dompdf\Dompdf();
+            $dompdf->set_option('isHtml5ParserEnabled', true);
+            $dompdf->set_option('isRemoteEnabled', true);
+            $dompdf->loadHtml($html, 'UTF-8');
+            $dompdf->setPaper('letter', 'portrait');
+            $dompdf->render();
+            $output = $dompdf->output();
+
+            $upload = wp_upload_dir();
+            $file   = $upload['path'] . '/Encuentro_' . $encounter_id . '.pdf';
+            file_put_contents($file, $output);
+
+            wp_send_json_success(['url' => $upload['url'] . '/Encuentro_' . $encounter_id . '.pdf']);
+        }
+
+        // Por defecto devolvemos HTML embebible en una ventana nueva
+        wp_send_json_success($html);
+
+    } catch (\Throwable $e) {
+        // MUY IMPORTANTE: sólo JSON, nunca echo/HTML
+        wp_send_json_error(['message' => $e->getMessage()], 500);
+    }
+}
 
     public function printEncounterBillDetail()
     {
