@@ -978,10 +978,8 @@ class KCPatientEncounterController extends KCBase
     }
 
 
-    public function printEncounterSummary()
+        public function printEncounterSummary()
     {
-        global $wpdb;
-
         $request_data = $this->request->getInputs();
         $encounter_id = isset($request_data['encounter_id']) ? (int) $request_data['encounter_id'] : 0;
         $output_type = isset($request_data['type']) ? sanitize_text_field($request_data['type']) : 'html';
@@ -990,130 +988,52 @@ class KCPatientEncounterController extends KCBase
             wp_send_json(kcUnauthorizeAccessResponse(403));
         }
 
-        $table_encounters = $wpdb->prefix . 'kc_patient_encounters';
-        $table_clinics = $wpdb->prefix . 'kc_clinics';
-        $table_users = $wpdb->base_prefix . 'users';
+        if (!function_exists('kc_get_encounter_by_id')) {
+            require_once KIVI_CARE_DIR . 'app/helpers/encounter-summary-helpers.php';
+        }
 
-        $query = $wpdb->prepare(
-            "SELECT e.*, d.display_name AS doctor_name, d.user_email AS doctor_email,
-                p.display_name AS patient_name, p.user_email AS patient_email,
-                CONCAT(c.address, ', ', c.city, ', ', c.postal_code, ', ', c.country) AS clinic_address,
-                c.*
-         FROM {$table_encounters} e
-         LEFT JOIN {$table_users} d ON e.doctor_id  = d.id
-         LEFT JOIN {$table_users} p ON e.patient_id = p.id
-         LEFT JOIN {$table_clinics} c ON e.clinic_id = c.id
-         WHERE e.id = %d",
-            $encounter_id
-        );
-        $encounter = $wpdb->get_row($query);
-
-        if (!$encounter) {
+        $encounter = kc_get_encounter_by_id($encounter_id);
+        if (empty($encounter)) {
             wp_send_json([
                 'status' => false,
                 'message' => esc_html__('No se encontró el encuentro', 'kc-lang'),
             ]);
         }
 
-        // Edad
-        $patient_basic_data = json_decode(get_user_meta((int) $encounter->patient_id, 'basic_data', true));
-        $encounter->patient_gender = (!empty($patient_basic_data->gender) && $patient_basic_data->gender === 'female') ? 'F' : 'M';
-        $encounter->patient_age = '';
-        if (!empty($patient_basic_data->dob)) {
-            try {
-                $from = new DateTime($patient_basic_data->dob);
-                $to = new DateTime('today');
-                $y = $from->diff($to)->y;
-                $m = $from->diff($to)->m;
-                $d = $from->diff($to)->d;
-                $encounter->patient_age = ($y ? $y . esc_html__(' Años', 'kc-lang') : ($m ? $m . esc_html__(' Meses', 'kc-lang') : $d . esc_html__(' Días', 'kc-lang')));
-            } catch (Exception $e) {
-                $encounter->patient_age = '';
-            }
+        $patient = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+        $doctor  = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+        $clinic  = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+        $diagnoses     = kc_get_encounter_problems($encounter_id);
+        $indications   = kc_get_encounter_indications($encounter_id);
+        $orders        = kc_get_encounter_orders($encounter_id);
+        $prescriptions = kc_get_encounter_prescriptions($encounter_id);
+
+        // Render con el nuevo template Carta
+        ob_start();
+        $base = defined('KIVI_CARE_DIR') ? KIVI_CARE_DIR : plugin_dir_path(__FILE__);
+        include trailingslashit($base) . 'templates/encounter-summary-print.php';
+        $html = ob_get_clean();
+
+        // Si pidieron PDF, reutiliza tu lógica Dompdf; si no, devuelve HTML para abrir ventana e imprimir
+        if ($output_type === 'pdf') {
+            $dompdf = new \Dompdf\Dompdf();
+            $dompdf->set_option('isHtml5ParserEnabled', true);
+            $dompdf->set_option('isPhpEnabled', true);
+            $dompdf->set_option('isRemoteEnabled', true);
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('letter', 'portrait'); // carta
+            $dompdf->render();
+            $pdf_output = $dompdf->output();
+
+            $file_name  = 'Encuentro_' . $encounter_id . '.pdf';
+            $upload_dir = wp_upload_dir();
+            $pdf_path   = $upload_dir['path'] . '/' . $file_name;
+            file_put_contents($pdf_path, $pdf_output);
+            wp_send_json(['status' => true, 'file_url' => $upload_dir['url'] . '/' . $file_name]);
+        } else {
+            wp_send_json(['status' => true, 'data' => $html]);
         }
-
-        // Diagnósticos
-        $diagnoses = [];
-        if (!empty($encounter->diagnosis)) {
-            $decoded = json_decode($encounter->diagnosis, true);
-            $diagnoses = is_array($decoded) ? $decoded : [$encounter->diagnosis];
-        }
-
-        // ÓRDENES CLÍNICAS = OBSERVATIONS
-        $orders = $this->kc_fetch_encounter_items($encounter_id, ['observation', 'clinical_observations']);
-
-        // INDICACIONES = NOTES
-        $indications = $this->kc_fetch_encounter_items($encounter_id, ['note', 'notes']);
-
-
-        // Fallback legacy
-        if (empty($indications) && !empty($encounter->observations)) {
-            $indications = [['title' => (string) $encounter->observations, 'note' => '']];
-        }
-        if (empty($orders) && !empty($encounter->notes)) {
-            $orders = [['title' => (string) $encounter->notes, 'note' => '']];
-        }
-
-        // Construcción HTML simple (igual a tu modal, reducido)
-        ob_start(); ?>
-            <div class="kc-summary-modal">
-              <h2><?php echo esc_html__('Resumen de atención', 'kc-lang'); ?></h2>
-
-              <h4><?php echo esc_html__('Diagnóstico(s)', 'kc-lang'); ?></h4>
-              <?php if (!empty($diagnoses)): ?>
-                    <ul><?php foreach ($diagnoses as $d): ?><li><?php echo esc_html(is_array($d) ? ($d['title'] ?? '') : $d); ?></li><?php endforeach; ?></ul>
-              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
-
-              <h4><?php echo esc_html__('Ordenes Clínicas', 'kc-lang'); ?></h4>
-              <?php if (!empty($indications)): ?>
-                    <ul><?php foreach ($indications as $it): ?><li><?php echo esc_html($it['title'] ?? ''); ?></li><?php endforeach; ?></ul>
-              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
-
-              <h4><?php echo esc_html__('Indicaciones', 'kc-lang'); ?></h4>
-              <?php if (!empty($orders)): ?>
-                    <ul><?php foreach ($orders as $it): ?><li><?php echo esc_html($it['title'] ?? ''); ?></li><?php endforeach; ?></ul>
-              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
-            </div>
-            <?php
-            $html = ob_get_clean();
-
-            if ($output_type === 'pdf' || $output_type === 'sendEmail') {
-                $dompdf = new Dompdf();
-                $dompdf->set_option('isHtml5ParserEnabled', true);
-                $dompdf->set_option('isPhpEnabled', true);
-                $dompdf->set_option('isRemoteEnabled', true);
-                $dompdf->loadHtml($html);
-                $dompdf->setPaper('A4', 'portrait');
-                $dompdf->render();
-                $pdf_output = $dompdf->output();
-
-                if ($output_type === 'pdf') {
-                    $file_name = 'Encuentro_' . $encounter_id . '.pdf';
-                    $upload_dir = wp_upload_dir();
-                    $pdf_path = $upload_dir['path'] . '/' . $file_name;
-                    file_put_contents($pdf_path, $pdf_output);
-                    wp_send_json(['status' => true, 'file_url' => $upload_dir['url'] . '/' . $file_name]);
-                } else {
-                    $user_email = $wpdb->get_var('SELECT user_email FROM ' . $wpdb->base_prefix . 'users WHERE ID=' . (int) $encounter->patient_id);
-                    $attachment = [$pdf_output];
-                    $send_status = kcSendEmail([
-                        'user_email' => $user_email,
-                        'attachment_file' => $attachment,
-                        'attachment' => true,
-                        'email_template_type' => 'patient_summary',
-                    ]);
-                    wp_send_json([
-                        'status' => $send_status,
-                        'message' => $send_status ? esc_html__('Correo electrónico enviado con éxito', 'kc-lang')
-                            : esc_html__('No se pudo enviar el correo electrónico', 'kc-lang'),
-                    ]);
-                }
-            } else {
-                wp_send_json(['status' => true, 'data' => $html]);
-            }
     }
-
-
     public function getEncounterSummary()
     {
         try {
@@ -1218,7 +1138,8 @@ class KCPatientEncounterController extends KCBase
 
         // Escapar '_' y '%' para LIKE
         $likeEsc = static function (string $s) {
-            return strtr($s, ['_' => '\_', '%' => '\%']); };
+            return strtr($s, ['_' => '\_', '%' => '\%']);
+        };
 
         $exists = static function (string $tbl) use ($wpdb, $likeEsc): bool {
             return (bool) $wpdb->get_var(
