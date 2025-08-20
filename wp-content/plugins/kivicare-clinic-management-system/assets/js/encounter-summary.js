@@ -238,57 +238,22 @@
     const mo = new MutationObserver(() => injectButtonOnce());
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
-async function kcPrintEncounter(encounterId) {
-    const params = new URLSearchParams();
-    params.append('action', 'print_encounter_summary');
-    params.append('encounter_id', String(encounterId));
-    params.append('type', 'html');
+(function($){
+  $(document).on('click', '.js-kc-summary-print', function(e){
+    e.preventDefault();
 
-    try {
-        const res = await fetch(ajaxurl, {
-            method: 'POST',
-            body: params,
-            credentials: 'same-origin'
-        });
-
-        let payload;
-        try {
-            payload = await res.json();
-        } catch (e) {
-            const txt = await res.text();
-            console.error('Respuesta no-JSON:', txt);
-            alert('No se pudo generar la impresión (respuesta no válida). Revisa la consola.');
-            return;
-        }
-
-        if (!payload || payload.success !== true) {
-            const msg = payload && payload.data && payload.data.message ? payload.data.message : 'Error desconocido';
-            alert('No se pudo generar la impresión\n\n' + msg);
-            return;
-        }
-
-        const html = payload.data;
-        const win = window.open('', '_blank');
-        win.document.open();
-        win.document.write(html);
-        win.document.close();
-        win.focus();
-        win.print();
-
-    } catch (err) {
-        console.error(err);
-        alert('No se pudo generar la impresión (error de red).');
+    var $modal = $('.kc-modal-summary');
+    var encounterId = $modal.data('encounter-id');
+    if(!encounterId){
+      alert('No se encontró el ID del encuentro.');
+      return;
     }
-}
+    var ajax = (window.ajaxurl || (window.kc && kc.ajaxurl) || '/wp-admin/admin-ajax.php');
+    var url  = ajax + '?action=kc_stream_encounter_summary_pdf&encounter_id=' + encodeURIComponent(encounterId);
 
-
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.js-kc-summary-print');
-    if (!btn) return;
-    const modal = document.querySelector('.kc-modal[data-encounter-id]');
-    const id = modal ? modal.getAttribute('data-encounter-id') : '';
-    if (id) kcPrintEncounter(id);
-});
+    window.open(url, '_blank');
+  });
+})(jQuery);
 
 // Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
 document.addEventListener('click', (e) => {
