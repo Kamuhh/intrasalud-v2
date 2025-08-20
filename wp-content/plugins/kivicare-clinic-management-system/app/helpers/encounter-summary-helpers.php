@@ -359,8 +359,8 @@ if (!function_exists('kc_build_encounter_summary_text')) {
 /* ==========================
  * HTML del modal (si lo usas)
  * ========================== */
-if (!function_exists('kc_render_encounter_summary_html')) {
-    function kc_render_encounter_summary_html($encounter_id){
+if (!function_exists('kc_render_encounter_summary_modal_html')) {
+    function kc_render_encounter_summary_modal_html($encounter_id){
         $encounter     = kc_get_encounter_by_id($encounter_id);
         $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
         $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
