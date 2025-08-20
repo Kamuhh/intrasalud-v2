@@ -158,22 +158,6 @@
                 wrap.addEventListener('click', e => { if (e.target.classList.contains('kc-modal')) wrap.remove(); });
                 document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { wrap.remove(); document.removeEventListener('keydown', esc); } });
 
-                // imprimir (resumen)
-                const printBtn = wrap.querySelector('.js-kc-summary-print');
-                if (printBtn) printBtn.addEventListener('click', (ev) => {
-                    ev.stopPropagation();
-                    const node = wrap.querySelector('.kc-modal__dialog');
-                    const w = window.open('', '_blank'); if (!w) return;
-                    w.document.write('<html><head><title>Resumen de la atención</title>');
-                    document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
-                    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
-                    w.document.write('</head><body>' + node.outerHTML + '</body></html>');
-                    w.document.close(); w.focus();
-                    w.onafterprint = () => { try { w.close(); } catch (e) { } };
-                    setTimeout(() => { try { w.close(); } catch (e) { } }, 2000);
-                    w.print();
-                });
-
                 // correo (POST con encounter_id y to) + fallback mailto
                 const emailBtn = wrap.querySelector('.js-kc-summary-email');
                 const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
@@ -254,6 +238,34 @@
     const mo = new MutationObserver(() => injectButtonOnce());
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
+
+async function kcPrintEncounter(encounterId) {
+  const params = new URLSearchParams();
+  params.append('action', 'print_encounter_summary'); // usa el mismo action/route que ya tiene tu backend
+  params.append('encounter_id', String(encounterId));
+  params.append('type', 'html'); // para que devuelva HTML
+
+  const res  = await fetch(ajaxurl, { method: 'POST', body: params });
+  const json = await res.json();
+  if (!json?.status || !json?.data) {
+    alert('No se pudo generar la impresión');
+    return;
+  }
+  const w = window.open('', '_blank');
+  w.document.open();
+  w.document.write(json.data);
+  w.document.close();
+  w.focus();
+  setTimeout(() => { w.print(); }, 300);
+}
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.js-kc-summary-print');
+  if (!btn) return;
+  const modal = document.querySelector('.kc-modal[data-encounter-id]');
+  const id = modal ? modal.getAttribute('data-encounter-id') : '';
+  if (id) kcPrintEncounter(id);
+});
 
 // Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
 document.addEventListener('click', (e) => {
