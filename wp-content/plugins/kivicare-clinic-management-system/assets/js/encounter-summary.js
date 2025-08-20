@@ -238,14 +238,14 @@
     const mo = new MutationObserver(() => injectButtonOnce());
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
-
 async function kcPrintEncounter(encounterId) {
   const params = new URLSearchParams();
   params.append('action', 'print_encounter_summary'); // usa el mismo action/route que ya tiene tu backend
   params.append('encounter_id', String(encounterId));
   params.append('type', 'html'); // para que devuelva HTML
+  const ajax = window.ajaxurl || (window.kcGlobals && window.kcGlobals.ajaxUrl) || '/wp-admin/admin-ajax.php';
 
-  const res  = await fetch(ajaxurl, { method: 'POST', body: params });
+  const res  = await fetch(ajax, { method: 'POST', credentials: 'include', body: params });
   const json = await res.json();
   if (!json?.status || !json?.data) {
     alert('No se pudo generar la impresión');
