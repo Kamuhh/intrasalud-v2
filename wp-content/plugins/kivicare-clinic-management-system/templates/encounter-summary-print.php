@@ -37,7 +37,7 @@ $printDate = $fmt($encounter['encounter_date'] ?? $encounter['date'] ?? current_
 <meta charset="utf-8">
 <title>Resumen de la atención</title>
 <style>
-  @page { size: Letter; margin: 18mm 16mm; }
+  @page { size: Letter; margin: 22mm 18mm; }
   * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif; color:#111827; }
   h1,h2,h3 { margin:0 0 8px 0; }
