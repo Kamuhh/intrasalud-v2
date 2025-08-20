@@ -109,6 +109,11 @@ function kc_encounter_summary_email_cb() {
     wp_send_json_error(['message' => 'Fallo al enviar'], 500);
 }
 
+// PDF en streaming del resumen
+add_action('wp_ajax_kc_stream_encounter_summary_pdf', function(){
+    (new \App\Controllers\KCPatientEncounterController())->streamEncounterSummaryPdf();
+});
+
 // Require once the Composer Autoload
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
