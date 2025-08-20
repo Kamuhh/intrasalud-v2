@@ -239,32 +239,55 @@
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
 async function kcPrintEncounter(encounterId) {
-  const params = new URLSearchParams();
-  params.append('action', 'print_encounter_summary'); // usa el mismo action/route que ya tiene tu backend
-  params.append('encounter_id', String(encounterId));
-  params.append('type', 'html'); // para que devuelva HTML
-  const ajax = window.ajaxurl || (window.kcGlobals && window.kcGlobals.ajaxUrl) || '/wp-admin/admin-ajax.php';
+    const params = new URLSearchParams();
+    params.append('action', 'print_encounter_summary');
+    params.append('encounter_id', String(encounterId));
+    params.append('type', 'html');
 
-  const res  = await fetch(ajax, { method: 'POST', credentials: 'include', body: params });
-  const json = await res.json();
-  if (!json?.status || !json?.data) {
-    alert('No se pudo generar la impresión');
-    return;
-  }
-  const w = window.open('', '_blank');
-  w.document.open();
-  w.document.write(json.data);
-  w.document.close();
-  w.focus();
-  setTimeout(() => { w.print(); }, 300);
+    try {
+        const res = await fetch(ajaxurl, {
+            method: 'POST',
+            body: params,
+            credentials: 'same-origin'
+        });
+
+        let payload;
+        try {
+            payload = await res.json();
+        } catch (e) {
+            const txt = await res.text();
+            console.error('Respuesta no-JSON:', txt);
+            alert('No se pudo generar la impresión (respuesta no válida). Revisa la consola.');
+            return;
+        }
+
+        if (!payload || payload.success !== true) {
+            const msg = payload && payload.data && payload.data.message ? payload.data.message : 'Error desconocido';
+            alert('No se pudo generar la impresión\n\n' + msg);
+            return;
+        }
+
+        const html = payload.data;
+        const win = window.open('', '_blank');
+        win.document.open();
+        win.document.write(html);
+        win.document.close();
+        win.focus();
+        win.print();
+
+    } catch (err) {
+        console.error(err);
+        alert('No se pudo generar la impresión (error de red).');
+    }
 }
 
+
 document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.js-kc-summary-print');
-  if (!btn) return;
-  const modal = document.querySelector('.kc-modal[data-encounter-id]');
-  const id = modal ? modal.getAttribute('data-encounter-id') : '';
-  if (id) kcPrintEncounter(id);
+    const btn = e.target.closest('.js-kc-summary-print');
+    if (!btn) return;
+    const modal = document.querySelector('.kc-modal[data-encounter-id]');
+    const id = modal ? modal.getAttribute('data-encounter-id') : '';
+    if (id) kcPrintEncounter(id);
 });
 
 // Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
