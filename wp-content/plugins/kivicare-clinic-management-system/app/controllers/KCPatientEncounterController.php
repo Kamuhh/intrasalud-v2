@@ -1157,9 +1157,10 @@ class KCPatientEncounterController extends KCBase
             $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
             $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
             $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
-            $diagnoses     = kc_get_encounter_problems($encounter_id);
-            $orders        = kc_get_encounter_orders($encounter_id);
-            $indications   = kc_get_encounter_indications($encounter_id);
+            $lists         = kc_get_encounter_medical_lists($encounter_id);
+            $diagnoses     = $lists['problems'];
+            $orders        = $lists['observations'];
+            $indications   = $lists['notes'];
             $prescriptions = kc_get_encounter_prescriptions($encounter_id);
 
             ob_start();
