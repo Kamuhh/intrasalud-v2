@@ -355,39 +355,6 @@ if (!function_exists('kc_build_encounter_summary_text')) {
         return implode("\n", $lines);
     }
 }
-// Devuelve el HTML listo para imprimir en tamaño Carta (Letter)
-if (!function_exists('kc_render_encounter_letter')) {
-    function kc_render_encounter_letter($encounter_id){
-        // datos base
-        $encounter     = kc_get_encounter_by_id($encounter_id);
-        $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
-        $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
-        $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
-
-        // secciones
-        $diagnoses       = kc_get_encounter_problems($encounter_id);
-        $indications     = kc_get_encounter_indications($encounter_id);
-        $orders          = kc_get_encounter_orders($encounter_id);
-        $prescriptions   = kc_get_encounter_prescriptions($encounter_id);
-
-        // logo de la clínica
-        $clinic_logo = '';
-        if (!empty($clinic['profile_image'])) {
-            $clinic_logo = wp_get_attachment_url((int)$clinic['profile_image']);
-        }
-        if (!$clinic_logo && function_exists('get_custom_logo')) {
-            $logo_id = get_theme_mod('custom_logo');
-            if ($logo_id) $clinic_logo = wp_get_attachment_image_url($logo_id, 'full');
-        }
-
-        // variables disponibles en el template:
-        // $encounter, $patient, $doctor, $clinic, $diagnoses, $indications, $orders, $prescriptions, $clinic_logo
-        ob_start();
-        include KIVI_CARE_DIR . 'templates/encounter-summary-print.php';
-        return ob_get_clean();
-    }
-}
-
 
 /* ==========================
  * HTML del modal (si lo usas)
@@ -406,6 +373,46 @@ if (!function_exists('kc_render_encounter_summary_modal_html')) {
         ob_start();
         $base = defined('KIVI_CARE_DIR') ? KIVI_CARE_DIR : plugin_dir_path(__FILE__);
         include trailingslashit($base) . 'templates/encounter-summary-modal.php';
+        return ob_get_clean();
+    }
+}
+
+// Devuelve el HTML listo para imprimir en tamaño Carta (Letter)
+if (!function_exists('kc_render_encounter_letter')) {
+    function kc_render_encounter_letter($encounter_id){
+        // Carga datos
+        $encounter     = kc_get_encounter_by_id($encounter_id);
+        $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+        $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+        $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+        $diagnoses     = kc_get_encounter_problems($encounter_id);
+        $indications   = kc_get_encounter_indications($encounter_id);
+        $orders        = kc_get_encounter_orders($encounter_id);
+        $prescriptions = kc_get_encounter_prescriptions($encounter_id);
+
+        // Logo clínica
+        $clinic_logo = '';
+        if (!empty($clinic['profile_image'])) {
+            $clinic_logo = wp_get_attachment_url((int)$clinic['profile_image']);
+        }
+        if (!$clinic_logo && function_exists('get_custom_logo')) {
+            $logo_id = get_theme_mod('custom_logo');
+            if ($logo_id) $clinic_logo = wp_get_attachment_image_url($logo_id, 'full');
+        }
+
+        // Variables disponibles en el template:
+        // $encounter, $patient, $doctor, $clinic, $diagnoses, $indications, $orders, $prescriptions, $clinic_logo
+        ob_start();
+        $base = defined('KIVI_CARE_DIR') ? KIVI_CARE_DIR : dirname(dirname(__DIR__)).'/';
+        $tpl1 = $base . 'templates/encounter-summary-print.php';
+        if (!file_exists($tpl1)) {
+            // fallback mínimo (no romper)
+            echo '<html><body><h3>Resumen de la atención</h3><pre>';
+            echo esc_html(print_r(compact('patient','encounter','diagnoses','indications','orders','prescriptions'), true));
+            echo '</pre></body></html>';
+        } else {
+            include $tpl1;
+        }
         return ob_get_clean();
     }
 }
