@@ -51,13 +51,22 @@ add_action('admin_enqueue_scripts', function () {
     }
 }, 20);
 
-// === Encounter Summary Print (AJAX) ===
-add_action('wp_ajax_print_encounter_summary', function () {
-    (new \App\Controllers\KCPatientEncounterController())->printEncounterSummary();
-});
-// add_action('wp_ajax_nopriv_print_encounter_summary', function () {
-//     (new \App\Controllers\KCPatientEncounterController())->printEncounterSummary();
-// });
+// === AJAX: imprimir resumen de la atención (admin-ajax) ===
+add_action('wp_ajax_print_encounter_summary', 'kc_ajax_print_encounter_summary');
+function kc_ajax_print_encounter_summary() {
+    try {
+        if ( ! is_user_logged_in() ) {
+            wp_send_json_error(['message' => 'No autorizado'], 401);
+        }
+        // Llama al controlador estándar
+        $ctrl = new \App\Controllers\KCPatientEncounterController();
+        $ctrl->handlePrintEncounterSummaryAjax();
+        // (la función de arriba hace wp_send_json_* y sale)
+    } catch (\Throwable $e) {
+        wp_send_json_error(['message' => $e->getMessage()], 500);
+    }
+}
+
 
 // ── Fallback AJAX: obtener HTML del resumen
 add_action('wp_ajax_kc_encounter_summary', function () {
