@@ -1,3 +1,34 @@
+<style>
+  .kc-modal-summary .kc-nowrap { white-space: nowrap; }
+</style>
+
+<?php
+// ==== Normalizaciones para el modal ====
+
+// 1) Género -> español
+$rawGender = strtolower(trim((string)($patient['gender'] ?? '')));
+$genderMap = [
+  'male' => 'Masculino', 'm' => 'Masculino', 'h' => 'Masculino', '1' => 'Masculino',
+  'female' => 'Femenino', 'f' => 'Femenino', 'mujer' => 'Femenino', '2' => 'Femenino',
+  'other' => 'otro', 'o' => 'otro', '3' => 'otro',
+];
+$genderEs = $genderMap[$rawGender] ?? (in_array($rawGender, ['masculino','femenino','otro']) ? $rawGender : '');
+
+// 2) Fecha de nacimiento + edad (edad al momento del encuentro; si no hay fecha del encuentro, hoy)
+$dobRaw = $patient['dob'] ?? '';
+$dobOut = '';
+if (!empty($dobRaw)) {
+  try {
+    $dob = new DateTime($dobRaw);
+    $ref = !empty($encounter['encounter_date'] ?? null) ? new DateTime($encounter['encounter_date']) : new DateTime();
+    $age = $dob->diff($ref)->y;
+    $dobOut = $dob->format('Y-m-d') . ' (' . $age . ' años)';
+  } catch (Exception $e) {
+    $dobOut = (string)$dobRaw; // en caso de formato inesperado, mostrar crudo
+  }
+}
+?>
+
 <div class="kc-modal kc-modal-summary" role="dialog" aria-modal="true" data-patient-email="<?= esc_attr($patient['email'] ?? '') ?>" data-encounter-id="<?= isset($encounter['id']) ? esc_attr($encounter['id']) : '' ?>">
   <div class="kc-modal__dialog">
     <div class="kc-modal__header">
@@ -13,8 +44,9 @@
             <div><strong>Nombre:</strong> <span id="kc-sum-name"><?= esc_html($patient['name'] ?? '') ?></span></div>
             <div><strong>C.I.:</strong> <span id="kc-sum-ci"><?= esc_html($patient['dni'] ?? '') ?></span></div>
             <div><strong>Correo:</strong> <span id="kc-sum-email"><?= esc_html($patient['email'] ?? '') ?></span></div>
-            <div><strong>Género:</strong> <span id="kc-sum-gender"><?= esc_html($patient['gender'] ?? '') ?></span></div>
-            <div><strong>Fecha de nacimiento:</strong> <span id="kc-sum-dob"><?= esc_html($patient['dob'] ?? '') ?></span></div>
+            <div><strong>Género:</strong> <span id="kc-sum-gender"><?= esc_html($genderEs) ?></span></div>
+            <div><strong>Fecha de nacimiento:</strong> <span id="kc-sum-dob" class="kc-nowrap"><?= esc_html($dobOut) ?></span></div>
+
           </div>
         </div>
       </section>
@@ -46,12 +78,13 @@
         </div>
       </section>
 
+      <!-- INDICACIONES (NOTES) — en este entorno provienen de $orders -->
       <section class="kc-card">
         <div class="kc-card__header">Indicaciones</div>
         <div class="kc-card__body">
           <ul class="kc-list" id="kc-sum-ind-list">
-            <?php if (!empty($indications)) : ?>
-              <?php foreach ($indications as $i): ?>
+            <?php if (!empty($orders)) : ?>
+              <?php foreach ($orders as $i): ?>
                 <li><?= esc_html($i['title'] ?? '') ?></li>
               <?php endforeach; ?>
             <?php else: ?>
@@ -61,12 +94,13 @@
         </div>
       </section>
 
+      <!-- ÓRDENES CLÍNICAS (OBSERVATIONS) — en este entorno provienen de $indications -->
       <section class="kc-card">
         <div class="kc-card__header">Órdenes clínicas</div>
         <div class="kc-card__body">
           <ul class="kc-list" id="kc-sum-orders-list">
-            <?php if (!empty($orders)) : ?>
-              <?php foreach ($orders as $o): ?>
+            <?php if (!empty($indications)) : ?>
+              <?php foreach ($indications as $o): ?>
                 <li><?= esc_html($o['title'] ?? '') ?><?php if(isset($o['note'])) echo ' — '.esc_html($o['note']); ?></li>
               <?php endforeach; ?>
             <?php else: ?>
