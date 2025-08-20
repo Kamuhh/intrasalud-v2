@@ -51,22 +51,6 @@ add_action('admin_enqueue_scripts', function () {
     }
 }, 20);
 
-// === AJAX: imprimir resumen de la atención (admin-ajax) ===
-add_action('wp_ajax_print_encounter_summary', 'kc_ajax_print_encounter_summary');
-function kc_ajax_print_encounter_summary() {
-    try {
-        if ( ! is_user_logged_in() ) {
-            wp_send_json_error(['message' => 'No autorizado'], 401);
-        }
-        // Llama al controlador estándar
-        $ctrl = new \App\Controllers\KCPatientEncounterController();
-        $ctrl->handlePrintEncounterSummaryAjax();
-        // (la función de arriba hace wp_send_json_* y sale)
-    } catch (\Throwable $e) {
-        wp_send_json_error(['message' => $e->getMessage()], 500);
-    }
-}
-
 
 // ── Fallback AJAX: obtener HTML del resumen
 add_action('wp_ajax_kc_encounter_summary', function () {
@@ -258,3 +242,28 @@ add_action('wp_ajax_kc_encounter_summary_email', function () {
 
     wp_send_json_success(['ok' => true]);
 });
+
+// === AJAX: imprimir resumen de la atención ===
+add_action('wp_ajax_print_encounter_summary', 'kc_ajax_print_encounter_summary');
+function kc_ajax_print_encounter_summary() {
+    try {
+        if ( ! is_user_logged_in() ) {
+            wp_send_json_error(['message' => 'No autorizado'], 401);
+        }
+
+        // Carga el controlador
+        if ( ! class_exists('\App\Controllers\KCPatientEncounterController') ) {
+            // ruta defensiva por si el autoload no lo cargó aún
+            $base = dirname(__FILE__);
+            $ctrlFile = $base . '/app/controllers/KCPatientEncounterController.php';
+            if (file_exists($ctrlFile)) { require_once $ctrlFile; }
+        }
+
+        $ctrl = new \App\Controllers\KCPatientEncounterController();
+        $ctrl->handlePrintEncounterSummaryAjax(); // hace wp_send_json_* y termina
+
+    } catch (\Throwable $e) {
+        // Nunca devolver HTML aquí, sólo JSON
+        wp_send_json_error(['message' => $e->getMessage()], 500);
+    }
+}
