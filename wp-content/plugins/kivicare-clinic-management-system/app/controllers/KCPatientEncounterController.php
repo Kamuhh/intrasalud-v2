@@ -1251,3 +1251,68 @@ public function handlePrintEncounterSummaryAjax() {
         return $out;
     }
 }
+
+    // === PDF en streaming (sin archivo en disco) ===
+    public function streamEncounterSummaryPdf() {
+        if ( ! is_user_logged_in() ) {
+            status_header(403);
+            exit('No autorizado');
+        }
+
+        $request_data = $this->request->getInputs();
+        $encounter_id = isset($request_data['encounter_id']) ? (int)$request_data['encounter_id'] : 0;
+
+        if ($encounter_id <= 0) {
+            status_header(400);
+            exit('Encuentro inválido');
+        }
+
+        if ( ! (new KCPatientEncounter())->hasEncounterPermission($encounter_id, 'view') ) {
+            status_header(403);
+            exit('Sin permiso');
+        }
+
+        // Cargar helpers de impresión
+        $helpers_file = defined('KIVI_CARE_DIR')
+            ? KIVI_CARE_DIR . 'templates/encounter-summary-helpers.php'
+            : plugin_dir_path(__FILE__) . '../../templates/encounter-summary-helpers.php';
+        if (file_exists($helpers_file)) { require_once $helpers_file; }
+
+        if (!function_exists('kc_render_encounter_letter')) {
+            status_header(500);
+            exit('Falta kc_render_encounter_letter');
+        }
+
+        $html = kc_render_encounter_letter($encounter_id);
+        if (empty($html)) {
+            status_header(500);
+            exit('No se pudo generar el contenido');
+        }
+
+        // Dompdf
+        if (!class_exists('\Dompdf\Dompdf')) {
+            // Ajustar ruta si el autoload está en otra parte
+            if (defined('KIVI_CARE_DIR') && file_exists(KIVI_CARE_DIR.'vendor/autoload.php')) {
+                require_once KIVI_CARE_DIR.'vendor/autoload.php';
+            }
+        }
+
+        try {
+            $dompdf = new \Dompdf\Dompdf();
+            $dompdf->set_option('isHtml5ParserEnabled', true);
+            $dompdf->set_option('isPhpEnabled', true);
+            $dompdf->set_option('isRemoteEnabled', true);
+
+            $dompdf->loadHtml('<meta charset="UTF-8">'.$html);
+            $dompdf->setPaper('letter', 'portrait'); // CARTA
+            $dompdf->render();
+
+            // Stream directo (no se guarda en disco)
+            $filename = 'encuentro-' . $encounter_id . '.pdf';
+            $dompdf->stream($filename, ['Attachment' => false]);
+            exit;
+        } catch (\Throwable $e) {
+            status_header(500);
+            exit('Error al generar PDF: '.$e->getMessage());
+        }
+    }
