@@ -51,7 +51,6 @@ add_action('admin_enqueue_scripts', function () {
     }
 }, 20);
 
-
 // ── Fallback AJAX: obtener HTML del resumen
 add_action('wp_ajax_kc_encounter_summary', function () {
     if ( ! is_user_logged_in() ) wp_send_json_error(['message' => 'No autorizado'], 401);
@@ -66,10 +65,19 @@ add_action('wp_ajax_kc_encounter_summary', function () {
     $encounter_id = intval($_REQUEST['encounter_id'] ?? 0);
     if ( $encounter_id <= 0 ) wp_send_json_error(['message' => 'encounter_id inválido'], 400);
 
-        if ( ! function_exists('kc_render_encounter_summary_modal_html') ) {
-        require_once KC_PLUGIN_DIR . 'app/helpers/encounter-summary-helpers.php';
-    }
-    $html = kc_render_encounter_summary_modal_html($encounter_id);
+    // Helpers ya existentes
+    $encounter     = kc_get_encounter_by_id($encounter_id);
+    $patient       = kc_get_patient_by_id($encounter['patient_id'] ?? 0);
+    $doctor        = kc_get_doctor_by_id($encounter['doctor_id'] ?? 0);
+    $clinic        = kc_get_clinic_by_id($encounter['clinic_id'] ?? 0);
+    $diagnoses     = kc_get_encounter_problems($encounter_id);
+    $orders        = kc_get_encounter_orders($encounter_id);
+    $indications   = kc_get_encounter_indications($encounter_id);
+    $prescriptions = kc_get_encounter_prescriptions($encounter_id);
+
+    ob_start();
+    include KC_PLUGIN_DIR . 'templates/encounter-summary-modal.php';
+    $html = ob_get_clean();
 
     wp_send_json_success(['html' => $html]);
 });
@@ -89,10 +97,10 @@ function kc_encounter_summary_email_cb() {
         wp_send_json_error(['message' => 'Parámetros inválidos'], 400);
     }
 
-    if ( ! function_exists('kc_render_encounter_summary_modal_html') ) {
+    if ( ! function_exists('kc_render_encounter_summary_html') ) {
         require_once KC_PLUGIN_DIR . 'app/helpers/encounter-summary-helpers.php';
     }
-    $html = kc_render_encounter_summary_modal_html($encounter_id);
+    $html = kc_render_encounter_summary_html($encounter_id);
     if ( ! $html ) {
         wp_send_json_error(['message' => 'No se pudo generar el resumen'], 500);
     }
@@ -108,11 +116,6 @@ function kc_encounter_summary_email_cb() {
     }
     wp_send_json_error(['message' => 'Fallo al enviar'], 500);
 }
-
-// PDF en streaming del resumen
-add_action('wp_ajax_kc_stream_encounter_summary_pdf', function(){
-    (new \App\Controllers\KCPatientEncounterController())->streamEncounterSummaryPdf();
-});
 
 // Require once the Composer Autoload
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
@@ -247,28 +250,3 @@ add_action('wp_ajax_kc_encounter_summary_email', function () {
 
     wp_send_json_success(['ok' => true]);
 });
-
-// === AJAX: imprimir resumen de la atención ===
-add_action('wp_ajax_print_encounter_summary', 'kc_ajax_print_encounter_summary');
-function kc_ajax_print_encounter_summary() {
-    try {
-        if ( ! is_user_logged_in() ) {
-            wp_send_json_error(['message' => 'No autorizado'], 401);
-        }
-
-        // Carga el controlador
-        if ( ! class_exists('\App\Controllers\KCPatientEncounterController') ) {
-            // ruta defensiva por si el autoload no lo cargó aún
-            $base = dirname(__FILE__);
-            $ctrlFile = $base . '/app/controllers/KCPatientEncounterController.php';
-            if (file_exists($ctrlFile)) { require_once $ctrlFile; }
-        }
-
-        $ctrl = new \App\Controllers\KCPatientEncounterController();
-        $ctrl->handlePrintEncounterSummaryAjax(); // hace wp_send_json_* y termina
-
-    } catch (\Throwable $e) {
-        // Nunca devolver HTML aquí, sólo JSON
-        wp_send_json_error(['message' => $e->getMessage()], 500);
-    }
-}
