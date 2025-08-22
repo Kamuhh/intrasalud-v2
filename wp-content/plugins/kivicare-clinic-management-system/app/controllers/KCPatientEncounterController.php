@@ -721,64 +721,6 @@ class KCPatientEncounterController extends KCBase
         $request_data = $this->request->getInputs();
         $request_data['id'] = (int) $request_data['id'];
     }
-public function handlePrintEncounterSummaryAjax() {
-    try {
-        $encounter_id = isset($_REQUEST['encounter_id']) ? (int) $_REQUEST['encounter_id'] : 0;
-        $type         = isset($_REQUEST['type']) ? sanitize_text_field($_REQUEST['type']) : 'html'; // 'html' | 'pdf'
-
-        if ($encounter_id <= 0) {
-            wp_send_json_error(['message' => 'encounter_id requerido'], 400);
-        }
-        if ( ! $this->encounterPermissionUserWise($encounter_id)) {
-            wp_send_json_error(['message' => 'Permiso denegado'], 403);
-        }
-
-        // Asegura helper cargado
-        if ( ! function_exists('kc_render_encounter_letter') ) {
-            $base = defined('KIVI_CARE_DIR') ? KIVI_CARE_DIR : dirname(dirname(__DIR__)).'/';
-            $helperA = $base . 'app/helpers/encounter-summary-helpers.php';
-            $helperB = $base . 'templates/encounter-summary-helpers.php'; // por si lo moviste
-            if (file_exists($helperA)) { require_once $helperA; }
-            elseif (file_exists($helperB)) { require_once $helperB; }
-            else {
-                wp_send_json_error(['message' => 'No se encontró encounter-summary-helpers.php'], 500);
-            }
-        }
-
-        // HTML carta
-        $html = kc_render_encounter_letter($encounter_id);
-        if (!is_string($html) || $html === '') {
-            wp_send_json_error(['message' => 'El template de impresión devolvió vacío'], 500);
-        }
-
-        if ($type === 'pdf') {
-            if ( ! class_exists('\Dompdf\Dompdf') ) {
-                // Sin Dompdf, devolvemos HTML.
-                wp_send_json_success($html);
-            }
-            $dompdf = new \Dompdf\Dompdf();
-            $dompdf->set_option('isHtml5ParserEnabled', true);
-            $dompdf->set_option('isRemoteEnabled', true);
-            $dompdf->loadHtml($html, 'UTF-8');
-            $dompdf->setPaper('letter', 'portrait');
-            $dompdf->render();
-
-            $upload = wp_upload_dir();
-            $file   = $upload['path'] . '/Encuentro_' . $encounter_id . '.pdf';
-            file_put_contents($file, $dompdf->output());
-
-            wp_send_json_success(['url' => $upload['url'] . '/Encuentro_' . $encounter_id . '.pdf']);
-        }
-
-        // OK -> HTML
-        wp_send_json_success($html);
-
-    } catch (\Throwable $e) {
-        // ¡Nada de echo/HTML! Sólo JSON.
-        wp_send_json_error(['message' => $e->getMessage()], 500);
-    }
-}
-
 
     public function printEncounterBillDetail()
     {
@@ -1036,61 +978,141 @@ public function handlePrintEncounterSummaryAjax() {
     }
 
 
-        public function printEncounterSummary()
-{
-    // IMPORTANTE: que funcione tanto con REST como con admin-ajax
-    $request_data = is_callable([$this->request, 'getInputs']) ? $this->request->getInputs() : [];
-    $encounter_id = isset($_REQUEST['encounter_id']) ? (int) $_REQUEST['encounter_id'] : (int) ($request_data['encounter_id'] ?? 0);
-    $output_type  = isset($_REQUEST['type']) ? sanitize_text_field($_REQUEST['type']) : sanitize_text_field($request_data['type'] ?? 'html');
+    public function printEncounterSummary()
+    {
+        global $wpdb;
 
-    if (!$encounter_id) {
-        wp_send_json(['status' => false, 'message' => 'encounter_id requerido'], 400);
-    }
+        $request_data = $this->request->getInputs();
+        $encounter_id = isset($request_data['encounter_id']) ? (int) $request_data['encounter_id'] : 0;
+        $output_type = isset($request_data['type']) ? sanitize_text_field($request_data['type']) : 'html';
 
-    if (
-        !((new KCPatientEncounter())->hasEncounterPermission($encounter_id, 'view')) &&
-        !$this->encounterPermissionUserWise($encounter_id)
-    ) {
-        wp_send_json(kcUnauthorizeAccessResponse(403));
-    }
-
-    // Helpers para reunir datos y renderizar HTML en formato carta
-    if (!function_exists('kc_render_encounter_summary_html')) {
-        require_once KIVI_CARE_DIR . 'templates/encounter-summary-helpers.php';
-    }
-
-    $html = kc_render_encounter_summary_html($encounter_id);
-
-    if ($output_type === 'html') {
-        wp_send_json(['status' => true, 'data' => $html]);
-    }
-
-    if ($output_type === 'pdf' || $output_type === 'sendEmail') {
-        if (!class_exists('\\Dompdf\\Dompdf')) {
-            require_once KIVI_CARE_DIR . 'vendor/autoload.php';
-        }
-        $dompdf = new \Dompdf\Dompdf();
-        $dompdf->set_option('isHtml5ParserEnabled', true);
-        $dompdf->set_option('isRemoteEnabled', true);
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('letter', 'portrait');
-        $dompdf->render();
-        $pdf_output = $dompdf->output();
-
-        if ($output_type === 'pdf') {
-            $file_name  = 'Encuentro_' . $encounter_id . '.pdf';
-            $upload_dir = wp_upload_dir();
-            $pdf_path   = trailingslashit($upload_dir['path']) . $file_name;
-            file_put_contents($pdf_path, $pdf_output);
-            wp_send_json(['status' => true, 'file_url' => trailingslashit($upload_dir['url']) . $file_name]);
+        if (!((new KCPatientEncounter())->encounterPermissionUserWise($encounter_id))) {
+            wp_send_json(kcUnauthorizeAccessResponse(403));
         }
 
-        // Si en el futuro quieres enviar por email, aquí es donde lo implementas.
-        wp_send_json(['status' => false, 'message' => 'sendEmail no implementado'], 400);
+        $table_encounters = $wpdb->prefix . 'kc_patient_encounters';
+        $table_clinics = $wpdb->prefix . 'kc_clinics';
+        $table_users = $wpdb->base_prefix . 'users';
+
+        $query = $wpdb->prepare(
+            "SELECT e.*, d.display_name AS doctor_name, d.user_email AS doctor_email,
+                p.display_name AS patient_name, p.user_email AS patient_email,
+                CONCAT(c.address, ', ', c.city, ', ', c.postal_code, ', ', c.country) AS clinic_address,
+                c.*
+         FROM {$table_encounters} e
+         LEFT JOIN {$table_users} d ON e.doctor_id  = d.id
+         LEFT JOIN {$table_users} p ON e.patient_id = p.id
+         LEFT JOIN {$table_clinics} c ON e.clinic_id = c.id
+         WHERE e.id = %d",
+            $encounter_id
+        );
+        $encounter = $wpdb->get_row($query);
+
+        if (!$encounter) {
+            wp_send_json([
+                'status' => false,
+                'message' => esc_html__('No se encontró el encuentro', 'kc-lang'),
+            ]);
+        }
+
+        // Edad
+        $patient_basic_data = json_decode(get_user_meta((int) $encounter->patient_id, 'basic_data', true));
+        $encounter->patient_gender = (!empty($patient_basic_data->gender) && $patient_basic_data->gender === 'female') ? 'F' : 'M';
+        $encounter->patient_age = '';
+        if (!empty($patient_basic_data->dob)) {
+            try {
+                $from = new DateTime($patient_basic_data->dob);
+                $to = new DateTime('today');
+                $y = $from->diff($to)->y;
+                $m = $from->diff($to)->m;
+                $d = $from->diff($to)->d;
+                $encounter->patient_age = ($y ? $y . esc_html__(' Años', 'kc-lang') : ($m ? $m . esc_html__(' Meses', 'kc-lang') : $d . esc_html__(' Días', 'kc-lang')));
+            } catch (Exception $e) {
+                $encounter->patient_age = '';
+            }
+        }
+
+        // Diagnósticos
+        $diagnoses = [];
+        if (!empty($encounter->diagnosis)) {
+            $decoded = json_decode($encounter->diagnosis, true);
+            $diagnoses = is_array($decoded) ? $decoded : [$encounter->diagnosis];
+        }
+
+        // ÓRDENES CLÍNICAS = OBSERVATIONS
+        $orders = $this->kc_fetch_encounter_items($encounter_id, ['observation', 'clinical_observations']);
+
+        // INDICACIONES = NOTES
+        $indications = $this->kc_fetch_encounter_items($encounter_id, ['note', 'notes']);
+
+
+        // Fallback legacy
+        if (empty($indications) && !empty($encounter->observations)) {
+            $indications = [['title' => (string) $encounter->observations, 'note' => '']];
+        }
+        if (empty($orders) && !empty($encounter->notes)) {
+            $orders = [['title' => (string) $encounter->notes, 'note' => '']];
+        }
+
+        // Construcción HTML simple (igual a tu modal, reducido)
+        ob_start(); ?>
+            <div class="kc-summary-modal">
+              <h2><?php echo esc_html__('Resumen de atención', 'kc-lang'); ?></h2>
+
+              <h4><?php echo esc_html__('Diagnóstico(s)', 'kc-lang'); ?></h4>
+              <?php if (!empty($diagnoses)): ?>
+                    <ul><?php foreach ($diagnoses as $d): ?><li><?php echo esc_html(is_array($d) ? ($d['title'] ?? '') : $d); ?></li><?php endforeach; ?></ul>
+              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
+
+              <h4><?php echo esc_html__('Ordenes Clínicas', 'kc-lang'); ?></h4>
+              <?php if (!empty($indications)): ?>
+                    <ul><?php foreach ($indications as $it): ?><li><?php echo esc_html($it['title'] ?? ''); ?></li><?php endforeach; ?></ul>
+              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
+
+              <h4><?php echo esc_html__('Indicaciones', 'kc-lang'); ?></h4>
+              <?php if (!empty($orders)): ?>
+                    <ul><?php foreach ($orders as $it): ?><li><?php echo esc_html($it['title'] ?? ''); ?></li><?php endforeach; ?></ul>
+              <?php else: ?><p><?php echo esc_html__('No se encontraron registros', 'kc-lang'); ?></p><?php endif; ?>
+            </div>
+            <?php
+            $html = ob_get_clean();
+
+            if ($output_type === 'pdf' || $output_type === 'sendEmail') {
+                $dompdf = new Dompdf();
+                $dompdf->set_option('isHtml5ParserEnabled', true);
+                $dompdf->set_option('isPhpEnabled', true);
+                $dompdf->set_option('isRemoteEnabled', true);
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $pdf_output = $dompdf->output();
+
+                if ($output_type === 'pdf') {
+                    $file_name = 'Encuentro_' . $encounter_id . '.pdf';
+                    $upload_dir = wp_upload_dir();
+                    $pdf_path = $upload_dir['path'] . '/' . $file_name;
+                    file_put_contents($pdf_path, $pdf_output);
+                    wp_send_json(['status' => true, 'file_url' => $upload_dir['url'] . '/' . $file_name]);
+                } else {
+                    $user_email = $wpdb->get_var('SELECT user_email FROM ' . $wpdb->base_prefix . 'users WHERE ID=' . (int) $encounter->patient_id);
+                    $attachment = [$pdf_output];
+                    $send_status = kcSendEmail([
+                        'user_email' => $user_email,
+                        'attachment_file' => $attachment,
+                        'attachment' => true,
+                        'email_template_type' => 'patient_summary',
+                    ]);
+                    wp_send_json([
+                        'status' => $send_status,
+                        'message' => $send_status ? esc_html__('Correo electrónico enviado con éxito', 'kc-lang')
+                            : esc_html__('No se pudo enviar el correo electrónico', 'kc-lang'),
+                    ]);
+                }
+            } else {
+                wp_send_json(['status' => true, 'data' => $html]);
+            }
     }
 
-    wp_send_json(['status' => true, 'data' => $html]);
-}
 
     public function getEncounterSummary()
     {
@@ -1196,8 +1218,7 @@ public function handlePrintEncounterSummaryAjax() {
 
         // Escapar '_' y '%' para LIKE
         $likeEsc = static function (string $s) {
-            return strtr($s, ['_' => '\_', '%' => '\%']);
-        };
+            return strtr($s, ['_' => '\_', '%' => '\%']); };
 
         $exists = static function (string $tbl) use ($wpdb, $likeEsc): bool {
             return (bool) $wpdb->get_var(
@@ -1251,68 +1272,3 @@ public function handlePrintEncounterSummaryAjax() {
         return $out;
     }
 }
-
-    // === PDF en streaming (sin archivo en disco) ===
-    public function streamEncounterSummaryPdf() {
-        if ( ! is_user_logged_in() ) {
-            status_header(403);
-            exit('No autorizado');
-        }
-
-        $request_data = $this->request->getInputs();
-        $encounter_id = isset($request_data['encounter_id']) ? (int)$request_data['encounter_id'] : 0;
-
-        if ($encounter_id <= 0) {
-            status_header(400);
-            exit('Encuentro inválido');
-        }
-
-        if ( ! (new KCPatientEncounter())->hasEncounterPermission($encounter_id, 'view') ) {
-            status_header(403);
-            exit('Sin permiso');
-        }
-
-        // Cargar helpers de impresión
-        $helpers_file = defined('KIVI_CARE_DIR')
-            ? KIVI_CARE_DIR . 'templates/encounter-summary-helpers.php'
-            : plugin_dir_path(__FILE__) . '../../templates/encounter-summary-helpers.php';
-        if (file_exists($helpers_file)) { require_once $helpers_file; }
-
-        if (!function_exists('kc_render_encounter_letter')) {
-            status_header(500);
-            exit('Falta kc_render_encounter_letter');
-        }
-
-        $html = kc_render_encounter_letter($encounter_id);
-        if (empty($html)) {
-            status_header(500);
-            exit('No se pudo generar el contenido');
-        }
-
-        // Dompdf
-        if (!class_exists('\Dompdf\Dompdf')) {
-            // Ajustar ruta si el autoload está en otra parte
-            if (defined('KIVI_CARE_DIR') && file_exists(KIVI_CARE_DIR.'vendor/autoload.php')) {
-                require_once KIVI_CARE_DIR.'vendor/autoload.php';
-            }
-        }
-
-        try {
-            $dompdf = new \Dompdf\Dompdf();
-            $dompdf->set_option('isHtml5ParserEnabled', true);
-            $dompdf->set_option('isPhpEnabled', true);
-            $dompdf->set_option('isRemoteEnabled', true);
-
-            $dompdf->loadHtml('<meta charset="UTF-8">'.$html);
-            $dompdf->setPaper('letter', 'portrait'); // CARTA
-            $dompdf->render();
-
-            // Stream directo (no se guarda en disco)
-            $filename = 'encuentro-' . $encounter_id . '.pdf';
-            $dompdf->stream($filename, ['Attachment' => false]);
-            exit;
-        } catch (\Throwable $e) {
-            status_header(500);
-            exit('Error al generar PDF: '.$e->getMessage());
-        }
-    }
