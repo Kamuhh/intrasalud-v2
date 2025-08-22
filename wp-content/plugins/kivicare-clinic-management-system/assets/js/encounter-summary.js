@@ -158,6 +158,22 @@
                 wrap.addEventListener('click', e => { if (e.target.classList.contains('kc-modal')) wrap.remove(); });
                 document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { wrap.remove(); document.removeEventListener('keydown', esc); } });
 
+                // imprimir (resumen)
+                const printBtn = wrap.querySelector('.js-kc-summary-print');
+                if (printBtn) printBtn.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    const node = wrap.querySelector('.kc-modal__dialog');
+                    const w = window.open('', '_blank'); if (!w) return;
+                    w.document.write('<html><head><title>Resumen de la atención</title>');
+                    document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
+                    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
+                    w.document.write('</head><body>' + node.outerHTML + '</body></html>');
+                    w.document.close(); w.focus();
+                    w.onafterprint = () => { try { w.close(); } catch (e) { } };
+                    setTimeout(() => { try { w.close(); } catch (e) { } }, 2000);
+                    w.print();
+                });
+
                 // correo (POST con encounter_id y to) + fallback mailto
                 const emailBtn = wrap.querySelector('.js-kc-summary-email');
                 const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
@@ -238,22 +254,6 @@
     const mo = new MutationObserver(() => injectButtonOnce());
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
-(function($){
-  $(document).on('click', '.js-kc-summary-print', function(e){
-    e.preventDefault();
-
-    var $modal = $('.kc-modal-summary');
-    var encounterId = $modal.data('encounter-id');
-    if(!encounterId){
-      alert('No se encontró el ID del encuentro.');
-      return;
-    }
-    var ajax = (window.ajaxurl || (window.kc && kc.ajaxurl) || '/wp-admin/admin-ajax.php');
-    var url  = ajax + '?action=kc_stream_encounter_summary_pdf&encounter_id=' + encodeURIComponent(encounterId);
-
-    window.open(url, '_blank');
-  });
-})(jQuery);
 
 // Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
 document.addEventListener('click', (e) => {
