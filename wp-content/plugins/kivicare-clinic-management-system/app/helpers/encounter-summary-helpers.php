@@ -376,3 +376,67 @@ if (!function_exists('kc_render_encounter_summary_html')) {
         return ob_get_clean();
     }
 }
+// ====== PAYLOAD PARA PDF ======
+if (!function_exists('kc_build_encounter_summary_payload')) {
+    function kc_build_encounter_summary_payload($encounter_id) {
+        $encounter_id = (int)$encounter_id;
+        $e = kc_get_encounter_by_id($encounter_id);
+        $patient    = kc_get_patient_by_id($e['patient_id'] ?? 0);
+        $doctor     = kc_get_doctor_by_id($e['doctor_id'] ?? 0);
+        $clinic     = kc_get_clinic_by_id($e['clinic_id'] ?? 0);
+        $diagnoses  = kc_get_encounter_problems($encounter_id);
+        $orders     = kc_get_encounter_orders($encounter_id);       // Observations
+        $indics     = kc_get_encounter_indications($encounter_id);  // Notes
+        $rx         = kc_get_encounter_prescriptions($encounter_id);
+
+        // Logo y dirección de la clínica
+        $logo = '';
+        if (!empty($clinic['profile_image'])) {
+            $logo = wp_get_attachment_url($clinic['profile_image']);
+        }
+        if (!$logo && defined('KIVI_CARE_DIR_URI')) {
+            $logo = KIVI_CARE_DIR_URI . 'assets/images/kc-demo-img.png';
+        }
+        $addr_parts = [];
+        foreach (['address','city','state','country'] as $k) {
+            if (!empty($clinic[$k])) $addr_parts[] = $clinic[$k];
+        }
+        $clinic_addr = implode(', ', $addr_parts);
+
+        // Firma y datos del doctor (usa tus campos personalizados 7 y 8 para MPPS y CM)
+        $sign_id = get_user_meta((int)($e['doctor_id'] ?? 0), 'doctor_signature', true);
+        $sign_url = $sign_id ? wp_get_attachment_url($sign_id) : '';
+        $basic_doc = json_decode(get_user_meta((int)($e['doctor_id'] ?? 0), 'basic_data', true), true) ?: [];
+        $spec = $basic_doc['speciality'] ?? ($basic_doc['specialization'] ?? ($basic_doc['designation'] ?? ''));
+        $doc_ci = $basic_doc['dni'] ?? '';
+        $doc_mpps = function_exists('obtener_custom_field_doctor') ? obtener_custom_field_doctor((int)($e['doctor_id'] ?? 0), 7) : '';
+        $doc_cm   = function_exists('obtener_custom_field_doctor') ? obtener_custom_field_doctor((int)($e['doctor_id'] ?? 0), 8) : '';
+
+        return [
+            'date'   => $e['encounter_date'] ?? ($e['date'] ?? current_time('Y-m-d')),
+            'enc'    => ['desc' => $e['description'] ?? ''],
+            'clinic' => [
+                'name' => $clinic['name'] ?? '',
+                'addr' => $clinic_addr,
+                'logo' => $logo,
+            ],
+            'patient'=> [
+                'name'  => $patient['name'] ?? '',
+                'dni'   => $patient['dni']  ?? '',
+                'email' => $patient['email'] ?? '',
+            ],
+            'doctor' => [
+                'name'  => $doctor['name'] ?? '',
+                'spec'  => $spec,
+                'sign'  => $sign_url,
+                'ci'    => $doc_ci,
+                'mpps'  => $doc_mpps,
+                'cm'    => $doc_cm,
+            ],
+            'diagnoses'     => array_values($diagnoses ?: []),
+            'indications'   => array_values($indics ?: []),
+            'orders'        => array_values($orders ?: []),
+            'prescriptions' => array_values($rx ?: []),
+        ];
+    }
+}
