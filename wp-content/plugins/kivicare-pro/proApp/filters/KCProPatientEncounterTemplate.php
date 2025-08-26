@@ -88,67 +88,107 @@ class KCProPatientEncounterTemplate extends KCBase
     }
 
     public function get_encounter_templates($request)
-    {
-        do_action("kcpro_encounter_template_has_permission", ['fn' => __FUNCTION__]);
-        $condition = "0=0 ";
-        if (in_array($this->getLoginUserRole(), [$this->getReceptionistRole(), $this->getClinicAdminRole()])) {
+{
+    do_action("kcpro_encounter_template_has_permission", ['fn' => __FUNCTION__]);
 
-            $clinic_id = $this->getLoginUserRole() == $this->getReceptionistRole() ? kcGetClinicIdOfReceptionist() :  kcGetClinicIdOfClinicAdmin();
-            $ids = KCDoctorClinicMappingNewModel::builder()->select("*")->where([
-                "clinic_id" => $clinic_id
-            ])->get(OBJECT, function ($row) {
-                return (int)$row->doctor_id;
-            });
-            $ids[] = get_current_user_id();
+    $condition = "0=0 ";
+    if (in_array($this->getLoginUserRole(), [$this->getReceptionistRole(), $this->getClinicAdminRole()])) {
+        $clinic_id = $this->getLoginUserRole() == $this->getReceptionistRole() ? kcGetClinicIdOfReceptionist() : kcGetClinicIdOfClinicAdmin();
+        $ids = KCDoctorClinicMappingNewModel::builder()->select("*")->where(["clinic_id" => $clinic_id])->get(OBJECT, function ($row) {
+            return (int) $row->doctor_id;
+        });
+        $ids[] = get_current_user_id();
+        $condition .= " AND kc_patient_encounters_template_mapping.added_by IN (" . implode(",", array_map('intval', $ids)) . ")";
+    } elseif ($this->getLoginUserRole() == $this->getDoctorRole()) {
+        $admin_ids = get_users(['role' => 'administrator', 'fields' => 'ID']);
+        $current_doctor_user_id = get_current_user_id();
+        $admin_ids[] = $current_doctor_user_id;
+        $condition .= " AND kc_patient_encounters_template_mapping.added_by IN (" . implode(',', array_map('intval', $admin_ids)) . ")";
+    }
 
-            $condition .= " AND kc_patient_encounters_template_mapping.added_by IN (" . implode(",", $ids) . ")";
-        } else if ($this->getLoginUserRole() == $this->getDoctorRole()) {
-            $admin_ids = get_users(array(
-                'role'   => 'administrator',
-                'fields' => 'ID',
-            ));
-            $current_doctor_user_id = get_current_user_id();
-            $admin_ids[] = $current_doctor_user_id;
-            $merged_ids = implode(',', $admin_ids);
-            $condition .= " AND kc_patient_encounters_template_mapping.added_by IN (" .  $merged_ids . ")";
+    // IDs y paginación seguros
+    $encounter_id = isset($request['encounter_id']) ? (int) $request['encounter_id'] : 0;
+    $perPage      = isset($request['perPage']) ? max(1, (int) $request['perPage']) : 10;
+    $page         = isset($request['page']) ? max(1, (int) $request['page']) : 1;
+
+    $patient_encounter = (new KCPatientEncounter)->get_var(['id' => $encounter_id], 'template_id');
+
+    $model = KCEncounterTemplateMappingModel::builder()
+        ->select("*")
+        ->where(["raw" => $condition])
+        ->order_by('id', "DESC");
+
+    // columnFilters seguro
+    $columnFilters = [];
+    if (isset($request['columnFilters'])) {
+        $rawCF = $request['columnFilters'];
+        if (is_string($rawCF)) {
+            // Evita warnings por null; usa wp_unslash en lugar de stripslashes
+            $decoded = json_decode(wp_unslash($rawCF), true);
+        } elseif (is_array($rawCF)) {
+            $decoded = $rawCF;
+        } else {
+            $decoded = [];
         }
+        if (is_array($decoded)) {
+            $columnFilters = $decoded;
+        }
+    }
 
-        $patient_encounter = (new KCPatientEncounter)->get_var(['id' => $request['encounter_id']], 'template_id');
+    if (!empty($columnFilters)) {
+        if (!empty($columnFilters['id'])) {
+            $model->where(['id' => (int) $columnFilters['id']]);
+        }
+        if (!empty($columnFilters['encounters_template_name'])) {
+            $like = "%" . $this->db->esc_like($columnFilters['encounters_template_name']) . "%";
+            $model->where([
+                'encounters_template_name' => [
+                    'operator' => 'LIKE',
+                    'value'    => $like,
+                ],
+            ]);
+        }
+    }
 
-        $model = KCEncounterTemplateMappingModel::builder()->select("*")->where(["raw" => $condition])->order_by('id', "DESC");
-
-
-        $request['columnFilters'] = json_decode(stripslashes($request['columnFilters']), true);
-
-        if (!empty($request['columnFilters'])) {
-
-            if (isset($request['columnFilters']['id']) &&   !empty($request['columnFilters']['id'])) {
-                $model->where(['id' => $request['columnFilters']['id']]);
+    // sort seguro
+    $sort = null;
+    if (isset($request['sort'])) {
+        $rawSort = $request['sort'];
+        // Puede venir como array con el primer elemento en JSON o como array asociativo
+        if (is_array($rawSort) && isset($rawSort[0])) {
+            $first = $rawSort[0];
+            if (is_string($first)) {
+                $sort = json_decode(wp_unslash($first), true);
+            } elseif (is_array($first)) {
+                $sort = $first;
             }
-            if (isset($request['columnFilters']['encounters_template_name']) && !empty($request['columnFilters']['encounters_template_name'])) {
-                $model->where([
-                    'encounters_template_name' => [
-                        'operator' => 'LIKE',
-                        'value'    => "%" . $request['columnFilters']['encounters_template_name'] . "%",
-                    ],
-                ]);
-            }
+        } elseif (is_string($rawSort)) {
+            $sort = json_decode(wp_unslash($rawSort), true);
+        } elseif (is_array($rawSort)) {
+            $sort = $rawSort;
         }
+    }
 
+    if (is_array($sort) && !empty($sort['field'])) {
+        $field = sanitize_key($sort['field']);
+        $type  = isset($sort['type']) ? strtoupper($sort['type']) : 'ASC';
+        if ($type === 'NONE') { $type = 'ASC'; }
+        $type = in_array($type, ['ASC', 'DESC'], true) ? $type : 'ASC';
+        $model->order_by($field, $type);
+    }
 
-        $request['sort'] = json_decode(stripslashes($request['sort'][0]), true);
+    $result = $model->limit($perPage)->offset($perPage * ($page - 1))->get();
 
-        if (isset($request['sort']['field']) && !empty($request['sort']['field'])) {
-            $model->order_by($request['sort']['field'], strtoupper($request['sort']['type']== "none" ? "ASC" : sanitize_sql_orderby($request['sort']['type'])));
-        }
+    if (!empty($result)) {
+        wp_send_json_success([
+            'list'        => $result,
+            'default'     => $patient_encounter ?? "",
+            'total_rows'  => $model->count()
+        ]);
+    }
+    wp_send_json_error([]);
+}
 
-
-        // 
-        $result = $model->limit($request['perPage'])->offset($request['perPage'] * ($request['page'] - 1))->get();
-        if (count($result) > 0) {
-            wp_send_json_success(array('list' => $result, 'default' => $patient_encounter ?? "", "total_rows" => $model->count()));
-        }
-        wp_send_json_error([]);
     }
     public function add_encounter_temp($request_data)
     {
