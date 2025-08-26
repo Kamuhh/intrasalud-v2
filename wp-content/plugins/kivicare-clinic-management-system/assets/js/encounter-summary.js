@@ -82,13 +82,11 @@
             .catch(() => { setAjaxOnly(); return fetch(ajaxUrl2, { credentials: 'include', headers: ajaxHeaders }).then(r => r.json()); });
     }
 
-    // ---------- inyección del botón (SOLO creamos el nuestro y quitamos el antiguo) ----------
+    // ---------- inyección del botón ----------
     function injectButtonOnce() {
-        // localizar botones fuera de modales
         const buttons = Array.from(document.querySelectorAll('button,a,[role="button"]'))
             .filter(el => !el.closest('.kc-modal'));
 
-        // 1) ELIMINAR cualquier botón legacy de “Resumen de la atención” que NO sea el nuestro
         buttons.forEach(el => {
             const t = (el.textContent || '').trim().toLowerCase();
             const isSummary = t === 'resumen de la atención' || (t.includes('resumen') && t.includes('atención'));
@@ -96,13 +94,11 @@
             if (isSummary && !isOurs) el.remove();
         });
 
-        // 2) Buscar “Detalles de la factura” para insertar nuestro botón al lado
         const billBtn = buttons.find(el => {
             const t = (el.textContent || '').toLowerCase();
             return t.includes('detalle') && t.includes('factura');
         });
 
-        // 3) Si ya existe nuestro botón, refrescar encounter_id y salir
         let summaryBtn = document.querySelector('[data-kc-summary-btn="1"]');
         const currentId = findEncounterId();
         if (summaryBtn) {
@@ -112,7 +108,6 @@
             return;
         }
 
-        // 4) Crear NUESTRO botón si aún no existe
         if (billBtn) {
             const b = document.createElement('button');
             b.type = 'button';
@@ -120,22 +115,12 @@
             b.style.marginLeft = '6px';
             b.setAttribute('data-kc-summary-btn', '1');
             if (currentId) b.setAttribute('data-encounter-id', currentId);
-
-            // Ícono + texto (usa Font Awesome si está cargado)
             b.innerHTML = '<span style="margin-right:6px;"></span>Resumen de la atención';
-
             billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
-            summaryBtn = b;
         }
     }
 
     // ---------- modal ----------
-    function plainTextFromModal(root) {
-        const clone = root.cloneNode(true);
-        clone.querySelectorAll('style,script,.kc-modal__footer,.kc-modal__header,button').forEach(n => n.remove());
-        return clone.innerText.replace(/\n{3,}/g, '\n\n').trim();
-    }
-
     function openSummary(id) {
         if (!id) id = findEncounterId();
         if (!id) { alert('No se pudo detectar el ID del encuentro'); return; }
@@ -149,32 +134,24 @@
                 const data = json && (json.data || json);
                 if (!ok || !data || !data.html) { alert((json && json.message) || 'No se pudo cargar'); return; }
 
-                // limpiar y montar
                 const old = document.querySelector('.kc-modal.kc-modal-summary'); if (old) old.remove();
                 const wrap = document.createElement('div'); wrap.innerHTML = data.html; document.body.appendChild(wrap);
 
-                // cerrar
                 wrap.querySelectorAll('.js-kc-summary-close').forEach(b => b.addEventListener('click', (ev) => { ev.stopPropagation(); wrap.remove(); }));
                 wrap.addEventListener('click', e => { if (e.target.classList.contains('kc-modal')) wrap.remove(); });
                 document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { wrap.remove(); document.removeEventListener('keydown', esc); } });
 
-                // imprimir (resumen)
+                // ---- NUEVO HANDLER DE IMPRESIÓN ----
                 const printBtn = wrap.querySelector('.js-kc-summary-print');
                 if (printBtn) printBtn.addEventListener('click', (ev) => {
-                    ev.stopPropagation();
-                    const node = wrap.querySelector('.kc-modal__dialog');
-                    const w = window.open('', '_blank'); if (!w) return;
-                    w.document.write('<html><head><title>Resumen de la atención</title>');
-                    document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
-                    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
-                    w.document.write('</head><body>' + node.outerHTML + '</body></html>');
-                    w.document.close(); w.focus();
-                    w.onafterprint = () => { try { w.close(); } catch (e) { } };
-                    setTimeout(() => { try { w.close(); } catch (e) { } }, 2000);
-                    w.print();
+                    ev.preventDefault();
+                    const encounterId = findEncounterId();
+                    if (!encounterId) { alert('No se pudo detectar el ID del encuentro.'); return; }
+                    const pdfUrl = ajaxUrl + '?action=kc_encounter_summary_pdf&encounter_id=' + encodeURIComponent(encounterId);
+                    window.open(pdfUrl, '_blank', 'noopener');
                 });
 
-                // correo (POST con encounter_id y to) + fallback mailto
+                // correo se queda igual...
                 const emailBtn = wrap.querySelector('.js-kc-summary-email');
                 const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
                 const defaultEmail = modalRoot ? modalRoot.getAttribute('data-patient-email') : '';
@@ -229,17 +206,13 @@
                             throw new Error('Backend dijo que no');
                         })
                         .catch(() => {
-                            const body = encodeURIComponent(plainTextFromModal(wrap.querySelector('.kc-modal__dialog')));
-                            const subject = encodeURIComponent('Resumen de la atención');
-                            window.location.href = `mailto:${encodeURIComponent(to)}?subject=${subject}&body=${body}`;
-                            alert('No se pudo enviar desde el sistema. Se abrió tu cliente de correo con el contenido.');
+                            alert('No se pudo enviar desde el sistema.');
                         });
                 });
             })
             .catch(() => alert('Error de red'));
     }
 
-    // Sólo manejamos NUESTRO botón
     document.addEventListener('click', e => {
         const btn = e.target.closest('[data-kc-summary-btn="1"]');
         if (!btn) return;
@@ -254,42 +227,3 @@
     const mo = new MutationObserver(() => injectButtonOnce());
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
-
-// Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('button, a');
-    if (!btn) return;
-
-    const modal = btn.closest('.kc-modal'); // solo si está dentro de una modal
-    if (!modal) return;
-
-    const titleEl = modal.querySelector('.kc-modal__header h3');
-    const title = (titleEl && titleEl.textContent || '').toLowerCase();
-    const isBill = /factura|bill|invoice/.test(title);
-
-    const isPrintTrigger =
-        btn.matches('.js-kc-bill-print, [data-kc-bill-print]') ||
-        ((btn.textContent || '').toLowerCase().includes('imprimir'));
-
-    if (!isBill || !isPrintTrigger) return;
-
-    setTimeout(() => {
-        const dialog = modal.querySelector('.kc-modal__dialog');
-        if (!dialog) return;
-
-        const clean = dialog.cloneNode(true);
-        clean.querySelectorAll('.kc-modal__footer, .kc-modal__close, .button, button, .dashicons').forEach(n => n.remove());
-
-        const w = window.open('', '_blank');
-        if (!w) return;
-
-        w.document.write('<html><head><title>Detalle de la factura</title>');
-        document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
-        w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
-        w.document.write('</head><body>' + clean.outerHTML + '</body></html>');
-        w.document.close(); w.focus();
-        w.onafterprint = () => { try { w.close(); } catch (e) { } };
-        setTimeout(() => { try { w.close(); } catch (e) { } }, 2000);
-        w.print();
-    }, 200);
-});
