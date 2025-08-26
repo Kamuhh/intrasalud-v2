@@ -18,11 +18,6 @@ if ( ! defined('KC_PLUGIN_FILE') ) define('KC_PLUGIN_FILE', __FILE__);
 if ( ! defined('KC_PLUGIN_DIR') )  define('KC_PLUGIN_DIR', plugin_dir_path(__FILE__));
 if ( ! defined('KC_PLUGIN_URL') )  define('KC_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-add_action('wp_ajax_kc_encounter_summary_pdf', function(){
-    (new \App\Controllers\KCPatientEncounterController())->printEncounterSummaryPdf();
-});
-
-
 // ── Encuentro: Resumen de atención – assets + fallback AJAX
 add_action('admin_enqueue_scripts', function () {
     // Mientras depuramos, encolamos siempre en admin. Luego filtramos por screen/page.
