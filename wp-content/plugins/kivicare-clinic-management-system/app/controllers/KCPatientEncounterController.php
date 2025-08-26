@@ -1168,40 +1168,6 @@ class KCPatientEncounterController extends KCBase
         }
     }
 
-public function printEncounterSummaryPdf() {
-    $req = $this->request->getInputs();
-    $encounter_id = isset($req['encounter_id']) ? (int)$req['encounter_id'] : 0;
-    // Verifica permisos y existencia del encuentro
-    if ($encounter_id <= 0 || !(new KCPatientEncounter())->hasEncounterPermission($encounter_id, 'view')) {
-        status_header(403);
-        exit('No autorizado o encuentro inválido');
-    }
-    // Usa el helper para armar datos
-    if (!function_exists('kc_build_encounter_summary_payload')) {
-        require_once KIVI_CARE_DIR.'app/helpers/encounter-summary-helpers.php';
-    }
-    $payload = kc_build_encounter_summary_payload($encounter_id);
-    // Renderiza el HTML
-    ob_start();
-    $file = KIVI_CARE_DIR.'templates/pdf/encounter-summary-letter.php';
-    include $file;
-    $html = ob_get_clean();
-    // Genera y envía PDF (sin guardar)
-    if (!class_exists('\Dompdf\Dompdf')) {
-        require_once KIVI_CARE_DIR.'vendor/autoload.php';
-    }
-    $dompdf = new \Dompdf\Dompdf();
-    $dompdf->set_option('isHtml5ParserEnabled', true);
-    $dompdf->set_option('isRemoteEnabled', true);
-    $dompdf->setPaper('letter', 'portrait');
-    $dompdf->loadHtml($html, 'UTF-8');
-    $dompdf->render();
-    $dompdf->stream('Resumen_'.$encounter_id.'.pdf', ['Attachment'=>false]);
-    exit;
-}
-
-
-
 
     public function emailEncounterSummary()
     {
