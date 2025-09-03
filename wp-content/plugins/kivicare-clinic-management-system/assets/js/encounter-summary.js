@@ -2,7 +2,6 @@
     const G = window.kcGlobals || {};
     const ajaxUrl = G.ajaxUrl || '/wp-admin/admin-ajax.php';
 
-    // Si REST falla una vez, persistimos usar admin-ajax para evitar 404 repetidos
     let useAjaxOnly = (window.localStorage.getItem('kcSummaryUseAjax') === '1');
     function setAjaxOnly() { useAjaxOnly = true; try { localStorage.setItem('kcSummaryUseAjax', '1'); } catch (e) { } }
 
@@ -82,13 +81,12 @@
             .catch(() => { setAjaxOnly(); return fetch(ajaxUrl2, { credentials: 'include', headers: ajaxHeaders }).then(r => r.json()); });
     }
 
-    // ---------- inyección del botón (SOLO creamos el nuestro y quitamos el antiguo) ----------
+    // ---------- inyección del botón (conserva el actual) ----------
     function injectButtonOnce() {
-        // localizar botones fuera de modales
         const buttons = Array.from(document.querySelectorAll('button,a,[role="button"]'))
             .filter(el => !el.closest('.kc-modal'));
 
-        // 1) ELIMINAR cualquier botón legacy de “Resumen de la atención” que NO sea el nuestro
+        // eliminar legacy duplicados
         buttons.forEach(el => {
             const t = (el.textContent || '').trim().toLowerCase();
             const isSummary = t === 'resumen de la atención' || (t.includes('resumen') && t.includes('atención'));
@@ -96,13 +94,11 @@
             if (isSummary && !isOurs) el.remove();
         });
 
-        // 2) Buscar “Detalles de la factura” para insertar nuestro botón al lado
         const billBtn = buttons.find(el => {
             const t = (el.textContent || '').toLowerCase();
             return t.includes('detalle') && t.includes('factura');
         });
 
-        // 3) Si ya existe nuestro botón, refrescar encounter_id y salir
         let summaryBtn = document.querySelector('[data-kc-summary-btn="1"]');
         const currentId = findEncounterId();
         if (summaryBtn) {
@@ -112,7 +108,6 @@
             return;
         }
 
-        // 4) Crear NUESTRO botón si aún no existe
         if (billBtn) {
             const b = document.createElement('button');
             b.type = 'button';
@@ -120,22 +115,164 @@
             b.style.marginLeft = '6px';
             b.setAttribute('data-kc-summary-btn', '1');
             if (currentId) b.setAttribute('data-encounter-id', currentId);
-
-            // Ícono + texto (usa Font Awesome si está cargado)
             b.innerHTML = '<span style="margin-right:6px;"></span>Resumen de la atención';
-
             billBtn.parentNode.insertBefore(b, billBtn.nextSibling);
-            summaryBtn = b;
         }
     }
 
-    // ---------- modal ----------
+    // ---------- helpers de impresión ----------
+    function stripAccents(s) { try { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); } catch (e) { return s; } }
+
+    // Mejora de estructura antes de imprimir (dos columnas y pequeños arreglos)
+    function improvePrintStructure(root) {
+        try {
+            // Encontrar contenedor principal
+            const candidates = root.querySelectorAll('.kc-summary, .kc-modal__content, .kc-modal__body, article, main, .kc-modal__dialog');
+            let container = root;
+            for (const c of candidates) {
+                const t = stripAccents((c.textContent || '').toLowerCase());
+                if (t.includes('detalles del paciente') || t.includes('diagnostico') || t.includes('diagnóstico')) { container = c; break; }
+            }
+
+            // localizar bloques “Detalles del paciente” y “Detalles de la consulta”
+            function findBlockByTitle(title) {
+                const all = container.querySelectorAll('h1,h2,h3,h4,h5,h6,strong,.section-title,.title,p,div');
+                title = stripAccents(title.toLowerCase());
+                for (const el of all) {
+                    const txt = stripAccents((el.textContent || '').trim().toLowerCase());
+                    if (txt.startsWith(title)) {
+                        // usamos un contenedor razonable
+                        return el.closest('.kc-section, section, article, div') || el.parentElement;
+                    }
+                }
+                return null;
+            }
+
+            const blockPaciente = findBlockByTitle('detalles del paciente');
+            const blockConsulta = findBlockByTitle('detalles de la consulta');
+
+            if (blockPaciente && blockConsulta) {
+                // Asegurarnos de que estén al mismo nivel
+                const first = blockPaciente.compareDocumentPosition(blockConsulta) & Node.DOCUMENT_POSITION_FOLLOWING ? blockPaciente : blockConsulta;
+                const twoCol = root.ownerDocument.createElement('div');
+                twoCol.className = 'kc-two-col';
+
+                // Insertamos el contenedor justo antes del primero de los dos bloques
+                const parent = first.parentNode;
+                parent.insertBefore(twoCol, first);
+
+                // Movemos ambos bloques dentro del contenedor de 2 columnas
+                twoCol.appendChild(blockPaciente);
+                twoCol.appendChild(blockConsulta);
+            }
+
+            // Normalizar títulos secundarios típicos
+            ['diagnóstico', 'diagnostico', 'diagnóstico(s)', 'diagnostico(s)',
+                'indicaciones', 'órdenes clínicas', 'ordenes clinicas', 'receta médica', 'receta medica'
+            ].forEach(key => {
+                const all = container.querySelectorAll('*');
+                for (const el of all) {
+                    const txt = stripAccents((el.textContent || '').trim().toLowerCase());
+                    if (txt === stripAccents(key) || txt.startsWith(stripAccents(key + ' '))) {
+                        el.classList.add('kc-h2');
+                        break;
+                    }
+                }
+            });
+        } catch (e) { /* no romper impresión */ }
+    }
+
+    // Mueve "Receta médica" DESPUÉS de "Indicaciones" y pone salto ANTES de "Órdenes clínicas"
+function placeRecetaAndBreak(root) {
+  const norm = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+  // Contenedor principal del resumen
+  const candidates = root.querySelectorAll('.kc-summary, .kc-modal__content, .kc-modal__body, article, main, .kc-modal__dialog');
+  let container = root;
+  for (const c of candidates) {
+    const t = norm(c.textContent);
+    if (t.includes('detalles del paciente') || t.includes('diagnostico') || t.includes('diagnóstico')) { container = c; break; }
+  }
+
+  // Encuentra un “heading” por texto (da igual la etiqueta)
+  const isHead = (el, key) => {
+    const txt = norm(el.textContent || '');
+    key = norm(key);
+    return txt === key || txt.startsWith(key + ' ');
+  };
+  const findHead = (key) => {
+    const all = container.querySelectorAll('h1,h2,h3,h4,h5,h6,strong,.section-title,.title,p,div');
+    for (const el of all) if (isHead(el, key)) return el;
+    return null;
+  };
+
+  const hIndic = findHead('indicaciones');
+  const hReceta = findHead('receta médica') || findHead('receta medica');
+  const hOrden  = findHead('órdenes clínicas') || findHead('ordenes clinicas');
+  if (!hReceta || !hOrden) return; // sin receta u órdenes no hacemos nada
+
+  // Sube cada heading al hijo directo del contenedor
+  const topChildOf = (el) => {
+    let cur = el;
+    while (cur && cur.parentElement && cur.parentElement !== container) cur = cur.parentElement;
+    return (cur && cur.parentElement === container) ? cur : el;
+  };
+  const bloqueIndic  = hIndic  ? topChildOf(hIndic)  : null;
+  const bloqueReceta = topChildOf(hReceta);
+  const bloqueOrden  = topChildOf(hOrden);
+
+  // Construye el fragmento completo de "Receta" (desde su bloque hasta el siguiente "heading" conocido)
+  const H_KEYS = ['diagnostico','diagnóstico','indicaciones','ordenes clinicas','órdenes clínicas','receta medica','receta médica'];
+  const isSectionStart = (el) => {
+    const txt = norm(el.textContent || '');
+    return H_KEYS.some(k => txt === norm(k) || txt.startsWith(norm(k) + ' '));
+  };
+
+  let start = bloqueReceta;
+  let endExclusive = null;
+  let p = bloqueReceta.nextElementSibling;
+  while (p) {
+    if (isSectionStart(p)) { endExclusive = p; break; }
+    p = p.nextElementSibling;
+  }
+
+  const frag = root.ownerDocument.createDocumentFragment();
+  while (start && start !== endExclusive) {
+    const next = start.nextElementSibling;
+    frag.appendChild(start);
+    start = next;
+  }
+
+  // Inserta la Receta *después* de Indicaciones (o, si no hay Indicaciones, justo antes de Órdenes)
+  if (bloqueIndic && bloqueIndic.parentNode) {
+    if (bloqueIndic.nextSibling) {
+      bloqueIndic.parentNode.insertBefore(frag, bloqueIndic.nextSibling);
+    } else {
+      bloqueIndic.parentNode.appendChild(frag);
+    }
+  } else {
+    container.insertBefore(frag, bloqueOrden);
+  }
+
+  // Inserta un salto de página ANTES de Órdenes clínicas
+  const br = root.ownerDocument.createElement('div');
+  br.className = 'kc-page-break';
+  br.style.display = 'block';
+  br.style.height = '0';
+  br.style.pageBreakBefore = 'always';
+  br.style.breakBefore = 'page';
+  bloqueOrden.parentNode.insertBefore(br, bloqueOrden);
+}
+
+
+
     function plainTextFromModal(root) {
         const clone = root.cloneNode(true);
         clone.querySelectorAll('style,script,.kc-modal__footer,.kc-modal__header,button').forEach(n => n.remove());
         return clone.innerText.replace(/\n{3,}/g, '\n\n').trim();
     }
 
+    // ---------- abrir modal y manejar imprimir ----------
     function openSummary(id) {
         if (!id) id = findEncounterId();
         if (!id) { alert('No se pudo detectar el ID del encuentro'); return; }
@@ -149,7 +286,6 @@
                 const data = json && (json.data || json);
                 if (!ok || !data || !data.html) { alert((json && json.message) || 'No se pudo cargar'); return; }
 
-                // limpiar y montar
                 const old = document.querySelector('.kc-modal.kc-modal-summary'); if (old) old.remove();
                 const wrap = document.createElement('div'); wrap.innerHTML = data.html; document.body.appendChild(wrap);
 
@@ -164,17 +300,59 @@
                     ev.stopPropagation();
                     const node = wrap.querySelector('.kc-modal__dialog');
                     const w = window.open('', '_blank'); if (!w) return;
-                    w.document.write('<html><head><title>Resumen de la atención</title>');
+
+                    // head + estilos de impresión
+                    w.document.write('<html><head><meta charset="utf-8"><title>Resumen de la atención</title>');
                     document.querySelectorAll('link[rel="stylesheet"]').forEach(l => w.document.write(l.outerHTML));
-                    w.document.write('<style>@media print{.kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}} .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}</style>');
-                    w.document.write('</head><body>' + node.outerHTML + '</body></html>');
+                    w.document.write(`
+<style>
+@page { size: A4; margin: 18mm; }
+body{font-family:Arial, sans-serif; color:#111; font-size:13px; line-height:1.45; margin:0;}
+/* Títulos */
+.kc-modal__dialog h1, .kc-modal__dialog h2, .kc-h2{
+  margin: 0 0 6px 0;
+  color:#0f172a;
+  font-weight:700;
+}
+.kc-modal__dialog h1{font-size:20px;}
+.kc-modal__dialog h2, .kc-h2{font-size:14px;}
+/* Secciones y separación */
+.kc-section{margin-top:14px;}
+/* Tabla */
+table{border-collapse:collapse; width:100%; margin-top:8px;}
+table,th,td{border:1px solid #e5e7eb;}
+th,td{padding:6px 8px; text-align:left; vertical-align:top;}
+/* Evitar cortes SOLO dentro de tablas */
+table, tr, td, th {break-inside: avoid; page-break-inside: avoid;}
+/* 2 columnas */
+.kc-two-col{display:flex; gap:16px; align-items:flex-start; margin-top:8px;}
+.kc-two-col > *{flex:1; min-width:0;}
+/* Salto de página fuerte */
+.kc-page-break{break-before: page !important; page-break-before: always !important;}
+@media print {
+  .kc-modal__close,.kc-modal__footer,.button,button,.dashicons{display:none!important}
+  .kc-modal__dialog{box-shadow:none;max-width:none;width:100%;}
+}
+</style>`);
+                    w.document.write('</head><body>');
+
+                    // cuerpo
+                    const clean = node.cloneNode(true);
+                    clean.querySelectorAll('.kc-modal__footer, .kc-modal__close, .button, button, .dashicons').forEach(n => n.remove());
+
+                    // Mejora de layout y salto de página
+                    improvePrintStructure(clean);
+                    placeRecetaAndBreak(clean);
+
+                    w.document.write(clean.outerHTML);
+                    w.document.write('</body></html>');
                     w.document.close(); w.focus();
                     w.onafterprint = () => { try { w.close(); } catch (e) { } };
                     setTimeout(() => { try { w.close(); } catch (e) { } }, 2000);
                     w.print();
                 });
 
-                // correo (POST con encounter_id y to) + fallback mailto
+                // correo (POST + fallback mailto)
                 const emailBtn = wrap.querySelector('.js-kc-summary-email');
                 const modalRoot = wrap.querySelector('.kc-modal.kc-modal-summary');
                 const defaultEmail = modalRoot ? modalRoot.getAttribute('data-patient-email') : '';
@@ -192,25 +370,13 @@
                             headers: REST.headers('POST'),
                             body: body.toString(),
                         })
-                            .then(r => {
-                                if (!r.ok) { setAjaxOnly(); throw new Error('REST failed'); }
-                                return r.json();
-                            })
-                            .catch(() => {
-                                return fetch(ajaxUrl2, {
-                                    method: 'POST',
-                                    credentials: 'include',
-                                    headers: AJAX.headers(),
-                                    body: body.toString(),
-                                }).then(r => r.json());
-                            });
+                            .then(r => { if (!r.ok) { setAjaxOnly(); throw new Error('REST failed'); } return r.json(); })
+                            .catch(() => fetch(ajaxUrl2, {
+                                method: 'POST', credentials: 'include', headers: AJAX.headers(), body: body.toString()
+                            }).then(r => r.json()));
                     }
-
                     return fetch(ajaxUrl2, {
-                        method: 'POST',
-                        credentials: 'include',
-                        headers: AJAX.headers(),
-                        body: body.toString(),
+                        method: 'POST', credentials: 'include', headers: AJAX.headers(), body: body.toString()
                     }).then(r => r.json());
                 }
 
@@ -255,7 +421,7 @@
     mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
 
-// Fallback de impresión para "Detalle de la factura" (modal de factura, sin botones)
+// -------- Fallback impresión factura --------
 document.addEventListener('click', (e) => {
     const btn = e.target.closest('button, a');
     if (!btn) return;
